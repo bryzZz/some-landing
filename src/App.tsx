@@ -5,11 +5,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/some-landing/",
     element: <Authorized />,
     children: [
       {
-        path: "/",
+        path: "/some-landing/",
         element: <Home />,
       },
     ],
