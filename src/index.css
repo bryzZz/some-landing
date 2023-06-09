@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "RF Dewi Extended";
+  font-style: normal;
+  font-weight: 400;
+  src: local("RF Dewi Extended"),
+    url("assets/fonts/RFDewiExtended-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "RF Dewi Extended";
+  font-style: normal;
+  font-weight: 600;
+  src: local("RF Dewi Extended"),
+    url("assets/fonts/RFDewiExtended-Semibold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "RF Dewi Extended";
+  font-style: normal;
+  font-weight: 700;
+  src: local("RF Dewi Extended"),
+    url("assets/fonts/RFDewiExtended-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "RF Dewi Extended";
+  font-style: normal;
+  font-weight: 800;
+  src: local("RF Dewi Extended"),
+    url("assets/fonts/RFDewiExtended-Ultrabold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "RF Dewi Extended";
+  font-style: normal;
+  font-weight: 900;
+  src: local("RF Dewi Extended"),
+    url("assets/fonts/RFDewiExtended-Black.woff2") format("woff2");
+}
+
+@layer base {
+  html {
+    font-family: "RF Dewi Extended", system-ui, sans-serif;
+  }
+}
