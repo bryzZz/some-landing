@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { Pagination, Mousewheel } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { twMerge } from "tailwind-merge";
+
+import "swiper/css";
+import "swiper/css/pagination";
 
 import { ReactComponent as Shild } from "assets/icons/shild.svg";
+import { ReactComponent as Person } from "assets/icons/person.svg";
 import MainImage from "assets/images/main-image.png";
 import MainImage2 from "assets/images/info-1.png";
+import SliderImage1 from "assets/images/screen-3-slider-1.png";
 import { ReactComponent as IconCard1 } from "assets/icons/main-card-1.svg";
 import { ReactComponent as IconCard2 } from "assets/icons/main-card-2.svg";
 import { ReactComponent as IconCard3 } from "assets/icons/main-card-3.svg";
@@ -11,6 +19,7 @@ import { ReactComponent as IconCard5 } from "assets/icons/main-card-5.svg";
 import { ReactComponent as IconCard6 } from "assets/icons/main-card-6.svg";
 import { ReactComponent as IconCard7 } from "assets/icons/main-card-7.svg";
 import { ReactComponent as IconCard8 } from "assets/icons/main-card-8.svg";
+import { TabPanel } from "components";
 
 const topCards = [
   {
@@ -65,9 +74,13 @@ const bottomCards = [
 ];
 
 export const Home: React.FC = () => {
+  const [tabValue, setTabValue] = useState(0);
+
+  console.log(tabValue);
+
   return (
-    <div className="mx-[15.625vw] px-4 pb-32">
-      <div className="mb-32 flex justify-between gap-24">
+    <>
+      <section className="base-container mb-32 flex justify-between gap-24">
         <div className="w-full max-w-xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#EFEFEF] bg-[#FFFFFF] px-5 pb-[2px] pt-1 font-semibold text-[#464646] backdrop-blur-sm">
             <Shild />
@@ -87,9 +100,9 @@ export const Home: React.FC = () => {
         <div className="w-full max-w-[408px]">
           <img src={MainImage} className="w-full" />
         </div>
-      </div>
+      </section>
 
-      <div className="grid-rows-7 mb-6 grid grid-cols-8 gap-7">
+      <section className="base-container grid-rows-7 mb-24 grid grid-cols-8 gap-7">
         {topCards.map(({ Icon, title, subTitle }, i) => (
           <div
             className="col-span-2 row-span-4 rounded-2xl bg-[#FFFFFF] p-6 shadow-xl shadow-[#3d3d3d0a]"
@@ -124,7 +137,140 @@ export const Home: React.FC = () => {
             </div>
           </div>
         ))}
-      </div>
-    </div>
+      </section>
+
+      <section className="small-container mb-28">
+        <div className="max-w-2xl">
+          <h2 className="mb-5 text-4xl font-semibold text-[#333333]">
+            Индивидуальность & инновационность, уверенность
+          </h2>
+          <p className="text-[18px] text-[#4B4B4B]">
+            Какой-то текст в одну строку какой-то текст в одну.
+          </p>
+        </div>
+
+        <Swiper
+          direction="vertical"
+          autoHeight={true}
+          mousewheel={true}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          height={400}
+          modules={[Mousewheel, Pagination]}
+        >
+          {new Array(4).fill(0).map(() => (
+            <SwiperSlide>
+              <div className="flex gap-28 pl-24">
+                <div>
+                  <h3 className="mb-6 text-[130px] text-[#333333]">
+                    <span className="text-[#F7971D]">$</span>20m+
+                  </h3>
+                  <p className="max-w-xs text-[#4B4B4B]">
+                    Выплатили нашим клиентам за время существования нашей
+                    компании.
+                  </p>
+                </div>
+                <div>
+                  <img
+                    src={SliderImage1}
+                    className="relative h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
+
+      <section className="small-container flex flex-col items-center">
+        <div className="mb-11 w-[500px] rounded-[35px] border-2 text-[15px] font-bold text-[#333333]">
+          <button
+            className={twMerge(
+              "w-1/2 px-11 py-4",
+              tabValue === 0 &&
+                "rounded-[35px] bg-[#FDFDFD] shadow-[0_4px_21px_3px_rgba(28,28,28,0.07)] outline outline-2 outline-[#FDFDFD]"
+            )}
+            onClick={() => setTabValue(0)}
+          >
+            Топ веб-мастеров
+          </button>
+          <button
+            className={twMerge(
+              "w-1/2 px-11 py-4",
+              tabValue === 1 &&
+                "rounded-[35px] bg-[#FDFDFD] shadow-[0_4px_21px_3px_rgba(28,28,28,0.07)] outline outline-2 outline-[#FDFDFD]"
+            )}
+            onClick={() => setTabValue(1)}
+          >
+            Топ офферов
+          </button>
+        </div>
+
+        <div className="w-full">
+          <TabPanel value={0} tabValue={tabValue}>
+            <table className="w-full table-fixed border-separate border-spacing-y-2">
+              <thead>
+                <tr className="bg-[#F4F4F4] text-[14px] font-bold text-[#B3B3B3]">
+                  <th className="rounded-bl rounded-tl py-3 pl-12 text-left">
+                    Имя
+                  </th>
+                  <th className="py-3 text-left">За день</th>
+                  <th className="rounded-br rounded-tr py-3 text-left">
+                    За месяц
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {new Array(5).fill(0).map(() => (
+                  <tr className="mb-2 rounded bg-[#F9F9F9] text-[14px] font-bold text-[#4B4B4B]">
+                    <td className="flex items-center gap-4 rounded-bl rounded-tl py-3 pl-3">
+                      <Person />
+                      Никто Павлов
+                    </td>
+                    <td>
+                      <span className="text-[#F7971D]">$</span> 5 000.00
+                    </td>
+                    <td className="rounded-br rounded-tr">
+                      <span className="text-[#F7971D]">$</span> 50 000.00
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </TabPanel>
+          <TabPanel value={1} tabValue={tabValue}>
+            <table className="w-full table-fixed border-separate border-spacing-y-2">
+              <thead>
+                <tr className="bg-[#F4F4F4] text-[14px] font-bold text-[#B3B3B3]">
+                  <th className="rounded-bl rounded-tl py-3 pl-12 text-left">
+                    Имя
+                  </th>
+                  <th className="py-3 text-left">За день</th>
+                  <th className="rounded-br rounded-tr py-3 text-left">
+                    За месяц
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {new Array(5).fill(0).map(() => (
+                  <tr className="mb-2 rounded bg-[#F9F9F9] text-[14px] font-bold text-[#4B4B4B]">
+                    <td className="flex items-center gap-4 rounded-bl rounded-tl py-3 pl-3">
+                      <Person />
+                      Оффер 1
+                    </td>
+                    <td>
+                      <span className="text-[#F7971D]">$</span> 5 000.00
+                    </td>
+                    <td className="rounded-br rounded-tr">
+                      <span className="text-[#F7971D]">$</span> 50 000.00
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </TabPanel>
+        </div>
+      </section>
+    </>
   );
 };

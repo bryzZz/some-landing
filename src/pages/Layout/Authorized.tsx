@@ -14,9 +14,9 @@ export const Authorized: React.FC = () => {
     >
       <Header />
 
-      <div className="pt-36">
+      <main className="pt-36">
         <Outlet />
-      </div>
+      </main>
 
       <Footer />
     </div>

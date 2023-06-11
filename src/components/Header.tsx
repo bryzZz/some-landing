@@ -14,9 +14,11 @@ const navItems = [
   { label: "Отзывы", path: "f" },
 ];
 
+// ml-[15.625vw]
+
 export const Header: React.FC = () => {
   return (
-    <header className="ml-[15.625vw] mr-[2.6vw] flex items-center justify-between px-4 pt-8">
+    <header className="header-container flex items-center justify-between pt-8">
       <nav className="flex items-center gap-10">
         {navItems.map(({ label, path }, i) => (
           <Link key={i} to={path} className="font-semibold text-[#333333]">

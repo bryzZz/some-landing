@@ -47,3 +47,53 @@
     font-family: "RF Dewi Extended", system-ui, sans-serif;
   }
 }
+
+@layer components {
+  .header-container {
+    width: 100%;
+    max-width: 1585px;
+    margin-left: calc((100% - 1314px) / 2);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .base-container {
+    width: 100%;
+    max-width: 1314px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0 auto;
+  }
+
+  .small-container {
+    width: 100%;
+    max-width: 1122px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0 auto;
+  }
+}
+
+.swiper-pagination {
+  left: 0 !important;
+  right: 6px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 4px;
+  height: 4px;
+  background: #000000;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet:not(:last-child) {
+  margin: 0 !important;
+  margin-bottom: 30px !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border: 2px solid #000000;
+}
