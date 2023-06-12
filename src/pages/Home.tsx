@@ -1,5 +1,10 @@
-import React, { useState, FC } from "react";
-import { Pagination, Mousewheel } from "swiper";
+import React, { useState, FC, useCallback, useRef, useEffect } from "react";
+import {
+  Pagination,
+  Mousewheel,
+  Swiper as SwiperType,
+  Navigation,
+} from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { twMerge } from "tailwind-merge";
 
@@ -21,6 +26,7 @@ import ShopCard6 from "assets/images/shop-showcase-6.png";
 import ShopCard7 from "assets/images/shop-showcase-7.png";
 import ShopCard8 from "assets/images/shop-showcase-8.png";
 import ShopCard9 from "assets/images/shop-showcase-9.png";
+import FeedbackAvatar from "assets/images/feedback-avatar.png";
 import { ReactComponent as IconCard1 } from "assets/icons/main-card-1.svg";
 import { ReactComponent as IconCard2 } from "assets/icons/main-card-2.svg";
 import { ReactComponent as IconCard3 } from "assets/icons/main-card-3.svg";
@@ -31,6 +37,7 @@ import { ReactComponent as IconCard7 } from "assets/icons/main-card-7.svg";
 import { ReactComponent as IconCard8 } from "assets/icons/main-card-8.svg";
 import ShopShowcaseBg from "assets/images/shop-showcase-bg.png";
 import ShopShowcaseFg from "assets/images/shop-showcase-fg.png";
+import { ReactComponent as ArrowLeft } from "assets/icons/slider-arrow-left.svg";
 import { TabPanel } from "components";
 
 const topCards = [
@@ -193,8 +200,85 @@ const shopCards = [
   },
 ];
 
+const feedback = [
+  {
+    label: "Сервисы и партнеры",
+    items: [
+      {
+        avatar: FeedbackAvatar,
+        title: "Lorem Ipsum",
+        date: "22.02.2022",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
+      },
+      {
+        avatar: FeedbackAvatar,
+        title: "Lorem Ipsum",
+        date: "22.02.2022",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
+      },
+      {
+        avatar: FeedbackAvatar,
+        title: "Lorem Ipsum",
+        date: "22.02.2022",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
+      },
+      {
+        avatar: FeedbackAvatar,
+        title: "Lorem Ipsum",
+        date: "22.02.2022",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
+      },
+      {
+        avatar: FeedbackAvatar,
+        title: "Lorem Ipsum",
+        date: "22.02.2022",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
+      },
+    ],
+  },
+  {
+    label: "Веб-мастера",
+    items: [
+      {
+        avatar: FeedbackAvatar,
+        title: "Lorem Ipsum2",
+        date: "22.02.2022",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
+      },
+      {
+        avatar: FeedbackAvatar,
+        title: "Lorem Ipsum2",
+        date: "22.02.2022",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
+      },
+      {
+        avatar: FeedbackAvatar,
+        title: "Lorem Ipsum2",
+        date: "22.02.2022",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
+      },
+      {
+        avatar: FeedbackAvatar,
+        title: "Lorem Ipsum2",
+        date: "22.02.2022",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
+      },
+      {
+        avatar: FeedbackAvatar,
+        title: "Lorem Ipsum2",
+        date: "22.02.2022",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
+      },
+    ],
+  },
+];
+
 export const Home: React.FC = () => {
-  const [tabValue, setTabValue] = useState(0);
+  const [topTabValue, setTopTabValue] = useState(0);
+  const [feedbackTabValue, setFeedbackTabValue] = useState(0);
+
+  const nextBtnRef = useRef<HTMLButtonElement>(null);
+  const prevBtnRef = useRef<HTMLButtonElement>(null);
 
   return (
     <>
@@ -306,10 +390,10 @@ export const Home: React.FC = () => {
             <button
               className={twMerge(
                 "w-1/2 px-11 py-4",
-                tabValue === i &&
+                topTabValue === i &&
                   "rounded-[35px] bg-[#FDFDFD] shadow-[0_4px_21px_3px_rgba(28,28,28,0.07)] outline outline-2 outline-[#FDFDFD]"
               )}
-              onClick={() => setTabValue(i)}
+              onClick={() => setTopTabValue(i)}
             >
               {label}
             </button>
@@ -318,7 +402,7 @@ export const Home: React.FC = () => {
 
         <div className="w-full">
           {tops.map(({ head, rows }, i) => (
-            <TabPanel value={i} tabValue={tabValue} key={i}>
+            <TabPanel value={i} tabValue={topTabValue} key={i}>
               <table className="w-full table-fixed border-separate border-spacing-y-2">
                 <thead>
                   <tr className="bg-[#F4F4F4] text-[14px] font-bold text-[#B3B3B3]">
@@ -417,6 +501,76 @@ export const Home: React.FC = () => {
           src={ShopShowcaseFg}
           className="absolute bottom-0 left-0 z-40 w-full object-cover"
         />
+      </section>
+
+      <section className="relative z-40 bg-[#FFFFFF] pb-24">
+        <div className="flex flex-col items-center">
+          <h2 className="mb-10 text-4xl font-semibold text-[#333333]">
+            Отзывы
+          </h2>
+
+          <div className="mb-16 w-[540px] rounded-[35px] border-2 text-[15px] font-bold text-[#333333]">
+            {feedback.map(({ label }, i) => (
+              <button
+                className={twMerge(
+                  "w-1/2 px-11 py-4",
+                  feedbackTabValue === i &&
+                    "rounded-[35px] bg-[#FDFDFD] shadow-[0_4px_21px_3px_rgba(28,28,28,0.07)] outline outline-2 outline-[#FDFDFD]"
+                )}
+                onClick={() => setFeedbackTabValue(i)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="feedback-container">
+          {feedback.map(({ items }, i) => (
+            <TabPanel value={i} tabValue={feedbackTabValue} key={i}>
+              <div className="flex items-center">
+                <div className="flex flex-col gap-[40px]">
+                  <button className="swiper-nav-btn" ref={prevBtnRef}>
+                    <ArrowLeft />
+                  </button>
+                  <button className="swiper-nav-btn" ref={nextBtnRef}>
+                    <ArrowLeft className="rotate-180" />
+                  </button>
+                </div>
+
+                <Swiper
+                  slidesPerView={"auto"}
+                  spaceBetween={30}
+                  className="feedback-swiper"
+                  modules={[Navigation]}
+                  navigation={{
+                    nextEl: nextBtnRef.current,
+                    prevEl: prevBtnRef.current,
+                  }}
+                >
+                  {items.map(({ avatar, date, title, text }) => (
+                    <SwiperSlide className="w-full max-w-lg">
+                      <div className="mt-3 rounded-2xl bg-[#fff] px-[22px] pb-5 shadow-[0_0_24px_3px_rgba(61,61,61,0.04)]">
+                        <div className="flex -translate-y-3 items-center gap-4">
+                          <img src={avatar} />
+                          <div>
+                            <p className="text-[13px] font-semibold leading-[10px] text-[#C8C8C8]">
+                              {date}
+                            </p>
+                            <h6 className="text-[15px] font-bold text-[#333333]">
+                              {title}
+                            </h6>
+                          </div>
+                        </div>
+                        <p className="text-[14px] text-[#4B4B4B]">{text}</p>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            </TabPanel>
+          ))}
+        </div>
       </section>
     </>
   );

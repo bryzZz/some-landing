@@ -72,6 +72,11 @@
     padding-right: 1rem;
     margin: 0 auto;
   }
+
+  .feedback-container {
+    padding-left: 1rem;
+    margin-left: calc((100% - 1314px) / 2);
+  }
 }
 
 .swiper-pagination {
@@ -96,4 +101,16 @@
   height: 6px;
   background: #ffffff;
   border: 2px solid #000000;
+}
+
+.feedback-swiper {
+  margin-left: 114px;
+}
+
+.swiper-nav-btn {
+  color: #f2821d;
+}
+
+.swiper-nav-btn.swiper-button-disabled {
+  color: #e7e6ec;
 }
