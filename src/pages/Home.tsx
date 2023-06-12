@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { Pagination, Mousewheel } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { twMerge } from "tailwind-merge";
@@ -8,9 +8,19 @@ import "swiper/css/pagination";
 
 import { ReactComponent as Shild } from "assets/icons/shild.svg";
 import { ReactComponent as Person } from "assets/icons/person.svg";
+import { ReactComponent as ArrowRight } from "assets/icons/arrow-right.svg";
 import MainImage from "assets/images/main-image.png";
 import MainImage2 from "assets/images/info-1.png";
 import SliderImage1 from "assets/images/screen-3-slider-1.png";
+import ShopCard1 from "assets/images/shop-showcase-1.png";
+import ShopCard2 from "assets/images/shop-showcase-2.png";
+import ShopCard3 from "assets/images/shop-showcase-3.png";
+import ShopCard4 from "assets/images/shop-showcase-4.png";
+import ShopCard5 from "assets/images/shop-showcase-5.png";
+import ShopCard6 from "assets/images/shop-showcase-6.png";
+import ShopCard7 from "assets/images/shop-showcase-7.png";
+import ShopCard8 from "assets/images/shop-showcase-8.png";
+import ShopCard9 from "assets/images/shop-showcase-9.png";
 import { ReactComponent as IconCard1 } from "assets/icons/main-card-1.svg";
 import { ReactComponent as IconCard2 } from "assets/icons/main-card-2.svg";
 import { ReactComponent as IconCard3 } from "assets/icons/main-card-3.svg";
@@ -19,6 +29,8 @@ import { ReactComponent as IconCard5 } from "assets/icons/main-card-5.svg";
 import { ReactComponent as IconCard6 } from "assets/icons/main-card-6.svg";
 import { ReactComponent as IconCard7 } from "assets/icons/main-card-7.svg";
 import { ReactComponent as IconCard8 } from "assets/icons/main-card-8.svg";
+import ShopShowcaseBg from "assets/images/shop-showcase-bg.png";
+import ShopShowcaseFg from "assets/images/shop-showcase-fg.png";
 import { TabPanel } from "components";
 
 const topCards = [
@@ -73,10 +85,116 @@ const bottomCards = [
   },
 ];
 
+interface Top {
+  label: string;
+  head: string[];
+  rows: { value: string | number; Icon?: FC }[][];
+}
+
+const tops: Top[] = [
+  {
+    label: "Топ веб-мастеров",
+    head: ["Имя", "За день", "За месяц"],
+    rows: [
+      [
+        { value: "Никто Павлов", Icon: Person },
+        { value: 5000 },
+        { value: 50000 },
+      ],
+      [
+        { value: "Никто Павлов", Icon: Person },
+        { value: 5000 },
+        { value: 50000 },
+      ],
+      [
+        { value: "Никто Павлов", Icon: Person },
+        { value: 5000 },
+        { value: 50000 },
+      ],
+      [
+        { value: "Никто Павлов", Icon: Person },
+        { value: 5000 },
+        { value: 50000 },
+      ],
+      [
+        { value: "Никто Павлов", Icon: Person },
+        { value: 5000 },
+        { value: 50000 },
+      ],
+    ],
+  },
+  {
+    label: "Топ офферов",
+    head: ["Имя", "За день", "За месяц"],
+    rows: [
+      [{ value: "Оффер 1" }, { value: 5000 }, { value: 50000 }],
+      [{ value: "Оффер 1" }, { value: 5000 }, { value: 50000 }],
+      [{ value: "Оффер 1" }, { value: 5000 }, { value: 50000 }],
+      [{ value: "Оффер 1" }, { value: 5000 }, { value: 50000 }],
+      [{ value: "Оффер 1" }, { value: 5000 }, { value: 50000 }],
+    ],
+  },
+];
+
+const USDollar = new Intl.NumberFormat("ru-RU", {
+  minimumSignificantDigits: 6,
+});
+
+const shopCards = [
+  {
+    title: "iPhone 14 Pro Max - 256GB",
+    supTitle: "3 500 БАЛЛОВ",
+    img: ShopCard1,
+  },
+  {
+    title: "Watch Series 7 - 45 мм",
+    supTitle: "980 БАЛЛОВ",
+    img: ShopCard2,
+  },
+  {
+    title: "AirPods Max",
+    supTitle: "1 030 БАЛЛОВ",
+    img: ShopCard3,
+  },
+  {
+    title: "Наушники\n Apple AirPods Pro",
+    supTitle: "450 БАЛЛОВ",
+    img: ShopCard4,
+  },
+  {
+    title: "MacBook Pro 13 Touch Bar - 256 GB",
+    supTitle: "2 350 БАЛЛОВ",
+    img: ShopCard5,
+  },
+  {
+    title: "Dyson Pure Hot + Cool HP05",
+    supTitle: "2 170 БАЛЛОВ",
+    img: ShopCard6,
+  },
+  {
+    title: "JBL PartyBox 1000",
+    supTitle: "2 270 БАЛЛОВ",
+    img: ShopCard7,
+  },
+  {
+    title: "Samsung QE55Q77AAUXCE 75",
+    supTitle: "3 950 БАЛЛОВ",
+    img: ShopCard8,
+  },
+  {
+    title: "PlayStation 5",
+    supTitle: "1 500 БАЛЛОВ",
+    img: ShopCard9,
+  },
+  {
+    title: "Microsoft Xbox Series X",
+    supTitle: "1 000 БАЛЛОВ",
+    img: ShopCard9,
+  },
+];
+
 export const Home: React.FC = () => {
   const [tabValue, setTabValue] = useState(0);
-
-  console.log(tabValue);
 
   return (
     <>
@@ -182,94 +300,123 @@ export const Home: React.FC = () => {
         </Swiper>
       </section>
 
-      <section className="small-container flex flex-col items-center">
+      <section className="small-container z-10 mb-32 flex flex-col items-center">
         <div className="mb-11 w-[500px] rounded-[35px] border-2 text-[15px] font-bold text-[#333333]">
-          <button
-            className={twMerge(
-              "w-1/2 px-11 py-4",
-              tabValue === 0 &&
-                "rounded-[35px] bg-[#FDFDFD] shadow-[0_4px_21px_3px_rgba(28,28,28,0.07)] outline outline-2 outline-[#FDFDFD]"
-            )}
-            onClick={() => setTabValue(0)}
-          >
-            Топ веб-мастеров
-          </button>
-          <button
-            className={twMerge(
-              "w-1/2 px-11 py-4",
-              tabValue === 1 &&
-                "rounded-[35px] bg-[#FDFDFD] shadow-[0_4px_21px_3px_rgba(28,28,28,0.07)] outline outline-2 outline-[#FDFDFD]"
-            )}
-            onClick={() => setTabValue(1)}
-          >
-            Топ офферов
-          </button>
+          {tops.map(({ label }, i) => (
+            <button
+              className={twMerge(
+                "w-1/2 px-11 py-4",
+                tabValue === i &&
+                  "rounded-[35px] bg-[#FDFDFD] shadow-[0_4px_21px_3px_rgba(28,28,28,0.07)] outline outline-2 outline-[#FDFDFD]"
+              )}
+              onClick={() => setTabValue(i)}
+            >
+              {label}
+            </button>
+          ))}
         </div>
 
         <div className="w-full">
-          <TabPanel value={0} tabValue={tabValue}>
-            <table className="w-full table-fixed border-separate border-spacing-y-2">
-              <thead>
-                <tr className="bg-[#F4F4F4] text-[14px] font-bold text-[#B3B3B3]">
-                  <th className="rounded-bl rounded-tl py-3 pl-12 text-left">
-                    Имя
-                  </th>
-                  <th className="py-3 text-left">За день</th>
-                  <th className="rounded-br rounded-tr py-3 text-left">
-                    За месяц
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {new Array(5).fill(0).map(() => (
-                  <tr className="mb-2 rounded bg-[#F9F9F9] text-[14px] font-bold text-[#4B4B4B]">
-                    <td className="flex items-center gap-4 rounded-bl rounded-tl py-3 pl-3">
-                      <Person />
-                      Никто Павлов
-                    </td>
-                    <td>
-                      <span className="text-[#F7971D]">$</span> 5 000.00
-                    </td>
-                    <td className="rounded-br rounded-tr">
-                      <span className="text-[#F7971D]">$</span> 50 000.00
-                    </td>
+          {tops.map(({ head, rows }, i) => (
+            <TabPanel value={i} tabValue={tabValue} key={i}>
+              <table className="w-full table-fixed border-separate border-spacing-y-2">
+                <thead>
+                  <tr className="bg-[#F4F4F4] text-[14px] font-bold text-[#B3B3B3]">
+                    {head.map((value, i, arr) => (
+                      <th
+                        key={i}
+                        className={twMerge(
+                          "py-3 pl-8 text-left",
+                          i === 0 && "rounded-bl rounded-tl",
+                          i === arr.length - 1 && "rounded-br rounded-tr"
+                        )}
+                      >
+                        {value}
+                      </th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </TabPanel>
-          <TabPanel value={1} tabValue={tabValue}>
-            <table className="w-full table-fixed border-separate border-spacing-y-2">
-              <thead>
-                <tr className="bg-[#F4F4F4] text-[14px] font-bold text-[#B3B3B3]">
-                  <th className="rounded-bl rounded-tl py-3 pl-12 text-left">
-                    Имя
-                  </th>
-                  <th className="py-3 text-left">За день</th>
-                  <th className="rounded-br rounded-tr py-3 text-left">
-                    За месяц
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {new Array(5).fill(0).map(() => (
-                  <tr className="mb-2 rounded bg-[#F9F9F9] text-[14px] font-bold text-[#4B4B4B]">
-                    <td className="flex items-center gap-4 rounded-bl rounded-tl py-3 pl-3">
-                      <Person />
-                      Оффер 1
-                    </td>
-                    <td>
-                      <span className="text-[#F7971D]">$</span> 5 000.00
-                    </td>
-                    <td className="rounded-br rounded-tr">
-                      <span className="text-[#F7971D]">$</span> 50 000.00
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </TabPanel>
+                </thead>
+                <tbody>
+                  {rows.map((row, i) => (
+                    <tr
+                      className="mb-2 rounded bg-[#F9F9F9] text-[14px] font-bold text-[#4B4B4B]"
+                      key={i}
+                    >
+                      {row.map(({ value, Icon }, i, arr) => (
+                        <td
+                          className={twMerge(
+                            "py-3 pl-3",
+                            Icon && "flex items-center gap-4",
+                            i === 0 && "rounded-bl rounded-tl",
+                            i === arr.length - 1 && "rounded-br rounded-tr"
+                          )}
+                          key={i}
+                        >
+                          {Icon && <Icon />}
+                          {typeof value === "number" ? (
+                            <span>
+                              <span className="text-[#F7971D]">$</span>{" "}
+                              {USDollar.format(value)}
+                            </span>
+                          ) : (
+                            value
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </TabPanel>
+          ))}
         </div>
+      </section>
+
+      <section
+        className="relative z-20 bg-auto bg-top bg-no-repeat pb-[860px] pt-28"
+        style={{ backgroundImage: `url(${ShopShowcaseBg})` }}
+      >
+        <div className="base-container">
+          <div>
+            <h2 className="mb-5 max-w-[580px] text-4xl font-semibold text-[#333333]">
+              Получай баллы за апрувнутые лиды и обменивай их на призы
+            </h2>
+            <p className="mb-10 max-w-[500px] text-[18px] text-[#4B4B4B]">
+              Какой-то текст в одну строку какой-то текст в одну строку какой-то
+              текст в одну строку.
+            </p>
+            <button className="flex items-center gap-2 rounded bg-gradient-to-r from-[#F7971D] via-[#F7AD1D] to-[#F7971D] px-6 py-4 font-extrabold text-[#FFFFFF]">
+              В магазин
+              <ArrowRight width="20px" height="20px" />
+            </button>
+          </div>
+        </div>
+
+        <div className="absolute left-0 top-72 z-30 grid rotate-[-30deg] grid-cols-[repeat(6,324px)] gap-20">
+          {shopCards.map(({ img, supTitle, title }, i) => (
+            <div
+              className={twMerge(
+                "flex flex-col items-center rounded-3xl bg-[#FFFFFF] py-12 text-center shadow-[0_0_24px_3px_rgba(61,61,61,0.04)]",
+                i === 0 && "col-start-2"
+              )}
+            >
+              <div className="mb-7 h-[324px]">
+                <img className="h-full w-full object-cover" src={img} />
+              </div>
+              <h5 className="mb-3 font-black uppercase text-[#B5B5B5]">
+                {supTitle}
+              </h5>
+              <h4 className="whitespace-pre-line text-[19px] font-bold text-[#333333]">
+                {title}
+              </h4>
+            </div>
+          ))}
+        </div>
+
+        <img
+          src={ShopShowcaseFg}
+          className="absolute bottom-0 left-0 z-40 w-full object-cover"
+        />
       </section>
     </>
   );
