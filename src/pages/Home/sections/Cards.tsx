@@ -63,38 +63,36 @@ const bottomCards = [
   },
 ];
 
-export const Two: React.FC = () => {
+export const Cards: React.FC = () => {
   return (
     <section className="base-container grid-rows-7 mb-24 grid grid-cols-8 gap-7">
       {topCards.map(({ Icon, title, subTitle }, i) => (
         <div
-          className="col-span-2 row-span-4 rounded-2xl bg-text-100 p-6 shadow-xl shadow-[#3d3d3d0a]"
+          className="col-span-2 row-span-4 rounded-2xl bg-text-100 p-6 shadow-100"
           key={i}
         >
           <div className="mb-3 grid grid-cols-[50px_1fr] gap-4">
             <Icon />
-            <span className="text-[15px] font-bold text-text-400">{title}</span>
+            <h5 className="heading-5">{title}</h5>
           </div>
-          <p className="text-[14px] text-text-300">{subTitle}</p>
+          <p className="sub-heading-4">{subTitle}</p>
         </div>
       ))}
 
-      <div className="col-span-2 row-span-6 rounded-2xl bg-gradient-to-tl from-[#FEC82F] to-[#FD9E58] p-6 pt-2 shadow-xl shadow-[#3d3d3d0a]">
+      <div className="col-span-2 row-span-6 rounded-2xl bg-gradient-to-tl from-primary-300 to-primary-400 p-6 pt-2 shadow-100">
         <img src={MainImage2} />
-        <p className="text-center text-[15px] font-bold text-text-100">
-          Генератор чеков
-        </p>
+        <p className="heading-5 text-center text-text-100">Генератор чеков</p>
       </div>
 
       {bottomCards.map(({ Icon, title, subTitle }, i) => (
         <div
-          className="col-span-3 row-span-3 grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-xl shadow-[#3d3d3d0a]"
+          className="col-span-3 row-span-3 grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100"
           key={i}
         >
           <Icon />
           <div>
-            <p className="text-[15px] font-bold text-text-400">{title}</p>
-            <p className="text-[14px] text-text-300">{subTitle}</p>
+            <p className="heading-5">{title}</p>
+            <p className="sub-heading-4">{subTitle}</p>
           </div>
         </div>
       ))}

@@ -43,11 +43,11 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
       >
         {items.map(({ avatar, date, title, text }) => (
           <SwiperSlide className="w-full max-w-lg">
-            <div className="mt-3 rounded-2xl bg-[#fff] px-[22px] pb-5 shadow-[0_0_24px_3px_rgba(61,61,61,0.04)]">
+            <div className="mt-3 rounded-2xl bg-text-100 px-[22px] pb-5 shadow-100">
               <div className="flex -translate-y-3 items-center gap-4">
                 <img src={avatar} />
                 <div>
-                  <p className="text-[13px] font-semibold leading-[10px] text-[#C8C8C8]">
+                  <p className="text-[13px] font-semibold leading-[10px] text-text-200">
                     {date}
                   </p>
                   <h6 className="text-[15px] font-bold text-text-400">

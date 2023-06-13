@@ -14,8 +14,6 @@ const navItems = [
   { label: "Отзывы", path: "f" },
 ];
 
-// ml-[15.625vw]
-
 export const Header: React.FC = () => {
   return (
     <header className="header-container flex items-center justify-between pt-8">

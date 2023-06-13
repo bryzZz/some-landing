@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { TabPanel } from "components";
+import { TabPanel, Tabs } from "components";
 import { ReactComponent as Person } from "assets/icons/person.svg";
 
 interface Top {
@@ -55,29 +55,18 @@ const tops: Top[] = [
   },
 ];
 
+const labels = tops.map(({ label }) => label);
+
 const USDollar = new Intl.NumberFormat("ru-RU", {
   minimumSignificantDigits: 6,
 });
 
-export const Four: React.FC = () => {
+export const TopTables: React.FC = () => {
   const [tabValue, setTabValue] = useState(0);
 
   return (
     <section className="small-container z-10 mb-32 flex flex-col items-center">
-      <div className="mb-11 w-[500px] rounded-[35px] border-2 text-[15px] font-bold text-text-400">
-        {tops.map(({ label }, i) => (
-          <button
-            className={twMerge(
-              "w-1/2 px-11 py-4",
-              tabValue === i &&
-                "rounded-[35px] bg-[#FDFDFD] shadow-[0_4px_21px_3px_rgba(28,28,28,0.07)] outline outline-2 outline-[#FDFDFD]"
-            )}
-            onClick={() => setTabValue(i)}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
+      <Tabs tabs={labels} value={tabValue} onChange={setTabValue} />
 
       <div className="w-full">
         {tops.map(({ head, rows }, i) => (
@@ -102,7 +91,7 @@ export const Four: React.FC = () => {
               <tbody>
                 {rows.map((row, i) => (
                   <tr
-                    className="mb-2 rounded bg-[#F9F9F9] text-[14px] font-bold text-text-300"
+                    className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
                     key={i}
                   >
                     {row.map(({ value, Icon }, i, arr) => (
@@ -118,7 +107,7 @@ export const Four: React.FC = () => {
                         {Icon && <Icon />}
                         {typeof value === "number" ? (
                           <span>
-                            <span className="text-[#F7971D]">$</span>{" "}
+                            <span className="text-primary-100">$</span>{" "}
                             {USDollar.format(value)}
                           </span>
                         ) : (

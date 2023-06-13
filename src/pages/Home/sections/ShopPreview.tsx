@@ -1,20 +1,20 @@
 import React from "react";
 
 import { ReactComponent as ArrowRight } from "assets/icons/arrow-right.svg";
-import ShopShowcaseBg from "assets/images/shop-showcase-bg.png";
-import ShopShowcaseFg from "assets/images/shop-showcase-fg.png";
-import ShopCard1 from "assets/images/shop-showcase-1.png";
-import ShopCard2 from "assets/images/shop-showcase-2.png";
-import ShopCard3 from "assets/images/shop-showcase-3.png";
-import ShopCard4 from "assets/images/shop-showcase-4.png";
-import ShopCard5 from "assets/images/shop-showcase-5.png";
-import ShopCard6 from "assets/images/shop-showcase-6.png";
-import ShopCard7 from "assets/images/shop-showcase-7.png";
-import ShopCard8 from "assets/images/shop-showcase-8.png";
-import ShopCard9 from "assets/images/shop-showcase-9.png";
+import ShopPreviewBg from "assets/images/shop-preview-bg.png";
+import ShopPreviewFg from "assets/images/shop-preview-fg.png";
+import ShopCard1 from "assets/images/shop-preview-1.png";
+import ShopCard2 from "assets/images/shop-preview-2.png";
+import ShopCard3 from "assets/images/shop-preview-3.png";
+import ShopCard4 from "assets/images/shop-preview-4.png";
+import ShopCard5 from "assets/images/shop-preview-5.png";
+import ShopCard6 from "assets/images/shop-preview-6.png";
+import ShopCard7 from "assets/images/shop-preview-7.png";
+import ShopCard8 from "assets/images/shop-preview-8.png";
+import ShopCard9 from "assets/images/shop-preview-9.png";
 import { twMerge } from "tailwind-merge";
 
-const shopCards = [
+const cards = [
   {
     title: "iPhone 14 Pro Max - 256GB",
     supTitle: "3 500 БАЛЛОВ",
@@ -67,22 +67,23 @@ const shopCards = [
   },
 ];
 
-export const Five: React.FC = () => {
+export const ShopPreview: React.FC = () => {
   return (
     <section
       className="relative z-20 bg-auto bg-top bg-no-repeat pb-[860px] pt-28"
-      style={{ backgroundImage: `url(${ShopShowcaseBg})` }}
+      style={{ backgroundImage: `url(${ShopPreviewBg})` }}
     >
       <div className="base-container">
         <div>
           <h2 className="heading-2 mb-5 max-w-[580px]">
             Получай баллы за апрувнутые лиды и обменивай их на призы
+            <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
           </h2>
-          <p className="mb-10 max-w-[500px] text-[18px] text-text-300">
+          <p className="sub-heading-2 mb-10 max-w-[500px]">
             Какой-то текст в одну строку какой-то текст в одну строку какой-то
             текст в одну строку.
           </p>
-          <button className="flex items-center gap-2 rounded bg-gradient-to-r from-[#F7971D] via-[#F7AD1D] to-[#F7971D] px-6 py-4 font-extrabold text-text-100">
+          <button className="btn-primary flex items-center gap-2">
             В магазин
             <ArrowRight width="20px" height="20px" />
           </button>
@@ -90,10 +91,10 @@ export const Five: React.FC = () => {
       </div>
 
       <div className="absolute left-0 top-72 z-30 grid rotate-[-30deg] grid-cols-[repeat(6,324px)] gap-20">
-        {shopCards.map(({ img, supTitle, title }, i) => (
+        {cards.map(({ img, supTitle, title }, i) => (
           <div
             className={twMerge(
-              "flex flex-col items-center rounded-3xl bg-text-100 py-12 text-center shadow-[0_0_24px_3px_rgba(61,61,61,0.04)]",
+              "flex flex-col items-center rounded-3xl bg-text-100 py-12 text-center shadow-100",
               i === 0 && "col-start-2"
             )}
           >
@@ -103,15 +104,13 @@ export const Five: React.FC = () => {
             <h5 className="mb-3 font-black uppercase text-[#B5B5B5]">
               {supTitle}
             </h5>
-            <h4 className="whitespace-pre-line text-[19px] font-bold text-text-400">
-              {title}
-            </h4>
+            <h4 className="heading-4 whitespace-pre-line">{title}</h4>
           </div>
         ))}
       </div>
 
       <img
-        src={ShopShowcaseFg}
+        src={ShopPreviewFg}
         className="absolute bottom-0 left-0 z-40 w-full object-cover"
       />
     </section>

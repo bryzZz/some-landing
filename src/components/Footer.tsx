@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#ECF2F6]">
       <div className="mx-[15.625vw] px-4 pb-8 pt-9">
-        <div className="ml-auto w-1/2 text-[#333333]">
+        <div className="text-400 ml-auto w-1/2">
           <h3 className="mb-5 text-xl font-bold">Быстрые ссылки</h3>
 
           <nav className="mb-28 flex w-full items-center justify-between gap-6">
@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
               <Link
                 key={i}
                 to={path}
-                className="text-xs font-bold uppercase text-[#333333]"
+                className="text-400 text-xs font-bold uppercase"
               >
                 {label}
               </Link>

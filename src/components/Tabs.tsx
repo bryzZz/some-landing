@@ -17,7 +17,7 @@ export const Tabs: React.FC<TabsProps> = ({
   return (
     <div
       className={twMerge(
-        "whitespace-nowrap rounded-[35px] border-2 text-[15px] font-bold text-text-400",
+        "heading-5 whitespace-nowrap rounded-[35px] border-2",
         className
       )}
     >
@@ -26,7 +26,7 @@ export const Tabs: React.FC<TabsProps> = ({
           className={twMerge(
             "w-1/2 px-11 py-4",
             value === i &&
-              "rounded-[35px] bg-[#FDFDFD] shadow-[0_4px_21px_3px_rgba(28,28,28,0.07)] outline outline-2 outline-[#FDFDFD]"
+              "rounded-[35px] bg-[#FDFDFD] shadow-200 outline outline-2 outline-[#FDFDFD]"
           )}
           onClick={() => onChange(i)}
         >

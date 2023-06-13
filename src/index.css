@@ -79,7 +79,7 @@
   }
 
   .btn-primary {
-    @apply rounded bg-gradient-to-r from-[#F7971D] via-[#F7AD1D] to-[#F7971D] px-6 py-4 font-extrabold text-text-100;
+    @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 px-6 py-4 font-extrabold text-text-100;
   }
 
   .heading-1 {
@@ -90,31 +90,27 @@
     @apply text-4xl font-semibold text-text-400;
   }
 
+  .heading-4 {
+    @apply text-[19px] font-bold leading-[23px] text-text-400;
+  }
+
+  .heading-5 {
+    @apply text-[15px] font-bold leading-5 text-text-400;
+  }
+
   .sub-heading-1 {
     @apply text-[19px] font-semibold leading-7 text-text-300;
   }
-}
 
-.swiper-pagination {
-  left: 0 !important;
-  right: 6px !important;
-}
+  .sub-heading-2 {
+    @apply text-[18px] leading-7 text-text-300;
+  }
 
-.swiper-pagination-bullet {
-  width: 4px;
-  height: 4px;
-  background: #000000;
-  opacity: 1;
-}
+  .sub-heading-3 {
+    @apply text-[16px] leading-6 text-text-300;
+  }
 
-.swiper-pagination-bullet:not(:last-child) {
-  margin: 0 !important;
-  margin-bottom: 30px !important;
-}
-
-.swiper-pagination-bullet-active {
-  width: 6px;
-  height: 6px;
-  background: #ffffff;
-  border: 2px solid #000000;
+  .sub-heading-4 {
+    @apply text-[14px] leading-5 text-text-300;
+  }
 }

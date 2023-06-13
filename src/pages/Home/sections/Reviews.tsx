@@ -85,7 +85,10 @@ export const Reviews: React.FC = () => {
   return (
     <section className="relative z-40 bg-text-100 pb-24">
       <div className="flex flex-col items-center">
-        <h2 className="heading-2 mb-10">Отзывы</h2>
+        <h2 className="heading-2 mb-10">
+          Отзывы
+          <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
+        </h2>
 
         <Tabs
           className="mb-20"

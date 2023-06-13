@@ -1,0 +1,23 @@
+.slides .swiper-pagination {
+  left: 0 !important;
+  right: 6px !important;
+}
+
+.slides .swiper-pagination-bullet {
+  width: 4px;
+  height: 4px;
+  background: #000000;
+  opacity: 1;
+}
+
+.slides .swiper-pagination-bullet:not(:last-child) {
+  margin: 0 !important;
+  margin-bottom: 30px !important;
+}
+
+.slides .swiper-pagination-bullet-active {
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border: 2px solid #000000;
+}
