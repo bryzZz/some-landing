@@ -17,12 +17,13 @@ export const Tabs: React.FC<TabsProps> = ({
   return (
     <div
       className={twMerge(
-        "heading-5 whitespace-nowrap rounded-[35px] border-2",
+        "heading-6 whitespace-nowrap rounded-[35px] border-2",
         className
       )}
     >
       {tabs.map((label, i) => (
         <button
+          key={i}
           className={twMerge(
             "w-1/2 px-11 py-4",
             value === i &&

@@ -78,6 +78,14 @@
     margin-left: calc((100% - 1314px) / 2);
   }
 
+  .FAQ-container {
+    width: 100%;
+    max-width: 1090px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0 auto;
+  }
+
   .btn-primary {
     @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 px-6 py-4 font-extrabold text-text-100;
   }
@@ -95,6 +103,10 @@
   }
 
   .heading-5 {
+    @apply text-[16px] font-bold leading-5 text-text-400;
+  }
+
+  .heading-6 {
     @apply text-[15px] font-bold leading-5 text-text-400;
   }
 

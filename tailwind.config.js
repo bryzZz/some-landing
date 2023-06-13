@@ -23,6 +23,7 @@ export default {
       boxShadow: {
         100: "0 0 24px 3px rgba(61,61,61,0.04)",
         200: "0 4px 21px 3px rgba(28,28,28,0.07)",
+        300: "0px 16px 32px 5px rgba(61, 61, 61, 0.1)",
       },
     },
   },

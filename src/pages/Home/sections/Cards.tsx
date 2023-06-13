@@ -73,7 +73,7 @@ export const Cards: React.FC = () => {
         >
           <div className="mb-3 grid grid-cols-[50px_1fr] gap-4">
             <Icon />
-            <h5 className="heading-5">{title}</h5>
+            <h5 className="heading-6">{title}</h5>
           </div>
           <p className="sub-heading-4">{subTitle}</p>
         </div>
@@ -81,7 +81,7 @@ export const Cards: React.FC = () => {
 
       <div className="col-span-2 row-span-6 rounded-2xl bg-gradient-to-tl from-primary-300 to-primary-400 p-6 pt-2 shadow-100">
         <img src={MainImage2} />
-        <p className="heading-5 text-center text-text-100">Генератор чеков</p>
+        <p className="heading-6 text-center text-text-100">Генератор чеков</p>
       </div>
 
       {bottomCards.map(({ Icon, title, subTitle }, i) => (
@@ -91,7 +91,7 @@ export const Cards: React.FC = () => {
         >
           <Icon />
           <div>
-            <p className="heading-5">{title}</p>
+            <p className="heading-6">{title}</p>
             <p className="sub-heading-4">{subTitle}</p>
           </div>
         </div>

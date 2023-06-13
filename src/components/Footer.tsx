@@ -5,7 +5,7 @@ import { ReactComponent as Telegram } from "assets/icons/telegram-2.svg";
 import { ReactComponent as VK } from "assets/icons/vk-2.svg";
 
 const navItems = [
-  { label: "FAQ", path: "a" },
+  { label: "FAQ", path: "FAQ/" },
   { label: "Магазин", path: "b" },
   { label: "Бонусы", path: "c" },
   { label: "Публичная оферта", path: "d" },

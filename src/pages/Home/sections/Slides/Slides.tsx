@@ -31,8 +31,8 @@ export const Slides: React.FC = () => {
         modules={[Mousewheel, Pagination]}
         className="slides"
       >
-        {new Array(4).fill(0).map(() => (
-          <SwiperSlide>
+        {new Array(4).fill(0).map((_, i) => (
+          <SwiperSlide key={i}>
             <div className="flex gap-28 pl-24">
               <div>
                 <h3 className="mb-6 text-[130px] text-text-400">

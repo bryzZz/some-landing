@@ -1,13 +1,13 @@
 interface TabPanelProps<T> {
   value: T;
   tabValue: T;
-  children?: JSX.Element[] | JSX.Element | null;
+  children?: React.ReactNode;
 }
 
 export const TabPanel = <T,>({
   value,
   tabValue,
   children,
-}: TabPanelProps<T>): JSX.Element | null => {
+}: TabPanelProps<T>) => {
   return <div hidden={value !== tabValue}>{children}</div>;
 };

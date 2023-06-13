@@ -93,6 +93,7 @@ export const ShopPreview: React.FC = () => {
       <div className="absolute left-0 top-72 z-30 grid rotate-[-30deg] grid-cols-[repeat(6,324px)] gap-20">
         {cards.map(({ img, supTitle, title }, i) => (
           <div
+            key={i}
             className={twMerge(
               "flex flex-col items-center rounded-3xl bg-text-100 py-12 text-center shadow-100",
               i === 0 && "col-start-2"
