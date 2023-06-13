@@ -7,6 +7,14 @@ export default {
         rfdewi: ["RFDewi", "sans-serif"],
       },
     },
+    colors: {
+      text: {
+        100: "#FFFFFF",
+        200: "#C8C8C8",
+        300: "#4B4B4B",
+        400: "#333333",
+      },
+    },
   },
   plugins: [],
 };

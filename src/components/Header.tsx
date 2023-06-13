@@ -21,7 +21,7 @@ export const Header: React.FC = () => {
     <header className="header-container flex items-center justify-between pt-8">
       <nav className="flex items-center gap-10">
         {navItems.map(({ label, path }, i) => (
-          <Link key={i} to={path} className="font-semibold text-[#333333]">
+          <Link key={i} to={path} className="font-semibold text-text-400">
             {label}
           </Link>
         ))}
@@ -45,9 +45,7 @@ export const Header: React.FC = () => {
             <DoorEnter />
             Войти
           </button>
-          <button className="rounded bg-gradient-to-r from-[#F7971D] via-[#F7AD1D] to-[#F7971D] px-6 py-4 font-extrabold text-[#FFFFFF]">
-            Регистрация
-          </button>
+          <button className="btn-primary">Регистрация</button>
         </div>
       </div>
     </header>

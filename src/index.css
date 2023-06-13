@@ -73,9 +73,25 @@
     margin: 0 auto;
   }
 
-  .feedback-container {
+  .reviews-container {
     padding-left: 1rem;
     margin-left: calc((100% - 1314px) / 2);
+  }
+
+  .btn-primary {
+    @apply rounded bg-gradient-to-r from-[#F7971D] via-[#F7AD1D] to-[#F7971D] px-6 py-4 font-extrabold text-text-100;
+  }
+
+  .heading-1 {
+    @apply text-5xl font-extrabold leading-10 text-text-400;
+  }
+
+  .heading-2 {
+    @apply text-4xl font-semibold text-text-400;
+  }
+
+  .sub-heading-1 {
+    @apply text-[19px] font-semibold leading-7 text-text-300;
   }
 }
 
@@ -101,16 +117,4 @@
   height: 6px;
   background: #ffffff;
   border: 2px solid #000000;
-}
-
-.feedback-swiper {
-  margin-left: 114px;
-}
-
-.swiper-nav-btn {
-  color: #f2821d;
-}
-
-.swiper-nav-btn.swiper-button-disabled {
-  color: #e7e6ec;
 }
