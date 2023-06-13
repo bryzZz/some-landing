@@ -2,7 +2,7 @@ import { Footer, Header } from "components";
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-import { BASE_PATH } from "constants";
+import { BASE_PATH } from "../../constants";
 
 import FirstBg from "assets/images/first-top-bg.png";
 import SecondBg from "assets/images/second-top-bg.jpg";

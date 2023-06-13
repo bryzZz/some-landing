@@ -1,7 +1,8 @@
-import { BASE_PATH } from "constants";
-import { Authorized, Home, FAQ } from "pages";
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { Authorized, Home, FAQ } from "pages";
+import { BASE_PATH } from "./constants";
 
 const router = createBrowserRouter([
   {
