@@ -1,4 +1,4 @@
-import { Footer, Header } from "components";
+import { Footer, Header, ScrollToTop } from "components";
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
@@ -24,6 +24,8 @@ export const Authorized: React.FC = () => {
       </main>
 
       <Footer />
+
+      <ScrollToTop />
     </div>
   );
 };
