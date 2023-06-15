@@ -1,0 +1,18 @@
+.PointsStoreSelect__control {
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08) !important;
+  background: #fff !important;
+}
+
+.PointsStoreSelect__indicator-separator {
+  display: none;
+}
+
+.PointsStoreSelect__placeholder {
+  @apply text-text-400 !important;
+}
+
+.PointsStoreSelect__value-container:has(svg) {
+  padding-left: 24px !important;
+}

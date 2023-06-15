@@ -46,11 +46,14 @@
   html {
     font-family: "RF Dewi Extended", system-ui, sans-serif;
   }
+
+  body {
+    padding: 0 calc(20px - (100vw - 100%)) 0 0;
+  }
 }
 
 @layer components {
   .header-container {
-    width: 100%;
     max-width: 1585px;
     margin-left: calc((100% - 1314px) / 2);
     padding-left: 1rem;
@@ -98,6 +101,10 @@
     @apply text-4xl font-semibold text-text-400;
   }
 
+  .heading-3 {
+    @apply text-[30px] font-bold leading-[36px] text-text-400;
+  }
+
   .heading-4 {
     @apply text-[19px] font-bold leading-[23px] text-text-400;
   }
@@ -124,5 +131,12 @@
 
   .sub-heading-4 {
     @apply text-[14px] leading-5 text-text-300;
+  }
+}
+
+@media (max-width: 1350px) {
+  .header-container {
+    max-width: 1314px;
+    margin: 0 auto;
   }
 }
