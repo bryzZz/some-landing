@@ -9,7 +9,7 @@ import { ReactComponent as DoorEnter } from "assets/icons/door-enter.svg";
 const navItems = [
   { label: "Преимущества", path: "a" },
   { label: "Кейсы", path: "b" },
-  { label: "Бонусы", path: "c" },
+  { label: "Бонусы", path: "bonuses/" },
   { label: "Магазин", path: "points-store/" },
   { label: "Отзывы", path: "f" },
 ];

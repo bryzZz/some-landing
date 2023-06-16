@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { PointsStoreModal, PointsStoreSelect } from "components";
+import { PointsStoreModal, FilterSelect, FilterSearch } from "components";
 
 import ShopCard1 from "assets/images/shop-preview-1.png";
 import CardImage1 from "assets/images/points-store-card-1.png";
@@ -82,29 +82,21 @@ export const PointsStore: React.FC = () => {
 
       <div className="mb-8">
         <div className="flex items-center gap-3">
-          <PointsStoreSelect
+          <FilterSelect
             options={[{ value: "1", label: "1" }]}
             placeholder="Категория"
           />
-          <PointsStoreSelect
+          <FilterSelect
             options={[{ value: "1", label: "1" }]}
             placeholder="По возрастанию цены"
             Icon={UpDownArrows}
           />
-          <PointsStoreSelect
+          <FilterSelect
             options={[{ value: "1", label: "1" }]}
             placeholder="Цена, Балл"
             className="mr-auto"
           />
-
-          <label className="flex items-center gap-[7px] rounded-md border border-[#F1F1F1] bg-text-100 px-3 text-center shadow-100">
-            <Search width={18} height={18} />
-            <input
-              className="pb-[8px] pt-[7px] text-[14px] leading-[17px] text-text-400 outline-none placeholder:text-[#C8C8C8]"
-              type="text"
-              placeholder="Поиск"
-            />
-          </label>
+          <FilterSearch />
         </div>
       </div>
 

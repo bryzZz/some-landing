@@ -5,5 +5,6 @@ export * from "./Tabs";
 export * from "./ReviewsSlider";
 export * from "./FAQAccordion";
 export * from "./ScrollToTop";
-export * from "./PointsStoreSelect";
+export * from "./FilterSelect";
 export * from "./PointsStoreModal";
+export * from "./FilterSearch";

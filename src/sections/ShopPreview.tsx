@@ -67,7 +67,13 @@ const cards = [
   },
 ];
 
-export const ShopPreview: React.FC = () => {
+interface ShopPreviewProps {
+  endSeparator?: boolean;
+}
+
+export const ShopPreview: React.FC<ShopPreviewProps> = ({
+  endSeparator = true,
+}) => {
   return (
     <section
       className="relative z-20 bg-auto bg-top bg-no-repeat pb-[860px] pt-28"
@@ -110,10 +116,12 @@ export const ShopPreview: React.FC = () => {
         ))}
       </div>
 
-      <img
-        src={ShopPreviewFg}
-        className="absolute bottom-0 left-0 z-40 w-full object-cover"
-      />
+      {endSeparator && (
+        <img
+          src={ShopPreviewFg}
+          className="absolute bottom-0 left-0 z-40 w-full object-cover"
+        />
+      )}
     </section>
   );
 };

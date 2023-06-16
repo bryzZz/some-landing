@@ -7,7 +7,7 @@ import { ReactComponent as VK } from "assets/icons/vk-2.svg";
 const navItems = [
   { label: "FAQ", path: "FAQ/" },
   { label: "Магазин", path: "points-store/" },
-  { label: "Бонусы", path: "c" },
+  { label: "Бонусы", path: "bonuses/" },
   { label: "Публичная оферта", path: "d" },
   { label: "Информация о cookie", path: "f" },
 ];

@@ -3,7 +3,7 @@ import Select, { Props, components } from "react-select";
 
 import "./style.css";
 
-interface PointsStoreSelectProps extends Omit<Props, "classNamePrefix"> {
+interface FilterSelectProps extends Omit<Props, "classNamePrefix"> {
   Icon?: React.FunctionComponent<
     React.SVGProps<SVGSVGElement> & {
       title?: string | undefined;
@@ -11,7 +11,7 @@ interface PointsStoreSelectProps extends Omit<Props, "classNamePrefix"> {
   >;
 }
 
-export const PointsStoreSelect: React.FC<PointsStoreSelectProps> = ({
+export const FilterSelect: React.FC<FilterSelectProps> = ({
   Icon,
   ...props
 }) => {
@@ -31,7 +31,7 @@ export const PointsStoreSelect: React.FC<PointsStoreSelectProps> = ({
 
   return (
     <Select
-      classNamePrefix="PointsStoreSelect"
+      classNamePrefix="FilterSelect"
       components={{ ValueContainer }}
       {...props}
     />
