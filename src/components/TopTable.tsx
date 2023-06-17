@@ -15,7 +15,7 @@ export const TopTable: React.FC<TopTableProps> = ({ top }) => {
   const renderWithImage = (image: string, value: string) => {
     return (
       <div className="flex items-center gap-4">
-        <img src={image} /> {value}
+        <img className="h-7 w-7 object-contain" src={image} /> {value}
       </div>
     );
   };

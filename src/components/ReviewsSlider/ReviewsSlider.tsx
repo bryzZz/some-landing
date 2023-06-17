@@ -44,7 +44,7 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
         }}
       >
         {items.map(({ avatar, date, title, text }, i) => (
-          <SwiperSlide className="w-full max-w-lg" key={i}>
+          <SwiperSlide className="w-full max-w-lg select-none" key={i}>
             <div className="mt-3 rounded-2xl bg-text-100 px-[22px] pb-5 shadow-100">
               <div className="flex -translate-y-3 items-center gap-4">
                 <img src={avatar} />
