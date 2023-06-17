@@ -7,7 +7,6 @@ import CardImage1 from "assets/images/points-store-card-1.png";
 import CardImage2 from "assets/images/points-store-card-2.png";
 import CardImage3 from "assets/images/points-store-card-3.png";
 import { ReactComponent as UpDownArrows } from "assets/icons/up-down-arrows.svg";
-import { ReactComponent as Search } from "assets/icons/search.svg";
 
 const infoCards = [
   {

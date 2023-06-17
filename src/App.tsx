@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { Authorized, Home, FAQ, PointsStore, Bonuses } from "pages";
+import { Authorized, Home, FAQ, PointsStore, Bonuses, Contacts } from "pages";
 import { BASE_PATH } from "./constants";
 
 const router = createBrowserRouter([
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "bonuses/",
         element: <Bonuses />,
+      },
+      {
+        path: "contacts/",
+        element: <Contacts />,
       },
     ],
   },
