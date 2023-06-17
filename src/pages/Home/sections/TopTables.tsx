@@ -66,7 +66,12 @@ export const TopTables: React.FC = () => {
 
   return (
     <section className="small-container z-10 mb-32 flex flex-col items-center">
-      <Tabs tabs={labels} value={tabValue} onChange={setTabValue} />
+      <Tabs
+        className="mb-10"
+        tabs={labels}
+        value={tabValue}
+        onChange={setTabValue}
+      />
 
       <div className="w-full">
         {tops.map(({ head, rows }, i) => (
