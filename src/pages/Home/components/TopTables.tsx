@@ -1,42 +1,45 @@
-import React, { FC, useState } from "react";
-import { twMerge } from "tailwind-merge";
+import React, { useState } from "react";
 
-import { TabPanel, Tabs } from "components";
-import { ReactComponent as Person } from "assets/icons/person.svg";
+import { TabPanel, Tabs, TopTable } from "components";
+import { TopTable as TopTableType } from "types";
 
-interface Top {
-  label: string;
-  head: string[];
-  rows: { value: string | number; Icon?: FC }[][];
-}
+import TopOffer1 from "assets/images/top-offer-1.png";
+import TopOffer2 from "assets/images/top-offer-2.png";
+import TopOffer3 from "assets/images/top-offer-3.png";
+import TopOffer4 from "assets/images/top-offer-4.png";
+import TopOffer5 from "assets/images/top-offer-5.png";
+import Person from "assets/icons/person.svg";
+import { ReactComponent as FlagRu } from "assets/icons/flag_ru-4x3.svg";
+import { ReactComponent as FlagDe } from "assets/icons/flag_de-4x3.svg";
+import { ReactComponent as FlagPt } from "assets/icons/flag_pt-4x3.svg";
 
-const tops: Top[] = [
+const tops: TopTableType[] = [
   {
     label: "Топ веб-мастеров",
     head: ["Имя", "За день", "За месяц"],
     rows: [
       [
-        { value: "Никто Павлов", Icon: Person },
+        { value: "Никто Павлов", image: Person },
         { value: 5000 },
         { value: 50000 },
       ],
       [
-        { value: "Никто Павлов", Icon: Person },
+        { value: "Никто Павлов", image: Person },
         { value: 5000 },
         { value: 50000 },
       ],
       [
-        { value: "Никто Павлов", Icon: Person },
+        { value: "Никто Павлов", image: Person },
         { value: 5000 },
         { value: 50000 },
       ],
       [
-        { value: "Никто Павлов", Icon: Person },
+        { value: "Никто Павлов", image: Person },
         { value: 5000 },
         { value: 50000 },
       ],
       [
-        { value: "Никто Павлов", Icon: Person },
+        { value: "Никто Павлов", image: Person },
         { value: 5000 },
         { value: 50000 },
       ],
@@ -44,22 +47,38 @@ const tops: Top[] = [
   },
   {
     label: "Топ офферов",
-    head: ["Имя", "За день", "За месяц"],
+    head: ["Название", "Гео", "Epc"],
     rows: [
-      [{ value: "Оффер 1" }, { value: 5000 }, { value: 50000 }],
-      [{ value: "Оффер 1" }, { value: 5000 }, { value: 50000 }],
-      [{ value: "Оффер 1" }, { value: 5000 }, { value: 50000 }],
-      [{ value: "Оффер 1" }, { value: 5000 }, { value: 50000 }],
-      [{ value: "Оффер 1" }, { value: 5000 }, { value: 50000 }],
+      [
+        { value: "Экодар гибридные мини-деревья", image: TopOffer1 },
+        { icons: [FlagRu, FlagDe, FlagPt] },
+        { value: "31%" },
+      ],
+      [
+        { value: "Экодар гибридные мини-деревья", image: TopOffer2 },
+        { icons: [FlagRu, FlagDe, FlagPt] },
+        { value: "31%" },
+      ],
+      [
+        { value: "Экодар гибридные мини-деревья", image: TopOffer3 },
+        { icons: [FlagRu, FlagDe, FlagPt] },
+        { value: "31%" },
+      ],
+      [
+        { value: "Экодар гибридные мини-деревья", image: TopOffer4 },
+        { icons: [FlagRu, FlagDe, FlagPt] },
+        { value: "31%" },
+      ],
+      [
+        { value: "Экодар гибридные мини-деревья", image: TopOffer5 },
+        { icons: [FlagRu, FlagDe, FlagPt] },
+        { value: "31%" },
+      ],
     ],
   },
 ];
 
 const labels = tops.map(({ label }) => label);
-
-const USDollar = new Intl.NumberFormat("ru-RU", {
-  minimumSignificantDigits: 6,
-});
 
 export const TopTables: React.FC = () => {
   const [tabValue, setTabValue] = useState(0);
@@ -74,56 +93,9 @@ export const TopTables: React.FC = () => {
       />
 
       <div className="w-full">
-        {tops.map(({ head, rows }, i) => (
+        {tops.map((top, i) => (
           <TabPanel value={i} tabValue={tabValue} key={i}>
-            <table className="w-full table-fixed border-separate border-spacing-y-2">
-              <thead>
-                <tr className="bg-[#F4F4F4] text-[14px] font-bold text-[#B3B3B3]">
-                  {head.map((value, i, arr) => (
-                    <th
-                      key={i}
-                      className={twMerge(
-                        "py-3 pl-8 text-left",
-                        i === 0 && "rounded-bl rounded-tl",
-                        i === arr.length - 1 && "rounded-br rounded-tr"
-                      )}
-                    >
-                      {value}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row, i) => (
-                  <tr
-                    className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
-                    key={i}
-                  >
-                    {row.map(({ value, Icon }, i, arr) => (
-                      <td
-                        className={twMerge(
-                          "py-3 pl-3",
-                          Icon && "flex items-center gap-4",
-                          i === 0 && "rounded-bl rounded-tl",
-                          i === arr.length - 1 && "rounded-br rounded-tr"
-                        )}
-                        key={i}
-                      >
-                        {Icon && <Icon />}
-                        {typeof value === "number" ? (
-                          <span>
-                            <span className="text-primary-100">$</span>{" "}
-                            {USDollar.format(value)}
-                          </span>
-                        ) : (
-                          value
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <TopTable top={top} />
           </TabPanel>
         ))}
       </div>

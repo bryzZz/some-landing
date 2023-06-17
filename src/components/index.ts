@@ -9,3 +9,4 @@ export * from "./FilterSelect";
 export * from "./PointsStoreModal";
 export * from "./FilterSearch";
 export * from "./ShopPreview";
+export * from "./TopTable";
