@@ -1,6 +1,7 @@
 import React from "react";
-import { First, Cards, Slides, TopTables, Reviews } from "./sections";
-import { ShopPreview } from "sections";
+
+import { ShopPreview } from "components";
+import { First, Cards, Slides, TopTables, Reviews } from "./components";
 
 export const Home: React.FC = () => {
   return (

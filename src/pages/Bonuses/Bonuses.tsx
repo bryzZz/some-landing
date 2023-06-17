@@ -1,7 +1,6 @@
-import { FilterSearch, FilterSelect } from "components";
 import React from "react";
 
-import { ShopPreview } from "sections";
+import { FilterSearch, FilterSelect, ShopPreview } from "components";
 
 import Bonus1 from "assets/images/bonuses-1.png";
 import Bonus2 from "assets/images/bonuses-2.png";
@@ -68,43 +67,41 @@ const bonuses = [
 export const Bonuses: React.FC = () => {
   return (
     <>
-      <section>
+      <section className="base-container">
         <h1 className="heading-1 mb-40 text-center">Скидки и бонусы</h1>
 
-        <div className="base-container">
-          <div className="mb-8 flex items-center justify-between">
-            <FilterSelect
-              options={[{ value: "1", label: "1" }]}
-              placeholder="Категория"
-            />
-            <FilterSearch />
-          </div>
+        <div className="mb-8 flex items-center justify-between">
+          <FilterSelect
+            options={[{ value: "1", label: "1" }]}
+            placeholder="Категория"
+          />
+          <FilterSearch placeholder="Поиск" />
+        </div>
 
-          <div className="mb-40 flex flex-col gap-[30px]">
-            {bonuses.map(({ img, text, bonus, link }) => (
-              <div className="flex rounded-2xl bg-text-100 p-7 shadow-100">
-                <img
-                  className="w-full max-w-[120px] object-cover pr-16"
-                  src={img}
-                />
-                <p className="sub-heading-3 mr-7 w-full max-w-md font-semibold">
-                  {text}
-                </p>
-                <p className="mr-auto text-2xl font-extrabold uppercase text-text-400">
-                  {bonus}
-                </p>
-                <a
-                  className="flex items-center gap-1 justify-self-end font-extrabold text-[#3452FF]"
-                  href={link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Перейти
-                  <ExternalLink />
-                </a>
-              </div>
-            ))}
-          </div>
+        <div className="mb-40 flex flex-col gap-[30px]">
+          {bonuses.map(({ img, text, bonus, link }) => (
+            <div className="flex rounded-2xl bg-text-100 p-7 shadow-100">
+              <img
+                className="w-full max-w-[120px] object-cover pr-16"
+                src={img}
+              />
+              <p className="sub-heading-3 mr-7 w-full max-w-md font-semibold">
+                {text}
+              </p>
+              <p className="mr-auto text-2xl font-extrabold uppercase text-text-400">
+                {bonus}
+              </p>
+              <a
+                className="flex items-center gap-1 justify-self-end font-extrabold text-[#3452FF]"
+                href={link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Перейти
+                <ExternalLink />
+              </a>
+            </div>
+          ))}
         </div>
       </section>
 

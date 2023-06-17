@@ -1,15 +1,29 @@
 import React from "react";
+import { twMerge } from "tailwind-merge";
 
 import { ReactComponent as Search } from "assets/icons/search.svg";
 
-export const FilterSearch: React.FC = () => {
+interface FilterSearchProps {
+  className?: string;
+  placeholder?: string;
+}
+
+export const FilterSearch: React.FC<FilterSearchProps> = ({
+  className,
+  placeholder,
+}) => {
   return (
-    <label className="flex items-center gap-[7px] rounded-md border border-[#F1F1F1] bg-text-100 px-3 text-center shadow-100">
-      <Search width={18} height={18} />
+    <label
+      className={twMerge(
+        "flex items-center gap-[7px] rounded-md border border-[#F1F1F1] bg-text-100 px-3 text-center shadow-100",
+        className
+      )}
+    >
+      <Search />
       <input
-        className="pb-[8px] pt-[7px] text-[14px] leading-[17px] text-text-400 outline-none placeholder:text-[#C8C8C8]"
+        className="pb-[8px] pt-[7px] text-text-400 outline-none placeholder:text-[#C8C8C8]"
         type="text"
-        placeholder="Поиск"
+        placeholder={placeholder}
       />
     </label>
   );

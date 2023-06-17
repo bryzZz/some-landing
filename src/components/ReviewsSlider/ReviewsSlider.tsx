@@ -17,28 +17,30 @@ interface ReviewsSliderProps {
 }
 
 export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
-  const nextBtnRef = useRef<HTMLButtonElement>(null);
-  const prevBtnRef = useRef<HTMLButtonElement>(null);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center gap-[114px]">
       <div className="flex flex-col gap-[40px]">
-        <button className="swiper-nav-btn" ref={prevBtnRef}>
+        <button className="swiper-nav-btn" ref={prevRef}>
           <ArrowLeft />
         </button>
-        <button className="swiper-nav-btn" ref={nextBtnRef}>
+        <button className="swiper-nav-btn" ref={nextRef}>
           <ArrowLeft className="rotate-180" />
         </button>
       </div>
 
       <Swiper
-        slidesPerView={"auto"}
+        slidesPerView="auto"
         spaceBetween={30}
         className="reviews-swiper"
         modules={[Navigation]}
-        navigation={{
-          nextEl: nextBtnRef.current,
-          prevEl: prevBtnRef.current,
+        onInit={(swiper) => {
+          (swiper.params.navigation as any).prevEl = prevRef.current;
+          (swiper.params.navigation as any).nextEl = nextRef.current;
+          swiper.navigation.init();
+          swiper.navigation.update();
         }}
       >
         {items.map(({ avatar, date, title, text }, i) => (

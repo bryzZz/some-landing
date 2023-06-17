@@ -46,10 +46,6 @@
   html {
     font-family: "RF Dewi Extended", system-ui, sans-serif;
   }
-
-  body {
-    padding: 0 calc(20px - (100vw - 100%)) 0 0;
-  }
 }
 
 @layer components {
@@ -77,8 +73,7 @@
   }
 
   .reviews-container {
-    padding-left: 1rem;
-    margin-left: calc((100% - 1314px) / 2);
+    padding-left: max(calc((100% - 1314px) / 2), 15px);
   }
 
   .FAQ-container {

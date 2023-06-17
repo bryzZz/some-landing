@@ -1,12 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { useState } from "react";
 
-import { ReactComponent as Search } from "assets/icons/search.svg";
 import { ReactComponent as QuestionTab1 } from "assets/icons/question-tab-1.svg";
 import { ReactComponent as QuestionTab2 } from "assets/icons/question-tab-2.svg";
 import { ReactComponent as QuestionTab3 } from "assets/icons/question-tab-3.svg";
 import { ReactComponent as QuestionTab4 } from "assets/icons/question-tab-4.svg";
-import { FAQAccordion, TabPanel } from "components";
+import { FAQAccordion, TabPanel, FilterSearch } from "components";
 import { twMerge } from "tailwind-merge";
 
 const questionTabs = [
@@ -165,14 +164,7 @@ export const FAQ: React.FC = () => {
     <section className="FAQ-container mb-28">
       <h1 className="heading-1 mb-7 text-center">Вопросы и ответы</h1>
 
-      <label className="mb-6 flex items-center gap-[7px] rounded-md border border-[#F1F1F1] bg-text-100 px-3 text-center shadow-100">
-        <Search />
-        <input
-          className="pb-[15px] pt-[14px] text-[16px] leading-[19px] text-text-400 outline-none placeholder:text-[#C8C8C8]"
-          type="text"
-          placeholder="Поиск вопроса"
-        />
-      </label>
+      <FilterSearch className="mb-6 py-2" placeholder="Поиск вопроса" />
 
       <p className="sub-heading-4 mb-32 text-center">
         Или выбирите категорию вопроса ниже.

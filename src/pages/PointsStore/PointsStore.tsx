@@ -79,24 +79,22 @@ export const PointsStore: React.FC = () => {
         ))}
       </div>
 
-      <div className="mb-8">
-        <div className="flex items-center gap-3">
-          <FilterSelect
-            options={[{ value: "1", label: "1" }]}
-            placeholder="Категория"
-          />
-          <FilterSelect
-            options={[{ value: "1", label: "1" }]}
-            placeholder="По возрастанию цены"
-            Icon={UpDownArrows}
-          />
-          <FilterSelect
-            options={[{ value: "1", label: "1" }]}
-            placeholder="Цена, Балл"
-            className="mr-auto"
-          />
-          <FilterSearch />
-        </div>
+      <div className="mb-8 flex items-center gap-3">
+        <FilterSelect
+          options={[{ value: "1", label: "1" }]}
+          placeholder="Категория"
+        />
+        <FilterSelect
+          options={[{ value: "1", label: "1" }]}
+          placeholder="По возрастанию цены"
+          Icon={UpDownArrows}
+        />
+        <FilterSelect
+          options={[{ value: "1", label: "1" }]}
+          placeholder="Цена, Балл"
+          className="mr-auto"
+        />
+        <FilterSearch placeholder="Поиск" />
       </div>
 
       <div className="grid grid-cols-4 gap-[30px]">
