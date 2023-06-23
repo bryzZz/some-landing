@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FilterSearch, FilterSelect, ShopPreview } from "components";
+import { FilterSearch, FilterSelect, ShopPreviewMini } from "components";
 
 import Bonus1 from "assets/images/bonuses-1.png";
 import Bonus2 from "assets/images/bonuses-2.png";
@@ -105,7 +105,7 @@ export const Bonuses: React.FC = () => {
         </div>
       </section>
 
-      <ShopPreview endSeparator={false} />
+      <ShopPreviewMini />
     </>
   );
 };

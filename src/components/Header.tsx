@@ -6,7 +6,7 @@ import { ReactComponent as Telegram } from "assets/icons/telegram.svg";
 import { ReactComponent as USAFlag } from "assets/icons/usa-flag.svg";
 import { ReactComponent as DoorEnter } from "assets/icons/door-enter.svg";
 import { ReactComponent as Logo } from "assets/icons/logo.svg";
-import { BASE_PATH } from "constants";
+import { BASE_PATH } from "constants/index";
 
 const navItems = [
   { label: "Преимущества", path: "a" },

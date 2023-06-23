@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-import { PointsStoreModal, FilterSelect, FilterSearch } from "components";
+import {
+  PointsStoreModal,
+  FilterSelect,
+  FilterSearch,
+  ShopCard,
+} from "components";
 
 import ShopCard1 from "assets/images/shop-preview-1.png";
 import CardImage1 from "assets/images/points-store-card-1.png";
@@ -98,26 +103,12 @@ export const PointsStore: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-4 gap-[30px]">
-        {products.map(({ id, img, supTitle, title }) => (
-          <div
-            key={id}
-            className="flex flex-col items-center rounded-3xl bg-text-100 p-5 text-center shadow-100"
-          >
-            <div className="mb-7 h-[324px]">
-              <img className="h-full w-full object-cover" src={img} />
-            </div>
-            <h5 className="mb-3 font-black uppercase text-[#B5B5B5]">
-              {supTitle}
-            </h5>
-            <h4 className="heading-4 mb-5 whitespace-pre-line">{title}</h4>
-
-            <button
-              className="rounded-[4px] bg-[#F3F3F3] px-[26px] py-[14px] text-[14px] font-bold leading-4 text-text-400"
-              onClick={handleProductClick(id)}
-            >
-              Подробнее
-            </button>
-          </div>
+        {products.map(({ id, ...data }) => (
+          <ShopCard
+            data={data}
+            details
+            onDetailsClick={handleProductClick(id)}
+          />
         ))}
       </div>
 

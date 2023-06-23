@@ -12,7 +12,7 @@ import ShopCard6 from "assets/images/shop-preview-6.png";
 import ShopCard7 from "assets/images/shop-preview-7.png";
 import ShopCard8 from "assets/images/shop-preview-8.png";
 import ShopCard9 from "assets/images/shop-preview-9.png";
-import { twMerge } from "tailwind-merge";
+import { ShopCard } from "./ShopCard";
 
 const cards = [
   {
@@ -67,13 +67,7 @@ const cards = [
   },
 ];
 
-interface ShopPreviewProps {
-  endSeparator?: boolean;
-}
-
-export const ShopPreview: React.FC<ShopPreviewProps> = ({
-  endSeparator = true,
-}) => {
+export const ShopPreview: React.FC = () => {
   return (
     <section
       className="relative z-20 bg-auto bg-top bg-no-repeat pb-[860px] pt-28"
@@ -97,31 +91,19 @@ export const ShopPreview: React.FC<ShopPreviewProps> = ({
       </div>
 
       <div className="absolute left-0 top-72 z-30 grid rotate-[-30deg] grid-cols-[repeat(6,324px)] gap-20">
-        {cards.map(({ img, supTitle, title }, i) => (
-          <div
+        {cards.map((data, i) => (
+          <ShopCard
             key={i}
-            className={twMerge(
-              "flex flex-col items-center rounded-3xl bg-text-100 py-12 text-center shadow-100",
-              i === 0 && "col-start-2"
-            )}
-          >
-            <div className="mb-7 h-[324px]">
-              <img className="h-full w-full object-cover" src={img} />
-            </div>
-            <h5 className="mb-3 font-black uppercase text-[#B5B5B5]">
-              {supTitle}
-            </h5>
-            <h4 className="heading-4 whitespace-pre-line">{title}</h4>
-          </div>
+            data={data}
+            className={i === 0 ? "col-start-2" : ""}
+          />
         ))}
       </div>
 
-      {endSeparator && (
-        <img
-          src={ShopPreviewFg}
-          className="absolute bottom-0 left-0 z-40 w-full object-cover"
-        />
-      )}
+      <img
+        src={ShopPreviewFg}
+        className="absolute bottom-0 left-0 z-40 w-full object-cover"
+      />
     </section>
   );
 };

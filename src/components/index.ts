@@ -10,3 +10,5 @@ export * from "./PointsStoreModal";
 export * from "./FilterSearch";
 export * from "./ShopPreview";
 export * from "./TopTable";
+export * from "./ShopPreviewMini";
+export * from "./ShopCard";
