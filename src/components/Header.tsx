@@ -5,6 +5,8 @@ import { ReactComponent as VK } from "assets/icons/vk.svg";
 import { ReactComponent as Telegram } from "assets/icons/telegram.svg";
 import { ReactComponent as USAFlag } from "assets/icons/usa-flag.svg";
 import { ReactComponent as DoorEnter } from "assets/icons/door-enter.svg";
+import { ReactComponent as Logo } from "assets/icons/logo.svg";
+import { BASE_PATH } from "constants";
 
 const navItems = [
   { label: "Преимущества", path: "a" },
@@ -17,8 +19,12 @@ const navItems = [
 export const Header: React.FC = () => {
   return (
     <header className="header-container pt-8">
-      <div className="flex items-center justify-between">
-        <nav className="flex items-center gap-4 lg:gap-9">
+      <div className="flex items-center">
+        <Link to={BASE_PATH} className="mr-24">
+          <Logo />
+        </Link>
+
+        <nav className="mr-auto flex items-center gap-4 lg:gap-9">
           {navItems.map(({ label, path }, i) => (
             <Link key={i} to={path} className="font-semibold text-text-400">
               {label}

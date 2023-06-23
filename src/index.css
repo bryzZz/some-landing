@@ -50,10 +50,11 @@
 
 @layer components {
   .header-container {
-    max-width: 1585px;
-    margin-left: calc((100% - 1314px) / 2);
+    width: 100%;
+    max-width: 1820px;
     padding-left: 1rem;
     padding-right: 1rem;
+    margin: 0 auto;
   }
 
   .base-container {
@@ -126,12 +127,5 @@
 
   .sub-heading-4 {
     @apply text-[14px] leading-5 text-text-300;
-  }
-}
-
-@media (max-width: 1350px) {
-  .header-container {
-    max-width: 1314px;
-    margin: 0 auto;
   }
 }
