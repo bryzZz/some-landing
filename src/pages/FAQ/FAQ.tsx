@@ -184,11 +184,17 @@ export const FAQ: React.FC = () => {
             <h5 className="heading-5 text-center">{label}</h5>
           </div>
         ))}
-        <div className="relative h-[234px] w-full max-w-[194px] cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-5 pt-16 shadow-100">
+        <div className="relative h-[234px] w-full max-w-[194px] cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-16 shadow-100">
           <div className="absolute -left-14 -top-5 z-10 h-36  w-36 rounded-full bg-gradient-to-l from-text-100 to-transparent" />
-          <h5 className="heading-5 relative z-20 text-center">
-            Не нашли ответ на свой вопрос?
-          </h5>
+          <div className="relative z-20 flex h-full flex-col justify-between">
+            <h5 className="heading-5 text-center">
+              Не нашли ответ на свой вопрос?
+            </h5>
+            <p className="text-[12px] text-text-300">
+              Напишите вопрос на почту <span>info@leadshub.pro</span>, и мы
+              обязательно поможем!
+            </p>
+          </div>
         </div>
       </div>
 
