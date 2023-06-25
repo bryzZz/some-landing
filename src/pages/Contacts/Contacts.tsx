@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { twMerge } from "tailwind-merge";
 
 import { TabPanel } from "components";
 
 import Person from "assets/icons/person.svg";
 import { ReactComponent as Telegram } from "assets/icons/telegram-2.svg";
 import { ReactComponent as Mail } from "assets/icons/mail.svg";
-import { Link } from "react-router-dom";
-import { twMerge } from "tailwind-merge";
+import ContactsImage from "assets/images/contacts-image.jpg";
 
 const contacts = [
   {
@@ -33,14 +34,14 @@ const contacts = [
     items: [
       {
         avatar: Person,
-        name: "Снежана",
+        name: "Снежана2",
         role: "Advertise manager",
         telegram: "as",
         mail: "asd",
       },
       {
         avatar: Person,
-        name: "Дмитрий",
+        name: "Дмитрий2",
         role: "SEO",
         telegram: "as",
         mail: "asd",
@@ -52,14 +53,14 @@ const contacts = [
     items: [
       {
         avatar: Person,
-        name: "Снежана",
+        name: "Снежана3",
         role: "Advertise manager",
         telegram: "as",
         mail: "asd",
       },
       {
         avatar: Person,
-        name: "Дмитрий",
+        name: "Дмитрий3",
         role: "SEO",
         telegram: "as",
         mail: "asd",
@@ -69,6 +70,24 @@ const contacts = [
 ];
 
 const labels = contacts.map(({ label }) => label);
+
+const bottomContacts = [
+  {
+    title: "Поддержка в Telegram:",
+    link: "@leadshub_support",
+    Icon: Telegram,
+  },
+  {
+    title: "вопросы и предложения:",
+    link: "info@leadshub.pro",
+    Icon: Mail,
+  },
+  {
+    title: "Ваши резюме:",
+    link: "hr@leadshub.pro",
+    Icon: Mail,
+  },
+];
 
 export const Contacts: React.FC = () => {
   const [tabValue, setTabValue] = useState(0);
@@ -129,6 +148,23 @@ export const Contacts: React.FC = () => {
               ))}
             </div>
           </TabPanel>
+        ))}
+      </div>
+
+      <div
+        className="mx-auto mb-36 flex w-full max-w-[975px] items-center justify-between rounded-2xl border border-[#D1D1D1] bg-cover bg-center bg-no-repeat px-11 pb-10 pt-9 shadow-100"
+        style={{ backgroundImage: `url(${ContactsImage})` }}
+      >
+        {bottomContacts.map(({ title, Icon, link }) => (
+          <div className="text-center">
+            <h5 className="mb-1 text-[14px] font-bold uppercase text-[#000]">
+              {title}
+            </h5>
+            <a className="flex cursor-pointer items-center justify-center gap-1 text-[525260]">
+              <Icon width={20} height={20} />
+              {link}
+            </a>
+          </div>
         ))}
       </div>
     </section>
