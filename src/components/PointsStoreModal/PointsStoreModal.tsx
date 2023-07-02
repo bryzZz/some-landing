@@ -76,9 +76,7 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
             </button>
           </div>
 
-          <button className="btn-primary from-[#1D74F7] via-[#1D4DF7] to-[#1D74F7]">
-            Приобрести товар
-          </button>
+          <button className="btn-secondary">Приобрести товар</button>
         </div>
       </div>
     </Modal>

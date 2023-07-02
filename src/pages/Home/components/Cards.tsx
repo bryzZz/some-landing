@@ -65,13 +65,13 @@ const bottomCards = [
 
 export const Cards: React.FC = () => {
   return (
-    <section className="base-container grid-rows-7 mb-24 grid grid-cols-8 gap-7">
+    <section className="base-container mb-20 grid grid-cols-6 gap-7 lg:mb-24 lg:grid-cols-8">
       {topCards.map(({ Icon, title, subTitle }, i) => (
         <div
-          className="col-span-2 row-span-4 rounded-2xl bg-text-100 p-6 shadow-100"
+          className="col-span-3 row-span-4 rounded-2xl bg-text-100 p-5 shadow-100 lg:col-span-2 lg:p-6"
           key={i}
         >
-          <div className="mb-3 grid grid-cols-[50px_1fr] gap-4">
+          <div className="mb-3 grid grid-cols-[50px_1fr] items-center gap-4">
             <Icon />
             <h5 className="heading-6">{title}</h5>
           </div>
@@ -79,14 +79,27 @@ export const Cards: React.FC = () => {
         </div>
       ))}
 
-      <div className="col-span-2 row-span-6 rounded-2xl bg-gradient-to-tl from-primary-300 to-primary-400 p-6 pt-2 shadow-100">
+      <div className="col-span-2 row-span-2 rounded-2xl bg-gradient-to-tl from-primary-300 to-primary-400 p-6 pt-2 shadow-100 lg:col-span-2 lg:row-span-6">
         <img src={MainImage2} />
         <p className="heading-6 text-center text-text-100">Генератор чеков</p>
       </div>
 
-      {bottomCards.map(({ Icon, title, subTitle }, i) => (
+      {bottomCards.slice(0, 2).map(({ Icon, title, subTitle }, i) => (
         <div
-          className="col-span-3 row-span-3 grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100"
+          className="col-span-4 row-span-1 grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100 lg:col-span-3 lg:row-span-3"
+          key={i}
+        >
+          <Icon />
+          <div>
+            <p className="heading-6">{title}</p>
+            <p className="sub-heading-4">{subTitle}</p>
+          </div>
+        </div>
+      ))}
+
+      {bottomCards.slice(2).map(({ Icon, title, subTitle }, i) => (
+        <div
+          className="col-span-3 row-span-1 grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100 lg:col-span-3 lg:row-span-3"
           key={i}
         >
           <Icon />

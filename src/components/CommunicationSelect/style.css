@@ -1,0 +1,31 @@
+.CommunicationSelect__container {
+  @apply min-h-full !important;
+}
+
+.CommunicationSelect__control {
+  @apply btn-primary h-full w-[154px] cursor-pointer rounded-none rounded-bl rounded-tl border-none py-3 pl-3 pr-2 text-text-100 shadow-none outline-none !important;
+}
+
+.CommunicationSelect__single-value {
+  @apply text-text-100 !important;
+}
+
+.CommunicationSelect__indicator-separator {
+  display: none;
+}
+
+.CommunicationSelect__placeholder {
+  @apply text-text-100 !important;
+}
+
+.CommunicationSelect__option {
+  @apply cursor-pointer !important;
+}
+
+.CommunicationSelect__option--is-focused {
+  @apply bg-text-100 !important;
+}
+
+.CommunicationSelect__option--is-selected {
+  @apply bg-primary-100 !important;
+}

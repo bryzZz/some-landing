@@ -86,15 +86,19 @@
   }
 
   .btn-primary {
-    @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 px-6 py-4 font-extrabold text-text-100;
+    @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 px-6 py-4 font-extrabold text-text-100 shadow-[0px_8px_25px_-8px_#F2821D] transition hover:shadow-[0px_19px_30px_-10px_rgba(248,_172,_29,_0.88)];
+  }
+
+  .btn-secondary {
+    @apply rounded bg-gradient-to-r from-[#1D74F7] via-[#1D4DF7] to-[#1D74F7] font-extrabold text-text-100 transition hover:shadow-[0px_19px_30px_-10px_rgba(30,_112,_248,_0.70)] xl:px-6 xl:py-4;
   }
 
   .heading-1 {
-    @apply text-5xl font-extrabold leading-10 text-text-400;
+    @apply text-4xl font-extrabold leading-10 text-text-400 lg:text-5xl;
   }
 
   .heading-2 {
-    @apply text-4xl font-semibold text-text-400;
+    @apply text-[32px] font-semibold leading-8 text-text-400 lg:text-4xl;
   }
 
   .heading-3 {
@@ -106,23 +110,23 @@
   }
 
   .heading-5 {
-    @apply text-[16px] font-bold leading-5 text-text-400;
-  }
-
-  .heading-6 {
     @apply text-[15px] font-bold leading-5 text-text-400;
   }
 
+  .heading-6 {
+    @apply text-[15px] font-bold leading-5 text-text-400 lg:text-base;
+  }
+
   .sub-heading-1 {
-    @apply text-[19px] font-semibold leading-7 text-text-300;
+    @apply text-[17px] font-semibold leading-7 text-text-300 lg:text-[19px];
   }
 
   .sub-heading-2 {
-    @apply text-[18px] leading-7 text-text-300;
+    @apply text-base leading-7 text-text-300 lg:text-[18px];
   }
 
   .sub-heading-3 {
-    @apply text-[16px] leading-6 text-text-300;
+    @apply text-[14px] leading-6 text-text-300 lg:text-base;
   }
 
   .sub-heading-4 {

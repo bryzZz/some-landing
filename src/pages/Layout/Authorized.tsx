@@ -19,7 +19,7 @@ export const Authorized: React.FC = () => {
     >
       <Header />
 
-      <main className="overflow-hidden pt-36">
+      <main className="overflow-hidden pt-44">
         <Outlet />
       </main>
 

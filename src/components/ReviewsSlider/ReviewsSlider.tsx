@@ -21,7 +21,7 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
   const nextRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <div className="flex items-center gap-[114px]">
+    <div className="flex items-center gap-10 lg:gap-20 xl:gap-[114px]">
       <div className="flex flex-col gap-[40px]">
         <button className="swiper-nav-btn" ref={prevRef}>
           <ArrowLeft />
@@ -44,7 +44,10 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
         }}
       >
         {items.map(({ avatar, date, title, text }, i) => (
-          <SwiperSlide className="w-full max-w-lg select-none" key={i}>
+          <SwiperSlide
+            className="w-full max-w-sm select-none lg:max-w-md xl:max-w-lg"
+            key={i}
+          >
             <div className="mt-3 rounded-2xl bg-text-100 px-[22px] pb-5 shadow-100">
               <div className="flex -translate-y-3 items-center gap-4">
                 <img src={avatar} />

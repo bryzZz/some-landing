@@ -10,7 +10,7 @@ import "./styles.css";
 
 export const Slides: React.FC = () => {
   return (
-    <section className="small-container mb-28">
+    <section className="small-container mb-24 lg:mb-28">
       <div className="max-w-2xl">
         <h2 className="heading-2 mb-5">
           Индивидуальность & инновационность, уверенность
@@ -33,9 +33,9 @@ export const Slides: React.FC = () => {
       >
         {new Array(4).fill(0).map((_, i) => (
           <SwiperSlide key={i}>
-            <div className="flex gap-28 pl-24">
+            <div className="flex gap-24 pl-24 lg:gap-28">
               <div>
-                <h3 className="mb-6 text-[130px] text-text-400">
+                <h3 className="mb-2 text-[115px] text-text-400 lg:mb-6 lg:text-[130px]">
                   <span className="text-primary-100">$</span>20m+
                 </h3>
                 <p className="sub-heading-3 max-w-xs">

@@ -5,11 +5,13 @@ import MainImage from "assets/images/main-image.png";
 
 export const First: React.FC = () => {
   return (
-    <section className="base-container mb-32 flex justify-between gap-24">
+    <section className="base-container mb-28 flex justify-between gap-24 lg:mb-32">
       <div className="w-full max-w-xl">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 px-5 pb-[2px] pt-1 font-semibold text-text-300 backdrop-blur-sm">
+        <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 px-5 pb-[2px] pt-1 backdrop-blur-sm">
           <Shild />
-          Надежный партнер
+          <span className="text-[14px] font-semibold text-text-300 lg:text-base">
+            Надежный партнер
+          </span>
         </div>
         <h1 className="heading-1 mb-5">
           Монетизируйте трафик по лучшим условиям
@@ -20,7 +22,7 @@ export const First: React.FC = () => {
         </p>
         <button className="btn-primary">Регистрация</button>
       </div>
-      <div className="w-full max-w-[408px]">
+      <div className="w-full max-w-[319px] lg:max-w-[408px]">
         <img src={MainImage} className="w-full" />
       </div>
     </section>

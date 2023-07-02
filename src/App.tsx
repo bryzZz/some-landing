@@ -1,7 +1,16 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { Authorized, Home, FAQ, PointsStore, Bonuses, Contacts } from "pages";
+import {
+  Authorized,
+  Home,
+  FAQ,
+  PointsStore,
+  Bonuses,
+  Contacts,
+  Unauthorized,
+  Registration,
+} from "pages";
 import { BASE_PATH } from "./constants";
 
 const router = createBrowserRouter([
@@ -28,6 +37,17 @@ const router = createBrowserRouter([
       {
         path: "contacts/",
         element: <Contacts />,
+      },
+    ],
+  },
+  // Тут переделать
+  {
+    path: BASE_PATH + "unauthorized/",
+    element: <Unauthorized />,
+    children: [
+      {
+        path: "registration/",
+        element: <Registration />,
       },
     ],
   },

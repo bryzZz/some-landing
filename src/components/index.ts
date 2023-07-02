@@ -12,3 +12,4 @@ export * from "./ShopPreview";
 export * from "./TopTable";
 export * from "./ShopPreviewMini";
 export * from "./ShopCard";
+export * from "./CommunicationSelect";

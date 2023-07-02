@@ -131,14 +131,14 @@ export const Contacts: React.FC = () => {
                   <div className="flex items-center gap-1">
                     <Link
                       to={telegram}
-                      className="flex items-center gap-2 rounded-bl-lg rounded-tl-lg bg-[#F8F8F8] p-4 font-semibold"
+                      className="flex items-center gap-2 rounded-bl-lg rounded-tl-lg bg-[#F8F8F8] p-4 font-semibold transition hover:bg-[#EEEEEE]"
                     >
                       <Telegram />
                       Telegram
                     </Link>
                     <Link
                       to={mail}
-                      className="flex items-center gap-2 rounded-br-lg rounded-tr-lg bg-[#F8F8F8] p-4 font-semibold"
+                      className="flex items-center gap-2 rounded-br-lg rounded-tr-lg bg-[#F8F8F8] p-4 font-semibold transition hover:bg-[#EEEEEE]"
                     >
                       <Mail />
                       E-mail

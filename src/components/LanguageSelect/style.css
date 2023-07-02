@@ -1,0 +1,31 @@
+.LanguageSelect__control {
+  @apply cursor-pointer rounded border-none bg-[#F4F4F4] p-2 shadow-none outline-none !important;
+}
+
+.LanguageSelect__indicators {
+  @apply hidden !important;
+}
+
+.LanguageSelect__single-value {
+  @apply flex items-center gap-[3px] text-[13px] font-extrabold text-[#9A9A9A] xl:text-base !important;
+}
+
+.LanguageSelect__indicator-separator {
+  @apply hidden !important;
+}
+
+.LanguageSelect__option {
+  @apply flex cursor-pointer items-center justify-center gap-[3px] text-[13px] font-extrabold text-[#9A9A9A] xl:text-base !important;
+}
+
+.LanguageSelect__option--is-focused {
+  @apply bg-[#F4F4F4] !important;
+}
+
+.LanguageSelect__option--is-selected {
+  @apply bg-[#F4F4F4] !important;
+}
+
+.LanguageSelect__menu {
+  @apply shadow-[0px_4px_20px_0px_rgba(0,_0,_0,_0.10)] !important;
+}
