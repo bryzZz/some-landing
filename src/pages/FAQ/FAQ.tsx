@@ -164,7 +164,10 @@ export const FAQ: React.FC = () => {
     <section className="FAQ-container mb-28">
       <h1 className="heading-1 mb-7 text-center">Вопросы и ответы</h1>
 
-      <FilterSearch className="mb-6 py-2" placeholder="Поиск вопроса" />
+      <FilterSearch
+        className="mx-auto mb-6 w-full max-w-xl py-2"
+        placeholder="Поиск вопроса"
+      />
 
       <p className="sub-heading-4 mb-32 text-center">
         Или выбирите категорию вопроса ниже.
@@ -201,7 +204,7 @@ export const FAQ: React.FC = () => {
       <div>
         {questionTabs.map(({ label, questions }, i) => (
           <TabPanel value={i} tabValue={tabValue} key={i}>
-            <h2 className="heading-2 mb-[70px]">
+            <h2 className="heading-2 mb-[70px] text-center">
               {label}
               <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
             </h2>

@@ -110,7 +110,7 @@
   }
 
   .heading-5 {
-    @apply text-[15px] font-bold leading-5 text-text-400;
+    @apply text-[14px] font-bold leading-5 text-text-400 lg:text-[16px];
   }
 
   .heading-6 {

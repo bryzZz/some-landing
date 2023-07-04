@@ -56,9 +56,10 @@ export const Footer: React.FC = () => {
                 <Link
                   key={i}
                   to={path}
-                  className="text-400 text-xs font-bold uppercase"
+                  className="text-400 group text-xs font-bold uppercase"
                 >
                   {label}
+                  <div className="h-[2px] w-0 rounded-md bg-text-400 transition-all group-hover:w-full" />
                 </Link>
               ))}
             </nav>
