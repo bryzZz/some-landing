@@ -42,7 +42,7 @@ export const ShopPreviewMini: React.FC = () => {
           Заливай трафик, получай баллы, обменивай их на призы
         </h2>
 
-        <div className="mb-14 grid grid-flow-col grid-rows-1 gap-[30px]">
+        <div className="mb-14 flex gap-5 lg:gap-[30px]">
           {cards.map((data, i) => (
             <ShopCard key={i} data={data} />
           ))}

@@ -29,7 +29,10 @@ export const ShopCard: React.FC<ShopCardProps> = ({
       )}
     >
       <div className="mb-7">
-        <img className="h-full w-full object-cover" src={data.img} />
+        <img
+          className="h-full max-h-44 w-full object-cover lg:max-h-64"
+          src={data.img}
+        />
       </div>
       <h5 className="mb-3 text-[12px] font-black uppercase text-[#B5B5B5] lg:text-[14px]">
         {data.supTitle}

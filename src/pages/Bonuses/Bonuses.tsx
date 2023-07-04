@@ -143,8 +143,10 @@ const bonuses = [
 export const Bonuses: React.FC = () => {
   return (
     <>
-      <section className="base-container">
-        <h1 className="heading-1 mb-40 text-center">Скидки и бонусы</h1>
+      <section className="base-container mb-20 lg:mb-40">
+        <h1 className="heading-1 mb-28 text-center lg:mb-40">
+          Скидки и бонусы
+        </h1>
 
         <div className="mb-8 flex items-center justify-between">
           <FilterSelect
@@ -154,7 +156,7 @@ export const Bonuses: React.FC = () => {
           <FilterSearch placeholder="Поиск" />
         </div>
 
-        <div className="mb-40 flex flex-col gap-[30px]">
+        <div className="flex flex-col gap-[30px]">
           {bonuses.map(
             ({
               img,
@@ -165,16 +167,16 @@ export const Bonuses: React.FC = () => {
               promocode,
               link,
             }) => (
-              <div className="flex items-center rounded-2xl bg-text-100 p-7 shadow-100">
+              <div className="flex items-center rounded-2xl bg-text-100 p-4 shadow-100 lg:p-7">
                 <img
-                  className="w-full max-w-[140px] object-contain pr-16"
+                  className="w-full max-w-[140px] object-contain pr-11 lg:pr-16"
                   src={img}
                 />
-                <p className="sub-heading-3 mr-7 w-full max-w-md font-semibold">
+                <p className="sub-heading-3 mr-7 w-full max-w-[370px] shrink-0 font-semibold lg:max-w-[418px]">
                   {text}
                 </p>
-                <div className="mr-auto max-w-md">
-                  <p className="mb-2 mr-auto text-2xl font-extrabold uppercase text-text-400">
+                <div className="mr-3">
+                  <p className="mb-1 text-xl font-extrabold uppercase text-text-400 lg:mb-2 lg:text-2xl">
                     <span
                       className={twMerge(
                         bonusLeft.highlight && "text-primary-100"
@@ -190,13 +192,13 @@ export const Bonuses: React.FC = () => {
                       {bonusRight.value}
                     </span>
                   </p>
-                  <p className="font-semibold text-text-400">
+                  <p className="text-sm font-semibold text-text-400 lg:text-base">
                     {promocodeText}{" "}
                     <span className="font-bold">{promocode}</span>
                   </p>
                 </div>
                 <a
-                  className="flex items-center gap-1 justify-self-end font-extrabold text-[#3452FF]"
+                  className="ml-auto flex items-center gap-1 text-sm font-extrabold text-[#3452FF] lg:text-base"
                   href={link}
                   target="_blank"
                   rel="noreferrer"
