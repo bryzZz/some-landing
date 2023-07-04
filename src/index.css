@@ -102,11 +102,11 @@
   }
 
   .heading-3 {
-    @apply text-[30px] font-bold leading-[36px] text-text-400;
+    @apply text-[24px] font-bold leading-[36px] text-text-400 lg:text-[30px];
   }
 
   .heading-4 {
-    @apply text-[19px] font-bold leading-[23px] text-text-400;
+    @apply text-base font-bold leading-[23px] text-text-400 lg:text-[19px];
   }
 
   .heading-5 {

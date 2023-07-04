@@ -60,17 +60,17 @@ export const PointsStore: React.FC = () => {
   const selectedProduct = products.find(({ id }) => id === selectedProductId);
 
   return (
-    <section className="base-container mb-36">
-      <h1 className="heading-1 mb-40 text-center">Магазин баллов</h1>
+    <section className="base-container mb-24 lg:mb-36">
+      <h1 className="heading-1 mb-28 text-center lg:mb-40">Магазин баллов</h1>
 
-      <div className="mb-24 grid grid-cols-3 grid-rows-1 justify-between gap-2">
+      <div className="mb-20 grid grid-cols-3 grid-rows-1 justify-between gap-2 lg:mb-24">
         {infoCards.map(({ image, supTitle, title, subTitle }, i) => (
           <div
             key={i}
-            className="overflow-hidden rounded-2xl bg-text-100 pb-9 shadow-100"
+            className="relative overflow-hidden rounded-2xl bg-text-100 pb-9 pt-52 shadow-100"
           >
             <img
-              className="max-h-80 translate-x-28 object-contain"
+              className="absolute -right-20 top-0 w-full max-w-xs object-contain"
               src={image}
             />
             <div className="px-9">
@@ -102,7 +102,7 @@ export const PointsStore: React.FC = () => {
         <FilterSearch placeholder="Поиск" />
       </div>
 
-      <div className="grid grid-cols-4 gap-[30px]">
+      <div className="grid grid-cols-4 gap-5 lg:gap-[30px]">
         {products.map(({ id, ...data }) => (
           <ShopCard
             data={data}
