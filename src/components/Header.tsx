@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import { ReactComponent as VK } from "assets/icons/vk.svg";
 import { ReactComponent as Telegram } from "assets/icons/telegram.svg";
-import { ReactComponent as USAFlag } from "assets/icons/usa-flag.svg";
 import { ReactComponent as DoorEnter } from "assets/icons/door-enter.svg";
 import { ReactComponent as Logo } from "assets/icons/logo.svg";
 import { BASE_PATH } from "constants/index";
