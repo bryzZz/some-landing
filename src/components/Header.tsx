@@ -95,9 +95,7 @@ export const Header: React.FC = () => {
               <DoorEnter />
               Войти
             </button>
-            <button className="btn-primary text-[13px] md:px-6 md:py-3 xl:text-base">
-              Регистрация
-            </button>
+            <button className="btn-primary">Регистрация</button>
           </div>
         </div>
       </div>

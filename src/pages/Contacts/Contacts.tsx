@@ -94,14 +94,14 @@ export const Contacts: React.FC = () => {
 
   return (
     <section className="base-container">
-      <h1 className="heading-1 mb-40 text-center">Контакты</h1>
+      <h1 className="heading-1 mb-28 text-center lg:mb-40">Контакты</h1>
 
       <div className="mb-16 flex items-center justify-center gap-4">
         {labels.map((label, i) => (
           <button
             key={i}
             className={twMerge(
-              "rounded-lg bg-text-100 px-4 py-[11px] font-bold text-text-400 shadow-200 transition-all",
+              "rounded-lg bg-text-100 px-4 py-[11px] text-base font-bold text-text-400 shadow-200 transition-all",
               i === tabValue && "bg-primary-100 text-text-100 shadow-100"
             )}
             onClick={() => setTabValue(i)}
@@ -152,15 +152,15 @@ export const Contacts: React.FC = () => {
       </div>
 
       <div
-        className="mx-auto mb-36 flex w-full max-w-[975px] items-center justify-between rounded-2xl border border-[#D1D1D1] bg-cover bg-center bg-no-repeat px-11 pb-10 pt-9 shadow-100"
+        className="mx-auto mb-24 flex w-full max-w-[975px] items-center justify-between rounded-2xl border border-[#D1D1D1] bg-cover bg-center bg-no-repeat px-11 py-9 shadow-100 lg:mb-36"
         style={{ backgroundImage: `url(${ContactsImage})` }}
       >
         {bottomContacts.map(({ title, Icon, link }) => (
           <div className="text-center">
-            <h5 className="mb-1 text-[14px] font-bold uppercase text-[#000]">
+            <h5 className="mb-1 text-sm font-bold uppercase text-[#000]">
               {title}
             </h5>
-            <a className="flex cursor-pointer items-center justify-center gap-1 text-[525260]">
+            <a className="flex cursor-pointer items-center justify-center gap-1 text-base text-[#525260]">
               <Icon width={20} height={20} />
               {link}
             </a>

@@ -86,7 +86,7 @@
   }
 
   .btn-primary {
-    @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 px-6 py-4 font-extrabold text-text-100 shadow-[0px_8px_25px_-8px_#F2821D] transition hover:shadow-[0px_19px_30px_-10px_rgba(248,_172,_29,_0.88)];
+    @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 text-[13px] font-extrabold text-text-100 shadow-[0px_8px_25px_-8px_#F2821D] transition hover:shadow-[0px_19px_30px_-10px_rgba(248,_172,_29,_0.88)] md:px-6 md:py-3 xl:text-base;
   }
 
   .btn-secondary {
