@@ -1,0 +1,35 @@
+.FormMultiSelect__control {
+  @apply cursor-pointer rounded border border-[#D8D6DE] py-2 pl-3 pr-2 shadow-none outline-none !important;
+}
+
+.FormMultiSelect__indicator {
+  @apply hidden !important;
+}
+
+.FormMultiSelect__indicator-separator {
+  @apply hidden !important;
+}
+
+.FormMultiSelect__placeholder {
+  @apply text-text-100 !important;
+}
+
+.FormMultiSelect__multi-value {
+  @apply flex flex-row-reverse rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 text-white !important;
+}
+
+.FormMultiSelect__multi-value__label {
+  @apply px-2 pb-[6px] pt-[5px] text-[12px] font-semibold text-white !important;
+}
+
+.FormMultiSelect__multi-value__remove {
+  @apply border-r border-white hover:bg-transparent hover:text-white !important;
+}
+
+.FormMultiSelect__option {
+  @apply cursor-pointer !important;
+}
+
+.FormMultiSelect__option--is-focused {
+  @apply bg-primary-100 text-white !important;
+}

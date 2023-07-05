@@ -3,7 +3,11 @@
 }
 
 .CommunicationSelect__control {
-  @apply btn-primary h-full w-[154px] cursor-pointer rounded-none rounded-bl rounded-tl border-none py-3 pl-3 pr-2 text-text-100 shadow-none outline-none !important;
+  @apply btn-primary h-full w-[140px] cursor-pointer rounded-none rounded-bl rounded-tl border-none py-2 pl-3 pr-2 text-text-100 shadow-none outline-none !important;
+}
+
+.CommunicationSelect__value-container {
+  @apply text-[12px] !important;
 }
 
 .CommunicationSelect__single-value {

@@ -1,71 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 import { ReactComponent as Logo } from "assets/icons/logo.svg";
 import { BASE_PATH } from "constants/index";
-import { CommunicationSelect } from "components";
+import {
+  FirstStep,
+  RegistrationFirstStepFormValues,
+  RegistrationSecondStepFormValues,
+  SecondStep,
+} from "./components";
+import { TabPanel } from "components";
 
 export const Registration: React.FC = () => {
+  const [step, setStep] = useState(0);
+
+  const firstStepForm = useForm<RegistrationFirstStepFormValues>();
+  const secondStepForm = useForm<RegistrationSecondStepFormValues>();
+
+  const handleSubmitFirstStep = firstStepForm.handleSubmit((data) => {
+    console.log(data);
+
+    setStep(1);
+  });
+
+  const handleSubmitSecondStep = secondStepForm.handleSubmit((data) => {
+    console.log(data);
+  });
+
+  const back = () => {
+    setStep((p) => Math.max(0, p - 1));
+  };
+
   return (
-    <div className="flex flex-col items-center rounded-3xl bg-text-100 p-10 shadow-400">
+    <div className="flex w-full flex-col items-center rounded-3xl bg-text-100 p-10 shadow-400">
       <Link to={BASE_PATH} className="mb-9 block">
         <Logo />
       </Link>
       <h4 className="heading-4 mb-9">
-        Регистрация. Шаг 1<span className="text-sm text-[#CBCBCB]">/2</span>
+        Регистрация. Шаг {step + 1}
+        <span className="text-sm text-[#CBCBCB]">/2</span>
       </h4>
 
-      <form className="mb-6 w-full">
-        <div className="mb-7 flex w-full flex-col gap-[10px]">
-          <label className="flex w-full flex-col gap-2">
-            <span className="text-[14px] font-semibold text-text-400">Имя</span>
-            <input
-              className="rounded border border-[D8D6DE] px-[14px] pb-4 pt-[15px] outline-none"
-              type="text"
-              placeholder="leadshuber"
-            />
-          </label>
-          <label className="flex w-full flex-col gap-2">
-            <span className="text-[14px] font-semibold text-text-400">
-              E-mail
-            </span>
-            <input
-              className="rounded border border-[D8D6DE] px-[14px] pb-4 pt-[15px] outline-none"
-              type="email"
-              placeholder="yourmail@test.com"
-            />
-          </label>
-          <div className="grid grid-cols-2 items-center gap-[10px]">
-            <label className="flex w-full flex-col gap-2">
-              <span className="text-[14px] font-semibold text-text-400">
-                Пароль
-              </span>
-              <input
-                className="rounded border border-[D8D6DE] px-[14px] pb-4 pt-[15px] outline-none"
-                type="password"
-                placeholder="Пароль"
-              />
-            </label>
-            <label className="flex w-full flex-col gap-2">
-              <span className="text-[14px] font-semibold text-text-400">
-                Повторите пароль
-              </span>
-              <input
-                className="rounded border border-[D8D6DE] px-[14px] pb-4 pt-[15px] outline-none"
-                type="password"
-                placeholder="Пароль еще раз"
-              />
-            </label>
-          </div>
-          <CommunicationSelect />
-        </div>
+      <TabPanel className="w-full" value={0} tabValue={step}>
+        <FirstStep form={firstStepForm} onSubmit={handleSubmitFirstStep} />
+      </TabPanel>
+      <TabPanel className="w-full" value={1} tabValue={step}>
+        <SecondStep
+          form={secondStepForm}
+          onSubmit={handleSubmitSecondStep}
+          back={back}
+        />
+      </TabPanel>
 
-        <button className="btn-secondary w-full" type="submit">
-          Далее
-        </button>
-      </form>
-
-      <p className="text-[14px] text-[#000] ">
+      <p className="text-sm text-[#000] ">
         У вас уже есть аккаунт?{" "}
         <Link className="text-[#088DF4] underline" to="login">
           Войти

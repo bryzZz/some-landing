@@ -1,0 +1,24 @@
+.FormSelect__control {
+  @apply cursor-pointer rounded border border-[#D8D6DE] py-2 pl-3 pr-2 shadow-none outline-none !important;
+}
+
+.FormSelect__value-container {
+  @apply text-sm !important;
+}
+
+.FormSelect__indicator-separator {
+  @apply hidden !important;
+}
+
+.FormSelect__placeholder {
+  @apply text-text-100 !important;
+}
+
+.FormSelect__option {
+  @apply cursor-pointer !important;
+}
+
+.FormSelect__option--is-focused,
+.FormSelect__option--is-selected {
+  @apply bg-primary-100 text-white !important;
+}

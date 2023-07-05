@@ -86,11 +86,11 @@
   }
 
   .btn-primary {
-    @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 text-[13px] font-extrabold text-text-100 shadow-[0px_8px_25px_-8px_#F2821D] transition hover:shadow-[0px_19px_30px_-10px_rgba(248,_172,_29,_0.88)] md:px-6 md:py-3 xl:text-base;
+    @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 px-4 py-3 text-[13px] font-extrabold text-text-100 shadow-[0px_8px_25px_-8px_#F2821D] transition hover:shadow-[0px_19px_30px_-10px_rgba(248,_172,_29,_0.88)] md:px-6 md:py-3 xl:text-base;
   }
 
   .btn-secondary {
-    @apply rounded bg-gradient-to-r from-[#1D74F7] via-[#1D4DF7] to-[#1D74F7] font-extrabold text-text-100 transition hover:shadow-[0px_19px_30px_-10px_rgba(30,_112,_248,_0.70)] xl:px-6 xl:py-4;
+    @apply rounded bg-gradient-to-r from-[#1D74F7] via-[#1D4DF7] to-[#1D74F7] px-4 py-3 text-[13px] font-extrabold text-text-100 transition hover:shadow-[0px_19px_30px_-10px_rgba(30,_112,_248,_0.70)] xl:px-6 xl:py-4 xl:text-base;
   }
 
   .heading-1 {
