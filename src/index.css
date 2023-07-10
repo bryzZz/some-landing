@@ -98,7 +98,7 @@
   }
 
   .heading-2 {
-    @apply text-[32px] font-semibold leading-8 text-text-400 lg:text-4xl;
+    @apply text-[28px] font-semibold leading-8 text-text-400 md:text-[32px] lg:text-4xl;
   }
 
   .heading-3 {

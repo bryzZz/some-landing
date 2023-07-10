@@ -1,23 +1,19 @@
+.slides {
+  @apply pb-12 md:pb-0;
+}
+
 .slides .swiper-pagination {
-  left: 0 !important;
-  right: 6px !important;
+  @apply bottom-0 md:left-2;
 }
 
 .slides .swiper-pagination-bullet {
-  width: 4px;
-  height: 4px;
-  background: #000000;
-  opacity: 1;
+  @apply h-1 w-1 bg-black opacity-100;
 }
 
 .slides .swiper-pagination-bullet:not(:last-child) {
-  margin: 0 !important;
-  margin-bottom: 30px !important;
+  @apply m-0 mr-7 md:mb-7;
 }
 
 .slides .swiper-pagination-bullet-active {
-  width: 6px;
-  height: 6px;
-  background: #ffffff;
-  border: 2px solid #000000;
+  @apply h-1 w-1 bg-white outline outline-black;
 }
