@@ -33,8 +33,6 @@ export const Slides: React.FC = () => {
         height={matches ? 400 : undefined}
         modules={[Mousewheel, Pagination]}
         className="slides"
-        // observer
-        // observeParents
       >
         {new Array(4).fill(0).map((_, i) => (
           <SwiperSlide key={i}>

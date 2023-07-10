@@ -173,12 +173,12 @@ export const FAQ: React.FC = () => {
         Или выбирите категорию вопроса ниже.
       </p>
 
-      <div className="mb-24 flex items-center justify-between gap-[30px]">
+      <div className="mb-24 grid grid-cols-2 items-center justify-center gap-4 lg:grid-cols-5 lg:justify-between lg:gap-[30px]">
         {labelsAndIcons.map(({ Icon, label }, i) => (
           <div
             key={i}
             className={twMerge(
-              "flex h-[234px] w-full max-w-[180px] cursor-pointer flex-col items-center rounded-2xl bg-text-100 pt-7 shadow-100 transition-all",
+              "flex h-[234px] w-full cursor-pointer flex-col items-center rounded-2xl bg-text-100 pt-7 shadow-100 transition-all",
               tabValue === i && "-translate-y-7 shadow-300"
             )}
             onClick={() => setTabValue(i)}
@@ -187,7 +187,7 @@ export const FAQ: React.FC = () => {
             <h5 className="heading-5 text-center">{label}</h5>
           </div>
         ))}
-        <div className="relative h-[234px] w-full max-w-[194px] cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-16 shadow-100">
+        <div className="relative col-span-2 w-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-6 text-center shadow-100 lg:col-span-1 lg:h-[234px] lg:pt-16">
           <div className="absolute -left-14 -top-5 z-10 h-36  w-36 rounded-full bg-gradient-to-l from-text-100 to-transparent" />
           <div className="relative z-20 flex h-full flex-col justify-between">
             <h5 className="heading-5 text-center">

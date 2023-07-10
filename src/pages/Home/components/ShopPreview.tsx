@@ -1,5 +1,7 @@
 import React from "react";
 
+import { ShopCard } from "components";
+
 import { ReactComponent as ArrowRight } from "assets/icons/arrow-right.svg";
 import ShopPreviewBg from "assets/images/shop-preview-bg.png";
 import ShopPreviewFg from "assets/images/shop-preview-fg.png";
@@ -12,7 +14,6 @@ import ShopCard6 from "assets/images/shop-preview-6.png";
 import ShopCard7 from "assets/images/shop-preview-7.png";
 import ShopCard8 from "assets/images/shop-preview-8.png";
 import ShopCard9 from "assets/images/shop-preview-9.png";
-import { ShopCard } from "./ShopCard";
 
 const cards = [
   {

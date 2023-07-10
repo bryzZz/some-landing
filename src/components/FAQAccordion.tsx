@@ -22,9 +22,7 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
       onClick={toggle}
     >
       <div className="flex items-center justify-between">
-        <h4 className="text-[18px] font-bold leading-5 text-[#000]">
-          {header}
-        </h4>
+        <h4 className="heading-4 text-black">{header}</h4>
         <ArrowRight className={twMerge("transition", isOpen && "rotate-90")} />
       </div>
 

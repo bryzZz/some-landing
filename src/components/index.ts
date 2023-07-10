@@ -8,7 +8,6 @@ export * from "./ScrollToTop";
 export * from "./FilterSelect";
 export * from "./PointsStoreModal";
 export * from "./FilterSearch";
-export * from "./ShopPreview";
 export * from "./ShopPreviewMini";
 export * from "./ShopCard";
 export * from "./CommunicationSelect";
