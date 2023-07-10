@@ -44,7 +44,7 @@ export const Tabs: React.FC<TabsProps> = ({
         <button
           key={i}
           ref={(el) => (tabsRef.current[i] = el)}
-          className="z-20 px-1 py-3 text-[14px] font-bold text-text-400 md:px-11 md:py-4 md:text-[15px]"
+          className="z-20 px-2 py-3 text-[14px] font-bold text-text-400 md:px-11 md:py-4 md:text-[15px]"
           onClick={() => onChange(i)}
         >
           {label}

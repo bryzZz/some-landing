@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-import { TabPanel, Tabs, TopTable } from "components";
-import { TopTable as TopTableType } from "types";
+import { TabPanel, Tabs, TopWebMastersTable, TopOffersTable } from "components";
 
 import TopOffer1 from "assets/images/top-offer-1.png";
 import TopOffer2 from "assets/images/top-offer-2.png";
@@ -13,72 +12,55 @@ import { ReactComponent as FlagRu } from "assets/icons/flag_ru-4x3.svg";
 import { ReactComponent as FlagDe } from "assets/icons/flag_de-4x3.svg";
 import { ReactComponent as FlagPt } from "assets/icons/flag_pt-4x3.svg";
 
-const tops: TopTableType[] = [
+const webMasters = [
+  { image: Person, name: "Никто Павлов", perDay: 5000, perMonth: 50000 },
+  { image: Person, name: "Никто Павлов", perDay: 5000, perMonth: 50000 },
+  { image: Person, name: "Никто Павлов", perDay: 5000, perMonth: 50000 },
+  { image: Person, name: "Никто Павлов", perDay: 5000, perMonth: 50000 },
+  { image: Person, name: "Никто Павлов", perDay: 5000, perMonth: 50000 },
+];
+
+const offers = [
   {
-    label: "Топ веб-мастеров",
-    head: ["Имя", "За день", "За месяц"],
-    rows: [
-      [
-        { value: "Никто Павлов", image: Person },
-        { value: 5000 },
-        { value: 50000 },
-      ],
-      [
-        { value: "Никто Павлов", image: Person },
-        { value: 5000 },
-        { value: 50000 },
-      ],
-      [
-        { value: "Никто Павлов", image: Person },
-        { value: 5000 },
-        { value: 50000 },
-      ],
-      [
-        { value: "Никто Павлов", image: Person },
-        { value: 5000 },
-        { value: 50000 },
-      ],
-      [
-        { value: "Никто Павлов", image: Person },
-        { value: 5000 },
-        { value: 50000 },
-      ],
-    ],
+    id: "#1463",
+    image: TopOffer1,
+    name: "SuperSlots - [ASO] [US]",
+    geo: [FlagRu, FlagDe, FlagPt],
+    epc: 31,
   },
   {
-    label: "Топ офферов",
-    head: ["Название", "Гео", "Epc"],
-    rows: [
-      [
-        { value: "Экодар гибридные мини-деревья", image: TopOffer1 },
-        { icons: [FlagRu, FlagDe, FlagPt] },
-        { value: "31%" },
-      ],
-      [
-        { value: "Экодар гибридные мини-деревья", image: TopOffer2 },
-        { icons: [FlagRu, FlagDe, FlagPt] },
-        { value: "31%" },
-      ],
-      [
-        { value: "Экодар гибридные мини-деревья", image: TopOffer3 },
-        { icons: [FlagRu, FlagDe, FlagPt] },
-        { value: "31%" },
-      ],
-      [
-        { value: "Экодар гибридные мини-деревья", image: TopOffer4 },
-        { icons: [FlagRu, FlagDe, FlagPt] },
-        { value: "31%" },
-      ],
-      [
-        { value: "Экодар гибридные мини-деревья", image: TopOffer5 },
-        { icons: [FlagRu, FlagDe, FlagPt] },
-        { value: "31%" },
-      ],
-    ],
+    id: "#1463",
+    image: TopOffer2,
+    name: "Sl********",
+    isPrivate: true,
+    geo: [FlagRu, FlagDe, FlagPt],
+    epc: 31,
+  },
+  {
+    id: "#1463",
+    image: TopOffer3,
+    name: "SuperSlots - [ASO] [US]",
+    geo: [FlagRu, FlagDe, FlagPt],
+    epc: 31,
+  },
+  {
+    id: "#1463",
+    image: TopOffer4,
+    name: "Sl********",
+    isPrivate: true,
+    geo: [FlagRu, FlagDe, FlagPt],
+    epc: 31,
+  },
+  {
+    id: "#1463",
+    image: TopOffer5,
+    name: "SuperSlots - [ASO] [US]",
+    geo: [FlagRu, FlagDe, FlagPt],
+    epc: 31,
   },
 ];
 
-const labels = tops.map(({ label }) => label);
+const labels = ["Топ веб-мастеров", "Топ офферов"];
 
 export const TopTables: React.FC = () => {
   const [tabValue, setTabValue] = useState(0);
@@ -86,18 +68,19 @@ export const TopTables: React.FC = () => {
   return (
     <section className="small-container z-10 mb-32 flex flex-col items-center">
       <Tabs
-        className="mb-10"
+        className="mb-6 md:mb-10"
         tabs={labels}
         value={tabValue}
         onChange={setTabValue}
       />
 
       <div className="w-full">
-        {tops.map((top, i) => (
-          <TabPanel value={i} tabValue={tabValue} key={i}>
-            <TopTable top={top} />
-          </TabPanel>
-        ))}
+        <TabPanel value={0} tabValue={tabValue}>
+          <TopWebMastersTable items={webMasters} />
+        </TabPanel>
+        <TabPanel value={1} tabValue={tabValue}>
+          <TopOffersTable items={offers} />
+        </TabPanel>
       </div>
     </section>
   );
