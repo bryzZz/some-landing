@@ -20,12 +20,13 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#ECF2F6]">
       <div className="base-container pb-8 pt-10">
-        <div className="mb-6 flex items-start justify-between">
-          <div>
+        <div className="mb-6 flex flex-col items-center gap-6 md:flex-row md:items-start md:justify-between md:gap-16">
+          <div className="flex flex-col items-center md:block">
             <Link to={BASE_PATH} className="mb-5 block">
               <Logo />
             </Link>
-            <div className="flex flex-col gap-[10px]">
+
+            <div className="hidden flex-col gap-[10px] md:flex">
               <Link
                 to="/"
                 className="flex items-center gap-4 font-semibold text-text-300"
@@ -48,10 +49,26 @@ export const Footer: React.FC = () => {
                 info_chat
               </Link>
             </div>
+
+            <div className="flex items-center gap-5 md:hidden">
+              <Link to={"/"} className="flex items-center gap-2 font-semibold">
+                <Telegram />
+                Telegram
+              </Link>
+              <Link to={"/"} className="flex items-center gap-2 font-semibold">
+                <VK />
+                Vkontakte
+              </Link>
+            </div>
           </div>
+
+          <hr className="h-[1px] w-full bg-[#E0E0E0] md:hidden" />
+
           <div>
-            <h3 className="mb-5 text-xl font-bold">Быстрые ссылки</h3>
-            <nav className="mb-28 flex w-full flex-wrap items-center justify-between gap-6">
+            <h3 className="mb-5 hidden text-xl font-bold md:block">
+              Быстрые ссылки
+            </h3>
+            <nav className="mb-8 flex w-full flex-wrap items-center justify-center gap-6 md:mb-28 md:justify-between">
               {navItems.map(({ label, path }, i) => (
                 <Link
                   key={i}
@@ -66,13 +83,13 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <hr className="mb-6 bg-[#E0E0E0]" />
+        <hr className="mb-6 hidden bg-[#E0E0E0] md:block" />
 
-        <div className="flex items-center justify-between text-[14px] text-[#888888]">
-          <p className="font-semibold">
+        <div className="flex items-center justify-center text-[14px] text-[#888888] md:justify-between">
+          <p className="text-center font-semibold md:text-left">
             © 2019-2023, Leadshub. Все права сохранены.
           </p>
-          <div className="flex justify-end gap-7 text-right">
+          <div className="hidden justify-end gap-7 text-right md:flex">
             <p className="font-bold">Оставайся с нами:</p>
             <Link to={"/"} className="flex items-center gap-2 font-semibold">
               <Telegram />
