@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useCallback, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
 import { LanguageSelect } from "./LanguageSelect/LanguageSelect";
@@ -23,16 +23,18 @@ const navItems = [
 ];
 
 export const Header: React.FC = () => {
+  const location = useLocation();
+
   const [isSticky, setIsSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const open = () => {
     setIsOpen(true);
     document.body.style.overflow = "hidden";
   };
-  const close = () => {
+  const close = useCallback(() => {
     setIsOpen(false);
     document.body.style.overflow = "unset";
-  };
+  }, []);
 
   useEffect(() => {
     const handler = () => {
@@ -51,6 +53,10 @@ export const Header: React.FC = () => {
       window.removeEventListener("scroll", handler);
     };
   }, [isSticky]);
+
+  useEffect(() => {
+    close();
+  }, [close, location]);
 
   return (
     <>
