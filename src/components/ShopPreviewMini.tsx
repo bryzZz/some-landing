@@ -34,15 +34,16 @@ const cards = [
 export const ShopPreviewMini: React.FC = () => {
   return (
     <section
-      className="bg-auto bg-top bg-no-repeat pb-36 pt-36"
+      className="bg-auto bg-top bg-no-repeat py-12 md:py-36"
       style={{ backgroundImage: `url(${ShopPreviewBg})` }}
     >
       <div className="base-container flex flex-col items-center">
         <h2 className="heading-2 mb-20 max-w-3xl text-center">
           Заливай трафик, получай баллы, обменивай их на призы
+          <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
         </h2>
 
-        <div className="mb-14 flex gap-5 lg:gap-[30px]">
+        <div className="mb-14 grid grid-cols-2 gap-5 md:grid-cols-4 lg:gap-[30px]">
           {cards.map((data, i) => (
             <ShopCard key={i} data={data} />
           ))}

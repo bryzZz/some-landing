@@ -143,17 +143,17 @@ const bonuses = [
 export const Bonuses: React.FC = () => {
   return (
     <>
-      <section className="base-container mb-20 lg:mb-40">
+      <section className="base-container mb-10 md:mb-20 lg:mb-40">
         <h1 className="heading-1 mb-28 text-center lg:mb-40">
           Скидки и бонусы
         </h1>
 
-        <div className="mb-8 flex items-center justify-between">
+        <div className="mb-8 flex flex-wrap-reverse items-center justify-between gap-2">
           <FilterSelect
             options={[{ value: "1", label: "1" }]}
             placeholder="Категория"
           />
-          <FilterSearch placeholder="Поиск" />
+          <FilterSearch className="w-full sm:w-auto" placeholder="Поиск" />
         </div>
 
         <div className="flex flex-col gap-[30px]">
@@ -167,12 +167,12 @@ export const Bonuses: React.FC = () => {
               promocode,
               link,
             }) => (
-              <div className="flex items-center rounded-2xl bg-text-100 p-4 shadow-100 lg:p-7">
+              <div className="flex flex-col gap-4 rounded-2xl bg-text-100 p-4 shadow-100 md:flex-row md:items-center md:gap-0 lg:p-7">
                 <img
-                  className="w-full max-w-[140px] object-contain pr-11 lg:pr-16"
+                  className="w-full max-w-[180px] object-contain pr-6 md:max-w-[140px] lg:pr-16"
                   src={img}
                 />
-                <p className="sub-heading-3 mr-7 w-full max-w-[370px] shrink-0 font-semibold lg:max-w-[418px]">
+                <p className="sub-heading-3 mr-2 w-full max-w-[350px] shrink-0 font-semibold lg:mr-7 lg:max-w-[418px]">
                   {text}
                 </p>
                 <div className="mr-3">
@@ -198,7 +198,7 @@ export const Bonuses: React.FC = () => {
                   </p>
                 </div>
                 <a
-                  className="ml-auto flex items-center gap-1 text-sm font-extrabold text-[#3452FF] lg:text-base"
+                  className="flex items-center gap-1 text-sm font-extrabold text-[#3452FF] md:ml-auto lg:text-base"
                   href={link}
                   target="_blank"
                   rel="noreferrer"

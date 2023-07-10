@@ -134,7 +134,7 @@ export const Header: React.FC = () => {
 
       <div
         className={twMerge(
-          "absolute inset-0 z-50 flex -translate-x-full flex-col justify-between bg-white bg-opacity-70 px-6 pb-5 pt-4 backdrop-blur-xl transition-transform lg:hidden",
+          "fixed inset-0 z-50 flex -translate-x-full flex-col justify-between bg-white bg-opacity-70 px-6 pb-5 pt-4 backdrop-blur-xl transition-transform lg:hidden",
           isOpen && "translate-x-0"
         )}
       >
