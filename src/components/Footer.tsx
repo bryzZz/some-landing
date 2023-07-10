@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
           </div>
           <div>
             <h3 className="mb-5 text-xl font-bold">Быстрые ссылки</h3>
-            <nav className="mb-28 flex w-full items-center justify-between gap-6">
+            <nav className="mb-28 flex w-full flex-wrap items-center justify-between gap-6">
               {navItems.map(({ label, path }, i) => (
                 <Link
                   key={i}

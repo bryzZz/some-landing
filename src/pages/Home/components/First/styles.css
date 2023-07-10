@@ -1,0 +1,19 @@
+.FirstSlider {
+  @apply pb-12;
+}
+
+.FirstSlider .swiper-pagination {
+  @apply bottom-0;
+}
+
+.FirstSlider .swiper-pagination-bullet {
+  @apply h-[6px] w-[6px] bg-[#B8C4D2] transition;
+}
+
+.FirstSlider .swiper-pagination-bullet-active {
+  @apply bg-primary-100 outline outline-2 outline-offset-4 outline-primary-100;
+}
+
+.FirstSlider .swiper-pagination-bullet:not(:last-child) {
+  @apply mr-6;
+}
