@@ -83,7 +83,7 @@ export const Reviews: React.FC = () => {
   const [tabValue, setTabValue] = useState(0);
 
   return (
-    <section className="relative z-40 bg-text-100 pb-24">
+    <section className="relative z-40 bg-text-100 pb-24 pt-5 md:pt-0">
       <div className="flex flex-col items-center">
         <h2 className="heading-2 mb-10">
           Отзывы
@@ -98,7 +98,7 @@ export const Reviews: React.FC = () => {
         />
       </div>
 
-      <div className="reviews-container">
+      <div className="md:reviews-container pl-4">
         {reviews.map(({ items }, i) => (
           <TabPanel value={i} tabValue={tabValue} key={i}>
             <ReviewsSlider items={items} />

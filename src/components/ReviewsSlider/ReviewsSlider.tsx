@@ -22,7 +22,7 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
 
   return (
     <div className="flex items-center gap-10 lg:gap-20 xl:gap-[114px]">
-      <div className="flex flex-col gap-[40px]">
+      <div className="hidden flex-col gap-[40px] md:flex">
         <button className="swiper-nav-btn" ref={prevRef}>
           <ArrowLeft />
         </button>
