@@ -68,7 +68,7 @@ export const Cards: React.FC = () => {
     <section className="base-container mb-20 grid grid-cols-6 gap-7 lg:mb-24 lg:grid-cols-8">
       {topCards.map(({ Icon, title, subTitle }, i) => (
         <div
-          className="col-span-3 row-span-4 rounded-2xl bg-text-100 p-5 shadow-100 lg:col-span-2 lg:p-6"
+          className="col-span-6 row-span-4 rounded-2xl bg-text-100 p-5 shadow-100 md:col-span-3 lg:col-span-2 lg:p-6"
           key={i}
         >
           <div className="mb-3 grid grid-cols-[50px_1fr] items-center gap-4">
@@ -79,14 +79,14 @@ export const Cards: React.FC = () => {
         </div>
       ))}
 
-      <div className="col-span-2 row-span-2 rounded-2xl bg-gradient-to-tl from-primary-300 to-primary-400 p-6 pt-2 shadow-100 lg:col-span-2 lg:row-span-6">
+      <div className="col-span-6 row-span-2 flex flex-col items-center rounded-2xl bg-gradient-to-tl from-primary-300 to-primary-400 p-6 pt-2 shadow-100 md:col-span-2 lg:col-span-2 lg:row-span-6">
         <img src={MainImage2} />
         <p className="heading-6 text-center text-text-100">Генератор чеков</p>
       </div>
 
       {bottomCards.slice(0, 2).map(({ Icon, title, subTitle }, i) => (
         <div
-          className="col-span-4 row-span-1 grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100 lg:col-span-3 lg:row-span-3"
+          className="col-span-6 row-span-1 grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100 md:col-span-4 lg:col-span-3 lg:row-span-3"
           key={i}
         >
           <Icon />
@@ -99,7 +99,7 @@ export const Cards: React.FC = () => {
 
       {bottomCards.slice(2).map(({ Icon, title, subTitle }, i) => (
         <div
-          className="col-span-3 row-span-1 grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100 lg:col-span-3 lg:row-span-3"
+          className="col-span-6 row-span-1 grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100 md:col-span-3 lg:col-span-3 lg:row-span-3"
           key={i}
         >
           <Icon />
