@@ -33,7 +33,7 @@ export const Registration: React.FC = () => {
   };
 
   return (
-    <div className="flex w-full flex-col items-center rounded-3xl bg-text-100 p-10 shadow-400">
+    <div className="mx-4 flex w-full flex-col items-center rounded-3xl bg-text-100 p-10 shadow-400">
       <Link to={BASE_PATH} className="mb-9 block">
         <Logo />
       </Link>
