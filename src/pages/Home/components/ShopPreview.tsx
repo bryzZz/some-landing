@@ -91,7 +91,7 @@ export const ShopPreview: React.FC = () => {
         </div>
       </div>
 
-      <div className="absolute -left-16 top-60 z-30 grid rotate-[-30deg] grid-cols-[repeat(6,232px)] gap-10 lg:-left-24 lg:top-32 lg:grid-cols-[repeat(6,324px)] lg:gap-20 xl:-left-14 xl:top-72">
+      <div className="absolute -left-16 top-96 z-30 grid rotate-[-30deg] grid-cols-[repeat(6,150px)] gap-10 md:top-60 md:grid-cols-[repeat(6,232px)] lg:-left-24 lg:top-32 lg:grid-cols-[repeat(6,324px)] lg:gap-20 xl:-left-14 xl:top-72">
         {cards.map((data, i) => (
           <ShopCard
             key={i}
