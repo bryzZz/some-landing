@@ -1,32 +1,19 @@
-.ReactModal__Overlay {
-  /* transition: all 0.001s ease; */
-}
-
 .ReactModal__Overlay--after-open {
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(4px);
+  @apply bg-[rgba(255,_255,_255,_0.3)] pr-16 backdrop-blur-sm;
 }
 
 .ReactModal__Overlay--before-close {
-  background: transparent;
-  backdrop-filter: initial;
+  @apply bg-transparent backdrop-blur-none;
 }
 
 .ReactModal__Content {
-  min-height: 100vh;
-  max-width: 555px;
-  width: 100%;
-  background: #fff;
-  margin-left: auto;
-  box-shadow: 0px 0px 32px -3px rgba(0, 0, 0, 0.1);
-  transform: translate3d(100%, 0, 0);
-  transition: all 0.08s ease-in;
+  @apply h-screen w-full max-w-[555px] -translate-x-full overflow-y-scroll bg-white pb-10 pl-7 pr-7 pt-7 shadow-[0px_0px_32px_-3px_rgba(0,_0,_0,_0.1)] transition-transform md:pl-[51px];
 }
 
 .ReactModal__Content--after-open {
-  transform: translate3d(0%, 0, 0);
+  @apply translate-x-0;
 }
 
 .ReactModal__Content--before-close {
-  transform: translate3d(100%, 0, 0);
+  @apply -translate-x-full;
 }

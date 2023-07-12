@@ -43,7 +43,7 @@ export const ShopCard: React.FC<ShopCardProps> = ({
 
       {details && (
         <button
-          className="mt-5 rounded-[4px] bg-[#F3F3F3] px-[26px] py-[14px] text-[14px] font-bold leading-4 text-text-400 transition hover:bg-[#DDD]"
+          className="mb-5 mt-5 rounded-[4px] bg-[#F3F3F3] px-[26px] py-[14px] text-[14px] font-bold leading-4 text-text-400 transition hover:bg-[#DDD]"
           onClick={onDetailsClick}
         >
           Подробнее

@@ -39,45 +39,43 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
 
   return (
     <Modal {...other} className="PointsStoreModal" closeTimeoutMS={50}>
-      <div className="pb-10 pl-[51px] pr-7 pt-7">
-        <div className="mb-14 flex items-center justify-end">
+      <div className="mb-14 flex items-center justify-end">
+        <button
+          className="rounded-full p-2 hover:bg-[#EEEEEE]"
+          onClick={other.onRequestClose}
+        >
+          <Cross width="24px" height="24px" />
+        </button>
+      </div>
+
+      <div className="max-w-72">
+        <img src={img} className="mb-14 max-h-full object-cover" />
+      </div>
+      <h5 className="mb-2 font-black uppercase text-[#B5B5B5]">{supTitle}</h5>
+      <h4 className="heading-3 mb-5 whitespace-pre-line">{title}</h4>
+      <p className="mb-9 font-medium text-text-400">Категория: {category}</p>
+      <p className="mb-6 text-[14px] text-text-300">{description}</p>
+
+      <hr className="mb-6 bg-[E2E2E2]" />
+
+      <div className="flex flex-wrap items-center justify-between gap-2 md:justify-normal md:gap-12">
+        <div className="flex w-full max-w-[150px] items-center justify-between gap-2 rounded-[4px] border border-[D9D9D9] px-[13px] py-[15px] sm:gap-5">
           <button
-            className="rounded-full p-2 hover:bg-[#EEEEEE]"
-            onClick={other.onRequestClose}
+            className="rounded-full p-1 hover:bg-[#EEEEEE]"
+            onClick={decreaseCounter}
           >
-            <Cross width="24px" height="24px" />
+            <Minus />
+          </button>
+          <span>{counter}</span>
+          <button
+            className="rounded-full p-1 hover:bg-[#EEEEEE]"
+            onClick={increaseCounter}
+          >
+            <Plus />
           </button>
         </div>
 
-        <div className="max-w-72">
-          <img src={img} className="mb-14 max-h-full object-cover" />
-        </div>
-        <h5 className="mb-2 font-black uppercase text-[#B5B5B5]">{supTitle}</h5>
-        <h4 className="heading-3 mb-5 whitespace-pre-line">{title}</h4>
-        <p className="mb-9 font-medium text-text-400">Категория: {category}</p>
-        <p className="mb-6 text-[14px] text-text-300">{description}</p>
-
-        <hr className="mb-6 bg-[E2E2E2]" />
-
-        <div className="flex items-center gap-12">
-          <div className="flex w-full max-w-[150px] items-center justify-between gap-5 rounded-[4px] border border-[D9D9D9] px-[13px] py-[15px]">
-            <button
-              className="rounded-full p-1 hover:bg-[#EEEEEE]"
-              onClick={decreaseCounter}
-            >
-              <Minus />
-            </button>
-            <span>{counter}</span>
-            <button
-              className="rounded-full p-1 hover:bg-[#EEEEEE]"
-              onClick={increaseCounter}
-            >
-              <Plus />
-            </button>
-          </div>
-
-          <button className="btn-secondary">Приобрести товар</button>
-        </div>
+        <button className="btn-secondary">Приобрести товар</button>
       </div>
     </Modal>
   );
