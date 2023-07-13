@@ -12,6 +12,7 @@ import CardImage1 from "assets/images/points-store-card-1.png";
 import CardImage2 from "assets/images/points-store-card-2.png";
 import CardImage3 from "assets/images/points-store-card-3.png";
 import { ReactComponent as UpDownArrows } from "assets/icons/up-down-arrows.svg";
+import { Fade } from "react-awesome-reveal";
 
 const infoCards = [
   {
@@ -61,49 +62,55 @@ export const PointsStore: React.FC = () => {
 
   return (
     <section className="base-container mb-24 lg:mb-36">
-      <h1 className="heading-1 mb-28 text-center lg:mb-40">Магазин баллов</h1>
+      <Fade duration={500} direction="up">
+        <h1 className="heading-1 mb-28 text-center lg:mb-40">Магазин баллов</h1>
+      </Fade>
 
       <div className="mb-20 grid grid-cols-1 justify-between gap-2 md:grid-cols-3 lg:mb-24">
-        {infoCards.map(({ image, supTitle, title, subTitle }, i) => (
-          <div
-            key={i}
-            className="relative overflow-hidden rounded-2xl bg-text-100 pb-6 pt-6 shadow-100 md:pb-9 md:pt-52"
-          >
-            <img
-              className="absolute right-0 z-10 w-full max-w-[200px] object-contain md:-right-20 md:top-0 md:max-w-xs"
-              src={image}
-            />
-            <div className="relative z-20 px-4 md:px-9">
-              <p className="sub-heading-3 mb-[10px] font-semibold">
-                {supTitle}
-              </p>
-              <h3 className="heading-3 mb-[10px] pr-[150px]">{title}</h3>
-              <p className="sub-heading-3 font-semibold">{subTitle}</p>
+        <Fade cascade direction="up" duration={500} damping={0.3}>
+          {infoCards.map(({ image, supTitle, title, subTitle }, i) => (
+            <div
+              key={i}
+              className="relative overflow-hidden rounded-2xl bg-text-100 pb-6 pt-6 shadow-100 md:pb-9 md:pt-52"
+            >
+              <img
+                className="absolute right-0 z-10 w-full max-w-[200px] object-contain md:-right-20 md:top-0 md:max-w-xs"
+                src={image}
+              />
+              <div className="relative z-20 px-4 md:px-9">
+                <p className="sub-heading-3 mb-[10px] font-semibold">
+                  {supTitle}
+                </p>
+                <h3 className="heading-3 mb-[10px] pr-[150px]">{title}</h3>
+                <p className="sub-heading-3 font-semibold">{subTitle}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </Fade>
       </div>
 
-      <div className="mb-8 flex flex-wrap items-center gap-3">
-        <FilterSelect
-          options={[{ value: "1", label: "1" }]}
-          placeholder="Категория"
-        />
-        <FilterSelect
-          options={[{ value: "1", label: "1" }]}
-          placeholder="По возрастанию цены"
-          Icon={UpDownArrows}
-        />
-        <FilterSelect
-          options={[{ value: "1", label: "1" }]}
-          placeholder="Цена, Балл"
-          className="-order-2 md:order-none md:mr-auto"
-        />
-        <FilterSearch
-          className="order-first w-full md:order-last md:w-auto"
-          placeholder="Поиск"
-        />
-      </div>
+      <Fade duration={500} direction="up">
+        <div className="mb-8 flex flex-wrap items-center gap-3">
+          <FilterSelect
+            options={[{ value: "1", label: "1" }]}
+            placeholder="Категория"
+          />
+          <FilterSelect
+            options={[{ value: "1", label: "1" }]}
+            placeholder="По возрастанию цены"
+            Icon={UpDownArrows}
+          />
+          <FilterSelect
+            options={[{ value: "1", label: "1" }]}
+            placeholder="Цена, Балл"
+            className="-order-2 md:order-none md:mr-auto"
+          />
+          <FilterSearch
+            className="order-first w-full md:order-last md:w-auto"
+            placeholder="Поиск"
+          />
+        </div>
+      </Fade>
 
       <div className="grid grid-cols-2 gap-5 md:grid-cols-4 lg:gap-[30px]">
         {products.map(({ id, ...data }) => (

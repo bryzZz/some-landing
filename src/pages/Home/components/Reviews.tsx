@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import ReviewAvatar from "assets/images/review-avatar.png";
 
 import { ReviewsSlider, TabPanel, Tabs } from "components";
+import { Fade } from "react-awesome-reveal";
 
 const reviews = [
   {
@@ -84,27 +85,29 @@ export const Reviews: React.FC = () => {
 
   return (
     <section className="relative z-40 bg-text-100 pb-24 pt-5 md:pt-0">
-      <div className="flex flex-col items-center">
-        <h2 className="heading-2 mb-10">
-          Отзывы
-          <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
-        </h2>
+      <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
+        <div className="flex flex-col items-center">
+          <h2 className="heading-2 mb-10">
+            Отзывы
+            <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
+          </h2>
 
-        <Tabs
-          className="mb-20"
-          tabs={labels}
-          value={tabValue}
-          onChange={setTabValue}
-        />
-      </div>
+          <Tabs
+            className="mb-20"
+            tabs={labels}
+            value={tabValue}
+            onChange={setTabValue}
+          />
+        </div>
 
-      <div className="md:reviews-container pl-4">
-        {reviews.map(({ items }, i) => (
-          <TabPanel value={i} tabValue={tabValue} key={i}>
-            <ReviewsSlider items={items} />
-          </TabPanel>
-        ))}
-      </div>
+        <div className="md:reviews-container pl-4">
+          {reviews.map(({ items }, i) => (
+            <TabPanel value={i} tabValue={tabValue} key={i}>
+              <ReviewsSlider items={items} />
+            </TabPanel>
+          ))}
+        </div>
+      </Fade>
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade, Zoom } from "react-awesome-reveal";
 
 import MainImage2 from "assets/images/info-1.png";
 
@@ -66,49 +67,78 @@ const bottomCards = [
 export const Cards: React.FC = () => {
   return (
     <section className="base-container mb-20 grid grid-cols-6 gap-7 lg:mb-24 lg:grid-cols-8">
-      {topCards.map(({ Icon, title, subTitle }, i) => (
-        <div
-          className="col-span-6 row-span-4 rounded-2xl bg-text-100 p-5 shadow-100 md:col-span-3 lg:col-span-2 lg:p-6"
-          key={i}
-        >
-          <div className="mb-3 grid grid-cols-[50px_1fr] items-center gap-4">
+      <Fade
+        cascade
+        direction="up"
+        className="col-span-6 row-span-4 rounded-2xl bg-text-100 p-5 shadow-100 md:col-span-3 lg:col-span-2 lg:p-6"
+        duration={500}
+        damping={0.3}
+        triggerOnce
+      >
+        {topCards.map(({ Icon, title, subTitle }, i) => (
+          <div key={i}>
+            <div className="mb-3 grid grid-cols-[50px_1fr] items-center gap-4">
+              <Icon />
+              <h5 className="heading-6">{title}</h5>
+            </div>
+            <p className="sub-heading-4">{subTitle}</p>
+          </div>
+        ))}
+      </Fade>
+
+      <Zoom
+        triggerOnce
+        className="col-span-6 row-span-2 md:col-span-2 lg:col-span-2 lg:row-span-6"
+      >
+        <div className="flex flex-col items-center rounded-2xl bg-gradient-to-tl from-primary-300 to-primary-400 p-6 pt-2 shadow-100 ">
+          <img src={MainImage2} />
+          <p className="heading-6 text-center text-text-100">Генератор чеков</p>
+        </div>
+      </Zoom>
+
+      <Fade
+        cascade
+        direction="up"
+        className="col-span-6 row-span-1 md:col-span-4 lg:col-span-3 lg:row-span-3"
+        duration={500}
+        damping={0.3}
+        triggerOnce
+      >
+        {bottomCards.slice(0, 2).map(({ Icon, title, subTitle }, i) => (
+          <div
+            className="grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100"
+            key={i}
+          >
             <Icon />
-            <h5 className="heading-6">{title}</h5>
+            <div>
+              <p className="heading-6">{title}</p>
+              <p className="sub-heading-4">{subTitle}</p>
+            </div>
           </div>
-          <p className="sub-heading-4">{subTitle}</p>
-        </div>
-      ))}
+        ))}
+      </Fade>
 
-      <div className="col-span-6 row-span-2 flex flex-col items-center rounded-2xl bg-gradient-to-tl from-primary-300 to-primary-400 p-6 pt-2 shadow-100 md:col-span-2 lg:col-span-2 lg:row-span-6">
-        <img src={MainImage2} />
-        <p className="heading-6 text-center text-text-100">Генератор чеков</p>
-      </div>
-
-      {bottomCards.slice(0, 2).map(({ Icon, title, subTitle }, i) => (
-        <div
-          className="col-span-6 row-span-1 grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100 md:col-span-4 lg:col-span-3 lg:row-span-3"
-          key={i}
-        >
-          <Icon />
-          <div>
-            <p className="heading-6">{title}</p>
-            <p className="sub-heading-4">{subTitle}</p>
+      <Fade
+        cascade
+        direction="up"
+        className="col-span-6 row-span-1 md:col-span-3 lg:col-span-3 lg:row-span-3"
+        duration={500}
+        damping={0.3}
+        triggerOnce
+      >
+        {bottomCards.slice(2).map(({ Icon, title, subTitle }, i) => (
+          <div
+            className="grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100"
+            key={i}
+          >
+            <Icon />
+            <div>
+              <p className="heading-6">{title}</p>
+              <p className="sub-heading-4">{subTitle}</p>
+            </div>
           </div>
-        </div>
-      ))}
-
-      {bottomCards.slice(2).map(({ Icon, title, subTitle }, i) => (
-        <div
-          className="col-span-6 row-span-1 grid grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100 md:col-span-3 lg:col-span-3 lg:row-span-3"
-          key={i}
-        >
-          <Icon />
-          <div>
-            <p className="heading-6">{title}</p>
-            <p className="sub-heading-4">{subTitle}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </Fade>
     </section>
   );
 };

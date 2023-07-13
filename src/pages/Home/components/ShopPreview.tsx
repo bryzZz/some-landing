@@ -14,6 +14,7 @@ import ShopCard6 from "assets/images/shop-preview-6.png";
 import ShopCard7 from "assets/images/shop-preview-7.png";
 import ShopCard8 from "assets/images/shop-preview-8.png";
 import ShopCard9 from "assets/images/shop-preview-9.png";
+import { Fade, Zoom } from "react-awesome-reveal";
 
 const cards = [
   {
@@ -75,7 +76,7 @@ export const ShopPreview: React.FC = () => {
       style={{ backgroundImage: `url(${ShopPreviewBg})` }}
     >
       <div className="base-container">
-        <div>
+        <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
           <h2 className="heading-2 mb-5 max-w-[580px]">
             Получай баллы за апрувнутые лиды и обменивай их на призы
             <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
@@ -88,7 +89,7 @@ export const ShopPreview: React.FC = () => {
             В магазин
             <ArrowRight width="20px" height="20px" />
           </button>
-        </div>
+        </Fade>
       </div>
 
       <div className="absolute -left-16 top-96 z-30 grid rotate-[-30deg] grid-cols-[repeat(6,150px)] gap-10 md:top-60 md:grid-cols-[repeat(6,232px)] lg:-left-24 lg:top-32 lg:grid-cols-[repeat(6,324px)] lg:gap-20 xl:-left-14 xl:top-72">

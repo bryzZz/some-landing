@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade, Zoom } from "react-awesome-reveal";
 import { Pagination, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -23,24 +24,34 @@ export const First: React.FC = () => {
           <SwiperSlide key={i}>
             <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:justify-between md:gap-3">
               <div className="w-full text-center md:max-w-xl md:text-left">
-                <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 px-5 pb-[2px] pt-1 backdrop-blur-sm">
-                  <Shild />
-                  <span className="text-[14px] font-semibold text-text-300 lg:text-base">
-                    Надежный партнер
-                  </span>
+                <Fade
+                  cascade
+                  direction="up"
+                  duration={300}
+                  damping={0.1}
+                  triggerOnce
+                >
+                  <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 px-5 pb-[2px] pt-1 backdrop-blur-sm">
+                    <Shild />
+                    <span className="text-[14px] font-semibold text-text-300 lg:text-base">
+                      Надежный партнер
+                    </span>
+                  </div>
+                  <h1 className="heading-1 mb-5">
+                    Монетизируйте трафик по лучшим условиям
+                  </h1>
+                  <p className="sub-heading-1 mb-10">
+                    Персональные офферы, собственные инструменты, инсайд
+                    информация и связки для топов.
+                  </p>
+                  <button className="btn-primary">Регистрация</button>
+                </Fade>
+              </div>
+              <Zoom duration={300} triggerOnce>
+                <div className="w-full max-w-[319px] lg:max-w-[408px]">
+                  <img src={MainImage} className="w-full" />
                 </div>
-                <h1 className="heading-1 mb-5">
-                  Монетизируйте трафик по лучшим условиям
-                </h1>
-                <p className="sub-heading-1 mb-10">
-                  Персональные офферы, собственные инструменты, инсайд
-                  информация и связки для топов.
-                </p>
-                <button className="btn-primary">Регистрация</button>
-              </div>
-              <div className="w-full max-w-[319px] lg:max-w-[408px]">
-                <img src={MainImage} className="w-full" />
-              </div>
+              </Zoom>
             </div>
           </SwiperSlide>
         ))}

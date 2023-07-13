@@ -7,6 +7,7 @@ import ShopCard2 from "assets/images/shop-preview-2.png";
 import ShopCard3 from "assets/images/shop-preview-3.png";
 import ShopCard4 from "assets/images/shop-preview-4.png";
 import { ShopCard } from "./ShopCard";
+import { Fade } from "react-awesome-reveal";
 
 const cards = [
   {
@@ -38,15 +39,19 @@ export const ShopPreviewMini: React.FC = () => {
       style={{ backgroundImage: `url(${ShopPreviewBg})` }}
     >
       <div className="base-container flex flex-col items-center">
-        <h2 className="heading-2 mb-20 max-w-3xl text-center">
-          Заливай трафик, получай баллы, обменивай их на призы
-          <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
-        </h2>
+        <Fade direction="up" duration={500} triggerOnce>
+          <h2 className="heading-2 mb-20 max-w-3xl text-center">
+            Заливай трафик, получай баллы, обменивай их на призы
+            <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
+          </h2>
+        </Fade>
 
         <div className="mb-14 grid grid-cols-2 gap-5 md:grid-cols-4 lg:gap-[30px]">
-          {cards.map((data, i) => (
-            <ShopCard key={i} data={data} />
-          ))}
+          <Fade cascade direction="up" duration={400} damping={0.2} triggerOnce>
+            {cards.map((data, i) => (
+              <ShopCard key={i} data={data} />
+            ))}
+          </Fade>
         </div>
 
         <button className="btn-primary flex items-center gap-2">

@@ -8,6 +8,7 @@ import Person from "assets/icons/person.svg";
 import { ReactComponent as Telegram } from "assets/icons/telegram-2.svg";
 import { ReactComponent as Mail } from "assets/icons/mail.svg";
 import ContactsImage from "assets/images/contacts-image.jpg";
+import { Fade } from "react-awesome-reveal";
 
 const contacts = [
   {
@@ -94,84 +95,86 @@ export const Contacts: React.FC = () => {
 
   return (
     <section className="base-container">
-      <h1 className="heading-1 mb-28 text-center lg:mb-40">Контакты</h1>
+      <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
+        <h1 className="heading-1 mb-28 text-center lg:mb-40">Контакты</h1>
 
-      <div className="mb-16 flex flex-wrap items-center justify-center gap-4">
-        {labels.map((label, i) => (
-          <button
-            key={i}
-            className={twMerge(
-              "rounded-lg bg-text-100 px-4 py-[11px] text-sm font-bold text-text-400 shadow-200 transition-all md:text-base",
-              i === tabValue && "bg-primary-100 text-text-100 shadow-100"
-            )}
-            onClick={() => setTabValue(i)}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
+        <div className="mb-16 flex flex-wrap items-center justify-center gap-4">
+          {labels.map((label, i) => (
+            <button
+              key={i}
+              className={twMerge(
+                "rounded-lg bg-text-100 px-4 py-[11px] text-sm font-bold text-text-400 shadow-200 transition-all md:text-base",
+                i === tabValue && "bg-primary-100 text-text-100 shadow-100"
+              )}
+              onClick={() => setTabValue(i)}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
 
-      <div className="mb-24">
-        {contacts.map(({ items }, i) => (
-          <TabPanel value={i} tabValue={tabValue} key={i}>
-            <div className="flex flex-col items-stretch justify-center gap-[30px] sm:flex-row">
-              {items.map(({ avatar, name, role, telegram, mail }, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl bg-text-100 p-[22px] pb-[30px] shadow-100"
-                >
-                  <div className="mb-6 flex flex-col items-center gap-[18px] sm:flex-row">
-                    <img
-                      src={avatar}
-                      className="w-full max-w-[5.25rem] object-contain sm:max-w-[3.5rem]"
-                    />
-                    <div className="text-center sm:text-left">
-                      <p className="sm:heading-4 p-[1px] text-lg font-bold text-text-400">
-                        {name}
-                      </p>
-                      <p className="sub-heading-4">{role}</p>
+        <div className="mb-24">
+          {contacts.map(({ items }, i) => (
+            <TabPanel value={i} tabValue={tabValue} key={i}>
+              <div className="flex flex-col items-stretch justify-center gap-[30px] sm:flex-row">
+                {items.map(({ avatar, name, role, telegram, mail }, i) => (
+                  <div
+                    key={i}
+                    className="rounded-2xl bg-text-100 p-[22px] pb-[30px] shadow-100"
+                  >
+                    <div className="mb-6 flex flex-col items-center gap-[18px] sm:flex-row">
+                      <img
+                        src={avatar}
+                        className="w-full max-w-[5.25rem] object-contain sm:max-w-[3.5rem]"
+                      />
+                      <div className="text-center sm:text-left">
+                        <p className="sm:heading-4 p-[1px] text-lg font-bold text-text-400">
+                          {name}
+                        </p>
+                        <p className="sub-heading-4">{role}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-stretch gap-1">
+                      <Link
+                        to={telegram}
+                        className="flex w-full items-center justify-center gap-2 rounded-bl-lg rounded-tl-lg bg-[#F8F8F8] p-4 font-semibold transition hover:bg-[#EEEEEE]"
+                      >
+                        <Telegram />
+                        Telegram
+                      </Link>
+                      <Link
+                        to={mail}
+                        className="flex w-full items-center justify-center gap-2 rounded-br-lg rounded-tr-lg bg-[#F8F8F8] p-4 font-semibold transition hover:bg-[#EEEEEE]"
+                      >
+                        <Mail />
+                        E-mail
+                      </Link>
                     </div>
                   </div>
+                ))}
+              </div>
+            </TabPanel>
+          ))}
+        </div>
 
-                  <div className="flex items-center justify-stretch gap-1">
-                    <Link
-                      to={telegram}
-                      className="flex w-full items-center justify-center gap-2 rounded-bl-lg rounded-tl-lg bg-[#F8F8F8] p-4 font-semibold transition hover:bg-[#EEEEEE]"
-                    >
-                      <Telegram />
-                      Telegram
-                    </Link>
-                    <Link
-                      to={mail}
-                      className="flex w-full items-center justify-center gap-2 rounded-br-lg rounded-tr-lg bg-[#F8F8F8] p-4 font-semibold transition hover:bg-[#EEEEEE]"
-                    >
-                      <Mail />
-                      E-mail
-                    </Link>
-                  </div>
-                </div>
-              ))}
+        <div
+          className="mx-auto mb-24 flex w-full max-w-[975px] flex-col items-center justify-between gap-10 rounded-2xl border border-[#D1D1D1] bg-cover bg-center bg-no-repeat px-11 py-9 shadow-100 md:flex-row md:gap-0 lg:mb-36"
+          style={{ backgroundImage: `url(${ContactsImage})` }}
+        >
+          {bottomContacts.map(({ title, Icon, link }) => (
+            <div className="text-center">
+              <h5 className="mb-1 text-sm font-bold uppercase text-[#000]">
+                {title}
+              </h5>
+              <a className="flex cursor-pointer items-center justify-center gap-1 text-base text-[#525260]">
+                <Icon width={20} height={20} />
+                {link}
+              </a>
             </div>
-          </TabPanel>
-        ))}
-      </div>
-
-      <div
-        className="mx-auto mb-24 flex w-full max-w-[975px] flex-col items-center justify-between gap-10 rounded-2xl border border-[#D1D1D1] bg-cover bg-center bg-no-repeat px-11 py-9 shadow-100 md:flex-row md:gap-0 lg:mb-36"
-        style={{ backgroundImage: `url(${ContactsImage})` }}
-      >
-        {bottomContacts.map(({ title, Icon, link }) => (
-          <div className="text-center">
-            <h5 className="mb-1 text-sm font-bold uppercase text-[#000]">
-              {title}
-            </h5>
-            <a className="flex cursor-pointer items-center justify-center gap-1 text-base text-[#525260]">
-              <Icon width={20} height={20} />
-              {link}
-            </a>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Fade>
     </section>
   );
 };

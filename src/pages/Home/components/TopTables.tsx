@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Fade } from "react-awesome-reveal";
 
 import { TabPanel, Tabs, TopWebMastersTable, TopOffersTable } from "components";
 
@@ -67,21 +68,23 @@ export const TopTables: React.FC = () => {
 
   return (
     <section className="small-container z-10 mb-32 flex flex-col items-center">
-      <Tabs
-        className="mb-6 md:mb-10"
-        tabs={labels}
-        value={tabValue}
-        onChange={setTabValue}
-      />
+      <Fade cascade duration={500} damping={0.3} triggerOnce>
+        <Tabs
+          className="mb-6 md:mb-10"
+          tabs={labels}
+          value={tabValue}
+          onChange={setTabValue}
+        />
 
-      <div className="w-full">
-        <TabPanel value={0} tabValue={tabValue}>
-          <TopWebMastersTable items={webMasters} />
-        </TabPanel>
-        <TabPanel value={1} tabValue={tabValue}>
-          <TopOffersTable items={offers} />
-        </TabPanel>
-      </div>
+        <div className="w-full">
+          <TabPanel value={0} tabValue={tabValue}>
+            <TopWebMastersTable items={webMasters} />
+          </TabPanel>
+          <TabPanel value={1} tabValue={tabValue}>
+            <TopOffersTable items={offers} />
+          </TabPanel>
+        </div>
+      </Fade>
     </section>
   );
 };

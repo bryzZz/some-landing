@@ -1,12 +1,13 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { useState } from "react";
+import { Fade } from "react-awesome-reveal";
+import { twMerge } from "tailwind-merge";
 
 import { ReactComponent as QuestionTab1 } from "assets/icons/question-tab-1.svg";
 import { ReactComponent as QuestionTab2 } from "assets/icons/question-tab-2.svg";
 import { ReactComponent as QuestionTab3 } from "assets/icons/question-tab-3.svg";
 import { ReactComponent as QuestionTab4 } from "assets/icons/question-tab-4.svg";
 import { FAQAccordion, TabPanel, FilterSearch } from "components";
-import { twMerge } from "tailwind-merge";
 
 const questionTabs = [
   {
@@ -162,16 +163,18 @@ export const FAQ: React.FC = () => {
 
   return (
     <section className="FAQ-container mb-28">
-      <h1 className="heading-1 mb-7 text-center">Вопросы и ответы</h1>
+      <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
+        <h1 className="heading-1 mb-7 text-center">Вопросы и ответы</h1>
 
-      <FilterSearch
-        className="mx-auto mb-6 w-full max-w-xl py-2"
-        placeholder="Поиск вопроса"
-      />
+        <FilterSearch
+          className="mx-auto mb-6 w-full max-w-xl py-2"
+          placeholder="Поиск вопроса"
+        />
 
-      <p className="sub-heading-4 mb-32 text-center">
-        Или выбирите категорию вопроса ниже.
-      </p>
+        <p className="sub-heading-4 mb-32 text-center">
+          Или выбирите категорию вопроса ниже.
+        </p>
+      </Fade>
 
       <div className="mb-24 grid grid-cols-2 items-center justify-center gap-4 lg:grid-cols-5 lg:justify-between lg:gap-[30px]">
         {labelsAndIcons.map(({ Icon, label }, i) => (
@@ -187,7 +190,7 @@ export const FAQ: React.FC = () => {
             <h5 className="heading-5 text-center">{label}</h5>
           </div>
         ))}
-        <div className="relative col-span-2 w-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-6 text-center shadow-100 lg:col-span-1 lg:h-[234px] lg:pt-16">
+        <div className="relative col-span-full w-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-6 text-center shadow-100 lg:col-span-1 lg:h-[234px] lg:pt-16">
           <div className="absolute -left-14 -top-5 z-10 h-36  w-36 rounded-full bg-gradient-to-l from-text-100 to-transparent" />
           <div className="relative z-20 flex h-full flex-col justify-between">
             <h5 className="heading-5 text-center">
@@ -204,15 +207,24 @@ export const FAQ: React.FC = () => {
       <div>
         {questionTabs.map(({ label, questions }, i) => (
           <TabPanel value={i} tabValue={tabValue} key={i}>
-            <h2 className="heading-2 mb-[70px] text-center">
-              {label}
-              <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
-            </h2>
-
+            <Fade direction="up" duration={500} triggerOnce>
+              <h2 className="heading-2 mb-[70px] text-center">
+                {label}
+                <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
+              </h2>
+            </Fade>
             <div className="flex flex-col gap-4">
-              {questions.map(({ heading, solution }, i) => (
-                <FAQAccordion header={heading} content={solution} key={i} />
-              ))}
+              <Fade
+                cascade
+                direction="up"
+                duration={500}
+                damping={0.3}
+                triggerOnce
+              >
+                {questions.map(({ heading, solution }, i) => (
+                  <FAQAccordion header={heading} content={solution} key={i} />
+                ))}
+              </Fade>
             </div>
           </TabPanel>
         ))}
