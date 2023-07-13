@@ -62,12 +62,12 @@ export const PointsStore: React.FC = () => {
 
   return (
     <section className="base-container mb-24 lg:mb-36">
-      <Fade duration={500} direction="up">
+      <Fade duration={500} direction="up" triggerOnce>
         <h1 className="heading-1 mb-28 text-center lg:mb-40">Магазин баллов</h1>
       </Fade>
 
       <div className="mb-20 grid grid-cols-1 justify-between gap-2 md:grid-cols-3 lg:mb-24">
-        <Fade cascade direction="up" duration={500} damping={0.3}>
+        <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
           {infoCards.map(({ image, supTitle, title, subTitle }, i) => (
             <div
               key={i}
@@ -89,7 +89,7 @@ export const PointsStore: React.FC = () => {
         </Fade>
       </div>
 
-      <Fade duration={500} direction="up">
+      <Fade duration={500} direction="up" triggerOnce>
         <div className="mb-8 flex flex-wrap items-center gap-3">
           <FilterSelect
             options={[{ value: "1", label: "1" }]}

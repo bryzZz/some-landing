@@ -14,7 +14,7 @@ import ShopCard6 from "assets/images/shop-preview-6.png";
 import ShopCard7 from "assets/images/shop-preview-7.png";
 import ShopCard8 from "assets/images/shop-preview-8.png";
 import ShopCard9 from "assets/images/shop-preview-9.png";
-import { Fade, Zoom } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 const cards = [
   {
