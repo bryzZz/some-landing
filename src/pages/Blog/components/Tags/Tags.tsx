@@ -13,7 +13,7 @@ export const Tags: React.FC<TagsProps> = ({ tags, className }) => {
     <div className={twMerge("mb-12", className)}>
       <p className="mb-6 text-base font-semibold text-text-400">Облако тегов</p>
       <div className="flex flex-wrap gap-[10px]">
-        {tags.map((tag, i) => (
+        {tags.map((tag) => (
           <Fragment key={tag}>
             <input
               id={`Blog-${tag}`}
