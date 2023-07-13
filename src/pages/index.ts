@@ -6,3 +6,4 @@ export * from "./Bonuses";
 export * from "./Contacts";
 export * from "./Registration";
 export * from "./Blog";
+export * from "./BlogPost";

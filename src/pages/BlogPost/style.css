@@ -1,0 +1,79 @@
+.BlogPost {
+  @apply flex-1 pb-24 text-text-400;
+}
+
+.BlogPost__title {
+  @apply heading-1 mb-[89px] text-center;
+}
+
+.BlogPost__title-2 {
+  @apply mb-5 mt-7 text-[21px] font-bold leading-8;
+}
+
+.BlogPost__img-main {
+  @apply mb-5 w-full rounded-[5px] object-cover;
+}
+
+.BlogPost__img {
+  @apply mb-4 w-full rounded-[5px] object-cover;
+}
+
+.BlogPost__date {
+  @apply mb-5 flex items-center justify-center gap-2 font-semibold leading-5 text-[#999FAE] text-[13p];
+}
+
+.BlogPost__tags {
+  @apply mb-9 flex flex-wrap justify-center gap-[10px];
+}
+
+.BlogPost__tag {
+  @apply rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF];
+}
+
+.BlogPost__text {
+  @apply mb-4 whitespace-pre-line text-base leading-7;
+}
+
+.BlogPost__text-highlighted {
+  @apply mb-4 rounded-[5px] bg-[#F8F8F8] p-5 text-base leading-7;
+}
+
+.BlogPost__quote {
+  @apply relative mb-[26px] pl-5 text-sm leading-5 after:absolute after:bottom-0 after:left-1 after:top-0 after:w-[5px] after:rounded-[10px] after:bg-primary-500 after:content-[''];
+}
+
+.BlogPost__text--accent {
+  @apply text-primary-100;
+}
+
+.BlogPost__ordered-list {
+  @apply list-decimal;
+}
+
+.BlogPost__ordered-list-item {
+  @apply mb-4 ml-5 text-base leading-7;
+}
+
+.BlogPost__tiles {
+  @apply mb-[17px] grid grid-cols-2 gap-[15px];
+}
+
+.BlogPost__tile {
+  @apply rounded-[5px] bg-[#F8F8F8] p-[10px];
+}
+
+.BlogPost__tile--half {
+  @apply col-span-1;
+}
+
+.BlogPost__tile--full {
+  @apply col-span-2;
+}
+
+.BlogPost__tile-title {
+  @apply mb-1 text-base font-bold leading-7;
+}
+
+.BlogPost__tile-text {
+  @apply text-sm leading-5;
+}
