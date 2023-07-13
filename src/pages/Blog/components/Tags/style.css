@@ -1,0 +1,3 @@
+.tag-input:checked + label {
+  @apply bg-opacity-100 text-white;
+}

@@ -108,6 +108,7 @@ export const PointsStore: React.FC = () => {
       <div className="grid grid-cols-2 gap-5 md:grid-cols-4 lg:gap-[30px]">
         {products.map(({ id, ...data }) => (
           <ShopCard
+            key={id}
             data={data}
             details
             onDetailsClick={handleProductClick(id)}

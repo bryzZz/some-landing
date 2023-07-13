@@ -10,6 +10,7 @@ import {
   Contacts,
   Unauthorized,
   Registration,
+  Blog,
 } from "pages";
 import { BASE_PATH } from "./constants";
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "contacts/",
         element: <Contacts />,
+      },
+      {
+        path: "blog/",
+        element: <Blog />,
       },
     ],
   },

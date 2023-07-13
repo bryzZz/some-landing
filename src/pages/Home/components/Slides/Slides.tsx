@@ -2,12 +2,12 @@ import React from "react";
 import { Pagination, Mousewheel } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { useMediaQuery } from "hooks";
 import SliderImage1 from "assets/images/screen-3-slider-1.png";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
-import { useMediaQuery } from "hooks";
 
 export const Slides: React.FC = () => {
   const matches = useMediaQuery("(min-width: 768px)");

@@ -1,11 +1,15 @@
-import { FC } from "react";
+export interface Post {
+  date: string;
+  tags: string[];
+  title: string;
+  text: string;
+  image?: string;
+  link: string;
+}
 
-export interface TopTable {
-  label: string;
-  head: string[];
-  rows: {
-    value?: string | number;
-    image?: string;
-    icons?: FC[];
-  }[][];
+export interface RecentPost {
+  date: string;
+  title: string;
+  image: string;
+  link: string;
 }
