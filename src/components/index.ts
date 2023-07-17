@@ -13,3 +13,6 @@ export * from "./ShopCard";
 export * from "./CommunicationSelect";
 export * from "./TopWebMastersTable";
 export * from "./TopOffersTable";
+export * from "./ModalSuccessRegister";
+export * from "./ModalPublicOffer";
+export * from "./ModalCookie";

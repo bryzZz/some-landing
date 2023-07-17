@@ -1,0 +1,7 @@
+.ModalPublicOffer__overlay {
+  @apply fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,0.50)] p-0;
+}
+
+.ModalPublicOffer {
+  @apply mx-[15px] h-auto w-full max-w-[702px] overflow-auto rounded-xl bg-white;
+}

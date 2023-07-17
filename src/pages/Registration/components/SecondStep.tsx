@@ -116,7 +116,7 @@ export const SecondStep: React.FC<SecondStepProps> = ({
         <FormField
           label="Промокод"
           placeholder="Укажите промокод"
-          type="email"
+          type="text"
           {...register("promoCode", { required: true })}
         />
 

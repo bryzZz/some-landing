@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
     <>
       <header
         className={twMerge(
-          "fixed left-0 right-0 top-0 z-50 transition-all",
+          "fixed left-0 right-0 top-0 z-40 transition-all",
           isSticky &&
             "shadow-[0px_1px_2px_0px_rgba(0, 0, 0, 0.05)] bg-white bg-opacity-70 backdrop-blur-xl"
         )}
@@ -134,7 +134,7 @@ export const Header: React.FC = () => {
 
       <div
         className={twMerge(
-          "fixed inset-0 z-50 flex -translate-x-full flex-col justify-between bg-white bg-opacity-70 px-6 pb-5 pt-4 backdrop-blur-xl transition-transform lg:hidden",
+          "fixed inset-0 z-40 flex -translate-x-full flex-col justify-between bg-white bg-opacity-70 px-6 pb-5 pt-4 backdrop-blur-xl transition-transform lg:hidden",
           isOpen && "translate-x-0"
         )}
       >
