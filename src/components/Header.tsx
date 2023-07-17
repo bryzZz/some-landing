@@ -116,7 +116,9 @@ export const Header: React.FC = () => {
                 <DoorEnter className="text-primary-100" />
                 Войти
               </button>
-              <button className="btn-primary">Регистрация</button>
+              <Link to="unauthorized/registration" className="btn-primary">
+                Регистрация
+              </Link>
             </div>
           </div>
         </div>
@@ -177,7 +179,12 @@ export const Header: React.FC = () => {
             <DoorEnter className="text-primary-100" />
             Войти
           </button>
-          <button className="btn-primary text-[14px]">Регистрация</button>
+          <Link
+            to="unauthorized/registration"
+            className="btn-primary text-[14px]"
+          >
+            Регистрация
+          </Link>
         </div>
       </div>
     </>

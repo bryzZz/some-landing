@@ -17,6 +17,7 @@ import ShopCard7 from "assets/images/shop-preview-7.png";
 import ShopCard8 from "assets/images/shop-preview-8.png";
 import ShopCard9 from "assets/images/shop-preview-9.png";
 import { twMerge } from "tailwind-merge";
+import { Link } from "react-router-dom";
 
 const cards = [
   {
@@ -113,10 +114,13 @@ export const ShopPreview: React.FC = () => {
             Какой-то текст в одну строку какой-то текст в одну строку какой-то
             текст в одну строку.
           </p>
-          <button className="btn-primary flex items-center gap-2">
+          <Link
+            to="points-store/"
+            className="btn-primary inline-flex items-center gap-2"
+          >
             В магазин
             <ArrowRight width="20px" height="20px" />
-          </button>
+          </Link>
         </Fade>
       </div>
       <div

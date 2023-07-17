@@ -11,6 +11,7 @@ import MainImagePart3 from "assets/images/main-image-part-3.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 export const First: React.FC = () => {
   return (
@@ -46,7 +47,9 @@ export const First: React.FC = () => {
                     Персональные офферы, собственные инструменты, инсайд
                     информация и связки для топов.
                   </p>
-                  <button className="btn-primary">Регистрация</button>
+                  <Link to="/unauthorized/registration" className="btn-primary">
+                    Регистрация
+                  </Link>
                 </Fade>
               </div>
               <Zoom
