@@ -1,4 +1,6 @@
 import React from "react";
+import { Scene } from "react-scrollmagic";
+import { Fade } from "react-awesome-reveal";
 
 import { ShopCard } from "components";
 
@@ -14,7 +16,7 @@ import ShopCard6 from "assets/images/shop-preview-6.png";
 import ShopCard7 from "assets/images/shop-preview-7.png";
 import ShopCard8 from "assets/images/shop-preview-8.png";
 import ShopCard9 from "assets/images/shop-preview-9.png";
-import { Fade } from "react-awesome-reveal";
+import { twMerge } from "tailwind-merge";
 
 const cards = [
   {
@@ -72,9 +74,35 @@ const cards = [
 export const ShopPreview: React.FC = () => {
   return (
     <section
+      id="bubbles-3"
       className="relative z-20 bg-auto bg-top bg-no-repeat pb-[860px] pt-28"
       style={{ backgroundImage: `url(${ShopPreviewBg})` }}
     >
+      <Scene duration={1500} triggerElement="#bubbles-3" triggerHook="onEnter">
+        {(progress: number) => (
+          <>
+            <div
+              className="absolute left-[10vw] h-20 w-20 rounded-full bg-white"
+              style={{
+                top: 700 + progress * -200,
+              }}
+            />
+            <div
+              className="absolute right-[30vw] h-5 w-5 rounded-full bg-[#5956E9]"
+              style={{
+                top: 100 + progress * -100,
+              }}
+            />
+            <div
+              className="absolute right-[40vw] h-2 w-2 rounded-full bg-[#5956E9] opacity-50"
+              style={{
+                top: 200 + progress * -100,
+              }}
+            />
+          </>
+        )}
+      </Scene>
+
       <div className="base-container">
         <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
           <h2 className="heading-2 mb-5 max-w-[580px]">
@@ -91,20 +119,59 @@ export const ShopPreview: React.FC = () => {
           </button>
         </Fade>
       </div>
-
-      <div className="absolute -left-16 top-96 z-30 grid rotate-[-30deg] grid-cols-[repeat(6,150px)] gap-10 md:top-60 md:grid-cols-[repeat(6,232px)] lg:-left-24 lg:top-32 lg:grid-cols-[repeat(6,324px)] lg:gap-20 xl:-left-14 xl:top-72">
-        {cards.map((data, i) => (
-          <ShopCard
-            key={i}
-            data={data}
-            className={i === 0 ? "col-start-2" : ""}
-          />
-        ))}
+      <div
+        id="shop-preview"
+        className="absolute top-64 z-30 -rotate-[30deg] max-[430px]:top-72 md:left-32 md:top-32 lg:top-56 min-[1560px]:left-96"
+      >
+        <Scene
+          duration={4000}
+          triggerElement="#shop-preview"
+          triggerHook="onEnter"
+        >
+          {(progress: number) => (
+            <>
+              <div
+                className="mb-10 grid auto-cols-[190px] grid-flow-col gap-10 md:auto-cols-[250px]"
+                style={{
+                  marginRight: `${-progress * 10 - 3}rem`,
+                  marginLeft: `${progress * 10 + 3}rem`,
+                }}
+              >
+                {cards.slice(0, cards.length / 2).map((data, i) => (
+                  <ShopCard
+                    key={i}
+                    data={data}
+                    className={twMerge(
+                      "height-[150px] md:height-[232px] lg:height-[324px]"
+                    )}
+                  />
+                ))}
+              </div>
+              <div
+                className="grid auto-cols-[190px] grid-flow-col gap-10 md:auto-cols-[250px]"
+                style={{
+                  marginRight: `${progress * 10 + 3}rem`,
+                  marginLeft: `${-progress * 10 - 3}rem`,
+                }}
+              >
+                {cards.slice(cards.length / 2).map((data, i) => (
+                  <ShopCard
+                    key={i}
+                    data={data}
+                    className={twMerge(
+                      "height-[150px] md:height-[232px] lg:height-[324px]"
+                    )}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </Scene>
       </div>
 
       <img
         src={ShopPreviewFg}
-        className="absolute bottom-0 left-0 z-40 w-full object-cover"
+        className="absolute bottom-0 left-0 z-40 w-full object-contain"
       />
     </section>
   );

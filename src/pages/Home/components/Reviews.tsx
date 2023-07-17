@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-
-import ReviewAvatar from "assets/images/review-avatar.png";
+import { Scene } from "react-scrollmagic";
+import { Fade } from "react-awesome-reveal";
 
 import { ReviewsSlider, TabPanel, Tabs } from "components";
-import { Fade } from "react-awesome-reveal";
+
+import ReviewAvatar from "assets/images/review-avatar.png";
 
 const reviews = [
   {
@@ -84,7 +85,35 @@ export const Reviews: React.FC = () => {
   const [tabValue, setTabValue] = useState(0);
 
   return (
-    <section className="relative z-40 bg-text-100 pb-24 pt-5 md:pt-0">
+    <section
+      id="bubbles-4"
+      className="relative z-40 bg-text-100 pb-24 pt-5 md:pt-0"
+    >
+      <Scene duration={1500} triggerElement="#bubbles-4" triggerHook="onEnter">
+        {(progress: number) => (
+          <>
+            <div
+              className="absolute left-[10vw] h-11 w-11 rounded-full bg-[#5956E9]"
+              style={{
+                top: 350 + progress * -300,
+              }}
+            />
+            <div
+              className="absolute left-[30vw] h-5 w-5 rounded-full bg-[#ECF2F6]"
+              style={{
+                top: 100 + progress * -100,
+              }}
+            />
+            <div
+              className="absolute right-[30vw] h-5 w-5 rounded-full bg-[#FFDC60] opacity-50"
+              style={{
+                top: 200 + progress * -100,
+              }}
+            />
+          </>
+        )}
+      </Scene>
+
       <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
         <div className="flex flex-col items-center">
           <h2 className="heading-2 mb-10">
