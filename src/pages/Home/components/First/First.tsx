@@ -4,7 +4,9 @@ import { Pagination, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { ReactComponent as Shild } from "assets/icons/shild.svg";
-import MainImage from "assets/images/main-image.png";
+import MainImagePart1 from "assets/images/main-image-part-1.png";
+import MainImagePart2 from "assets/images/main-image-part-2.png";
+import MainImagePart3 from "assets/images/main-image-part-3.png";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -22,8 +24,8 @@ export const First: React.FC = () => {
       >
         {new Array(3).fill(0).map((_, i) => (
           <SwiperSlide key={i}>
-            <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:justify-between md:gap-3">
-              <div className="w-full text-center md:max-w-xl md:text-left">
+            <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:items-stretch md:justify-between md:gap-3">
+              <div className="text-center md:max-w-xl md:text-left">
                 <Fade
                   cascade
                   direction="up"
@@ -47,9 +49,25 @@ export const First: React.FC = () => {
                   <button className="btn-primary">Регистрация</button>
                 </Fade>
               </div>
-              <Zoom duration={300} triggerOnce>
-                <div className="w-full max-w-[319px] lg:max-w-[408px]">
-                  <img src={MainImage} className="w-full" />
+              <Zoom
+                duration={300}
+                triggerOnce
+                className="w-full max-w-[360px] lg:max-w-[420px]"
+              >
+                <div className="relative min-h-[380px]">
+                  <div className="translate- absolute left-1/2 top-1/2 aspect-square w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary-300 to-primary-400" />
+                  <img
+                    className="absolute bottom-0 left-0 animate-secondary-img object-cover"
+                    src={MainImagePart1}
+                  />
+                  <img
+                    className="absolute right-0 top-0 animate-secondary-img object-cover"
+                    src={MainImagePart3}
+                  />
+                  <img
+                    className="absolute w-9/12 animate-primary-img object-cover"
+                    src={MainImagePart2}
+                  />
                 </div>
               </Zoom>
             </div>

@@ -27,6 +27,20 @@ export default {
         300: "0px 16px 32px 5px rgba(61, 61, 61, 0.1)",
         400: "0px 9px 24px -8px rgba(34, 41, 47, 0.18)",
       },
+      animation: {
+        "primary-img": "primary-img 3s ease-in-out infinite",
+        "secondary-img": "secondary-img 3s ease-in-out infinite",
+      },
+      keyframes: {
+        "primary-img": {
+          "0%, 100%": { transform: "translateY(4%)" },
+          "50%": { transform: "translateY(0%)" },
+        },
+        "secondary-img": {
+          "0%, 100%": { transform: "translateY(0%)" },
+          "50%": { transform: "translateY(4%)" },
+        },
+      },
     },
   },
   plugins: [],
