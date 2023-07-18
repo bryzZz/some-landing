@@ -22,6 +22,7 @@ export const First: React.FC = () => {
         pagination={{ clickable: true }}
         modules={[Pagination, Scrollbar]}
         className="FirstSlider"
+        spaceBetween={200}
       >
         {new Array(3).fill(0).map((_, i) => (
           <SwiperSlide key={i}>

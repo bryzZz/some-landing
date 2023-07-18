@@ -3,6 +3,7 @@ import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { ReactComponent as ArrowLeft } from "assets/icons/slider-arrow-left.svg";
+import { ReactComponent as Star } from "assets/icons/star.svg";
 
 import "swiper/css";
 import "./style.css";
@@ -13,6 +14,8 @@ interface ReviewsSliderProps {
     title: string;
     date: string;
     text: string;
+    source: string;
+    rating: number;
   }[];
 }
 
@@ -33,7 +36,7 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
 
       <Swiper
         slidesPerView="auto"
-        spaceBetween={30}
+        spaceBetween={15}
         className="reviews-swiper"
         modules={[Navigation]}
         onInit={(swiper) => {
@@ -42,25 +45,51 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
+        breakpoints={{
+          768: {
+            spaceBetween: 30,
+          },
+        }}
       >
-        {items.map(({ avatar, date, title, text }, i) => (
+        {items.map(({ avatar, date, title, text, source, rating }, i) => (
           <SwiperSlide
-            className="w-full max-w-sm select-none lg:max-w-md xl:max-w-lg"
+            className="w-full max-w-[306px] select-none md:max-w-sm lg:max-w-md xl:max-w-lg"
             key={i}
           >
             <div className="mt-3 rounded-2xl bg-text-100 px-[22px] pb-5 shadow-100">
-              <div className="flex -translate-y-3 items-center gap-4">
-                <img src={avatar} />
-                <div>
-                  <p className="text-[13px] font-semibold leading-[10px] text-text-200">
-                    {date}
-                  </p>
+              <div className="flex items-center gap-4">
+                <img
+                  className="h-[70px] w-[70px] -translate-y-3"
+                  src={avatar}
+                />
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[13px] font-semibold leading-[10px] text-text-200">
+                      {date}
+                    </p>
+                    <p className="flex items-center gap-[2px] text-[10px] font-bold text-[#C8C8C8]">
+                      <Star />
+                      <span className="text-[13px] text-[#309E3A]">
+                        {rating}
+                      </span>
+                      /10
+                    </p>
+                  </div>
                   <h6 className="text-[15px] font-bold text-text-400">
                     {title}
                   </h6>
                 </div>
               </div>
-              <p className="text-[14px] text-text-300">{text}</p>
+              <p className="mb-3 text-sm text-text-300">{text}</p>
+              <p className="text-right text-[13px] font-semibold text-[#C0C0C0]">
+                Отзыв с сайта:{" "}
+                <a
+                  href={source}
+                  className="transition-colors hover:text-[#3452FF]"
+                >
+                  {source}
+                </a>
+              </p>
             </div>
           </SwiperSlide>
         ))}

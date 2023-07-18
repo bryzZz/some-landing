@@ -21,9 +21,17 @@ export const ModalCookie: React.FC<Props> = (props) => {
             Подробнее
           </a>
         </p>
-        <div className="z-50 flex items-center justify-center gap-3">
-          <button className="btn-secondary py-3 text-[12px]">Принять</button>
-          <button className="btn-secondary from-[#F71D1D] via-[#F7511D] to-[#F71D1D] py-3 text-[12px]">
+        <div className="flex items-center justify-center gap-3">
+          <button
+            className="btn-secondary px-5 py-2 text-[12px] font-bold"
+            onClick={props.onRequestClose}
+          >
+            Принять
+          </button>
+          <button
+            className="btn-ternary px-5 py-2 text-[12px] font-bold"
+            onClick={props.onRequestClose}
+          >
             Запретить
           </button>
         </div>
