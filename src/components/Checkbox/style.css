@@ -1,0 +1,6 @@
+.checkbox-input:checked + div {
+  @apply border-none bg-primary-100;
+}
+.checkbox-input:checked + div svg {
+  @apply block;
+}

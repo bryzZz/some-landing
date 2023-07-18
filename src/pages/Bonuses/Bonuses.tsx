@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { FilterSearch, FilterSelect, ShopPreviewMini } from "components";
+import { CategoryFilter, FilterSearch, ShopPreviewMini } from "components";
 
 import Bonus1 from "assets/images/bonuses-1.png";
 import Bonus2 from "assets/images/bonuses-2.png";
@@ -141,7 +141,32 @@ const bonuses = [
   },
 ];
 
+const allCategories = [
+  "Все категории",
+  "Техника",
+  "Apple",
+  "Кресла",
+  "Инстурменты",
+];
+
 export const Bonuses: React.FC = () => {
+  const [categories, setCategories] = useState(() =>
+    allCategories.map((label) => ({ label, checked: false }))
+  );
+
+  const handleCategoryClick = (label: string) => {
+    setCategories((p) =>
+      p.map((opt) => {
+        if (opt.label !== label) return opt;
+
+        return {
+          label: opt.label,
+          checked: !opt.checked,
+        };
+      })
+    );
+  };
+
   return (
     <>
       <section className="base-container mb-10 md:mb-20 lg:mb-40">
@@ -152,10 +177,12 @@ export const Bonuses: React.FC = () => {
         </Fade>
 
         <div className="mb-8 flex flex-wrap-reverse items-center justify-between gap-2">
-          <FilterSelect
-            options={[{ value: "1", label: "1" }]}
-            placeholder="Категория"
+          <CategoryFilter
+            categories={categories}
+            onCategoryClick={handleCategoryClick}
+            newCategoryCount={1}
           />
+
           <FilterSearch className="w-full sm:w-auto" placeholder="Поиск" />
         </div>
 

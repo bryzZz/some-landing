@@ -2,16 +2,17 @@ import React, { useState } from "react";
 
 import {
   PointsStoreModal,
-  FilterSelect,
   FilterSearch,
   ShopCard,
+  CategoryFilter,
+  SortFilter,
+  PriceFilter,
 } from "components";
 
 import ShopCard1 from "assets/images/shop-preview-1.png";
 import CardImage1 from "assets/images/points-store-card-1.png";
 import CardImage2 from "assets/images/points-store-card-2.png";
 import CardImage3 from "assets/images/points-store-card-3.png";
-import { ReactComponent as UpDownArrows } from "assets/icons/up-down-arrows.svg";
 import { Fade } from "react-awesome-reveal";
 
 const infoCards = [
@@ -46,16 +47,46 @@ const products = new Array(12).fill(0).map((_, i) => ({
     "Aliquam pulvinar vestibulum blandit. Donec sed nisl libero. Fusce dignissim luctus sem eu dapibus. Pellentesque vulputate quam a quam volutpat, sed ullamcorper erat commodo. Vestibulum sit amet ipsum vitae mauris mattis vulputate lacinia nec neque. Aenean quis consectetur nisi, ac interdum elit. Aliquam sit amet luctus elit, id tempus purus.",
 }));
 
+const allCategories = [
+  "Все категории",
+  "Техника",
+  "Apple",
+  "Кресла",
+  "Инстурменты",
+];
+
+const sortVariants = ["По убыванию цены", "По новинкам"];
+
 export const PointsStore: React.FC = () => {
   const [selectedProductId, setSelectedProductId] = useState<string | null>(
     null
   );
-
+  const [categories, setCategories] = useState(() =>
+    allCategories.map((label) => ({ label, checked: false }))
+  );
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedSort, setSelectedSort] = useState(sortVariants[0]);
+
+  const handleCategoryClick = (label: string) => {
+    setCategories((p) =>
+      p.map((opt) => {
+        if (opt.label !== label) return opt;
+
+        return {
+          label: opt.label,
+          checked: !opt.checked,
+        };
+      })
+    );
+  };
 
   const handleProductClick = (id: string) => () => {
     setSelectedProductId(id);
     setIsOpen(true);
+  };
+
+  const handleSortChange = (label: string) => {
+    setSelectedSort(label);
   };
 
   const selectedProduct = products.find(({ id }) => id === selectedProductId);
@@ -91,19 +122,20 @@ export const PointsStore: React.FC = () => {
 
       <Fade duration={500} direction="up" triggerOnce>
         <div className="mb-8 flex flex-wrap items-center gap-3">
-          <FilterSelect
-            options={[{ value: "1", label: "1" }]}
-            placeholder="Категория"
+          <CategoryFilter
+            categories={categories}
+            onCategoryClick={handleCategoryClick}
+            newCategoryCount={2}
           />
-          <FilterSelect
-            options={[{ value: "1", label: "1" }]}
-            placeholder="По возрастанию цены"
-            Icon={UpDownArrows}
+          <SortFilter
+            options={sortVariants}
+            selectedOption={selectedSort}
+            onChange={handleSortChange}
           />
-          <FilterSelect
-            options={[{ value: "1", label: "1" }]}
-            placeholder="Цена, Балл"
+          <PriceFilter
             className="-order-2 md:order-none md:mr-auto"
+            min={100}
+            max={500}
           />
           <FilterSearch
             className="order-first w-full md:order-last md:w-auto"
