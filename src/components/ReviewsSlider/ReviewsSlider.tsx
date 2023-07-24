@@ -59,29 +59,29 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
             <div className="mt-3 rounded-2xl bg-text-100 px-[22px] pb-5 shadow-100">
               <div className="flex items-center gap-4">
                 <img
-                  className="h-[70px] w-[70px] -translate-y-3"
+                  className="aspect-square w-[70px] -translate-y-3 3xl:w-[95px]"
                   src={avatar}
                 />
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
-                    <p className="text-[13px] font-semibold leading-[10px] text-text-200">
+                    <p className="text-[13px] font-semibold leading-[10px] text-text-200 3xl:text-lg">
                       {date}
                     </p>
-                    <p className="flex items-center gap-[2px] text-[10px] font-bold text-[#C8C8C8]">
+                    <p className="flex items-center gap-[2px] text-[10px] font-bold text-[#C8C8C8] 3xl:text-sm">
                       <Star />
-                      <span className="text-[13px] text-[#309E3A]">
+                      <span className="text-[13px] text-[#309E3A] 3xl:text-base">
                         {rating}
                       </span>
                       /10
                     </p>
                   </div>
-                  <h6 className="text-[15px] font-bold text-text-400">
+                  <h6 className="text-[15px] font-bold text-text-400 3xl:text-xl">
                     {title}
                   </h6>
                 </div>
               </div>
-              <p className="mb-3 text-sm text-text-300">{text}</p>
-              <p className="text-right text-[13px] font-semibold text-[#C0C0C0]">
+              <p className="mb-3 text-sm text-text-300 3xl:text-lg">{text}</p>
+              <p className="text-right text-[13px] font-semibold text-[#C0C0C0] 3xl:text-base">
                 Отзыв с сайта:{" "}
                 <a
                   href={source}

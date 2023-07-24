@@ -1,6 +1,7 @@
 import React from "react";
 import { Scene } from "react-scrollmagic";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 import { ShopCard } from "components";
 
@@ -16,8 +17,6 @@ import ShopCard6 from "assets/images/shop-preview-6.png";
 import ShopCard7 from "assets/images/shop-preview-7.png";
 import ShopCard8 from "assets/images/shop-preview-8.png";
 import ShopCard9 from "assets/images/shop-preview-9.png";
-import { twMerge } from "tailwind-merge";
-import { Link } from "react-router-dom";
 
 const cards = [
   {
@@ -76,7 +75,7 @@ export const ShopPreview: React.FC = () => {
   return (
     <section
       id="bubbles-3"
-      className="relative z-20 bg-auto bg-top bg-no-repeat pb-[860px] pt-28"
+      className="relative z-20 bg-cover bg-top bg-no-repeat pb-[860px] pt-28"
       style={{ backgroundImage: `url(${ShopPreviewBg})` }}
     >
       <Scene duration={1500} triggerElement="#bubbles-3" triggerHook="onEnter">
@@ -125,7 +124,7 @@ export const ShopPreview: React.FC = () => {
       </div>
       <div
         id="shop-preview"
-        className="absolute top-64 z-30 -rotate-[30deg] max-[430px]:top-72 md:left-32 md:top-32 lg:top-56 min-[1560px]:left-96"
+        className="absolute -bottom-[5%] -right-[10%] z-30 -rotate-[30deg] sm:bottom-[10%] md:bottom-0"
       >
         <Scene
           duration={4000}
@@ -135,37 +134,25 @@ export const ShopPreview: React.FC = () => {
           {(progress: number) => (
             <>
               <div
-                className="mb-10 grid auto-cols-[190px] grid-flow-col gap-10 md:auto-cols-[250px]"
+                className="mb-10 grid auto-cols-[clamp(200px,16vw,400px)] grid-flow-col gap-10"
                 style={{
                   marginRight: `${-progress * 10 - 3}rem`,
                   marginLeft: `${progress * 10 + 3}rem`,
                 }}
               >
                 {cards.slice(0, cards.length / 2).map((data, i) => (
-                  <ShopCard
-                    key={i}
-                    data={data}
-                    className={twMerge(
-                      "height-[150px] md:height-[232px] lg:height-[324px]"
-                    )}
-                  />
+                  <ShopCard key={i} data={data} />
                 ))}
               </div>
               <div
-                className="grid auto-cols-[190px] grid-flow-col gap-10 md:auto-cols-[250px]"
+                className="grid auto-cols-[clamp(200px,16vw,400px)] grid-flow-col gap-10"
                 style={{
                   marginRight: `${progress * 10 + 3}rem`,
                   marginLeft: `${-progress * 10 - 3}rem`,
                 }}
               >
                 {cards.slice(cards.length / 2).map((data, i) => (
-                  <ShopCard
-                    key={i}
-                    data={data}
-                    className={twMerge(
-                      "height-[150px] md:height-[232px] lg:height-[324px]"
-                    )}
-                  />
+                  <ShopCard key={i} data={data} />
                 ))}
               </div>
             </>

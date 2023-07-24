@@ -14,7 +14,7 @@ export const Authorized: React.FC = () => {
   return (
     <>
       <div
-        className="bg-auto bg-top bg-no-repeat"
+        className="bg-cover bg-top bg-no-repeat"
         style={{
           backgroundImage: `url(${
             pathname === BASE_PATH ? FirstBg : SecondBg

@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { twMerge } from "tailwind-merge";
 
+import { FAQAccordion, TabPanel, FilterSearch } from "components";
+
 import { ReactComponent as QuestionTab1 } from "assets/icons/question-tab-1.svg";
 import { ReactComponent as QuestionTab2 } from "assets/icons/question-tab-2.svg";
 import { ReactComponent as QuestionTab3 } from "assets/icons/question-tab-3.svg";
 import { ReactComponent as QuestionTab4 } from "assets/icons/question-tab-4.svg";
-import { FAQAccordion, TabPanel, FilterSearch } from "components";
 
 const questionTabs = [
   {
@@ -176,27 +177,27 @@ export const FAQ: React.FC = () => {
         </p>
       </Fade>
 
-      <div className="mb-24 grid grid-cols-2 items-center justify-center gap-4 lg:grid-cols-5 lg:justify-between lg:gap-[30px]">
+      <div className="mb-24 grid grid-cols-2 items-center justify-center gap-4 lg:grid-cols-5 lg:grid-rows-1 lg:justify-between lg:gap-[30px]">
         {labelsAndIcons.map(({ Icon, label }, i) => (
           <div
             key={i}
             className={twMerge(
-              "flex h-[234px] w-full cursor-pointer flex-col items-center rounded-2xl bg-text-100 pt-7 shadow-100 transition-all",
+              "flex cursor-pointer flex-col items-center rounded-2xl bg-text-100 px-3 py-7  shadow-100 transition-all",
               tabValue === i && "-translate-y-7 shadow-300"
             )}
             onClick={() => setTabValue(i)}
           >
-            <Icon width="130px" height="130px" />
+            <Icon className="h-[130px] w-full max-w-[160px] 3xl:h-[220px]" />
             <h5 className="heading-5 text-center">{label}</h5>
           </div>
         ))}
-        <div className="relative col-span-full w-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-6 text-center shadow-100 lg:col-span-1 lg:h-[234px] lg:pt-16">
-          <div className="absolute -left-14 -top-5 z-10 h-36  w-36 rounded-full bg-gradient-to-l from-text-100 to-transparent" />
-          <div className="relative z-20 flex h-full flex-col justify-between">
+        <div className="relative col-span-full h-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 py-6 text-center shadow-100 lg:col-span-1">
+          <div className="absolute -left-14 -top-5 z-10 h-36 w-36 rounded-full bg-gradient-to-l from-text-100 to-transparent" />
+          <div className="relative z-20 flex h-full flex-col justify-evenly">
             <h5 className="heading-5 text-center">
               Не нашли ответ на свой вопрос?
             </h5>
-            <p className="text-[12px] text-text-300">
+            <p className="text-xs text-text-300 3xl:text-lg">
               Напишите вопрос на почту <span>info@leadshub.pro</span>, и мы
               обязательно поможем!
             </p>

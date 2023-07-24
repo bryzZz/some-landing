@@ -23,7 +23,7 @@ export const PriceFilter: React.FC<PriceFilterProps> = ({
       trigger={
         <button
           className={twMerge(
-            "group relative flex items-baseline gap-2 rounded-lg px-3 py-2 text-sm text-text-400 shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)]",
+            "group relative flex items-baseline gap-2 rounded-lg px-3 py-2 text-sm text-text-400 shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)] 3xl:text-xl",
             className
           )}
         >

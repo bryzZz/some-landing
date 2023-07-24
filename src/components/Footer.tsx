@@ -26,25 +26,16 @@ export const Footer: React.FC = () => {
               <Logo />
             </Link>
 
-            <div className="hidden flex-col gap-[10px] md:flex">
-              <Link
-                to="/"
-                className="flex items-center gap-4 font-semibold text-text-300"
-              >
+            <div className="hidden flex-col gap-[10px] text-base font-semibold text-text-300 md:flex 3xl:text-xl">
+              <Link to="/" className="flex items-center gap-4">
                 <Telegram width={14} height={14} />
                 @leads_chat
               </Link>
-              <Link
-                to="/"
-                className="flex items-center gap-4 font-semibold text-text-300"
-              >
+              <Link to="/" className="flex items-center gap-4">
                 <Mail width={14} height={14} />
                 info@leadshub.pro
               </Link>
-              <Link
-                to="/"
-                className="flex items-center gap-4 font-semibold text-text-300"
-              >
+              <Link to="/" className="flex items-center gap-4">
                 <Skype width={14} height={14} />
                 info_chat
               </Link>
@@ -65,7 +56,7 @@ export const Footer: React.FC = () => {
           <hr className="h-[1px] w-full bg-[#E0E0E0] md:hidden" />
 
           <div>
-            <h3 className="mb-5 hidden text-xl font-bold md:block">
+            <h3 className="mb-5 hidden text-xl font-bold md:block 3xl:text-4xl">
               Быстрые ссылки
             </h3>
             <nav className="mb-8 flex w-full flex-wrap items-center justify-center gap-6 md:mb-28 md:justify-between">
@@ -73,7 +64,7 @@ export const Footer: React.FC = () => {
                 <Link
                   key={i}
                   to={path}
-                  className="text-400 group text-xs font-bold uppercase"
+                  className="text-400 group text-xs font-bold uppercase 3xl:text-lg"
                 >
                   {label}
                   <div className="h-[2px] w-0 rounded-md bg-text-400 transition-all group-hover:w-full" />
@@ -90,12 +81,18 @@ export const Footer: React.FC = () => {
             © 2019-2023, Leadshub. Все права сохранены.
           </p>
           <div className="hidden justify-end gap-7 text-right md:flex">
-            <p className="font-bold">Оставайся с нами:</p>
-            <Link to={"/"} className="flex items-center gap-2 font-semibold">
+            <p className="text-base font-bold 3xl:text-xl">Оставайся с нами:</p>
+            <Link
+              to={"/"}
+              className="flex items-center gap-2 text-base font-semibold 3xl:text-xl"
+            >
               <Telegram />
               Telegram
             </Link>
-            <Link to={"/"} className="flex items-center gap-2 font-semibold">
+            <Link
+              to={"/"}
+              className="flex items-center gap-2 text-base font-semibold 3xl:text-xl"
+            >
               <VK />
               Vkontakte
             </Link>

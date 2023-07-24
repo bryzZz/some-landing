@@ -103,7 +103,7 @@ export const Contacts: React.FC = () => {
             <button
               key={i}
               className={twMerge(
-                "rounded-lg bg-text-100 px-4 py-[11px] text-sm font-bold text-text-400 shadow-200 transition-all md:text-base",
+                "rounded-lg bg-text-100 px-4 py-[11px] text-sm font-bold text-text-400 shadow-200 transition-all md:text-base 3xl:text-xl",
                 i === tabValue && "bg-primary-100 text-text-100 shadow-100"
               )}
               onClick={() => setTabValue(i)}
@@ -120,12 +120,12 @@ export const Contacts: React.FC = () => {
                 {items.map(({ avatar, name, role, telegram, mail }, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl bg-text-100 p-[22px] pb-[30px] shadow-100"
+                    className="rounded-2xl bg-text-100 p-[22px] pb-[30px] shadow-100 3xl:p-11 3xl:pb-14"
                   >
                     <div className="mb-6 flex flex-col items-center gap-[18px] sm:flex-row">
                       <img
                         src={avatar}
-                        className="w-full max-w-[5.25rem] object-contain sm:max-w-[3.5rem]"
+                        className="w-full max-w-[5.25rem] object-contain sm:max-w-[3.5rem] 3xl:max-w-[5.75rem]"
                       />
                       <div className="text-center sm:text-left">
                         <p className="sm:heading-4 p-[1px] text-lg font-bold text-text-400">
@@ -135,17 +135,17 @@ export const Contacts: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-stretch gap-1">
+                    <div className="flex items-center justify-stretch gap-1 font-semibold 3xl:text-xl">
                       <Link
                         to={telegram}
-                        className="flex w-full items-center justify-center gap-2 rounded-bl-lg rounded-tl-lg bg-[#F8F8F8] p-4 font-semibold transition hover:bg-[#EEEEEE]"
+                        className="flex w-full items-center justify-center gap-2 rounded-bl-lg rounded-tl-lg bg-[#F8F8F8] p-4 transition hover:bg-[#EEEEEE] 3xl:p-6"
                       >
-                        <Telegram />
+                        <Telegram width={30} height={30} />
                         Telegram
                       </Link>
                       <Link
                         to={mail}
-                        className="flex w-full items-center justify-center gap-2 rounded-br-lg rounded-tr-lg bg-[#F8F8F8] p-4 font-semibold transition hover:bg-[#EEEEEE]"
+                        className="flex w-full items-center justify-center gap-2 rounded-br-lg rounded-tr-lg bg-[#F8F8F8] p-4 transition hover:bg-[#EEEEEE] 3xl:p-6"
                       >
                         <Mail />
                         E-mail
@@ -159,16 +159,16 @@ export const Contacts: React.FC = () => {
         </div>
 
         <div
-          className="mx-auto mb-24 flex w-full max-w-[975px] flex-col items-center justify-between gap-10 rounded-2xl border border-[#D1D1D1] bg-cover bg-center bg-no-repeat px-11 py-9 shadow-100 md:flex-row md:gap-0 lg:mb-36"
+          className="mx-auto mb-24 flex w-full max-w-[975px] flex-col items-center justify-between gap-10 rounded-2xl border border-[#D1D1D1] bg-cover bg-center bg-no-repeat px-11 py-9 shadow-100 md:flex-row md:gap-0 lg:mb-36 3xl:max-w-[1440px]"
           style={{ backgroundImage: `url(${ContactsImage})` }}
         >
           {bottomContacts.map(({ title, Icon, link }) => (
             <div className="text-center">
-              <h5 className="mb-1 text-sm font-bold uppercase text-[#000]">
+              <h5 className="mb-1 text-sm font-bold uppercase text-[#000] 3xl:text-xl">
                 {title}
               </h5>
-              <a className="flex cursor-pointer items-center justify-center gap-1 text-base text-[#525260]">
-                <Icon width={20} height={20} />
+              <a className="flex cursor-pointer items-center justify-center gap-1 text-base text-[#525260] 3xl:text-xl">
+                <Icon width={30} height={30} />
                 {link}
               </a>
             </div>

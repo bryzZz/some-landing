@@ -41,7 +41,7 @@ export const Slides: React.FC = () => {
         )}
       </Scene>
       <div className="small-container">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl 3xl:max-w-[850px]">
           <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
             <h2 className="heading-2 mb-5">
               Индивидуальность & инновационность, уверенность
@@ -61,12 +61,18 @@ export const Slides: React.FC = () => {
           pagination={{ clickable: true }}
           height={matches ? 400 : undefined}
           modules={[Mousewheel, Pagination]}
+          spaceBetween={30}
           className="slides"
+          breakpoints={{
+            2560: {
+              height: 600,
+            },
+          }}
         >
           {new Array(4).fill(0).map((_, i) => (
             <SwiperSlide key={i}>
               <div className="flex justify-center gap-8 md:justify-between md:pl-24 lg:gap-28">
-                <div className="w-full text-center md:text-left">
+                <div className="w-full flex-1 text-center md:text-left">
                   <Fade
                     cascade
                     direction="up"
@@ -74,7 +80,7 @@ export const Slides: React.FC = () => {
                     damping={0.3}
                     triggerOnce
                   >
-                    <h3 className="mb-2 text-[90px] text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px]">
+                    <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
                       <span className="text-primary-100">$</span>20m+
                     </h3>
                     <p className="sub-heading-3 md:max-w-xs">
@@ -83,7 +89,7 @@ export const Slides: React.FC = () => {
                     </p>
                   </Fade>
                 </div>
-                <div className="hidden md:block">
+                <div className="hidden max-h-full flex-1 md:block">
                   <Zoom triggerOnce>
                     <img
                       src={SliderImage1}

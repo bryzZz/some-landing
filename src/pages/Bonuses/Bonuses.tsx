@@ -200,14 +200,14 @@ export const Bonuses: React.FC = () => {
               }) => (
                 <div className="flex flex-col gap-4 rounded-2xl bg-text-100 p-4 shadow-100 md:flex-row md:items-center md:gap-0 lg:p-7">
                   <img
-                    className="w-full max-w-[180px] object-contain pr-6 md:max-w-[140px] lg:pr-16"
+                    className="w-full max-w-[180px] object-contain pr-6 md:max-w-[140px] lg:pr-16 3xl:max-w-[180px]"
                     src={img}
                   />
-                  <p className="sub-heading-3 mr-2 w-full max-w-[350px] shrink-0 font-semibold lg:mr-7 lg:max-w-[418px]">
+                  <p className="sub-heading-3 mr-2 w-full max-w-[350px] shrink-0 font-semibold lg:mr-7 lg:max-w-[418px] 3xl:max-w-[500px]">
                     {text}
                   </p>
                   <div className="mr-3">
-                    <p className="mb-1 text-xl font-extrabold uppercase text-text-400 lg:mb-2 lg:text-2xl">
+                    <p className="mb-1 text-xl font-extrabold uppercase text-text-400 lg:mb-2 lg:text-2xl 3xl:text-4xl">
                       <span
                         className={twMerge(
                           bonusLeft.highlight && "text-primary-100"
@@ -223,13 +223,13 @@ export const Bonuses: React.FC = () => {
                         {bonusRight.value}
                       </span>
                     </p>
-                    <p className="text-sm font-semibold text-text-400 lg:text-base">
+                    <p className="text-sm font-semibold text-text-400 lg:text-base 3xl:text-xl">
                       {promocodeText}{" "}
                       <span className="font-bold">{promocode}</span>
                     </p>
                   </div>
                   <a
-                    className="flex items-center gap-1 text-sm font-extrabold text-[#3452FF] md:ml-auto lg:text-base"
+                    className="flex items-center gap-1 text-sm font-extrabold text-[#3452FF] md:ml-auto lg:text-base 3xl:text-xl"
                     href={link}
                     target="_blank"
                     rel="noreferrer"

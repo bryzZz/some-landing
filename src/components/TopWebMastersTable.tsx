@@ -22,7 +22,7 @@ export const TopWebMastersTable: React.FC<TopWebMastersTableProps> = ({
   return (
     <table className="w-full table-fixed border-separate border-spacing-y-2">
       <thead>
-        <tr className="bg-[#F4F4F4] text-sm font-bold text-[#B3B3B3]">
+        <tr className="bg-[#F4F4F4] text-sm font-bold text-[#B3B3B3] 3xl:text-xl">
           <th className="rounded py-3 pl-8 text-left md:rounded-br-none md:rounded-tr-none">
             Имя
           </th>
@@ -47,7 +47,10 @@ export const TopWebMastersTable: React.FC<TopWebMastersTableProps> = ({
               <>
                 <td className="rounded-bl rounded-tl py-3 pl-3">
                   <div className="flex items-center gap-4">
-                    <img className="h-7 w-7 object-contain" src={image} />
+                    <img
+                      className="h-7 w-7 object-contain 3xl:h-10 3xl:w-10"
+                      src={image}
+                    />
                     {name}
                   </div>
                 </td>

@@ -22,11 +22,11 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
   return (
     <Popup
       trigger={
-        <button className="group relative flex items-baseline gap-2 rounded-lg px-3 py-2 text-sm text-text-400 shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)]">
+        <button className="group relative flex items-baseline gap-2 rounded-lg px-3 py-2 text-sm text-text-400 shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)] 3xl:text-xl">
           Категория
           <Arrow className="text-[#B9B9C1] group-hover:text-text-400" />
           {newCategoryCount && (
-            <div className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary-100 text-[10px] font-bold text-white">
+            <div className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary-100 text-[10px] font-bold text-white 3xl:text-sm">
               {newCategoryCount}
             </div>
           )}

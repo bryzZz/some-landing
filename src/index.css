@@ -50,43 +50,27 @@
 
 @layer components {
   .header-container {
-    width: 100%;
-    max-width: 1820px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin: 0 auto;
+    @apply mx-auto w-full max-w-[1820px] px-4 3xl:max-w-[2457px];
   }
 
   .base-container {
-    width: 100%;
-    max-width: 1314px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin: 0 auto;
+    @apply mx-auto w-full max-w-[1314px] px-4 3xl:max-w-[1986px];
   }
 
   .small-container {
-    width: 100%;
-    max-width: 1122px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin: 0 auto;
+    @apply mx-auto w-full max-w-[1122px] px-4 3xl:max-w-[1640px];
   }
 
   .reviews-container {
-    padding-left: max(calc((100% - 1314px) / 2), 15px);
+    @apply pl-[max(calc((100%_-_1314px)_/_2),_15px)] 3xl:pl-[max(calc((100%_-_1986px)_/_2),_15px)];
   }
 
   .FAQ-container {
-    width: 100%;
-    max-width: 1090px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin: 0 auto;
+    @apply mx-auto w-full max-w-[1090px] px-4 3xl:max-w-[1660px];
   }
 
   .btn-primary {
-    @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 px-9 py-4 text-base font-extrabold text-text-100 shadow-[0px_8px_25px_-8px_#F2821D] transition hover:shadow-[0px_19px_30px_-10px_rgba(248,172,29,0.88)] md:px-6 md:py-3 md:text-[13px] xl:text-base;
+    @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 px-9 py-4 text-base font-extrabold text-text-100 shadow-[0px_8px_25px_-8px_#F2821D] transition hover:shadow-[0px_19px_30px_-10px_rgba(248,172,29,0.88)] md:px-6 md:py-3 md:text-[13px] xl:text-base 3xl:text-lg;
   }
 
   .btn-secondary {
@@ -98,42 +82,42 @@
   }
 
   .heading-1 {
-    @apply text-4xl font-extrabold leading-10 text-text-400 lg:text-5xl;
+    @apply text-4xl font-extrabold leading-10 text-text-400 lg:text-5xl 3xl:text-[73px] 3xl:leading-[91px];
   }
 
   .heading-2 {
-    @apply text-[28px] font-semibold leading-8 text-text-400 md:text-[32px] lg:text-4xl;
+    @apply text-[28px] font-semibold leading-8 text-text-400 md:text-[32px] lg:text-4xl 3xl:text-5xl;
   }
 
   .heading-3 {
-    @apply text-[24px] font-bold leading-[36px] text-text-400 lg:text-[30px];
+    @apply text-[24px] font-bold leading-[36px] text-text-400 lg:text-[30px] 3xl:text-4xl;
   }
 
   .heading-4 {
-    @apply text-base font-bold leading-[23px] text-text-400 lg:text-[19px];
+    @apply text-base font-bold leading-[23px] text-text-400 lg:text-[19px] 3xl:text-2xl;
   }
 
   .heading-5 {
-    @apply text-[14px] font-bold leading-5 text-text-400 lg:text-[16px];
+    @apply text-sm font-bold leading-5 text-text-400 lg:text-base 3xl:text-xl;
   }
 
   .heading-6 {
-    @apply text-[15px] font-bold leading-5 text-text-400 lg:text-base;
+    @apply text-[15px] font-bold leading-5 text-text-400 lg:text-base 3xl:text-xl;
   }
 
   .sub-heading-1 {
-    @apply text-[17px] font-semibold leading-7 text-text-300 lg:text-[19px];
+    @apply text-[17px] font-semibold leading-7 text-text-300 lg:text-[19px] 3xl:text-2xl;
   }
 
   .sub-heading-2 {
-    @apply text-base leading-7 text-text-300 lg:text-[18px];
+    @apply text-base leading-7 text-text-300 lg:text-lg 3xl:text-xl;
   }
 
   .sub-heading-3 {
-    @apply text-[14px] leading-6 text-text-300 lg:text-base;
+    @apply text-sm leading-6 text-text-300 lg:text-base 3xl:text-xl;
   }
 
   .sub-heading-4 {
-    @apply text-[14px] leading-5 text-text-300;
+    @apply text-sm leading-5 text-text-300 3xl:text-xl;
   }
 }

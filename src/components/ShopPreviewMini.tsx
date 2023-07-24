@@ -35,7 +35,7 @@ const cards = [
 export const ShopPreviewMini: React.FC = () => {
   return (
     <section
-      className="bg-auto bg-top bg-no-repeat py-12 md:py-36"
+      className="bg-cover bg-top bg-no-repeat py-12 md:py-36"
       style={{ backgroundImage: `url(${ShopPreviewBg})` }}
     >
       <div className="base-container flex flex-col items-center">

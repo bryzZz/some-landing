@@ -21,7 +21,7 @@ export const FilterSearch: React.FC<FilterSearchProps> = ({
     >
       <Search />
       <input
-        className="pb-[8px] pt-[7px] text-[14px] text-text-400 outline-none placeholder:text-[#C8C8C8] lg:text-base"
+        className="pb-[8px] pt-[7px] text-sm text-text-400 outline-none placeholder:text-[#C8C8C8] lg:text-base 3xl:text-xl"
         type="text"
         placeholder={placeholder}
       />

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
-import { LanguageSelect } from "./LanguageSelect/LanguageSelect";
+import { LanguageSelect } from "components";
 import { BASE_PATH } from "constants/index";
 
 import { ReactComponent as VK } from "assets/icons/vk.svg";
@@ -72,13 +72,13 @@ export const Header: React.FC = () => {
             <Logo />
           </Link>
 
-          <nav className="mr-auto flex items-center gap-4 xl:gap-9">
+          <nav className="mr-auto flex items-center gap-4 xl:gap-9 3xl:gap-10">
             {navItems.map(({ label, path }, i) => (
               <Link
                 key={i}
                 to={path}
                 className={twMerge(
-                  "group text-[14px] font-semibold text-text-400 transition xl:text-base",
+                  "group text-[14px] font-semibold text-text-400 transition xl:text-base 3xl:text-xl",
                   isSticky && "text-primary-500"
                 )}
               >
@@ -94,7 +94,7 @@ export const Header: React.FC = () => {
           </nav>
 
           <div className="flex items-center">
-            <div className="mr-6 hidden gap-2 xl:flex">
+            <div className="mr-6 hidden gap-2 xl:flex 3xl:mr-9">
               <Link
                 to={"/"}
                 className="p-[10px] text-[#ACACAC] transition hover:text-[#0076FE]"
@@ -112,7 +112,7 @@ export const Header: React.FC = () => {
             <LanguageSelect />
 
             <div className="flex items-center gap-2">
-              <button className="flex items-center gap-1 px-6 py-4 text-[13px] font-extrabold xl:text-base">
+              <button className="flex items-center gap-1 px-6 py-4 text-[13px] font-extrabold xl:text-base 3xl:text-lg">
                 <DoorEnter className="text-primary-100" />
                 Войти
               </button>
