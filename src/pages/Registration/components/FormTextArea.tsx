@@ -7,7 +7,7 @@ interface FormTextAreaProps extends ComponentProps<"textarea"> {
 export const FormTextArea = forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
   ({ label, ...props }, ref) => {
     return (
-      <label className="flex w-full flex-col gap-2 text-sm text-text-400">
+      <label className="flex w-full flex-col gap-2 text-sm text-text-400 3xl:text-xl">
         <span className="font-semibold">{label}</span>
         <textarea
           className="resize-none rounded border border-[#D8D6DE] px-[14px] pb-4 pt-[15px] outline-none"

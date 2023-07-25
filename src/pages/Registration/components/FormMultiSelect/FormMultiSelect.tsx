@@ -11,8 +11,8 @@ export const FormMultiSelect: React.FC<FormMultiSelect> = ({
   ...props
 }) => {
   return (
-    <label className="flex w-full flex-col gap-2">
-      <span className="text-sm font-semibold text-text-400">{label}</span>
+    <label className="flex w-full flex-col gap-2 text-sm 3xl:text-xl">
+      <span className="font-semibold text-text-400">{label}</span>
       <Select
         classNamePrefix="FormMultiSelect"
         isSearchable={true}

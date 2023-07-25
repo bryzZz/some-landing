@@ -11,7 +11,7 @@ export const Unauthorized: React.FC = () => {
         backgroundImage: `url(${Bg})`,
       }}
     >
-      <main className="mx-auto flex min-h-screen w-full max-w-[531px] items-center">
+      <main className="mx-auto flex min-h-screen w-full max-w-[531px] items-center 3xl:max-w-[777px]">
         <Outlet />
       </main>
     </div>

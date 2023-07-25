@@ -27,8 +27,8 @@ export const CommunicationSelect = forwardRef<
   ComponentProps<"input">
 >((props, ref) => {
   return (
-    <label className="flex w-full flex-col gap-2">
-      <span className="text-sm font-semibold text-text-400">Способ связи</span>
+    <label className="flex w-full flex-col  gap-2 text-sm 3xl:text-xl">
+      <span className="font-semibold text-text-400">Способ связи</span>
       <div className="flex items-stretch">
         <Select
           classNamePrefix="CommunicationSelect"

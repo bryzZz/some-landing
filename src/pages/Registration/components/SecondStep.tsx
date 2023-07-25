@@ -120,9 +120,9 @@ export const SecondStep: React.FC<SecondStepProps> = ({
           {...register("promoCode", { required: true })}
         />
 
-        <label className="flex items-center gap-1 text-xs font-semibold text-[#B0B0B0]">
+        <label className="flex items-center gap-1 text-xs font-semibold text-[#B0B0B0] 3xl:text-lg">
           <input
-            className="h-[14px] w-[14px]"
+            className="h-[14px] w-[14px] 3xl:h-5 3xl:w-5"
             type="checkbox"
             {...register("agreement", { required: true })}
           />
@@ -132,7 +132,7 @@ export const SecondStep: React.FC<SecondStepProps> = ({
 
       <div className="flex items-center justify-between">
         <button
-          className="flex items-center text-sm font-extrabold text-text-400"
+          className="flex items-center text-sm font-extrabold text-text-400 3xl:text-xl"
           onClick={back}
         >
           <ArrowLeft width="20px" height="20px" />

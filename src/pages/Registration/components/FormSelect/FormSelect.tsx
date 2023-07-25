@@ -8,8 +8,8 @@ interface FormSelectProps extends Props {
 
 export const FormSelect: React.FC<FormSelectProps> = ({ label, ...props }) => {
   return (
-    <label className="flex w-full flex-col gap-2">
-      <span className="text-sm font-semibold text-text-400">{label}</span>
+    <label className="flex w-full flex-col gap-2 text-sm 3xl:text-xl">
+      <span className="font-semibold text-text-400">{label}</span>
       <Select classNamePrefix="FormSelect" isClearable={false} {...props} />
     </label>
   );

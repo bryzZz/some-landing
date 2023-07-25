@@ -42,7 +42,7 @@ const recentPosts: RecentPost[] = [
 
 export const BlogPost: React.FC = () => {
   return (
-    <div className="mx-auto w-full max-w-[1211px] px-4">
+    <div className="mx-auto w-full max-w-[1211px] px-4 3xl:max-w-[1792px]">
       <h1 className="heading-1 mb-[89px] text-center lg:mb-40">
         Кейс на Индию с ROI ~400%
       </h1>

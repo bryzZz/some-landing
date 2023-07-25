@@ -25,23 +25,27 @@ export const Posts: React.FC<PostsProps> = ({ posts, className }) => {
           {posts.map(({ date, tags, title, text, image, link }, i) => (
             <div
               key={i}
-              className="post w-full max-w-[345px] cursor-pointer rounded-xl bg-white p-5 shadow-100"
+              className="post w-full cursor-pointer rounded-xl bg-white p-5 shadow-100"
               onClick={handleClick(link)}
             >
-              <span className="mb-5 font-semibold leading-5 text-[#999FAE] text-[13p]">
+              <span className="mb-5 text-[13px] font-semibold leading-5 text-[#999FAE] 3xl:text-lg">
                 {date}
               </span>
               <div className="mb-2 flex flex-wrap gap-[10px]">
                 {tags.map((tag) => (
-                  <p className="text-sm font-bold text-[#3452FF]">{tag}</p>
+                  <p className="text-sm font-bold text-[#3452FF] 3xl:text-xl">
+                    {tag}
+                  </p>
                 ))}
               </div>
-              <h3 className="mb-2 text-xl font-bold text-text-400">{title}</h3>
+              <h3 className="mb-2 text-xl font-bold text-text-400 3xl:text-3xl">
+                {title}
+              </h3>
               <p className="sub-heading-4">{text}</p>
               {image && (
                 <img
                   src={image}
-                  className="mt-4 h-full max-h-[219px] w-full rounded-xl object-cover"
+                  className="mt-4 h-full max-h-[330px] w-full rounded-xl object-cover"
                 />
               )}
             </div>
@@ -49,14 +53,14 @@ export const Posts: React.FC<PostsProps> = ({ posts, className }) => {
         </Masonry>
       </ResponsiveMasonry>
 
-      <div className="mb-12 flex items-stretch gap-1">
-        <button className="flex h-[35px] w-[35px] items-center justify-center rounded bg-[#3452FF] text-[12px] font-semibold text-white">
+      <div className="mb-12 flex items-stretch gap-1 text-sm font-semibold text-text-400 3xl:text-lg">
+        <button className="flex h-[35px] w-[35px] items-center justify-center rounded bg-[#3452FF] text-white">
           1
         </button>
-        <button className="flex h-[35px] w-[35px] items-center justify-center text-[12px] font-semibold text-text-400">
+        <button className="flex h-[35px] w-[35px] items-center justify-center">
           2
         </button>
-        <button className="flex items-center justify-center px-1 text-[12px] font-semibold text-text-400">
+        <button className="flex items-center justify-center px-1">
           Следующая »
         </button>
       </div>

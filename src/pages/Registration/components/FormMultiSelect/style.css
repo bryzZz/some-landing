@@ -19,7 +19,7 @@
 }
 
 .FormMultiSelect__multi-value__label {
-  @apply px-2 pb-[6px] pt-[5px] text-[12px] font-semibold text-white !important;
+  @apply px-2 pb-[6px] pt-[5px] text-sm font-semibold text-white 3xl:text-base !important;
 }
 
 .FormMultiSelect__multi-value__remove {

@@ -40,10 +40,10 @@ export const BlogSlider: React.FC = () => {
             >
               <div className="max-w-[742px]">
                 <div className="mb-2 flex flex-wrap gap-2">
-                  <div className="rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF]">
+                  <div className="rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF] 3xl:text-xl">
                     Gambling
                   </div>
-                  <div className="rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF]">
+                  <div className="rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF] 3xl:text-xl">
                     Схемы
                   </div>
                 </div>

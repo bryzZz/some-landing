@@ -3,11 +3,11 @@
 }
 
 .CommunicationSelect__control {
-  @apply btn-primary h-full w-[140px] cursor-pointer rounded-none rounded-bl rounded-tl border-none py-2 pl-3 pr-2 text-text-100 shadow-none outline-none !important;
+  @apply btn-primary h-full w-full max-w-[140px] cursor-pointer rounded-none rounded-bl rounded-tl border-none py-2 pl-3 pr-2 text-text-100 shadow-none outline-none 3xl:max-w-[160px] !important;
 }
 
 .CommunicationSelect__value-container {
-  @apply text-[12px] !important;
+  @apply text-sm 3xl:text-base !important;
 }
 
 .CommunicationSelect__single-value {
@@ -23,7 +23,7 @@
 }
 
 .CommunicationSelect__option {
-  @apply cursor-pointer !important;
+  @apply cursor-pointer 3xl:text-base !important;
 }
 
 .CommunicationSelect__option--is-focused {
