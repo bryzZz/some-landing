@@ -15,40 +15,30 @@ const reviews = [
         title: "Lorem Ipsum",
         date: "22.02.2022",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
-        source: "partnerkin.com",
-        rating: 8,
       },
       {
         avatar: ReviewAvatar,
         title: "Lorem Ipsum",
         date: "22.02.2022",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
-        source: "partnerkin.com",
-        rating: 8,
       },
       {
         avatar: ReviewAvatar,
         title: "Lorem Ipsum",
         date: "22.02.2022",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
-        source: "partnerkin.com",
-        rating: 8,
       },
       {
         avatar: ReviewAvatar,
         title: "Lorem Ipsum",
         date: "22.02.2022",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
-        source: "partnerkin.com",
-        rating: 8,
       },
       {
         avatar: ReviewAvatar,
         title: "Lorem Ipsum",
         date: "22.02.2022",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis odio hendrerit quisque nulla ac venenatis consequat feugiat. Maecenas proin sit purus, eros, egestas leo blandit.",
-        source: "partnerkin.com",
-        rating: 8,
       },
     ],
   },
@@ -107,7 +97,7 @@ export const Reviews: React.FC = () => {
   return (
     <section
       id="bubbles-4"
-      className="relative z-40 bg-text-100 pb-24 pt-5 md:pt-0"
+      className="relative z-30 bg-text-100 pb-24 pt-5 md:pt-0"
     >
       <Scene duration={1500} triggerElement="#bubbles-4" triggerHook="onEnter">
         {(progress: number) => (

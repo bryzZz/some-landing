@@ -21,3 +21,4 @@ export * from "./PriceFilter";
 export * from "./Checkbox";
 export * from "./Radio";
 export * from "./LanguageSelect";
+export * from "./Chart";

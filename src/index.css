@@ -118,6 +118,6 @@
   }
 
   .sub-heading-4 {
-    @apply text-sm leading-5 text-text-300 3xl:text-xl;
+    @apply text-sm leading-[19px] text-text-300 3xl:text-xl;
   }
 }

@@ -23,15 +23,14 @@ export const TopWebMastersTable: React.FC<TopWebMastersTableProps> = ({
     <table className="w-full table-fixed border-separate border-spacing-y-2">
       <thead>
         <tr className="bg-[#F4F4F4] text-sm font-bold text-[#B3B3B3] 3xl:text-xl">
-          <th className="rounded py-3 pl-8 text-left md:rounded-br-none md:rounded-tr-none">
+          <th className="w-14" />
+          <th className="rounded py-3 text-left md:rounded-br-none md:rounded-tr-none">
             Имя
           </th>
           {matches && (
             <>
-              <th className="py-3 pl-8 text-left">За день</th>
-              <th className="rounded-br rounded-tr py-3 pl-8 text-left">
-                За месяц
-              </th>
+              <th className="py-3 text-left">За день</th>
+              <th className="rounded-br rounded-tr py-3 text-left">За месяц</th>
             </>
           )}
         </tr>
@@ -45,20 +44,18 @@ export const TopWebMastersTable: React.FC<TopWebMastersTableProps> = ({
           >
             {matches ? (
               <>
-                <td className="rounded-bl rounded-tl py-3 pl-3">
-                  <div className="flex items-center gap-4">
-                    <img
-                      className="h-7 w-7 object-contain 3xl:h-10 3xl:w-10"
-                      src={image}
-                    />
-                    {name}
-                  </div>
+                <td className="w-14 rounded-bl rounded-tl pl-[14px]">
+                  <img
+                    className="h-7 w-7 object-contain 3xl:h-10 3xl:w-10"
+                    src={image}
+                  />
                 </td>
-                <td className="py-3 pl-3">
+                <td className="py-3">{name}</td>
+                <td className="py-3">
                   <span className="text-primary-100">$</span>{" "}
                   {USDollar.format(perDay)}
                 </td>
-                <td className="rounded-br rounded-tr py-3 pl-3">
+                <td className="rounded-br rounded-tr py-3">
                   <span className="text-primary-100">$</span>{" "}
                   {USDollar.format(perMonth)}
                 </td>

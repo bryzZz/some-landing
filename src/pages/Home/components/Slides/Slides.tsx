@@ -5,17 +5,75 @@ import { Fade, Zoom } from "react-awesome-reveal";
 import { Scene } from "react-scrollmagic";
 
 import { useMediaQuery } from "hooks";
-import SliderImage1 from "assets/images/screen-3-slider-1.png";
+
+import SlidesBg from "assets/images/slides-bg.png";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
+import { Chart } from "components";
+
+const data = [
+  {
+    date: new Date(2020, 5, 17),
+    value: 1,
+  },
+  {
+    date: new Date(2020, 6, 17),
+    value: 2,
+  },
+  {
+    date: new Date(2020, 7, 17),
+    value: 1,
+  },
+  {
+    date: new Date(2020, 8, 17),
+    value: 4,
+  },
+  {
+    date: new Date(2020, 9, 17),
+    value: 3,
+  },
+  {
+    date: new Date(2020, 10, 17),
+    value: 5,
+  },
+  {
+    date: new Date(2021, 1, 17),
+    value: 7,
+  },
+  {
+    date: new Date(2021, 5, 17),
+    value: 6,
+  },
+  {
+    date: new Date(2022, 2, 17),
+    value: 10,
+  },
+  {
+    date: new Date(2022, 7, 17),
+    value: 15,
+  },
+];
 
 export const Slides: React.FC = () => {
   const matches = useMediaQuery("(min-width: 768px)");
 
+  const height = 315;
+  const width = 341;
+  const margin = {
+    bottom: 120,
+    top: 72,
+    left: 50,
+    right: 50,
+  };
+
   return (
-    <section id="bubbles-1" className="relative mb-16 md:mb-24 lg:mb-28">
+    <section
+      id="bubbles-1"
+      className="relative mb-16 bg-auto bg-bottom bg-no-repeat md:mb-24 lg:mb-28"
+      style={{ backgroundImage: `url(${SlidesBg})` }}
+    >
       <Scene duration={1500} triggerElement="#bubbles-1" triggerHook="onEnter">
         {(progress: number) => (
           <>
@@ -40,6 +98,7 @@ export const Slides: React.FC = () => {
           </>
         )}
       </Scene>
+
       <div className="small-container">
         <div className="max-w-2xl 3xl:max-w-[850px]">
           <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
@@ -59,9 +118,9 @@ export const Slides: React.FC = () => {
           mousewheel={matches}
           slidesPerView={1}
           pagination={{ clickable: true }}
-          height={matches ? 400 : undefined}
+          height={matches ? 500 : undefined}
           modules={[Mousewheel, Pagination]}
-          spaceBetween={30}
+          spaceBetween={50}
           className="slides"
           breakpoints={{
             2560: {
@@ -89,11 +148,13 @@ export const Slides: React.FC = () => {
                     </p>
                   </Fade>
                 </div>
-                <div className="hidden max-h-full flex-1 md:block">
+                <div className="hidden flex-1 md:block">
                   <Zoom triggerOnce>
-                    <img
-                      src={SliderImage1}
-                      className="relative h-full w-full object-cover"
+                    <Chart
+                      data={data}
+                      width={width}
+                      height={height}
+                      margin={margin}
                     />
                   </Zoom>
                 </div>

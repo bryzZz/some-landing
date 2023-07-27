@@ -115,7 +115,7 @@ export const ShopPreview: React.FC = () => {
           </p>
           <Link
             to="points-store/"
-            className="btn-primary inline-flex items-center gap-2"
+            className="btn-primary inline-flex items-center gap-[10px] px-[34px] py-[17px]"
           >
             В магазин
             <ArrowRight width="20px" height="20px" />

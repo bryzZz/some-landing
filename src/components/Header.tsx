@@ -68,7 +68,10 @@ export const Header: React.FC = () => {
         )}
       >
         <div className="header-container hidden items-center py-5 lg:flex">
-          <Link to={BASE_PATH} className="mr-[90px] md:mr-[30px] xl:mr-[40px]">
+          <Link
+            to={BASE_PATH}
+            className="mr-[90px] md:mr-[30px] xl:mr-[40px] 2xl:mr-[92px]"
+          >
             <Logo />
           </Link>
 
@@ -79,14 +82,14 @@ export const Header: React.FC = () => {
                 to={path}
                 className={twMerge(
                   "group text-[14px] font-semibold text-text-400 transition xl:text-base 3xl:text-xl",
-                  isSticky && "text-primary-500"
+                  isSticky && "hover:text-primary-500"
                 )}
               >
                 {label}
                 <div
                   className={twMerge(
                     "h-[2px] w-0 rounded-md bg-text-400 transition-all group-hover:w-full",
-                    isSticky && "bg-primary-500"
+                    isSticky && "group-hover:bg-primary-500"
                   )}
                 />
               </Link>

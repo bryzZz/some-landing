@@ -14,8 +14,8 @@ interface ReviewsSliderProps {
     title: string;
     date: string;
     text: string;
-    source: string;
-    rating: number;
+    source?: string;
+    rating?: number;
   }[];
 }
 
@@ -67,13 +67,15 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
                     <p className="text-[13px] font-semibold leading-[10px] text-text-200 3xl:text-lg">
                       {date}
                     </p>
-                    <p className="flex items-center gap-[2px] text-[10px] font-bold text-[#C8C8C8] 3xl:text-sm">
-                      <Star />
-                      <span className="text-[13px] text-[#309E3A] 3xl:text-base">
-                        {rating}
-                      </span>
-                      /10
-                    </p>
+                    {rating && (
+                      <p className="flex items-center gap-[2px] text-[10px] font-bold text-[#C8C8C8] 3xl:text-sm">
+                        <Star />
+                        <span className="text-[13px] text-[#309E3A] 3xl:text-base">
+                          {rating}
+                        </span>
+                        /10
+                      </p>
+                    )}
                   </div>
                   <h6 className="text-[15px] font-bold text-text-400 3xl:text-xl">
                     {title}
@@ -81,15 +83,17 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
                 </div>
               </div>
               <p className="mb-3 text-sm text-text-300 3xl:text-lg">{text}</p>
-              <p className="text-right text-[13px] font-semibold text-[#C0C0C0] 3xl:text-base">
-                Отзыв с сайта:{" "}
-                <a
-                  href={source}
-                  className="transition-colors hover:text-[#3452FF]"
-                >
-                  {source}
-                </a>
-              </p>
+              {source && (
+                <p className="text-right text-[13px] font-semibold text-[#C0C0C0] 3xl:text-base">
+                  Отзыв с сайта:{" "}
+                  <a
+                    href={source}
+                    className="transition-colors hover:text-[#3452FF]"
+                  >
+                    {source}
+                  </a>
+                </p>
+              )}
             </div>
           </SwiperSlide>
         ))}

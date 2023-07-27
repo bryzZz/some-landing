@@ -19,8 +19,9 @@ export const TopOffersTable: React.FC<TopOffersTableProps> = ({ items }) => {
     <table className="w-full table-fixed border-separate border-spacing-y-2">
       <thead>
         <tr className="bg-[#F4F4F4] text-sm font-bold text-[#B3B3B3] 3xl:text-xl">
-          <th className="rounded-bl rounded-tl py-3 pl-8 text-left">ID</th>
-          <th className="py-3 text-left">Название</th>
+          <th className="w-14" />
+          <th className="w-24 rounded-bl rounded-tl py-3 text-left">ID</th>
+          <th className="w-2/4 py-3 text-left">Название</th>
           {matches && (
             <>
               <th className="py-3 text-left">Гео</th>
@@ -38,14 +39,14 @@ export const TopOffersTable: React.FC<TopOffersTableProps> = ({ items }) => {
           >
             {matches ? (
               <>
-                <td className="flex items-center gap-4 rounded-bl rounded-tl p-3">
+                <td className="w-14 rounded-bl rounded-tl pl-[14px]">
                   <img
                     className="h-7 w-7 object-contain 3xl:h-10 3xl:w-10"
                     src={image}
                   />
-                  {id}
                 </td>
-                <td className="rounded-br rounded-tr py-3">
+                <td className="w-24 py-3">{id}</td>
+                <td className="w-2/4 rounded-br rounded-tr py-3">
                   {name}{" "}
                   {isPrivate && <span className="text-[#B8C4D2]">Private</span>}
                 </td>

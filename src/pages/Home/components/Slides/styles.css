@@ -3,7 +3,7 @@
 }
 
 .slides .swiper-pagination {
-  @apply bottom-0 md:left-2;
+  @apply bottom-0 md:left-2 md:right-auto;
 }
 
 .slides .swiper-pagination-bullet {

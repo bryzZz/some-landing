@@ -12,7 +12,8 @@ const navItems = [
   { label: "FAQ", path: "FAQ/" },
   { label: "Магазин", path: "points-store/" },
   { label: "Бонусы", path: "bonuses/" },
-  { label: "Публичная оферта", path: "d" },
+  { label: "Контакты", path: "contacts/" },
+  { label: "Информация о cookie", path: "f" },
   { label: "Информация о cookie", path: "f" },
 ];
 
@@ -59,7 +60,7 @@ export const Footer: React.FC = () => {
             <h3 className="mb-5 hidden text-xl font-bold md:block 3xl:text-4xl">
               Быстрые ссылки
             </h3>
-            <nav className="mb-8 flex w-full flex-wrap items-center justify-center gap-6 md:mb-28 md:justify-between">
+            <nav className="flex w-full flex-wrap items-center justify-center gap-6 md:justify-between">
               {navItems.map(({ label, path }, i) => (
                 <Link
                   key={i}
@@ -76,7 +77,7 @@ export const Footer: React.FC = () => {
 
         <hr className="mb-6 hidden bg-[#E0E0E0] md:block" />
 
-        <div className="flex items-center justify-center text-[14px] text-[#888888] md:justify-between">
+        <div className="flex items-center justify-center text-sm text-[#888888] md:justify-between">
           <p className="text-center font-semibold md:text-left">
             © 2019-2023, Leadshub. Все права сохранены.
           </p>

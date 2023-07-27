@@ -7,10 +7,10 @@ import { ReactComponent as IconCard1 } from "assets/icons/main-card-1.svg";
 import { ReactComponent as IconCard2 } from "assets/icons/main-card-2.svg";
 import { ReactComponent as IconCard3 } from "assets/icons/main-card-3.svg";
 import { ReactComponent as IconCard4 } from "assets/icons/main-card-4.svg";
-import { ReactComponent as IconCard5 } from "assets/icons/main-card-5.svg";
-import { ReactComponent as IconCard6 } from "assets/icons/main-card-6.svg";
-import { ReactComponent as IconCard7 } from "assets/icons/main-card-7.svg";
-import { ReactComponent as IconCard8 } from "assets/icons/main-card-8.svg";
+import IconCard5 from "assets/icons/main-card-5.png";
+import IconCard6 from "assets/icons/main-card-6.png";
+import IconCard7 from "assets/icons/main-card-7.png";
+import IconCard8 from "assets/icons/main-card-8.png";
 
 const topCards = [
   {
@@ -78,7 +78,7 @@ export const Cards: React.FC = () => {
         {topCards.map(({ Icon, title, subTitle }, i) => (
           <div key={i}>
             <div className="mb-3 flex items-center gap-4">
-              <Icon className="h-[50px] w-[50px] 3xl:h-[70px] 3xl:w-[70px]" />
+              <Icon className="h-[50px] w-[50px] flex-shrink-0 3xl:h-[70px] 3xl:w-[70px]" />
               <h5 className="heading-6">{title}</h5>
             </div>
             <p className="sub-heading-4">{subTitle}</p>
@@ -90,7 +90,7 @@ export const Cards: React.FC = () => {
         triggerOnce
         className="col-span-6 row-span-2 md:col-span-2 lg:col-span-2 lg:row-span-6"
       >
-        <div className="flex flex-col items-center rounded-2xl bg-gradient-to-tl from-primary-300 to-primary-400 p-6 pt-2 shadow-100">
+        <div className="flex flex-col items-center rounded-2xl bg-gradient-to-br from-primary-300 to-primary-400 p-6 pt-2 shadow-100">
           <img src={MainImage2} className="3xl:min-h-[360px]" />
           <p className="heading-6 text-center text-text-100">Генератор чеков</p>
         </div>
@@ -106,11 +106,11 @@ export const Cards: React.FC = () => {
       >
         {bottomCards.slice(0, 2).map(({ Icon, title, subTitle }, i) => (
           <div
-            className="grid h-full grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100"
+            className="flex h-full items-start rounded-2xl bg-text-100 pb-[15px] pr-[22px] shadow-100"
             key={i}
           >
-            <Icon />
-            <div>
+            <img src={Icon} className="h-[128px] w-[129px] flex-shrink-0" />
+            <div className="pt-[22px]">
               <p className="heading-6">{title}</p>
               <p className="sub-heading-4">{subTitle}</p>
             </div>
@@ -128,11 +128,11 @@ export const Cards: React.FC = () => {
       >
         {bottomCards.slice(2).map(({ Icon, title, subTitle }, i) => (
           <div
-            className="grid h-full grid-cols-[130px_1fr] items-center rounded-2xl bg-text-100 shadow-100"
+            className="flex h-full items-start rounded-2xl bg-text-100 pb-[15px] pr-[22px] shadow-100"
             key={i}
           >
-            <Icon />
-            <div>
+            <img src={Icon} className="h-[128px] w-[129px] flex-shrink-0" />
+            <div className="pt-[22px]">
               <p className="heading-6">{title}</p>
               <p className="sub-heading-4">{subTitle}</p>
             </div>
