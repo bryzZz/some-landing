@@ -7,6 +7,7 @@ import { ReactComponent as ArrowLeft } from "assets/icons/arrow-left.svg";
 import { FormSelect } from "./FormSelect";
 import { FormTextArea } from "./FormTextArea";
 import { FormField } from "./FormField";
+import { Checkbox } from "components";
 
 const verticalOptions = [
   { value: "0", label: "Gambling" },
@@ -120,14 +121,11 @@ export const SecondStep: React.FC<SecondStepProps> = ({
           {...register("promoCode", { required: true })}
         />
 
-        <label className="flex items-center gap-1 text-xs font-semibold text-[#B0B0B0] 3xl:text-lg">
-          <input
-            className="h-[14px] w-[14px] 3xl:h-5 3xl:w-5"
-            type="checkbox"
-            {...register("agreement", { required: true })}
-          />
-          Согласен(-на) с обработкой данных
-        </label>
+        <Checkbox
+          {...register("agreement", { required: true })}
+          label="Согласен(-на) с обработкой данных"
+          variant="secondary"
+        />
       </div>
 
       <div className="flex items-center justify-between">

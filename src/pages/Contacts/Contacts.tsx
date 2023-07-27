@@ -103,7 +103,7 @@ export const Contacts: React.FC = () => {
             <button
               key={i}
               className={twMerge(
-                "rounded-lg bg-text-100 px-4 py-[11px] text-sm font-bold text-text-400 shadow-200 transition-all md:text-base 3xl:text-xl",
+                "rounded-lg bg-text-100 px-4 py-2 text-sm font-bold text-text-400 shadow-200 transition-all md:text-base 3xl:text-xl",
                 i === tabValue && "bg-primary-100 text-text-100 shadow-100"
               )}
               onClick={() => setTabValue(i)}
@@ -138,14 +138,14 @@ export const Contacts: React.FC = () => {
                     <div className="flex items-center justify-stretch gap-1 font-semibold 3xl:text-xl">
                       <Link
                         to={telegram}
-                        className="flex w-full items-center justify-center gap-2 rounded-bl-lg rounded-tl-lg bg-[#F8F8F8] p-4 transition hover:bg-[#EEEEEE] 3xl:p-6"
+                        className="flex w-full items-center justify-center gap-2 rounded-bl-lg rounded-tl-lg bg-[#F8F8F8] py-3 pl-[14px] pr-4 transition hover:bg-[#EEEEEE] 3xl:p-6"
                       >
-                        <Telegram width={30} height={30} />
+                        <Telegram width={20} height={20} />
                         Telegram
                       </Link>
                       <Link
                         to={mail}
-                        className="flex w-full items-center justify-center gap-2 rounded-br-lg rounded-tr-lg bg-[#F8F8F8] p-4 transition hover:bg-[#EEEEEE] 3xl:p-6"
+                        className="flex w-full items-center justify-center gap-2 rounded-br-lg rounded-tr-lg bg-[#F8F8F8] py-3 pl-[14px] pr-4 transition hover:bg-[#EEEEEE] 3xl:p-6"
                       >
                         <Mail />
                         E-mail

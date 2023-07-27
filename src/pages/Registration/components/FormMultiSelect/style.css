@@ -27,9 +27,9 @@
 }
 
 .FormMultiSelect__option {
-  @apply cursor-pointer !important;
+  @apply cursor-pointer text-sm text-text-400 !important;
 }
 
 .FormMultiSelect__option--is-focused {
-  @apply bg-primary-100 text-white !important;
+  @apply bg-[#021BFF] bg-opacity-5 !important;
 }

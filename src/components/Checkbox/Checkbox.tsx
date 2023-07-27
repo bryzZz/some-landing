@@ -1,32 +1,43 @@
-import React from "react";
+import { ComponentProps, forwardRef } from "react";
 
 import { ReactComponent as Check } from "assets/icons/check.svg";
 
 import "./style.css";
+import { twMerge } from "tailwind-merge";
 
-interface CheckboxProps {
+interface CheckboxProps extends ComponentProps<"input"> {
   label: string;
-  checked: boolean;
-  onChange: (checked: boolean) => void;
+  variant?: "primary" | "secondary";
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({
-  checked,
-  onChange,
-  label,
-}) => {
-  return (
-    <label className="group flex cursor-pointer select-none items-center gap-3 text-base text-text-400">
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
-        className="checkbox-input absolute opacity-0"
-      />
-      <div className="flex h-[22px] w-[22px] items-center justify-center rounded-md border border-[#D3D4DD] p-1 transition-all group-hover:border-[#A9A8B0]">
-        <Check className="hidden" />
-      </div>
-      {label}
-    </label>
-  );
-};
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+  ({ label, variant = "primary", ...props }, ref) => {
+    return (
+      <label
+        className={twMerge(
+          "group flex cursor-pointer select-none items-center gap-3 text-base text-text-400",
+          variant === "secondary" &&
+            "gap-[6px] text-xs font-semibold text-[#B0B0B0]"
+        )}
+      >
+        <input
+          ref={ref}
+          type="checkbox"
+          {...props}
+          className="checkbox-input absolute opacity-0"
+        />
+        <div
+          className={twMerge(
+            "flex items-center justify-center border border-[#D3D4DD] p-1 transition-all group-hover:border-[#A9A8B0]",
+            variant,
+            variant === "primary" && "h-[22px] w-[22px] rounded-md",
+            variant === "secondary" && "h-[14px] w-[14px] rounded-[2px] p-[2px]"
+          )}
+        >
+          <Check className="hidden" />
+        </div>
+        {label}
+      </label>
+    );
+  }
+);

@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { twMerge } from "tailwind-merge";
 
@@ -160,7 +160,15 @@ const questionTabs = [
 const labelsAndIcons = questionTabs.map(({ label, Icon }) => ({ label, Icon }));
 
 export const FAQ: React.FC = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
   const [tabValue, setTabValue] = useState(0);
+
+  const handleTabClick = (i: number) => {
+    setTabValue(i);
+
+    ref.current?.scrollIntoView();
+  };
 
   return (
     <section className="FAQ-container mb-28">
@@ -185,16 +193,16 @@ export const FAQ: React.FC = () => {
               "flex cursor-pointer flex-col items-center rounded-2xl bg-text-100 px-3 py-7  shadow-100 transition-all",
               tabValue === i && "-translate-y-7 shadow-300"
             )}
-            onClick={() => setTabValue(i)}
+            onClick={() => handleTabClick(i)}
           >
             <Icon className="h-[130px] w-full max-w-[160px] 3xl:h-[220px]" />
             <h5 className="heading-5 text-center">{label}</h5>
           </div>
         ))}
-        <div className="relative col-span-full h-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 py-6 text-center shadow-100 lg:col-span-1">
+        <div className="relative col-span-full h-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-14 shadow-100 lg:col-span-1">
           <div className="absolute -left-14 -top-5 z-10 h-36 w-36 rounded-full bg-gradient-to-l from-text-100 to-transparent" />
-          <div className="relative z-20 flex h-full flex-col justify-evenly">
-            <h5 className="heading-5 text-center">
+          <div className="relative z-20 h-full">
+            <h5 className="heading-5 mb-[37px]">
               Не нашли ответ на свой вопрос?
             </h5>
             <p className="text-xs text-text-300 3xl:text-lg">
@@ -205,7 +213,7 @@ export const FAQ: React.FC = () => {
         </div>
       </div>
 
-      <div>
+      <div ref={ref} className="scroll-mt-24">
         {questionTabs.map(({ label, questions }, i) => (
           <TabPanel value={i} tabValue={tabValue} key={i}>
             <Fade direction="up" duration={500} triggerOnce>

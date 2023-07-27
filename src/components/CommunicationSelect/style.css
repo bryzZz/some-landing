@@ -7,7 +7,7 @@
 }
 
 .CommunicationSelect__value-container {
-  @apply text-sm 3xl:text-base !important;
+  @apply text-xs 3xl:text-base !important;
 }
 
 .CommunicationSelect__single-value {
