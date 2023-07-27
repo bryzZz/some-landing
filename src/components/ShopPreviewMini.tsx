@@ -1,13 +1,15 @@
 import React from "react";
+import { Fade } from "react-awesome-reveal";
+import { Scene } from "react-scrollmagic";
+
+import { ShopCard } from "./ShopCard";
 
 import { ReactComponent as ArrowRight } from "assets/icons/arrow-right.svg";
-import ShopPreviewBg from "assets/images/shop-preview-bg.png";
+import ShopPreviewBg from "assets/images/shop-preview-mini-bg.png";
 import ShopCard1 from "assets/images/shop-preview-1.png";
 import ShopCard2 from "assets/images/shop-preview-2.png";
 import ShopCard3 from "assets/images/shop-preview-3.png";
 import ShopCard4 from "assets/images/shop-preview-4.png";
-import { ShopCard } from "./ShopCard";
-import { Fade } from "react-awesome-reveal";
 
 const cards = [
   {
@@ -35,9 +37,29 @@ const cards = [
 export const ShopPreviewMini: React.FC = () => {
   return (
     <section
-      className="bg-cover bg-top bg-no-repeat py-12 md:py-36"
+      id="bubbles-6"
+      className="relative bg-cover bg-top bg-no-repeat py-12 md:py-36"
       style={{ backgroundImage: `url(${ShopPreviewBg})` }}
     >
+      <Scene duration={1500} triggerElement="#bubbles-6" triggerHook="onEnter">
+        {(progress: number) => (
+          <>
+            <div
+              className="absolute -left-9 h-40 w-40 rounded-full bg-gradient-to-r from-transparent to-white"
+              style={{
+                top: 220 + progress * -300,
+              }}
+            />
+            <div
+              className="absolute right-[30vw] h-5 w-5 rounded-full bg-[#5956E9]"
+              style={{
+                top: 100 + progress * -100,
+              }}
+            />
+          </>
+        )}
+      </Scene>
+
       <div className="base-container flex flex-col items-center">
         <Fade direction="up" duration={500} triggerOnce>
           <h2 className="heading-2 mb-20 max-w-3xl text-center">
@@ -54,7 +76,7 @@ export const ShopPreviewMini: React.FC = () => {
           </Fade>
         </div>
 
-        <button className="btn-primary flex items-center gap-2">
+        <button className="btn-primary flex items-center gap-[10px] px-[34px] py-[17px]">
           В магазин
           <ArrowRight width="20px" height="20px" />
         </button>

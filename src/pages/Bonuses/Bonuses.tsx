@@ -183,24 +183,34 @@ export const Bonuses: React.FC = () => {
             newCategoryCount={1}
           />
 
-          <FilterSearch className="w-full sm:w-auto" placeholder="Поиск" />
+          <FilterSearch
+            className="w-full rounded-lg border-none shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)] sm:w-auto"
+            inputClassName="text-sm"
+            placeholder="Поиск"
+          />
         </div>
 
         <div className="flex flex-col gap-[30px]">
           <Fade cascade direction="up" duration={100} damping={0.1} triggerOnce>
             {bonuses.map(
-              ({
-                img,
-                text,
-                bonusLeft,
-                bonusRight,
-                promocodeText,
-                promocode,
-                link,
-              }) => (
-                <div className="flex flex-col gap-4 rounded-2xl bg-text-100 p-4 shadow-100 md:flex-row md:items-center md:gap-0 lg:p-7">
+              (
+                {
+                  img,
+                  text,
+                  bonusLeft,
+                  bonusRight,
+                  promocodeText,
+                  promocode,
+                  link,
+                },
+                i
+              ) => (
+                <div
+                  className="flex flex-col gap-4 rounded-2xl bg-text-100 p-4 shadow-100 md:flex-row md:items-center md:gap-0 lg:p-7"
+                  key={i}
+                >
                   <img
-                    className="w-full max-w-[180px] object-contain pr-6 md:max-w-[140px] lg:pr-16 3xl:max-w-[180px]"
+                    className="mr-6 w-full max-w-[180px] md:max-w-[120px] lg:mr-16 3xl:max-w-[180px]"
                     src={img}
                   />
                   <p className="sub-heading-3 mr-2 w-full max-w-[350px] shrink-0 font-semibold lg:mr-7 lg:max-w-[418px] 3xl:max-w-[500px]">

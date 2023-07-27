@@ -1,5 +1,9 @@
+.ReactModal__Overlay {
+  @apply z-50;
+}
+
 .ReactModal__Overlay--after-open {
-  @apply bg-[rgba(255,_255,_255,_0.3)] pr-16 backdrop-blur-sm;
+  @apply bg-[rgba(255,_255,_255,_0.3)] backdrop-blur-sm;
 }
 
 .ReactModal__Overlay--before-close {
@@ -7,13 +11,13 @@
 }
 
 .ReactModal__Content {
-  @apply h-screen w-full max-w-[555px] -translate-x-full overflow-y-scroll bg-white pb-10 pl-7 pr-7 pt-7 shadow-[0px_0px_32px_-3px_rgba(0,_0,_0,_0.1)] transition-transform md:pl-[51px];
+  @apply absolute h-screen w-full max-w-[555px] overflow-y-scroll bg-white pb-10 pl-7 pr-7 pt-7 shadow-[0px_0px_32px_-3px_rgba(0,_0,_0,_0.1)] transition-transform md:pl-[51px];
 }
 
 .ReactModal__Content--after-open {
-  @apply translate-x-0;
+  @apply right-0;
 }
 
 .ReactModal__Content--before-close {
-  @apply -translate-x-full;
+  @apply -right-full;
 }

@@ -5,11 +5,13 @@ import { ReactComponent as Search } from "assets/icons/search.svg";
 
 interface FilterSearchProps {
   className?: string;
+  inputClassName?: string;
   placeholder?: string;
 }
 
 export const FilterSearch: React.FC<FilterSearchProps> = ({
   className,
+  inputClassName,
   placeholder,
 }) => {
   return (
@@ -21,7 +23,10 @@ export const FilterSearch: React.FC<FilterSearchProps> = ({
     >
       <Search />
       <input
-        className="pb-[8px] pt-[7px] text-sm text-text-400 outline-none placeholder:text-[#C8C8C8] lg:text-base 3xl:text-xl"
+        className={twMerge(
+          "pb-[8px] pt-[7px] text-sm text-text-400 outline-none placeholder:text-[#C8C8C8] 3xl:text-xl",
+          inputClassName
+        )}
         type="text"
         placeholder={placeholder}
       />

@@ -29,19 +29,19 @@ export const ShopCard: React.FC<ShopCardProps> = ({
       )}
     >
       <img
-        className="mb-7 h-full max-h-44 object-cover lg:max-h-64 2xl:max-h-96"
+        className="mb-7 h-full max-h-44 object-cover lg:max-h-64 3xl:max-h-96"
         src={data.img}
       />
       <h5 className="mb-3 text-[10px] font-black uppercase text-[#B5B5B5] md:text-xs lg:text-sm 3xl:text-xl">
         {data.supTitle}
       </h5>
-      <h4 className="md:heading-4 whitespace-pre-line text-[11px] font-bold 3xl:text-2xl">
+      <h4 className="md:heading-4 mb-auto whitespace-pre-line text-[11px] font-bold 3xl:text-2xl">
         {data.title}
       </h4>
 
       {details && (
         <button
-          className="mb-5 mt-5 rounded-[4px] bg-[#F3F3F3] px-[26px] py-[14px] text-sm font-bold leading-4 text-text-400 transition hover:bg-[#DDD] 3xl:text-xl"
+          className="mt-5 rounded-[4px] bg-[#F3F3F3] px-[26px] py-[14px] text-sm font-bold leading-4 text-text-400 transition hover:bg-[#DDD] 3xl:text-xl"
           onClick={onDetailsClick}
         >
           Подробнее

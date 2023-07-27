@@ -108,12 +108,14 @@ export const PointsStore: React.FC = () => {
                 className="absolute right-0 z-10 w-full max-w-[200px] object-contain md:-right-20 md:top-0 md:max-w-[clamp(20rem,18vw,35rem)]"
                 src={image}
               />
-              <div className="relative z-20 px-4 md:px-9">
+              <div className="relative z-20 pl-4 md:pl-9">
                 <p className="sub-heading-3 mb-[10px] font-semibold">
                   {supTitle}
                 </p>
-                <h3 className="heading-3 mb-[10px] pr-[150px]">{title}</h3>
-                <p className="sub-heading-3 font-semibold">{subTitle}</p>
+                <h3 className="heading-3 mb-[10px] md:pr-20">{title}</h3>
+                <p className="sub-heading-3 font-semibold md:pr-8">
+                  {subTitle}
+                </p>
               </div>
             </div>
           ))}
@@ -138,7 +140,8 @@ export const PointsStore: React.FC = () => {
             max={500}
           />
           <FilterSearch
-            className="order-first w-full md:order-last md:w-auto"
+            className="order-first w-full rounded-lg border-none shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)] sm:w-auto md:order-last md:w-auto"
+            inputClassName="text-sm"
             placeholder="Поиск"
           />
         </div>
@@ -151,6 +154,7 @@ export const PointsStore: React.FC = () => {
             data={data}
             details
             onDetailsClick={handleProductClick(id)}
+            className="!aspect-[unset] !px-5 !pb-[30px] !pt-[25px]"
           />
         ))}
       </div>
