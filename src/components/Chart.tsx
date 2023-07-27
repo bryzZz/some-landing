@@ -30,7 +30,7 @@ export const Chart: React.FC<ChartProps> = ({
   height,
   margin,
 }) => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(data.length - 2);
 
   const sortedData = data.sort((a, b) => (a.date > b.date ? 1 : -1));
   const bisectData = sortedData.slice(1, -1);

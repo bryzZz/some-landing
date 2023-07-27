@@ -11,7 +11,6 @@ import Img3 from "assets/images/BlogPost-img-3.jpg";
 import Img4 from "assets/images/BlogPost-img-4.png";
 import Img5 from "assets/images/BlogPost-img-5.png";
 import Img6 from "assets/images/BlogPost-img-6.jpg";
-import Img7 from "assets/images/BlogPost-img-7.png";
 
 import RecentImage1 from "assets/images/recent-post-1.jpg";
 import RecentImage2 from "assets/images/recent-post-2.jpg";
