@@ -1,0 +1,11 @@
+.BlogPostSlider .swiper-wrapper {
+  @apply pb-10;
+}
+
+.BlogPostSlider .swiper-pagination-bullet {
+  @apply bg-[#EDEEF3];
+}
+
+.BlogPostSlider .swiper-pagination-bullet-active {
+  @apply bg-[#3452FF] bg-opacity-60;
+}

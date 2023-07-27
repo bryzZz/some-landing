@@ -22,3 +22,5 @@ export * from "./Checkbox";
 export * from "./Radio";
 export * from "./LanguageSelect";
 export * from "./Chart";
+export * from "./Fancybox";
+export * from "./BlogPostSlider";
