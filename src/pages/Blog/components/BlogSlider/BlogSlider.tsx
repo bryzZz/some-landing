@@ -33,19 +33,15 @@ export const BlogSlider: React.FC = () => {
         {new Array(slidesCount).fill(0).map((_, i) => (
           <SwiperSlide key={i}>
             <div
-              className="rounded-xl bg-gradient-to-b from-white to-[rgba(209,_209,_209,_0.00)] bg-cover bg-center bg-no-repeat px-5 pb-7 pt-[160px] shadow-[0px_-253px_117px_0px_rgba(96,_96,_96,_0.96)_inset] md:px-14 md:pb-12"
+              className="rounded-xl bg-gradient-to-b from-white to-[rgba(209,_209,_209,_0.00)] bg-cover bg-center bg-no-repeat px-5 pb-7 pt-[289px] shadow-[0px_-253px_117px_0px_rgba(96,_96,_96,_0.96)_inset] md:px-14 md:pb-12"
               style={{
                 backgroundImage: `url(${Bg})`,
               }}
             >
               <div className="max-w-[742px]">
                 <div className="mb-2 flex flex-wrap gap-2">
-                  <div className="rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF] 3xl:text-xl">
-                    Gambling
-                  </div>
-                  <div className="rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF] 3xl:text-xl">
-                    Схемы
-                  </div>
+                  <div className="tag">Gambling</div>
+                  <div className="tag">Схемы</div>
                 </div>
                 <h1 className="heading-1 mb-1 text-white">
                   Кейс на Индию с ROI ~400%

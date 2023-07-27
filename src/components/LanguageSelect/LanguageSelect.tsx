@@ -53,7 +53,6 @@ export const LanguageSelect: React.FC = () => {
       defaultValue={options[0]}
       isSearchable={false}
       components={{ Option, SingleValue }}
-      menuIsOpen
     />
   );
 };

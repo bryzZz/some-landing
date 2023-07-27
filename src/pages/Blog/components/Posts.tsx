@@ -45,7 +45,7 @@ export const Posts: React.FC<PostsProps> = ({ posts, className }) => {
               {image && (
                 <img
                   src={image}
-                  className="mt-4 h-full max-h-[330px] w-full rounded-xl object-cover"
+                  className="mt-4 h-full max-h-[219px] w-full rounded-xl object-cover 3xl:max-h-[334px]"
                 />
               )}
             </div>

@@ -99,8 +99,8 @@ export const Blog: React.FC = () => {
           <>
             <Posts posts={posts} className="w-full flex-grow-0" />
             <div>
+              <Recent className="mb-12" posts={recentPosts} />
               <Tags tags={tags} />
-              <Recent posts={recentPosts} />
             </div>
           </>
         ) : (

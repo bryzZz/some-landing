@@ -81,6 +81,10 @@
     @apply cursor-pointer rounded bg-gradient-to-r from-[#F71D1D] via-[#F7511D] to-[#F71D1D] px-4 py-3 text-[13px] font-extrabold text-text-100 transition hover:shadow-[0px_19px_30px_-10px_rgba(247,81,29,0.70)] xl:px-6 xl:py-4 xl:text-base;
   }
 
+  .tag {
+    @apply cursor-pointer rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF] transition-colors hover:bg-opacity-100 hover:text-white 3xl:text-xl;
+  }
+
   .heading-1 {
     @apply text-4xl font-extrabold leading-10 text-text-400 lg:text-5xl 3xl:text-[73px] 3xl:leading-[91px];
   }
