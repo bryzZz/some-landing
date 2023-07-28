@@ -1,5 +1,6 @@
 import { useMediaQuery } from "hooks";
 import React, { FC } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface TopOffersTableProps {
   items: Array<{
@@ -19,8 +20,15 @@ export const TopOffersTable: React.FC<TopOffersTableProps> = ({ items }) => {
     <table className="w-full table-fixed border-separate border-spacing-y-2">
       <thead>
         <tr className="bg-[#F4F4F4] text-sm font-bold text-[#B3B3B3] 3xl:text-xl">
-          <th className="w-14" />
-          <th className="w-24 rounded-bl rounded-tl py-3 text-left">ID</th>
+          {matches && <th className="w-14" />}
+          <th
+            className={twMerge(
+              "w-24 rounded-bl rounded-tl py-3 text-left",
+              !matches && "pl-[60px]"
+            )}
+          >
+            ID
+          </th>
           <th className="w-2/4 py-3 text-left">Название</th>
           {matches && (
             <>

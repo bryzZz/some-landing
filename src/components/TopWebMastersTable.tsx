@@ -1,5 +1,6 @@
 import { useMediaQuery } from "hooks";
 import React from "react";
+import { twMerge } from "tailwind-merge";
 
 interface TopWebMastersTableProps {
   items: Array<{
@@ -23,8 +24,13 @@ export const TopWebMastersTable: React.FC<TopWebMastersTableProps> = ({
     <table className="w-full table-fixed border-separate border-spacing-y-2">
       <thead>
         <tr className="bg-[#F4F4F4] text-sm font-bold text-[#B3B3B3] 3xl:text-xl">
-          <th className="w-14" />
-          <th className="rounded py-3 text-left md:rounded-br-none md:rounded-tr-none">
+          {matches && <th className="w-14" />}
+          <th
+            className={twMerge(
+              "rounded py-3 text-left md:rounded-br-none md:rounded-tr-none",
+              !matches && "pl-[60px]"
+            )}
+          >
             Имя
           </th>
           {matches && (

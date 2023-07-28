@@ -65,7 +65,10 @@ export const First: React.FC = () => {
                     Персональные офферы, собственные инструменты, инсайд
                     информация и связки для топов.
                   </p>
-                  <Link to="/unauthorized/registration" className="btn-primary">
+                  <Link
+                    to="/unauthorized/registration"
+                    className="btn-primary py-4"
+                  >
                     Регистрация
                   </Link>
                 </Fade>

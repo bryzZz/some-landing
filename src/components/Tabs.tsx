@@ -28,6 +28,9 @@ export const Tabs: React.FC<TabsProps> = ({
     };
 
     setTabPosition();
+
+    setTimeout(() => setTabPosition(), 200);
+
     window.addEventListener("resize", setTabPosition);
 
     return () => window.removeEventListener("resize", setTabPosition);
@@ -36,7 +39,7 @@ export const Tabs: React.FC<TabsProps> = ({
   return (
     <div
       className={twMerge(
-        `heading-6 relative grid auto-cols-fr grid-flow-col rounded-[35px] border-2`,
+        `relative grid auto-cols-fr grid-flow-col rounded-[35px] border-2`,
         className
       )}
     >
