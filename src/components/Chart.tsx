@@ -77,7 +77,7 @@ export const Chart: React.FC<ChartProps> = ({
   };
 
   return (
-    <div className="relative pr-20 pt-20">
+    <div className="relative flex items-center justify-end pr-20 pt-20">
       <svg
         width={width}
         height={height}
