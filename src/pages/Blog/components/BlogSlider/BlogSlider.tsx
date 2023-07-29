@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Bg from "assets/images/Blog.jpg";
 
 import "swiper/css";
+import { Link } from "react-router-dom";
 
 const slidesCount = 4;
 
@@ -50,7 +51,9 @@ export const BlogSlider: React.FC = () => {
                   Все меньше и меньше приложений живут в текущих реалиях на
                   рынке Facebook. Удержать ROI с каждым днем все труднее...
                 </p>
-                <button className="btn-primary">Читать больше</button>
+                <Link to="/blog/0" className="btn-primary">
+                  Читать больше
+                </Link>
               </div>
             </div>
           </SwiperSlide>

@@ -10,6 +10,7 @@ import ShopCard1 from "assets/images/shop-preview-1.png";
 import ShopCard2 from "assets/images/shop-preview-2.png";
 import ShopCard3 from "assets/images/shop-preview-3.png";
 import ShopCard4 from "assets/images/shop-preview-4.png";
+import { Link } from "react-router-dom";
 
 const cards = [
   {
@@ -76,10 +77,13 @@ export const ShopPreviewMini: React.FC = () => {
           </Fade>
         </div>
 
-        <button className="btn-primary flex items-center gap-[10px] px-[34px] py-[17px]">
+        <Link
+          to="/points-store/"
+          className="btn-primary flex items-center gap-[10px] px-[34px] py-[17px]"
+        >
           В магазин
           <ArrowRight width="20px" height="20px" />
-        </button>
+        </Link>
       </div>
     </section>
   );
