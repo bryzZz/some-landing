@@ -99,13 +99,13 @@ export const Header: React.FC = () => {
           <div className="flex items-center">
             <div className="mr-6 hidden gap-2 xl:flex 3xl:mr-9">
               <Link
-                to={"/"}
+                to="https://vk.com/leadshub"
                 className="p-[10px] text-[#ACACAC] transition hover:text-[#0076FE]"
               >
                 <VK width="20px" height="20px" />
               </Link>
               <Link
-                to={"/"}
+                to="tg://resolve?domain=leads_chat"
                 className="p-[10px] text-[#ACACAC] transition hover:text-[#2EAAE8]"
               >
                 <Telegram width="20px" height="20px" />
@@ -166,11 +166,17 @@ export const Header: React.FC = () => {
         <div className="flex flex-col items-center text-[#888888]">
           <p className="text-center text-[17px] font-bold">Оставайся с нами:</p>
           <div className="flex gap-2 text-base font-semibold">
-            <Link to={"/"} className="flex items-center gap-2">
+            <Link
+              to="tg://resolve?domain=leads_chat"
+              className="flex items-center gap-2"
+            >
               <TelegramMobile />
               Telegram
             </Link>
-            <Link to={"/"} className="flex items-center gap-2">
+            <Link
+              to="https://vk.com/leadshub"
+              className="flex items-center gap-2"
+            >
               <VKMobile />
               Vkontakte
             </Link>

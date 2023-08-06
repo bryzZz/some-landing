@@ -28,26 +28,41 @@ export const Footer: React.FC = () => {
             </Link>
 
             <div className="hidden flex-col gap-[10px] text-base font-semibold text-text-300 md:flex 3xl:text-xl">
-              <Link to="/" className="flex items-center gap-4">
+              <Link
+                to="tg://resolve?domain=leads_chat"
+                className="flex items-center gap-4"
+              >
                 <Telegram width={14} height={14} />
                 @leads_chat
               </Link>
-              <Link to="/" className="flex items-center gap-4">
+              <Link
+                to="mailto:info@leadshub.ru"
+                className="flex items-center gap-4"
+              >
                 <Mail width={14} height={14} />
                 info@leadshub.pro
               </Link>
-              <Link to="/" className="flex items-center gap-4">
+              <Link
+                to="https://leadshub.ru/skype:live:.cid.fcd149935426653"
+                className="flex items-center gap-4"
+              >
                 <Skype width={14} height={14} />
                 info_chat
               </Link>
             </div>
 
             <div className="flex items-center gap-5 md:hidden">
-              <Link to={"/"} className="flex items-center gap-2 font-semibold">
+              <Link
+                to="tg://resolve?domain=leads_chat"
+                className="flex items-center gap-2 font-semibold"
+              >
                 <Telegram />
                 Telegram
               </Link>
-              <Link to={"/"} className="flex items-center gap-2 font-semibold">
+              <Link
+                to="https://vk.com/leadshub"
+                className="flex items-center gap-2 font-semibold"
+              >
                 <VK />
                 Vkontakte
               </Link>
@@ -84,14 +99,14 @@ export const Footer: React.FC = () => {
           <div className="hidden justify-end gap-7 text-right md:flex">
             <p className="text-base font-bold 3xl:text-xl">Оставайся с нами:</p>
             <Link
-              to={"/"}
+              to="tg://resolve?domain=leads_chat"
               className="flex items-center gap-2 text-base font-semibold 3xl:text-xl"
             >
               <Telegram />
               Telegram
             </Link>
             <Link
-              to={"/"}
+              to="https://vk.com/leadshub"
               className="flex items-center gap-2 text-base font-semibold 3xl:text-xl"
             >
               <VK />
