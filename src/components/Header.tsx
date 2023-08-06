@@ -115,10 +115,13 @@ export const Header: React.FC = () => {
             <LanguageSelect />
 
             <div className="flex items-center gap-2">
-              <button className="flex items-center gap-1 px-6 py-4 text-[13px] font-extrabold xl:text-base 3xl:text-lg">
+              <Link
+                to="unauthorized/login"
+                className="flex items-center gap-1 px-6 py-4 text-[13px] font-extrabold xl:text-base 3xl:text-lg"
+              >
                 <DoorEnter className="text-primary-100" />
                 Войти
-              </button>
+              </Link>
               <Link to="unauthorized/registration" className="btn-primary">
                 Регистрация
               </Link>
@@ -184,10 +187,13 @@ export const Header: React.FC = () => {
         </div>
 
         <div className="flex items-center justify-center gap-3">
-          <button className="flex items-center gap-1 px-6 py-4 text-base font-extrabold">
+          <Link
+            to="unauthorized/login"
+            className="flex items-center gap-1 px-6 py-4 text-base font-extrabold"
+          >
             <DoorEnter className="text-primary-100" />
             Войти
-          </button>
+          </Link>
           <Link
             to="unauthorized/registration"
             className="btn-primary text-[14px]"

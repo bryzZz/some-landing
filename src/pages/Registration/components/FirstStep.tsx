@@ -1,8 +1,7 @@
 import React from "react";
-
-import { CommunicationSelect } from "components";
 import { UseFormReturn } from "react-hook-form";
-import { FormField } from ".";
+
+import { CommunicationSelect, FormField } from "components";
 
 interface FirstStepProps {
   form: UseFormReturn<RegistrationFirstStepFormValues, any, undefined>;

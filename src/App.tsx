@@ -4,15 +4,16 @@ import { Controller } from "react-scrollmagic";
 
 import {
   Authorized,
+  Unauthorized,
   Home,
   FAQ,
   PointsStore,
   Bonuses,
   Contacts,
-  Unauthorized,
-  Registration,
   Blog,
   BlogPost,
+  Registration,
+  Login,
 } from "pages";
 import { BASE_PATH } from "./constants";
 
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "registration/",
         element: <Registration />,
+      },
+      {
+        path: "login/",
+        element: <Login />,
       },
     ],
   },

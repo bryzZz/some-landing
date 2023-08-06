@@ -6,8 +6,7 @@ import { FormMultiSelect } from "./FormMultiSelect";
 import { ReactComponent as ArrowLeft } from "assets/icons/arrow-left.svg";
 import { FormSelect } from "./FormSelect";
 import { FormTextArea } from "./FormTextArea";
-import { FormField } from "./FormField";
-import { Checkbox } from "components";
+import { Checkbox, FormField } from "components";
 
 const verticalOptions = [
   { value: "0", label: "Gambling" },

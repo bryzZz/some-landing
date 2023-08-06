@@ -24,3 +24,4 @@ export * from "./LanguageSelect";
 export * from "./Chart";
 export * from "./Fancybox";
 export * from "./BlogPostSlider";
+export * from "./FormField";

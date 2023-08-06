@@ -60,7 +60,10 @@ export const Registration: React.FC = () => {
 
         <p className="text-sm text-[#000] 3xl:text-xl">
           У вас уже есть аккаунт?{" "}
-          <Link className="text-[#088DF4] underline" to="login">
+          <Link
+            className="text-[#088DF4] underline"
+            to={`${BASE_PATH}unauthorized/login`}
+          >
             Войти
           </Link>
         </p>
