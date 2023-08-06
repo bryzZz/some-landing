@@ -1,2 +1,1 @@
-// export const BASE_PATH = "/some-landing/";
-export const BASE_PATH = "/";
+export const BASE_PATH = import.meta.env.BASE_URL;
