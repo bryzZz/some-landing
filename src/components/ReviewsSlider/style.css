@@ -5,3 +5,7 @@
 .swiper-nav-btn.swiper-button-disabled {
   color: #e7e6ec;
 }
+
+.reviews-swiper .swiper-wrapper {
+  @apply items-stretch;
+}
