@@ -76,7 +76,7 @@ export const ShopPreview: React.FC = () => {
   const matches = useMediaQuery("(min-width: 768px)");
 
   const getPadLeft = (progress: number) => {
-    let result = progress * 20;
+    let result = progress * 10;
 
     if (matches) {
       result += 15;
