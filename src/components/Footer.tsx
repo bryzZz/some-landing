@@ -13,7 +13,7 @@ const navItems = [
   { label: "Магазин", path: "points-store/" },
   { label: "Бонусы", path: "bonuses/" },
   { label: "Контакты", path: "contacts/" },
-  { label: "Информация о cookie", path: "f" },
+  { label: "Публичная оферта", path: "f" },
   { label: "Информация о cookie", path: "f" },
 ];
 

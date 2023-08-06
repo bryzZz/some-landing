@@ -15,11 +15,11 @@ import { ReactComponent as Open } from "assets/icons/header-open.svg";
 import { ReactComponent as Close } from "assets/icons/header-close.svg";
 
 const navItems = [
-  { label: "Преимущества", path: "a" },
+  { label: "Преимущества", path: `${BASE_PATH}#cards` },
   { label: "Кейсы", path: "blog/" },
   { label: "Бонусы", path: "bonuses/" },
   { label: "Магазин", path: "points-store/" },
-  { label: "Отзывы", path: "f" },
+  { label: "Отзывы", path: `${BASE_PATH}#bubbles-4` },
 ];
 
 export const Header: React.FC = () => {

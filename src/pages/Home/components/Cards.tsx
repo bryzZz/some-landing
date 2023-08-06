@@ -66,7 +66,10 @@ const bottomCards = [
 
 export const Cards: React.FC = () => {
   return (
-    <section className="base-container mb-20 grid grid-cols-6 gap-7 lg:mb-24 lg:grid-cols-8">
+    <section
+      id="cards"
+      className="base-container mb-20 grid scroll-mt-24 grid-cols-6 gap-7 lg:mb-24 lg:grid-cols-8"
+    >
       <Fade
         cascade
         direction="up"

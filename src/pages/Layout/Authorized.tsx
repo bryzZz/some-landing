@@ -1,6 +1,6 @@
 import { Footer, Header, ModalCookie } from "components";
 import React, { useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
 
 import { BASE_PATH } from "../../constants";
 
@@ -39,6 +39,8 @@ export const Authorized: React.FC = () => {
       </div>
 
       <ModalCookie isOpen={isOpen} onRequestClose={() => setIsOpen(false)} />
+
+      <ScrollRestoration />
     </>
   );
 };
