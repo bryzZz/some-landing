@@ -17,6 +17,7 @@ import ShopCard6 from "assets/images/shop-preview-6.png";
 import ShopCard7 from "assets/images/shop-preview-7.png";
 import ShopCard8 from "assets/images/shop-preview-8.png";
 import ShopCard9 from "assets/images/shop-preview-9.png";
+import { useMediaQuery } from "hooks";
 
 const cards = [
   {
@@ -72,10 +73,24 @@ const cards = [
 ];
 
 export const ShopPreview: React.FC = () => {
+  const matches = useMediaQuery("(min-width: 768px)");
+
+  const getPadLeft = (progress: number) => {
+    let result = progress * 20;
+
+    if (matches) {
+      result += 15;
+    } else {
+      result -= 15;
+    }
+
+    return result;
+  };
+
   return (
     <section
       id="bubbles-3"
-      className="relative z-20 bg-cover bg-top bg-no-repeat pb-[860px] pt-28"
+      className="relative z-20 bg-cover bg-top bg-no-repeat pt-28"
       style={{ backgroundImage: `url(${ShopPreviewBg})` }}
     >
       <Scene duration={1500} triggerElement="#bubbles-3" triggerHook="onEnter">
@@ -122,40 +137,24 @@ export const ShopPreview: React.FC = () => {
           </Link>
         </Fade>
       </div>
-      <div
-        id="shop-preview"
-        className="absolute -bottom-[5%] -right-[10%] z-30 -rotate-[30deg] sm:bottom-[10%] md:bottom-0"
-      >
+
+      <div id="shop-preview" className="-rotate-[30deg] pt-12 md:pt-0">
         <Scene
           duration={4000}
           triggerElement="#shop-preview"
           triggerHook="onEnter"
         >
           {(progress: number) => (
-            <>
-              <div
-                className="mb-10 grid auto-cols-[clamp(200px,16vw,400px)] grid-flow-col gap-10"
-                style={{
-                  marginRight: `${-progress * 10 - 3}rem`,
-                  marginLeft: `${progress * 10 + 3}rem`,
-                }}
-              >
-                {cards.slice(0, cards.length / 2).map((data, i) => (
-                  <ShopCard key={i} data={data} />
-                ))}
-              </div>
-              <div
-                className="grid auto-cols-[clamp(200px,16vw,400px)] grid-flow-col gap-10"
-                style={{
-                  marginRight: `${progress * 10 + 3}rem`,
-                  marginLeft: `${-progress * 10 - 3}rem`,
-                }}
-              >
-                {cards.slice(cards.length / 2).map((data, i) => (
-                  <ShopCard key={i} data={data} />
-                ))}
-              </div>
-            </>
+            <div
+              className="grid auto-cols-[clamp(200px,16vw,400px)] grid-flow-col gap-10"
+              style={{
+                paddingLeft: `${getPadLeft(progress)}rem`,
+              }}
+            >
+              {cards.slice(0, cards.length / 2).map((data, i) => (
+                <ShopCard key={i} data={data} />
+              ))}
+            </div>
           )}
         </Scene>
       </div>
