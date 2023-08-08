@@ -99,7 +99,7 @@ export const TopTables: React.FC = () => {
 
           <div className="w-full">
             <TabPanel value={0} tabValue={tabValue}>
-              <TopWebMastersTable items={webMasters} />
+              <TopWebMastersTable />
             </TabPanel>
             <TabPanel value={1} tabValue={tabValue}>
               <TopOffersTable items={offers} />

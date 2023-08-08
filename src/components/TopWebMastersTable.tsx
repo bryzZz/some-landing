@@ -1,23 +1,26 @@
-import { useMediaQuery } from "hooks";
 import React from "react";
 import { twMerge } from "tailwind-merge";
+import useSWR from "swr";
 
-interface TopWebMastersTableProps {
-  items: Array<{
-    image: string;
-    name: string;
-    perDay: number;
-    perMonth: number;
-  }>;
+import { useMediaQuery } from "hooks";
+
+import Person from "assets/icons/person.svg";
+
+const currencyFormat = new Intl.NumberFormat("ru-RU");
+
+const fetcher = (...args: Parameters<typeof fetch>) =>
+  fetch(...args).then((res) => res.json());
+
+interface WebMasterResponse {
+  top: Array<{ bonuses: string; id: string; name: string }>;
 }
 
-const USDollar = new Intl.NumberFormat("ru-RU", {
-  minimumSignificantDigits: 6,
-});
+export const TopWebMastersTable: React.FC = () => {
+  const { data } = useSWR<WebMasterResponse>(
+    `https://leads-bonus.ru/api.top?date=today&count=5`,
+    fetcher
+  );
 
-export const TopWebMastersTable: React.FC<TopWebMastersTableProps> = ({
-  items,
-}) => {
   const matches = useMediaQuery("(min-width: 768px)");
 
   return (
@@ -43,45 +46,45 @@ export const TopWebMastersTable: React.FC<TopWebMastersTableProps> = ({
       </thead>
 
       <tbody>
-        {items.map(({ image, name, perDay, perMonth }, i) => (
+        {data?.top.map(({ id, name, bonuses }, i) => (
           <tr
             className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
-            key={i}
+            key={id}
           >
             {matches ? (
               <>
                 <td className="w-14 rounded-bl rounded-tl pl-[14px]">
                   <img
                     className="h-7 w-7 object-contain 3xl:h-10 3xl:w-10"
-                    src={image}
+                    src={Person}
                   />
                 </td>
-                <td className="py-3">{name}</td>
+                <td className="py-3">{name || "Leadshuber"}</td>
                 <td className="py-3">
-                  <span className="text-primary-100">$</span>{" "}
-                  {USDollar.format(perDay)}
+                  <span className="text-primary-100">₽</span>
+                  {currencyFormat.format(Number(bonuses))}
                 </td>
                 <td className="rounded-br rounded-tr py-3">
-                  <span className="text-primary-100">$</span>{" "}
-                  {USDollar.format(perMonth)}
+                  <span className="text-primary-100">₽</span>{" "}
+                  {currencyFormat.format(0)}
                 </td>
               </>
             ) : (
               <td className="flex flex-col gap-3 p-4">
                 <div className="flex items-center gap-4">
-                  <img className="h-7 w-7 object-contain" src={image} />
-                  {name}
+                  <img className="h-7 w-7 object-contain" src={Person} />
+                  {name || "Leadshuber"}
                 </div>
                 <div className="flex flex-wrap items-center justify-between gap-5">
                   <div>
                     <span className="text-[#B3B3B3]">За день: </span>
-                    <span className="text-primary-100">$</span>{" "}
-                    {USDollar.format(perDay)}
+                    <span className="text-primary-100">₽</span>
+                    {currencyFormat.format(Number(bonuses))}
                   </div>
                   <div>
                     <span className="text-[#B3B3B3]">За месяц: </span>
-                    <span className="text-primary-100">$</span>{" "}
-                    {USDollar.format(perMonth)}
+                    <span className="text-primary-100">₽</span>{" "}
+                    {currencyFormat.format(0)}
                   </div>
                 </div>
               </td>

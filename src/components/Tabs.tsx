@@ -29,7 +29,7 @@ export const Tabs: React.FC<TabsProps> = ({
 
     setTabPosition();
 
-    setTimeout(() => setTabPosition(), 200);
+    setTimeout(() => setTabPosition(), 300);
 
     window.addEventListener("resize", setTabPosition);
 
