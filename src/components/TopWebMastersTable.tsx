@@ -46,7 +46,7 @@ export const TopWebMastersTable: React.FC = () => {
       </thead>
 
       <tbody>
-        {data?.top.map(({ id, name, bonuses }, i) => (
+        {data?.top.map(({ id, name, bonuses }) => (
           <tr
             className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
             key={id}

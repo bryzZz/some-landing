@@ -9,18 +9,9 @@ import TopOffer2 from "assets/images/top-offer-2.png";
 import TopOffer3 from "assets/images/top-offer-3.png";
 import TopOffer4 from "assets/images/top-offer-4.png";
 import TopOffer5 from "assets/images/top-offer-5.png";
-import Person from "assets/icons/person.svg";
 import { ReactComponent as FlagRu } from "assets/icons/flag_ru-4x3.svg";
 import { ReactComponent as FlagDe } from "assets/icons/flag_de-4x3.svg";
 import { ReactComponent as FlagPt } from "assets/icons/flag_pt-4x3.svg";
-
-const webMasters = [
-  { image: Person, name: "Никто Павлов", perDay: 5000, perMonth: 50000 },
-  { image: Person, name: "Никто Павлов", perDay: 5000, perMonth: 50000 },
-  { image: Person, name: "Никто Павлов", perDay: 5000, perMonth: 50000 },
-  { image: Person, name: "Никто Павлов", perDay: 5000, perMonth: 50000 },
-  { image: Person, name: "Никто Павлов", perDay: 5000, perMonth: 50000 },
-];
 
 const offers = [
   {
