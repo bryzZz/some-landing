@@ -49,7 +49,7 @@ export const TopOffersTable: React.FC<TopOffersTableProps> = ({ items }) => {
               <>
                 <td className="w-14 rounded-bl rounded-tl pl-[14px]">
                   <img
-                    className="h-7 w-7 object-contain 3xl:h-10 3xl:w-10"
+                    className="h-8 w-8 object-contain 3xl:h-10 3xl:w-10"
                     src={image}
                   />
                 </td>
@@ -69,7 +69,7 @@ export const TopOffersTable: React.FC<TopOffersTableProps> = ({ items }) => {
               <>
                 <td className="rounded-bl rounded-tl p-3">
                   <div className="mb-2 flex items-center gap-4">
-                    <img className="h-7 w-7 object-contain" src={image} />
+                    <img className="h-8 w-8 object-contain" src={image} />
                     {id}
                   </div>
                   <div className="flex items-center gap-[6px]">

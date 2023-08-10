@@ -1,5 +1,5 @@
 import React from "react";
-import { Pagination, Mousewheel } from "swiper";
+import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Fade, Zoom } from "react-awesome-reveal";
 import { Scene } from "react-scrollmagic";
@@ -113,13 +113,15 @@ export const Slides: React.FC = () => {
         </div>
 
         <Swiper
+          autoplay={{
+            delay: 3000,
+          }}
           direction={matches ? "vertical" : "horizontal"}
           autoHeight={matches}
-          mousewheel={matches}
           slidesPerView={1}
           pagination={{ clickable: true }}
           height={matches ? 500 : undefined}
-          modules={[Mousewheel, Pagination]}
+          modules={[Pagination, Autoplay]}
           spaceBetween={50}
           className="slides"
           breakpoints={{

@@ -55,13 +55,13 @@ export const TopWebMastersTable: React.FC = () => {
               <>
                 <td className="w-14 rounded-bl rounded-tl pl-[14px]">
                   <img
-                    className="h-7 w-7 object-contain 3xl:h-10 3xl:w-10"
+                    className="h-8 w-8 object-contain 3xl:h-10 3xl:w-10"
                     src={Person}
                   />
                 </td>
                 <td className="py-3">{name || "Leadshuber"}</td>
                 <td className="py-3">
-                  <span className="text-primary-100">₽</span>
+                  <span className="text-primary-100">₽</span>{" "}
                   {currencyFormat.format(Number(bonuses))}
                 </td>
                 <td className="rounded-br rounded-tr py-3">
@@ -72,13 +72,13 @@ export const TopWebMastersTable: React.FC = () => {
             ) : (
               <td className="flex flex-col gap-3 p-4">
                 <div className="flex items-center gap-4">
-                  <img className="h-7 w-7 object-contain" src={Person} />
+                  <img className="h-8 w-8 object-contain" src={Person} />
                   {name || "Leadshuber"}
                 </div>
                 <div className="flex flex-wrap items-center justify-between gap-5">
                   <div>
                     <span className="text-[#B3B3B3]">За день: </span>
-                    <span className="text-primary-100">₽</span>
+                    <span className="text-primary-100">₽</span>{" "}
                     {currencyFormat.format(Number(bonuses))}
                   </div>
                   <div>

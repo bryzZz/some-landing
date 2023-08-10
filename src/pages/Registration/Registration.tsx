@@ -62,7 +62,7 @@ export const Registration: React.FC = () => {
           У вас уже есть аккаунт?{" "}
           <Link
             className="text-[#088DF4] underline"
-            to={`${BASE_PATH}unauthorized/login`}
+            to="https://leadshub.affise.com/v2/sign/in"
           >
             Войти
           </Link>

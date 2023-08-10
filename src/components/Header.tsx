@@ -116,7 +116,7 @@ export const Header: React.FC = () => {
 
             <div className="flex items-center gap-2">
               <Link
-                to="unauthorized/login"
+                to="https://leadshub.affise.com/v2/sign/in"
                 className="flex items-center gap-1 px-6 py-4 text-[13px] font-extrabold xl:text-base 3xl:text-lg"
               >
                 <DoorEnter className="text-primary-100" />
@@ -188,7 +188,7 @@ export const Header: React.FC = () => {
 
         <div className="flex items-center justify-center gap-3">
           <Link
-            to="unauthorized/login"
+            to="https://leadshub.affise.com/v2/sign/in"
             className="flex items-center gap-1 px-6 py-4 text-base font-extrabold"
           >
             <DoorEnter className="text-primary-100" />

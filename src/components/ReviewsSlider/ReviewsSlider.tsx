@@ -80,17 +80,15 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
                     <img className="h-full w-full" src={avatar} />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <p className="text-[13px] font-semibold leading-[10px] text-text-200 3xl:text-lg">
-                        {date}
-                      </p>
+                    <div className="flex items-center justify-between text-[13px] 3xl:text-lg">
+                      <p className="font-semibold text-text-200">{date}</p>
                       {rating && (
-                        <p className="flex items-center gap-[2px] text-[10px] font-bold text-[#C8C8C8] 3xl:text-sm">
+                        <p className="flex items-center gap-[2px] font-bold">
                           <Star />
-                          <span className="text-[13px] text-[#309E3A] 3xl:text-base">
-                            {rating}
+                          <span className="text-[#309E3A]">{rating}</span>
+                          <span className="text-[10px] text-[#C8C8C8] 3xl:text-sm">
+                            /10
                           </span>
-                          /10
                         </p>
                       )}
                     </div>

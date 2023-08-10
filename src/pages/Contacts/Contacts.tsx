@@ -135,7 +135,7 @@ export const Contacts: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-stretch gap-1 font-semibold 3xl:text-xl">
+                    <div className="grid grid-cols-2 gap-1 font-semibold 3xl:text-xl">
                       <Link
                         to={telegram}
                         className="flex w-full items-center justify-center gap-2 rounded-bl-lg rounded-tl-lg bg-[#F8F8F8] py-3 pl-[14px] pr-4 transition hover:bg-[#EEEEEE] 3xl:p-6"
