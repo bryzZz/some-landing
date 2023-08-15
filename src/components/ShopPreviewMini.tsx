@@ -14,24 +14,36 @@ import { Link } from "react-router-dom";
 
 const cards = [
   {
-    title: "iPhone 14 Pro Max - 256GB",
-    supTitle: "3 500 БАЛЛОВ",
+    id: "0",
+    name: "iPhone 14 Pro Max - 256GB",
+    price: "3 500 ",
     img: ShopCard1,
+    category: "",
+    desc: "",
   },
   {
-    title: "Watch Series 7 - 45 мм",
-    supTitle: "980 БАЛЛОВ",
+    id: "1",
+    name: "Watch Series 7 - 45 мм",
+    price: "980",
     img: ShopCard2,
+    category: "",
+    desc: "",
   },
   {
-    title: "AirPods Max",
-    supTitle: "1 030 БАЛЛОВ",
+    id: "2",
+    name: "AirPods Max",
+    price: "1 030 ",
     img: ShopCard3,
+    category: "",
+    desc: "",
   },
   {
-    title: "Наушники\n Apple AirPods Pro",
-    supTitle: "450 БАЛЛОВ",
+    id: "3",
+    name: "Наушники\n Apple AirPods Pro",
+    price: "450",
     img: ShopCard4,
+    category: "",
+    desc: "",
   },
 ];
 

@@ -13,62 +13,48 @@ import ShopCard2 from "assets/images/shop-preview-2.png";
 import ShopCard3 from "assets/images/shop-preview-3.png";
 import ShopCard4 from "assets/images/shop-preview-4.png";
 import ShopCard5 from "assets/images/shop-preview-5.png";
-import ShopCard6 from "assets/images/shop-preview-6.png";
-import ShopCard7 from "assets/images/shop-preview-7.png";
-import ShopCard8 from "assets/images/shop-preview-8.png";
-import ShopCard9 from "assets/images/shop-preview-9.png";
 import { useMediaQuery } from "hooks";
 
 const cards = [
   {
-    title: "iPhone 14 Pro Max - 256GB",
-    supTitle: "3 500 БАЛЛОВ",
+    id: "0",
+    name: "iPhone 14 Pro Max - 256GB",
+    price: "3 500 ",
     img: ShopCard1,
+    category: "",
+    desc: "",
   },
   {
-    title: "Watch Series 7 - 45 мм",
-    supTitle: "980 БАЛЛОВ",
+    id: "1",
+    name: "Watch Series 7 - 45 мм",
+    price: "980",
     img: ShopCard2,
+    category: "",
+    desc: "",
   },
   {
-    title: "AirPods Max",
-    supTitle: "1 030 БАЛЛОВ",
+    id: "2",
+    name: "AirPods Max",
+    price: "1 030 ",
     img: ShopCard3,
+    category: "",
+    desc: "",
   },
   {
-    title: "Наушники\n Apple AirPods Pro",
-    supTitle: "450 БАЛЛОВ",
+    id: "3",
+    name: "Наушники\n Apple AirPods Pro",
+    price: "450",
     img: ShopCard4,
+    category: "",
+    desc: "",
   },
   {
-    title: "MacBook Pro 13 Touch Bar - 256 GB",
-    supTitle: "2 350 БАЛЛОВ",
+    id: "4",
+    name: "MacBook Pro 13 Touch Bar - 256 GB",
+    price: "2 350 ",
     img: ShopCard5,
-  },
-  {
-    title: "Dyson Pure Hot + Cool HP05",
-    supTitle: "2 170 БАЛЛОВ",
-    img: ShopCard6,
-  },
-  {
-    title: "JBL PartyBox 1000",
-    supTitle: "2 270 БАЛЛОВ",
-    img: ShopCard7,
-  },
-  {
-    title: "Samsung QE55Q77AAUXCE 75",
-    supTitle: "3 950 БАЛЛОВ",
-    img: ShopCard8,
-  },
-  {
-    title: "PlayStation 5",
-    supTitle: "1 500 БАЛЛОВ",
-    img: ShopCard9,
-  },
-  {
-    title: "Microsoft Xbox Series X",
-    supTitle: "1 000 БАЛЛОВ",
-    img: ShopCard9,
+    category: "",
+    desc: "",
   },
 ];
 
@@ -151,7 +137,7 @@ export const ShopPreview: React.FC = () => {
                 paddingLeft: `${getPadLeft(progress)}rem`,
               }}
             >
-              {cards.slice(0, cards.length / 2).map((data, i) => (
+              {cards.map((data, i) => (
                 <ShopCard key={i} data={data} />
               ))}
             </div>
