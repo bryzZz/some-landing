@@ -1,5 +1,5 @@
 import { Footer, Header, ModalCookie, ModalPublicOffer } from "components";
-import React, { useState } from "react";
+import React from "react";
 import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
 
 import { BASE_PATH } from "../../constants";

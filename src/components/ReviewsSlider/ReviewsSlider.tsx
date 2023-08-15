@@ -33,12 +33,12 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
   };
 
   return (
-    <div className="flex items-center gap-10 lg:gap-20 xl:gap-[114px]">
-      <div className="hidden flex-col gap-[40px] md:flex">
-        <button className="swiper-nav-btn" ref={prevRef}>
+    <div className="flex gap-10 lg:gap-20 xl:gap-[114px]">
+      <div className="hidden pt-10 md:block 3xl:pt-14">
+        <button className="swiper-nav-btn mb-10 block" ref={prevRef}>
           <ArrowLeft />
         </button>
-        <button className="swiper-nav-btn" ref={nextRef}>
+        <button className="swiper-nav-btn block" ref={nextRef}>
           <ArrowLeft className="rotate-180" />
         </button>
       </div>
@@ -77,7 +77,7 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
                       avatarBg && "bg-[#e5e5e5] p-2"
                     )}
                   >
-                    <img className="h-full w-full" src={avatar} />
+                    <img className="aspect-square h-full w-full" src={avatar} />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between text-[13px] 3xl:text-lg">
