@@ -27,7 +27,8 @@
     "reactjs-popup": "^2.0.5",
     "swiper": "^9.3.2",
     "swr": "^2.2.0",
-    "vite-plugin-svgr": "^3.2.0"
+    "vite-plugin-svgr": "^3.2.0",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@types/d3": "^7.4.0",

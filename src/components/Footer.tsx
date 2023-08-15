@@ -7,17 +7,19 @@ import { ReactComponent as Skype } from "assets/icons/skype.svg";
 import { ReactComponent as Mail } from "assets/icons/mail.svg";
 import { ReactComponent as Logo } from "assets/icons/logo.svg";
 import { BASE_PATH } from "constants/index";
+import { usePublicOfferModal, useCookieModal } from "store/useModals";
 
 const navItems = [
   { label: "FAQ", path: "FAQ/" },
   { label: "Магазин", path: "points-store/" },
   { label: "Бонусы", path: "bonuses/" },
   { label: "Контакты", path: "contacts/" },
-  { label: "Публичная оферта", path: "f" },
-  { label: "Информация о cookie", path: "f" },
 ];
 
 export const Footer: React.FC = () => {
+  const setPublicOfferIsOpen = usePublicOfferModal((state) => state.setIsOpen);
+  const setCookieIsOpen = useCookieModal((state) => state.setIsOpen);
+
   return (
     <footer className="bg-[#ECF2F6]">
       <div className="base-container pb-8 pt-10">
@@ -86,6 +88,20 @@ export const Footer: React.FC = () => {
                   <div className="h-[2px] w-0 rounded-md bg-text-400 transition-all group-hover:w-full" />
                 </Link>
               ))}
+              <button
+                onClick={() => setCookieIsOpen(true)}
+                className="text-400 group text-xs font-bold uppercase 3xl:text-lg"
+              >
+                Информация о cookie
+                <div className="h-[2px] w-0 rounded-md bg-text-400 transition-all group-hover:w-full" />
+              </button>
+              <button
+                onClick={() => setPublicOfferIsOpen(true)}
+                className="text-400 group text-xs font-bold uppercase 3xl:text-lg"
+              >
+                Публичная оферта
+                <div className="h-[2px] w-0 rounded-md bg-text-400 transition-all group-hover:w-full" />
+              </button>
             </nav>
           </div>
         </div>

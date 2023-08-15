@@ -1,4 +1,4 @@
-import { Footer, Header, ModalCookie } from "components";
+import { Footer, Header, ModalCookie, ModalPublicOffer } from "components";
 import React, { useState } from "react";
 import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
 
@@ -11,7 +11,6 @@ import { useMediaQuery } from "hooks";
 
 export const Authorized: React.FC = () => {
   const { pathname } = useLocation();
-  const [isOpen, setIsOpen] = useState(true);
 
   const matches = useMediaQuery("(min-width: 1921px)");
 
@@ -38,7 +37,8 @@ export const Authorized: React.FC = () => {
         <Footer />
       </div>
 
-      <ModalCookie isOpen={isOpen} onRequestClose={() => setIsOpen(false)} />
+      <ModalCookie />
+      <ModalPublicOffer />
 
       <ScrollRestoration />
     </>

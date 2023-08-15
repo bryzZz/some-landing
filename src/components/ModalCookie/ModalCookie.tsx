@@ -1,14 +1,22 @@
 import React from "react";
-import Modal, { Props } from "react-modal";
+import Modal from "react-modal";
 
 import "./style.css";
+import { useCookieModal } from "store/useModals";
 
 Modal.setAppElement("#root");
 
-export const ModalCookie: React.FC<Props> = (props) => {
+export const ModalCookie: React.FC = () => {
+  const { isOpen, setIsOpen } = useCookieModal();
+
+  const onClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <Modal
-      {...props}
+      isOpen={isOpen}
+      onRequestClose={onClose}
       overlayClassName="ModalCookie__overlay"
       className="ModalCookie"
     >
@@ -24,13 +32,13 @@ export const ModalCookie: React.FC<Props> = (props) => {
         <div className="flex items-center justify-center gap-3">
           <button
             className="btn-secondary px-5 py-2 text-xs font-bold 3xl:px-6 3xl:py-4 3xl:text-lg"
-            onClick={props.onRequestClose}
+            onClick={onClose}
           >
             Принять
           </button>
           <button
             className="btn-ternary px-5 py-2 text-xs font-bold 3xl:px-6 3xl:py-4 3xl:text-lg"
-            onClick={props.onRequestClose}
+            onClick={onClose}
           >
             Запретить
           </button>

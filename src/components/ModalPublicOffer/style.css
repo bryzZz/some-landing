@@ -3,5 +3,9 @@
 }
 
 .ModalPublicOffer {
-  @apply mx-[15px] h-auto w-full max-w-[702px] overflow-auto rounded-xl bg-white;
+  @apply static mx-[15px] h-[unset] w-full max-w-[1000px] overflow-hidden rounded-xl bg-white p-6 pb-8 md:p-12 md:pb-14;
+}
+
+.ModalPublicOffer__text {
+  @apply h-[70vh] overflow-auto p-0 md:h-[50vh];
 }
