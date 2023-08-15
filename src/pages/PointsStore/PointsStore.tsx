@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { Fade } from "react-awesome-reveal";
+import useSWR from "swr";
+import uniq from "lodash.uniq";
 
 import {
   PointsStoreModal,
@@ -9,11 +12,10 @@ import {
   PriceFilter,
 } from "components";
 
-import ShopCard1 from "assets/images/shop-preview-1.png";
 import CardImage1 from "assets/images/points-store-card-1.png";
 import CardImage2 from "assets/images/points-store-card-2.png";
 import CardImage3 from "assets/images/points-store-card-3.png";
-import { Fade } from "react-awesome-reveal";
+import { PointsStoreResponse } from "types";
 
 const infoCards = [
   {
@@ -37,35 +39,28 @@ const infoCards = [
   },
 ];
 
-const products = new Array(12).fill(0).map((_, i) => ({
-  id: String(i),
-  title: "iPhone 14 Pro Max - 256GB",
-  supTitle: "3 500 БАЛЛОВ",
-  img: ShopCard1,
-  category: "Кресла",
-  description:
-    "Aliquam pulvinar vestibulum blandit. Donec sed nisl libero. Fusce dignissim luctus sem eu dapibus. Pellentesque vulputate quam a quam volutpat, sed ullamcorper erat commodo. Vestibulum sit amet ipsum vitae mauris mattis vulputate lacinia nec neque. Aenean quis consectetur nisi, ac interdum elit. Aliquam sit amet luctus elit, id tempus purus.",
-}));
+const sortVariants = ["По возрастанию цены", "По убыванию цены"];
 
-const allCategories = [
-  "Все категории",
-  "Техника",
-  "Apple",
-  "Кресла",
-  "Инстурменты",
-];
-
-const sortVariants = ["По убыванию цены", "По новинкам"];
+type Category = { label: string; checked: boolean };
 
 export const PointsStore: React.FC = () => {
+  const { data, isLoading } = useSWR<PointsStoreResponse>(
+    "https://leads-bonus.ru/api.shop"
+  );
+
+  const products = useMemo(() => data?.items ?? [], [data?.items]);
+
   const [selectedProductId, setSelectedProductId] = useState<string | null>(
     null
   );
-  const [categories, setCategories] = useState(() =>
-    allCategories.map((label) => ({ label, checked: false }))
-  );
+  const [categories, setCategories] = useState<Category[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedSort, setSelectedSort] = useState(sortVariants[0]);
+
+  const [range, setRange] = useState({ min: 0, max: 0 });
+  const [boundsRange, setBoundsRange] = useState({ min: 0, max: 0 });
+
+  const [search, setSearch] = useState("");
 
   const handleCategoryClick = (label: string) => {
     setCategories((p) =>
@@ -90,6 +85,58 @@ export const PointsStore: React.FC = () => {
   };
 
   const selectedProduct = products.find(({ id }) => id === selectedProductId);
+
+  const filteredProducts = useMemo(() => {
+    const selectedCategories = categories
+      .map(({ label, checked }) => (checked ? label : undefined))
+      .filter(Boolean);
+
+    return products
+      .filter((product) => {
+        if (selectedCategories.includes("Все категории")) {
+          return true;
+        }
+
+        return selectedCategories.includes(product.category);
+      })
+      .filter((product) => {
+        return (
+          Number(product.price) > range.min && Number(product.price) < range.max
+        );
+      })
+      .filter((product) =>
+        product.name.toLowerCase().includes(search.toLowerCase())
+      )
+      .sort((a, b) => {
+        if (selectedSort === sortVariants[0])
+          return Number(a.price) - Number(b.price);
+
+        return Number(b.price) - Number(a.price);
+      });
+  }, [categories, products, range.max, range.min, search, selectedSort]);
+
+  useEffect(() => {
+    if (products.length === 0) return;
+
+    if (boundsRange.max === 0) {
+      const prices = products.map(({ price }) => Number(price));
+
+      const max = Math.max(...prices);
+      const min = Math.min(...prices);
+
+      setBoundsRange({ max, min });
+      setRange({ max, min });
+    }
+
+    if (categories.length === 0) {
+      const newCategories = uniq(products.map(({ category }) => category));
+
+      setCategories([
+        { label: "Все категории", checked: true },
+        ...newCategories.map((label) => ({ label, checked: false })),
+      ]);
+    }
+  }, [categories.length, products, boundsRange.max]);
 
   return (
     <section className="base-container mb-24 lg:mb-36">
@@ -122,48 +169,58 @@ export const PointsStore: React.FC = () => {
         </Fade>
       </div>
 
-      <Fade duration={500} direction="up" triggerOnce>
-        <div className="mb-8 flex flex-wrap items-center gap-3">
-          <CategoryFilter
-            categories={categories}
-            onCategoryClick={handleCategoryClick}
-            newCategoryCount={2}
-          />
-          <SortFilter
-            options={sortVariants}
-            selectedOption={selectedSort}
-            onChange={handleSortChange}
-          />
-          <PriceFilter
-            className="-order-2 md:order-none md:mr-auto"
-            min={100}
-            max={500}
-          />
-          <FilterSearch
-            className="order-first w-full rounded-lg border-none shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)] sm:w-auto md:order-last md:w-auto"
-            inputClassName="text-sm"
-            placeholder="Поиск"
-          />
-        </div>
-      </Fade>
+      {!isLoading && (
+        <>
+          <Fade duration={500} direction="up" triggerOnce>
+            <div className="mb-8 flex flex-wrap items-center gap-3">
+              <CategoryFilter
+                categories={categories}
+                onCategoryClick={handleCategoryClick}
+                // newCategoryCount={2}
+              />
+              <SortFilter
+                options={sortVariants}
+                selectedOption={selectedSort}
+                onChange={handleSortChange}
+              />
+              <PriceFilter
+                className="-order-2 md:order-none md:mr-auto"
+                boundsRange={boundsRange}
+                onChange={setRange}
+              />
+              <FilterSearch
+                className="order-first w-full rounded-lg border-none shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)] sm:w-auto md:order-last md:w-auto"
+                inputClassName="text-sm"
+                placeholder="Поиск"
+                value={search}
+                onChange={setSearch}
+              />
+            </div>
+          </Fade>
 
-      <div className="grid grid-cols-2 gap-5 md:grid-cols-4 lg:gap-[30px]">
-        {products.map(({ id, ...data }) => (
-          <ShopCard
-            key={id}
-            data={data}
-            details
-            onDetailsClick={handleProductClick(id)}
-            className="!aspect-[unset] !px-5 !pb-[30px] !pt-[25px]"
-          />
-        ))}
-      </div>
+          {filteredProducts.length === 0 ? (
+            <p className="sab-heading-3 text-center">Ничего не нашлось</p>
+          ) : (
+            <div className="grid grid-cols-2 gap-5 md:grid-cols-4 lg:gap-[30px]">
+              {filteredProducts.map((data) => (
+                <ShopCard
+                  key={data.id}
+                  data={data}
+                  details
+                  onDetailsClick={handleProductClick(data.id)}
+                  className="!aspect-[unset] !px-5 !pb-[30px] !pt-[25px]"
+                />
+              ))}
+            </div>
+          )}
 
-      <PointsStoreModal
-        isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
-        product={selectedProduct}
-      />
+          <PointsStoreModal
+            isOpen={isOpen}
+            onRequestClose={() => setIsOpen(false)}
+            product={selectedProduct}
+          />
+        </>
+      )}
     </section>
   );
 };

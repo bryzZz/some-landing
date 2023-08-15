@@ -1,14 +1,9 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
-
-type ShopCardData = {
-  img: string;
-  supTitle: string;
-  title: string;
-};
+import { Product } from "types";
 
 interface ShopCardProps {
-  data: ShopCardData;
+  data: Product;
   details?: boolean;
   className?: string;
   onDetailsClick?: () => void;
@@ -33,10 +28,10 @@ export const ShopCard: React.FC<ShopCardProps> = ({
         src={data.img}
       />
       <h5 className="mb-3 text-[10px] font-black uppercase text-[#B5B5B5] md:text-xs lg:text-sm 3xl:text-xl">
-        {data.supTitle}
+        {data.price} БАЛЛОВ
       </h5>
       <h4 className="md:heading-4 mb-auto whitespace-pre-line text-[11px] font-bold 3xl:text-2xl">
-        {data.title}
+        {data.name}
       </h4>
 
       {details && (

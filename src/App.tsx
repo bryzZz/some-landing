@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Controller } from "react-scrollmagic";
+import { SWRConfig } from "swr";
 
 import {
   Authorized,
@@ -66,10 +67,19 @@ const router = createBrowserRouter([
   },
 ]);
 
+const fetcher = (...args: Parameters<typeof fetch>) =>
+  fetch(...args).then((res) => res.json());
+
 export const App: React.FC = () => {
   return (
-    <Controller>
-      <RouterProvider router={router} />
-    </Controller>
+    <SWRConfig
+      value={{
+        fetcher,
+      }}
+    >
+      <Controller>
+        <RouterProvider router={router} />
+      </Controller>
+    </SWRConfig>
   );
 };

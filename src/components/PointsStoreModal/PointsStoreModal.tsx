@@ -6,20 +6,21 @@ import { ReactComponent as Plus } from "assets/icons/plus.svg";
 import { ReactComponent as Cross } from "assets/icons/cross.svg";
 
 import "./style.css";
+import { Product } from "types";
 
 Modal.setAppElement("body");
 
 interface PointsStoreModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
-  product?: any;
+  product?: Product;
 }
 
 export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
   product,
   ...other
 }) => {
-  const { img, supTitle, title, category, description } = product ?? {};
+  const { img, name, category, desc, price } = product ?? {};
 
   const [counter, setCounter] = useState(1);
 
@@ -51,10 +52,12 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
       <div className="max-w-72">
         <img src={img} className="mb-14 max-h-full object-cover" />
       </div>
-      <h5 className="mb-2 font-black uppercase text-[#B5B5B5]">{supTitle}</h5>
-      <h4 className="heading-3 mb-5 whitespace-pre-line">{title}</h4>
+      <h5 className="mb-2 font-black uppercase text-[#B5B5B5]">
+        {price} БАЛЛОВ
+      </h5>
+      <h4 className="heading-3 mb-5 whitespace-pre-line">{name}</h4>
       <p className="mb-9 font-medium text-text-400">Категория: {category}</p>
-      <p className="mb-6 text-[14px] text-text-300">{description}</p>
+      <p className="mb-6 text-[14px] text-text-300">{desc}</p>
 
       <hr className="mb-6 bg-[E2E2E2]" />
 

@@ -43,6 +43,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             checked={checked}
             onChange={() => onCategoryClick(label)}
             label={label}
+            containerClassName="capitalize"
           />
         ))}
       </div>

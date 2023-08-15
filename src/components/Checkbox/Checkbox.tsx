@@ -8,16 +8,18 @@ import { twMerge } from "tailwind-merge";
 interface CheckboxProps extends ComponentProps<"input"> {
   label: string;
   variant?: "primary" | "secondary";
+  containerClassName?: string;
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ label, variant = "primary", ...props }, ref) => {
+  ({ label, variant = "primary", containerClassName, ...props }, ref) => {
     return (
       <label
         className={twMerge(
           "group flex cursor-pointer select-none items-center gap-3 text-base text-text-400",
           variant === "secondary" &&
-            "gap-[6px] text-xs font-semibold text-[#B0B0B0]"
+            "gap-[6px] text-xs font-semibold text-[#B0B0B0]",
+          containerClassName
         )}
       >
         <input

@@ -3,5 +3,5 @@
 }
 
 .ModalSuccessRegister {
-  @apply mx-[15px] h-auto w-full max-w-[702px] overflow-auto rounded-xl bg-white;
+  @apply static mx-[15px] h-auto w-full max-w-[702px] overflow-auto rounded-xl bg-white;
 }

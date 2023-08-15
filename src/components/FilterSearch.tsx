@@ -7,12 +7,16 @@ interface FilterSearchProps {
   className?: string;
   inputClassName?: string;
   placeholder?: string;
+  value?: string;
+  onChange?: (value: string) => void;
 }
 
 export const FilterSearch: React.FC<FilterSearchProps> = ({
   className,
   inputClassName,
   placeholder,
+  value,
+  onChange,
 }) => {
   return (
     <label
@@ -29,6 +33,8 @@ export const FilterSearch: React.FC<FilterSearchProps> = ({
         )}
         type="text"
         placeholder={placeholder}
+        value={value}
+        onChange={(e) => onChange?.(e.target.value)}
       />
     </label>
   );

@@ -24,7 +24,7 @@ export const SortFilter: React.FC<SortFilterProps> = ({
       trigger={
         <button className="group flex items-baseline gap-2 rounded-lg px-3 py-2 text-sm text-text-400 shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)] 3xl:text-xl">
           <UpDownArrows />
-          По возрастанию цены
+          {options.find((label) => selectedOption === label)}
           <Arrow className="text-[#B9B9C1] group-hover:text-text-400" />
         </button>
       }
@@ -34,8 +34,6 @@ export const SortFilter: React.FC<SortFilterProps> = ({
     >
       <div className="flex flex-col gap-3">
         {options.map((label) => {
-          console.log(selectedOption === label);
-
           return (
             <Radio
               key={label}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Popup from "reactjs-popup";
 
 import { ReactComponent as Arrow } from "assets/icons/select-arrow.svg";
@@ -7,17 +7,43 @@ import "reactjs-popup/dist/index.css";
 import "./style.css";
 import { twMerge } from "tailwind-merge";
 
+type Range = { min: number; max: number };
+
 interface PriceFilterProps {
   className?: string;
-  min: number;
-  max: number;
+  boundsRange: Range;
+  onChange: React.Dispatch<React.SetStateAction<Range>>;
 }
 
 export const PriceFilter: React.FC<PriceFilterProps> = ({
-  min,
-  max,
   className,
+  boundsRange,
+  onChange,
 }) => {
+  const [range, setRange] = useState({ min: 0, max: 0 });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (isNaN(+e.target.value) || +e.target.value > boundsRange.max) return;
+
+    setRange((p) => {
+      const value =
+        e.target.value[0] === "0"
+          ? e.target.value.slice(1)
+          : e.target.value || 0;
+      const newValue = { ...p, [e.target.name]: Number(value) };
+
+      return newValue;
+    });
+  };
+
+  useEffect(() => {
+    setRange(boundsRange);
+  }, [boundsRange]);
+
+  const handleConfirm = () => {
+    onChange(range);
+  };
+
   return (
     <Popup
       trigger={
@@ -43,7 +69,9 @@ export const PriceFilter: React.FC<PriceFilterProps> = ({
               className="rounded border-2 border-transparent bg-[#F1F1F5] px-3 pb-[10px] pt-[9px] text-sm text-text-400 outline-none transition-colors focus:border-primary-100 focus:bg-white"
               type="text"
               pattern="\d*"
-              defaultValue={min}
+              value={range.min}
+              name="min"
+              onChange={handleChange}
             />
           </label>
           <label className="flex  flex-col gap-[6px] text-sm text-[#9D9DA5]">
@@ -52,12 +80,16 @@ export const PriceFilter: React.FC<PriceFilterProps> = ({
               className="rounded border-2 border-transparent bg-[#F1F1F5] px-3 pb-[10px] pt-[9px] text-sm text-text-400 outline-none transition-colors focus:border-primary-100 focus:bg-white"
               type="text"
               pattern="\d*"
-              defaultValue={max}
+              value={range.max}
+              name="max"
+              onChange={handleChange}
             />
           </label>
         </div>
 
-        <button className="btn-primary w-full">Применить</button>
+        <button className="btn-primary w-full" onClick={handleConfirm}>
+          Применить
+        </button>
       </div>
     </Popup>
   );
