@@ -7,6 +7,7 @@ import { BASE_PATH } from "../../constants";
 import FirstBgXl from "assets/images/first-top-bg-xl.jpg";
 import FirstBg3Xl from "assets/images/first-top-bg-3xl.jpg";
 import SecondBg from "assets/images/second-top-bg.jpg";
+import SecondBg3Xl from "assets/images/second-top-bg-3xl.jpg";
 import { useMediaQuery } from "hooks";
 
 export const Authorized: React.FC = () => {
@@ -14,18 +15,20 @@ export const Authorized: React.FC = () => {
 
   const matches = useMediaQuery("(min-width: 1921px)");
 
+  const getBg = () => {
+    if (pathname === BASE_PATH) {
+      return matches ? FirstBg3Xl : FirstBgXl;
+    }
+
+    return matches ? SecondBg3Xl : SecondBg;
+  };
+
   return (
     <>
       <div
-        className="bg-auto bg-top bg-no-repeat"
+        className="bg-auto bg-left-top bg-no-repeat"
         style={{
-          backgroundImage: `url(${
-            pathname === BASE_PATH
-              ? matches
-                ? FirstBg3Xl
-                : FirstBgXl
-              : SecondBg
-          })`,
+          backgroundImage: `url(${getBg()})`,
         }}
       >
         <Header />
