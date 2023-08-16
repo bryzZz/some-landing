@@ -59,7 +59,12 @@ export const TopOffersTable: React.FC = () => {
                       )}
                     </td>
                     <td className="flex items-center gap-[6px] py-3">
-                      {countries.map((country) => country)}
+                      {countries.map((country) => (
+                        <img
+                          src={`https://github.com/jackiboy/flagpack/tree/master/flags/4x3/${country.toLowerCase()}.svg`}
+                          className="h-[16px] w-[21px]"
+                        />
+                      ))}
                     </td>
                     <td className="rounded-br rounded-tr py-3">{r2d}%</td>
                   </>
@@ -72,7 +77,12 @@ export const TopOffersTable: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-[6px]">
                         <span className="text-[#B3B3B3]">Гео: </span>
-                        {countries.map((country) => country)}
+                        {countries.map((country) => (
+                          <img
+                            src={`https://github.com/jackiboy/flagpack/tree/master/flags/4x3/${country.toLowerCase()}.svg`}
+                            className="h-[16px] w-[21px]"
+                          />
+                        ))}
                       </div>
                     </td>
                     <td className="rounded-br rounded-tr py-3">
