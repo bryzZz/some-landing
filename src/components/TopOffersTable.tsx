@@ -1,5 +1,6 @@
 import { useMediaQuery } from "hooks";
 import React, { FC } from "react";
+import useSWR from "swr";
 import { twMerge } from "tailwind-merge";
 
 interface TopOffersTableProps {
@@ -14,6 +15,10 @@ interface TopOffersTableProps {
 }
 
 export const TopOffersTable: React.FC<TopOffersTableProps> = ({ items }) => {
+  const { data: todayData } = useSWR(
+    "http://5.63.155.73/tops/web/actually5web.json"
+  );
+
   const matches = useMediaQuery("(min-width: 768px)");
 
   return (

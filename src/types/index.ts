@@ -15,7 +15,7 @@ export interface RecentPost {
 }
 
 export interface WebMasterResponse {
-  top: Array<{ bonuses: string; id: string; name: string }>;
+  [id: string]: { d: "string"; m: string };
 }
 
 export interface Product {
