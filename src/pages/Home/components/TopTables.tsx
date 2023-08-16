@@ -4,55 +4,6 @@ import { Scene } from "react-scrollmagic";
 
 import { TabPanel, Tabs, TopWebMastersTable, TopOffersTable } from "components";
 
-import TopOffer1 from "assets/images/top-offer-1.png";
-import TopOffer2 from "assets/images/top-offer-2.png";
-import TopOffer3 from "assets/images/top-offer-3.png";
-import TopOffer4 from "assets/images/top-offer-4.png";
-import TopOffer5 from "assets/images/top-offer-5.png";
-import { ReactComponent as FlagRu } from "assets/icons/flag_ru-4x3.svg";
-import { ReactComponent as FlagDe } from "assets/icons/flag_de-4x3.svg";
-import { ReactComponent as FlagPt } from "assets/icons/flag_pt-4x3.svg";
-
-const offers = [
-  {
-    id: "#1463",
-    image: TopOffer1,
-    name: "SuperSlots - [ASO] [US]",
-    geo: [FlagRu, FlagDe, FlagPt],
-    epc: 31,
-  },
-  {
-    id: "#1463",
-    image: TopOffer2,
-    name: "Sl********",
-    isPrivate: true,
-    geo: [FlagRu, FlagDe, FlagPt],
-    epc: 31,
-  },
-  {
-    id: "#1463",
-    image: TopOffer3,
-    name: "SuperSlots - [ASO] [US]",
-    geo: [FlagRu, FlagDe, FlagPt],
-    epc: 31,
-  },
-  {
-    id: "#1463",
-    image: TopOffer4,
-    name: "Sl********",
-    isPrivate: true,
-    geo: [FlagRu, FlagDe, FlagPt],
-    epc: 31,
-  },
-  {
-    id: "#1463",
-    image: TopOffer5,
-    name: "SuperSlots - [ASO] [US]",
-    geo: [FlagRu, FlagDe, FlagPt],
-    epc: 31,
-  },
-];
-
 const labels = ["Топ веб-мастеров", "Топ офферов"];
 
 export const TopTables: React.FC = () => {
@@ -93,7 +44,7 @@ export const TopTables: React.FC = () => {
               <TopWebMastersTable />
             </TabPanel>
             <TabPanel value={1} tabValue={tabValue}>
-              <TopOffersTable items={offers} />
+              <TopOffersTable />
             </TabPanel>
           </div>
         </Fade>

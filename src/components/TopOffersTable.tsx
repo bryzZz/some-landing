@@ -1,22 +1,13 @@
-import { useMediaQuery } from "hooks";
-import React, { FC } from "react";
-import useSWR from "swr";
+import React from "react";
 import { twMerge } from "tailwind-merge";
+import useSWR from "swr";
 
-interface TopOffersTableProps {
-  items: Array<{
-    id: string;
-    image: string;
-    name: string;
-    isPrivate?: boolean;
-    geo: FC[];
-    epc: number;
-  }>;
-}
+import { useMediaQuery } from "hooks";
+import { OffersResponse } from "types";
 
-export const TopOffersTable: React.FC<TopOffersTableProps> = ({ items }) => {
-  const { data: todayData } = useSWR(
-    "http://5.63.155.73/tops/web/actually5web.json"
+export const TopOffersTable: React.FC = () => {
+  const { data } = useSWR<OffersResponse>(
+    "http://5.63.155.73/tops/offers/actually5offers.json"
   );
 
   const matches = useMediaQuery("(min-width: 768px)");
@@ -45,61 +36,62 @@ export const TopOffersTable: React.FC<TopOffersTableProps> = ({ items }) => {
       </thead>
 
       <tbody>
-        {items.map(({ id, image, name, isPrivate = false, geo, epc }, i) => (
-          <tr
-            className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
-            key={i}
-          >
-            {matches ? (
-              <>
-                <td className="w-14 rounded-bl rounded-tl pl-[14px]">
-                  <img
-                    className="h-8 w-8 object-contain 3xl:h-10 3xl:w-10"
-                    src={image}
-                  />
-                </td>
-                <td className="w-24 py-3">{id}</td>
-                <td className="w-2/4 rounded-br rounded-tr py-3">
-                  {name}{" "}
-                  {isPrivate && <span className="text-[#B8C4D2]">Private</span>}
-                </td>
-                <td className="flex items-center gap-[6px] py-3">
-                  {geo.map((Icon, i) => (
-                    <Icon key={i} />
-                  ))}
-                </td>
-                <td className="rounded-br rounded-tr py-3">{epc}%</td>
-              </>
-            ) : (
-              <>
-                <td className="rounded-bl rounded-tl p-3">
-                  <div className="mb-2 flex items-center gap-4">
-                    <img className="h-8 w-8 object-contain" src={image} />
-                    {id}
-                  </div>
-                  <div className="flex items-center gap-[6px]">
-                    <span className="text-[#B3B3B3]">Гео: </span>
-                    {geo.map((Icon, i) => (
-                      <Icon key={i} />
-                    ))}
-                  </div>
-                </td>
-                <td className="rounded-br rounded-tr py-3">
-                  <div className="mb-2">
-                    {name}
-                    {isPrivate && (
-                      <span className="text-[#B8C4D2]"> Private</span>
-                    )}
-                  </div>
-                  <div>
-                    <span className="text-[#B3B3B3]">Epc </span>
-                    {epc}%
-                  </div>
-                </td>
-              </>
-            )}
-          </tr>
-        ))}
+        {data &&
+          Object.entries(data).map(
+            ([id, { logo, title, privacy, countries, r2d }]) => (
+              <tr
+                className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
+                key={id}
+              >
+                {matches ? (
+                  <>
+                    <td className="w-14 rounded-bl rounded-tl pl-[14px]">
+                      <img
+                        className="h-8 w-8 object-contain 3xl:h-10 3xl:w-10"
+                        src={logo}
+                      />
+                    </td>
+                    <td className="w-24 py-3">{id}</td>
+                    <td className="w-2/4 rounded-br rounded-tr py-3">
+                      {title}
+                      {privacy === "private" && (
+                        <span className="text-[#B8C4D2]"> Private</span>
+                      )}
+                    </td>
+                    <td className="flex items-center gap-[6px] py-3">
+                      {countries.map((country) => country)}
+                    </td>
+                    <td className="rounded-br rounded-tr py-3">{r2d}%</td>
+                  </>
+                ) : (
+                  <>
+                    <td className="rounded-bl rounded-tl p-3">
+                      <div className="mb-2 flex items-center gap-4">
+                        <img className="h-8 w-8 object-contain" src={logo} />
+                        {id}
+                      </div>
+                      <div className="flex items-center gap-[6px]">
+                        <span className="text-[#B3B3B3]">Гео: </span>
+                        {countries.map((country) => country)}
+                      </div>
+                    </td>
+                    <td className="rounded-br rounded-tr py-3">
+                      <div className="mb-2">
+                        {title}
+                        {privacy === "private" && (
+                          <span className="text-[#B8C4D2]"> Private</span>
+                        )}
+                      </div>
+                      <div>
+                        <span className="text-[#B3B3B3]">Epc </span>
+                        {r2d}%
+                      </div>
+                    </td>
+                  </>
+                )}
+              </tr>
+            )
+          )}
       </tbody>
     </table>
   );

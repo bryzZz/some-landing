@@ -5,7 +5,7 @@ import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/some-landing/",
+  // base: "/some-landing/",
   plugins: [svgr(), react()],
   resolve: {
     alias: {
@@ -21,6 +21,7 @@ export default defineConfig({
       context: path.resolve(__dirname, "./src/context"),
       utils: path.resolve(__dirname, "./src/utils"),
       sections: path.resolve(__dirname, "./src/sections"),
+      store: path.resolve(__dirname, "./src/store"),
     },
   },
 });
