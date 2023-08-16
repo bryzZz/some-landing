@@ -51,17 +51,17 @@ export const TopOffersTable: React.FC = () => {
                         src={logo}
                       />
                     </td>
-                    <td className="w-24 py-3">{id}</td>
+                    <td className="w-24 py-3">#{id}</td>
                     <td className="w-2/4 rounded-br rounded-tr py-3">
                       {title}
                       {privacy === "private" && (
                         <span className="text-[#B8C4D2]"> Private</span>
                       )}
                     </td>
-                    <td className="flex items-center gap-[6px] py-3">
+                    <td className="flex flex-wrap items-center gap-[6px] py-3">
                       {countries.map((country) => (
                         <img
-                          src={`https://github.com/jackiboy/flagpack/tree/master/flags/4x3/${country.toLowerCase()}.svg`}
+                          src={`https://flagcdn.com/48x36/${country.toLowerCase()}.png`}
                           className="h-[16px] w-[21px]"
                         />
                       ))}
@@ -72,17 +72,19 @@ export const TopOffersTable: React.FC = () => {
                   <>
                     <td className="rounded-bl rounded-tl p-3">
                       <div className="mb-2 flex items-center gap-4">
-                        <img className="h-8 w-8 object-contain" src={logo} />
+                        <img className="h-8 w-8 object-contain" src={logo} />#
                         {id}
                       </div>
                       <div className="flex items-center gap-[6px]">
                         <span className="text-[#B3B3B3]">Гео: </span>
-                        {countries.map((country) => (
-                          <img
-                            src={`https://github.com/jackiboy/flagpack/tree/master/flags/4x3/${country.toLowerCase()}.svg`}
-                            className="h-[16px] w-[21px]"
-                          />
-                        ))}
+                        <div className="flex flex-wrap items-center gap-[6px]">
+                          {countries.map((country) => (
+                            <img
+                              src={`https://flagcdn.com/48x36/${country.toLowerCase()}.png`}
+                              className="h-[16px] w-[21px]"
+                            />
+                          ))}
+                        </div>
                       </div>
                     </td>
                     <td className="rounded-br rounded-tr py-3">
