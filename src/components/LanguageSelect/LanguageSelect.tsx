@@ -8,8 +8,8 @@ import { ReactComponent as DeFlag } from "assets/icons/flag_de-4x3.svg";
 import "./style.css";
 
 const options = [
-  { value: "EN", label: "EN", Icon: USAFlag },
   { value: "RU", label: "RU", Icon: RuFlag },
+  { value: "EN", label: "EN", Icon: USAFlag },
   { value: "DE", label: "DE", Icon: DeFlag },
 ];
 
