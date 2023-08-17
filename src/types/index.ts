@@ -15,7 +15,7 @@ export interface RecentPost {
 }
 
 export interface WebMasterResponse {
-  [id: string]: { d: "string"; m: string };
+  [id: string]: { d: string; m: string };
 }
 
 export interface OffersResponse {

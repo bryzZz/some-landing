@@ -73,11 +73,11 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
                 <div className="flex items-center gap-4">
                   <div
                     className={twMerge(
-                      "aspect-square w-[70px] -translate-y-3 rounded-md 3xl:w-[95px]",
+                      "h-[70px] w-[70px] -translate-y-3 rounded-md 3xl:h-[95px] 3xl:w-[95px]",
                       avatarBg && "bg-[#e5e5e5] p-2"
                     )}
                   >
-                    <img className="aspect-square h-full w-full" src={avatar} />
+                    <img className="h-full w-full" src={avatar} />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between text-[13px] 3xl:text-lg">

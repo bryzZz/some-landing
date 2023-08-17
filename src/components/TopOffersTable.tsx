@@ -37,8 +37,9 @@ export const TopOffersTable: React.FC = () => {
 
       <tbody>
         {data &&
-          Object.entries(data).map(
-            ([id, { logo, title, privacy, countries, r2d }]) => (
+          Object.entries(data)
+            .sort((a, b) => a[1].r2d - b[1].r2d)
+            .map(([id, { logo, title, privacy, countries, r2d }]) => (
               <tr
                 className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
                 key={id}
@@ -102,8 +103,7 @@ export const TopOffersTable: React.FC = () => {
                   </>
                 )}
               </tr>
-            )
-          )}
+            ))}
       </tbody>
     </table>
   );

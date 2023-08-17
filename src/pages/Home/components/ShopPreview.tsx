@@ -132,13 +132,17 @@ export const ShopPreview: React.FC = () => {
         >
           {(progress: number) => (
             <div
-              className="grid auto-cols-[clamp(200px,16vw,400px)] grid-flow-col gap-10"
+              className="flex items-stretch gap-10"
               style={{
                 paddingLeft: `${getPadLeft(progress)}rem`,
               }}
             >
               {cards.map((data, i) => (
-                <ShopCard key={i} data={data} />
+                <ShopCard
+                  className="min-w-[clamp(200px,25vw,300px)]"
+                  key={i}
+                  data={data}
+                />
               ))}
             </div>
           )}

@@ -18,15 +18,12 @@ export const ShopCard: React.FC<ShopCardProps> = ({
   return (
     <div
       className={twMerge(
-        "flex aspect-[5/6] h-full w-full flex-col items-center rounded-xl bg-text-100 px-2 pb-2 pt-4 text-center shadow-100 md:pb-6 md:pt-8 lg:rounded-3xl lg:px-4 lg:pb-10 lg:pt-12",
+        "flex min-h-full w-full flex-col items-center rounded-xl bg-text-100 px-2 pb-3 pt-4 text-center shadow-100 md:pb-6 md:pt-8 lg:rounded-3xl lg:px-4 lg:pb-10 lg:pt-12",
         details && "transition hover:shadow-300",
         className
       )}
     >
-      <img
-        className="mb-7 h-full max-h-44 object-cover lg:max-h-64 3xl:max-h-96"
-        src={data.img}
-      />
+      <img className="mb-7 h-44 object-cover lg:h-64 3xl:h-96" src={data.img} />
       <h5 className="mb-3 text-[10px] font-black uppercase text-[#B5B5B5] md:text-xs lg:text-sm 3xl:text-xl">
         {data.price} БАЛЛОВ
       </h5>

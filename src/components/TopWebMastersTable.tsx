@@ -40,52 +40,54 @@ export const TopWebMastersTable: React.FC = () => {
 
       <tbody>
         {data &&
-          Object.entries(data).map(([id, { d, m }]) => (
-            <tr
-              className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
-              key={id}
-            >
-              {matches ? (
-                <>
-                  <td className="w-14 rounded-bl rounded-tl pl-[14px]">
-                    <img
-                      className="h-8 w-8 object-contain 3xl:h-10 3xl:w-10"
-                      src={Person}
-                    />
-                  </td>
-                  <td className="py-3">{"Leadshuber"}</td>
-                  <td className="py-3">
-                    <span className="text-primary-100">₽</span>{" "}
-                    {currencyFormat.format(Number(d))}
-                  </td>
-                  <td className="rounded-br rounded-tr py-3">
-                    <span className="text-primary-100">₽</span>{" "}
-                    {currencyFormat.format(Number(m))}
-                  </td>
-                </>
-              ) : (
-                <td className="flex flex-col gap-3 p-4">
-                  <div className="flex items-center gap-4">
-                    <img className="h-8 w-8 object-contain" src={Person} />
-                    {/* {name || "Leadshuber"} */}
-                    Leadshuber
-                  </div>
-                  <div className="flex flex-wrap items-center justify-between gap-5">
-                    <div>
-                      <span className="text-[#B3B3B3]">За день: </span>
+          Object.entries(data)
+            .sort((a, b) => Number(b[1].d) - Number(a[1].d))
+            .map(([id, { d, m }]) => (
+              <tr
+                className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
+                key={id}
+              >
+                {matches ? (
+                  <>
+                    <td className="w-14 rounded-bl rounded-tl pl-[14px]">
+                      <img
+                        className="h-8 w-8 object-contain 3xl:h-10 3xl:w-10"
+                        src={Person}
+                      />
+                    </td>
+                    <td className="py-3">{"Leadshuber"}</td>
+                    <td className="py-3">
                       <span className="text-primary-100">₽</span>{" "}
                       {currencyFormat.format(Number(d))}
-                    </div>
-                    <div>
-                      <span className="text-[#B3B3B3]">За месяц: </span>
+                    </td>
+                    <td className="rounded-br rounded-tr py-3">
                       <span className="text-primary-100">₽</span>{" "}
                       {currencyFormat.format(Number(m))}
+                    </td>
+                  </>
+                ) : (
+                  <td className="flex flex-col gap-3 p-4">
+                    <div className="flex items-center gap-4">
+                      <img className="h-8 w-8 object-contain" src={Person} />
+                      {/* {name || "Leadshuber"} */}
+                      Leadshuber
                     </div>
-                  </div>
-                </td>
-              )}
-            </tr>
-          ))}
+                    <div className="flex flex-wrap items-center justify-between gap-5">
+                      <div>
+                        <span className="text-[#B3B3B3]">За день: </span>
+                        <span className="text-primary-100">₽</span>{" "}
+                        {currencyFormat.format(Number(d))}
+                      </div>
+                      <div>
+                        <span className="text-[#B3B3B3]">За месяц: </span>
+                        <span className="text-primary-100">₽</span>{" "}
+                        {currencyFormat.format(Number(m))}
+                      </div>
+                    </div>
+                  </td>
+                )}
+              </tr>
+            ))}
       </tbody>
     </table>
   );
