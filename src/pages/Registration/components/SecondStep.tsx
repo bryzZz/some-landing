@@ -51,11 +51,11 @@ interface SecondStepProps {
 
 export interface RegistrationSecondStepFormValues {
   vertical: string;
-  trafficSource: string;
-  trafficAmount: string;
-  workExperience: string;
-  promoCode: string;
-  agreement: boolean;
+  sourceTraffic: string;
+  volumeTraffic: string;
+  workOld: string;
+  promo: string;
+  acceptTheHandler: boolean;
 }
 
 export const SecondStep: React.FC<SecondStepProps> = ({
@@ -83,7 +83,7 @@ export const SecondStep: React.FC<SecondStepProps> = ({
 
         <Controller
           control={control}
-          name="trafficSource"
+          name="sourceTraffic"
           render={({ field: { onChange, value } }) => (
             <FormMultiSelect
               label="Источник траффика"
@@ -96,7 +96,7 @@ export const SecondStep: React.FC<SecondStepProps> = ({
 
         <Controller
           control={control}
-          name="trafficAmount"
+          name="volumeTraffic"
           render={({ field: { onChange, value } }) => (
             <FormSelect
               label="Объем пролитого трафика за прошлый месяц"
@@ -110,18 +110,18 @@ export const SecondStep: React.FC<SecondStepProps> = ({
         <FormTextArea
           label="Опишите свой предыдущий опыт работы"
           placeholder="Опишите опыт работы"
-          {...register("workExperience", { required: true })}
+          {...register("workOld", { required: true })}
         />
 
         <FormField
           label="Промокод"
           placeholder="Укажите промокод"
           type="text"
-          {...register("promoCode", { required: true })}
+          {...register("promo", { required: true })}
         />
 
         <Checkbox
-          {...register("agreement", { required: true })}
+          {...register("acceptTheHandler", { required: true })}
           label="Согласен(-на) с обработкой данных"
           variant="secondary"
         />

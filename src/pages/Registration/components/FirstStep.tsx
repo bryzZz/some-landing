@@ -12,10 +12,10 @@ interface FirstStepProps {
 
 export interface RegistrationFirstStepFormValues {
   name: string;
-  email: string;
-  password: string;
-  passwordConfirmation: string;
-  communicationType: string;
+  mail: string;
+  pass: string;
+  passConfirmation: string;
+  contactField: string;
 }
 
 export const FirstStep: React.FC<FirstStepProps> = ({ form, onSubmit }) => {
@@ -34,7 +34,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({ form, onSubmit }) => {
           label="E-mail"
           placeholder="yourmail@test.com"
           type="email"
-          {...register("email", { required: true })}
+          {...register("mail", { required: true })}
         />
 
         <div className="grid grid-cols-2 items-center gap-[10px]">
@@ -42,19 +42,19 @@ export const FirstStep: React.FC<FirstStepProps> = ({ form, onSubmit }) => {
             label="Пароль"
             placeholder="Пароль"
             type="password"
-            {...register("password", { required: true })}
+            {...register("pass", { required: true })}
           />
 
           <FormField
             label="Повторите пароль"
             placeholder="Пароль еще раз"
             type="password"
-            {...register("passwordConfirmation", { required: true })}
+            {...register("passConfirmation", { required: true })}
           />
         </div>
 
         <CommunicationSelect
-          {...register("communicationType", { required: true })}
+          {...register("contactField", { required: true })}
         />
       </div>
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 import { ReactComponent as Logo } from "assets/icons/logo.svg";
 import { BASE_PATH } from "constants/index";
@@ -20,16 +21,28 @@ export const Registration: React.FC = () => {
   const firstStepForm = useForm<RegistrationFirstStepFormValues>();
   const secondStepForm = useForm<RegistrationSecondStepFormValues>();
 
-  const handleSubmitFirstStep = firstStepForm.handleSubmit((data) => {
-    console.log(data);
+  const [firstStepData, setFirstStepData] =
+    useState<RegistrationFirstStepFormValues | null>(null);
 
+  const handleSubmitFirstStep = firstStepForm.handleSubmit((data) => {
+    setFirstStepData(data);
     setStep(1);
   });
 
   const handleSubmitSecondStep = secondStepForm.handleSubmit((data) => {
-    console.log(data);
+    if (!firstStepData) return;
 
-    setIsOpen(true);
+    axios
+      .post("http://5.63.155.73/tops/reg.php", {
+        name: firstStepData.name,
+        mail: firstStepData.mail,
+        pass: firstStepData.pass,
+        contactField: firstStepData.contactField,
+        ...data,
+      })
+      .then(() => {
+        setIsOpen(true);
+      });
   });
 
   const back = () => {
