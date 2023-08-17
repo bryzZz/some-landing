@@ -30,7 +30,7 @@ const PopoverOffersGeo: React.FC<OffersGeoProps> = ({ countries }) => {
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
-        <div className="group flex cursor-pointer items-center gap-1">
+        <div className="group inline-flex cursor-pointer items-center gap-1">
           <DefaultOffersGeo countries={countries.slice(0, 3)} />
           <Arrow className="transition-transform group-data-[state=open]:-rotate-90" />
         </div>
@@ -38,7 +38,7 @@ const PopoverOffersGeo: React.FC<OffersGeoProps> = ({ countries }) => {
 
       <Popover.Portal>
         <Popover.Content
-          className="z-20 w-[260px] rounded bg-white p-5 shadow-200 will-change-[transform,opacity] data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade"
+          className="z-20 rounded bg-white p-3 shadow-200 will-change-[transform,opacity] data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade"
           sideOffset={5}
         >
           <div className="flex select-none flex-wrap items-center gap-[6px]">
