@@ -50,7 +50,7 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
       </div>
 
       <div className="max-w-72">
-        <img src={img} className="mb-14 max-h-full object-cover" />
+        <img src={img} className="mb-14 max-h-[273px] object-cover" />
       </div>
       <h5 className="mb-2 font-black uppercase text-[#B5B5B5]">
         {price} БАЛЛОВ

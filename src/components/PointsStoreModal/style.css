@@ -1,5 +1,5 @@
 .ReactModal__Overlay {
-  @apply z-50;
+  @apply z-50 transition;
 }
 
 .ReactModal__Overlay--after-open {
