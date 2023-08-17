@@ -112,7 +112,7 @@ export const Chart: React.FC<ChartProps> = ({
             <line
               stroke="#fff"
               strokeWidth={1}
-              stroke-dasharray="4"
+              strokeDasharray="4"
               x1={xScale(d.date)}
               x2={xScale(d.date)}
               y1={margin.top}
@@ -131,8 +131,8 @@ export const Chart: React.FC<ChartProps> = ({
 
         <defs>
           <linearGradient id="MyGradient">
-            <stop offset="0%" stop-color="rgba(254, 161, 86, 0.26)" />
-            <stop offset="100%" stop-color="rgba(255, 198, 50, 0.00)" />
+            <stop offset="0%" stopColor="rgba(254, 161, 86, 0.26)" />
+            <stop offset="100%" stopColor="rgba(255, 198, 50, 0.00)" />
           </linearGradient>
         </defs>
       </svg>

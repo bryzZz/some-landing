@@ -31,10 +31,15 @@ export default {
         400: "0px 9px 24px -8px rgba(34, 41, 47, 0.18)",
       },
       animation: {
+        slideUpAndFade: "slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         "primary-img": "primary-img 3s ease-in-out infinite",
         "secondary-img": "secondary-img 3s ease-in-out infinite",
       },
       keyframes: {
+        slideUpAndFade: {
+          from: { opacity: 0, transform: "translateY(2px)" },
+          to: { opacity: 1, transform: "translateY(0)" },
+        },
         "primary-img": {
           "0%, 100%": { transform: "translateY(4%)" },
           "50%": { transform: "translateY(0%)" },

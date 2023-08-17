@@ -4,6 +4,7 @@ import useSWR from "swr";
 
 import { useMediaQuery } from "hooks";
 import { OffersResponse } from "types";
+import { OffersGeo } from "./OffersGeo";
 
 export const TopOffersTable: React.FC = () => {
   const { data } = useSWR<OffersResponse>(
@@ -38,7 +39,7 @@ export const TopOffersTable: React.FC = () => {
       <tbody>
         {data &&
           Object.entries(data)
-            .sort((a, b) => a[1].r2d - b[1].r2d)
+            .sort((a, b) => b[1].r2d - a[1].r2d)
             .map(([id, { logo, title, privacy, countries, r2d }]) => (
               <tr
                 className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
@@ -59,13 +60,8 @@ export const TopOffersTable: React.FC = () => {
                         <span className="text-[#B8C4D2]"> Private</span>
                       )}
                     </td>
-                    <td className="flex flex-wrap items-center gap-[6px] py-3">
-                      {countries.map((country) => (
-                        <img
-                          src={`https://flagcdn.com/48x36/${country.toLowerCase()}.png`}
-                          className="h-[16px] w-[21px]"
-                        />
-                      ))}
+                    <td className="py-3">
+                      <OffersGeo countries={countries} />
                     </td>
                     <td className="rounded-br rounded-tr py-3">{r2d}%</td>
                   </>
@@ -78,14 +74,7 @@ export const TopOffersTable: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-[6px]">
                         <span className="text-[#B3B3B3]">Гео: </span>
-                        <div className="flex flex-wrap items-center gap-[6px]">
-                          {countries.map((country) => (
-                            <img
-                              src={`https://flagcdn.com/48x36/${country.toLowerCase()}.png`}
-                              className="h-[16px] w-[21px]"
-                            />
-                          ))}
-                        </div>
+                        <OffersGeo countries={countries} />
                       </div>
                     </td>
                     <td className="rounded-br rounded-tr py-3">
