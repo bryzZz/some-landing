@@ -22,8 +22,8 @@ interface SecondStepProps {
 }
 
 export interface RegistrationSecondStepFormValues {
-  vertical: string;
-  sourceTraffic: string;
+  vertical: string[];
+  sourceTraffic: string[];
   volumeTraffic: string;
   workOld: string;
   promo: string;
@@ -47,8 +47,10 @@ export const SecondStep: React.FC<SecondStepProps> = ({
             <FormMultiSelect
               label="Вертикаль"
               options={verticalOptions}
-              value={verticalOptions.find((c) => c.value === value)}
-              onChange={(val) => onChange((val as any).value)}
+              value={verticalOptions.filter((c) => value?.includes(c.value))}
+              onChange={(val) =>
+                onChange((val as any[]).map(({ value }) => value))
+              }
             />
           )}
         />
@@ -60,8 +62,12 @@ export const SecondStep: React.FC<SecondStepProps> = ({
             <FormMultiSelect
               label="Источник траффика"
               options={trafficSourceOptions}
-              value={trafficSourceOptions.find((c) => c.value === value)}
-              onChange={(val) => onChange((val as any).value)}
+              value={trafficSourceOptions.filter((c) =>
+                value?.includes(c.value)
+              )}
+              onChange={(val) =>
+                onChange((val as any[]).map(({ value }) => value))
+              }
             />
           )}
         />
