@@ -107,12 +107,11 @@ export const ShopPreview: React.FC = () => {
       <div className="base-container">
         <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
           <h2 className="heading-2 mb-5 max-w-[580px]">
-            Получай баллы за апрувнутые лиды и обменивай их на призы
+            Получайте баллы и обменивайте их на подарки
             <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
           </h2>
           <p className="sub-heading-2 mb-10 max-w-[500px]">
-            Какой-то текст в одну строку какой-то текст в одну строку какой-то
-            текст в одну строку.
+            Чем больше принятых лидов, тем больше баллов вы накапливаете.
           </p>
           <Link
             to="points-store/"

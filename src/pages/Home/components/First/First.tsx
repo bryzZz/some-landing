@@ -41,62 +41,167 @@ export const First: React.FC = () => {
         speed={0}
         autoHeight
       >
-        {new Array(3).fill(0).map((_, i) => (
-          <SwiperSlide key={i}>
-            <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:items-stretch md:justify-between md:gap-3">
-              <div className="text-center md:text-left">
-                <Fade
-                  cascade
-                  direction="up"
-                  duration={300}
-                  damping={0.1}
-                  delay={200}
-                >
-                  <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
-                    <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
-                    <span className="text-sm font-semibold text-text-300 lg:text-base">
-                      Надежный партнер
-                    </span>
-                  </div>
-                  <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[1024px]">
-                    Монетизируйте трафик по лучшим условиям
-                  </h1>
-                  <p className="sub-heading-1 mb-10 max-w-[618px]">
-                    Персональные офферы, собственные инструменты, инсайд
-                    информация и связки для топов.
-                  </p>
-                  <Link
-                    to="/unauthorized/registration"
-                    className="btn-primary py-4"
-                  >
-                    Регистрация
-                  </Link>
-                </Fade>
-              </div>
-              <Zoom
+        <SwiperSlide>
+          <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:items-stretch md:justify-between md:gap-3">
+            <div className="text-center md:text-left">
+              <Fade
+                cascade
+                direction="up"
                 duration={300}
-                className="w-full max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
+                damping={0.1}
                 delay={200}
               >
-                <div className="relative aspect-square min-h-[380px]">
-                  <div className="absolute left-1/2 top-1/2 aspect-square w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary-300 to-primary-400" />
-                  <img
-                    className="absolute bottom-0 left-0 w-5/12 animate-secondary-img object-cover"
-                    src={MainImagePart1}
-                  />
-                  <img
-                    className="absolute right-0 top-0 w-5/12 animate-secondary-img object-cover"
-                    src={MainImagePart3}
-                  />
-                  <img
-                    className="absolute w-9/12 animate-primary-img object-cover"
-                    src={MainImagePart2}
-                  />
+                <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
+                  <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
+                  <span className="text-sm font-semibold text-text-300 lg:text-base">
+                    Надежный партнер
+                  </span>
                 </div>
-              </Zoom>
+                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[1024px]">
+                  Монетизируйте трафик по лучшим условиям
+                </h1>
+                <p className="sub-heading-1 mb-10 max-w-[618px]">
+                  Присоединяйтесь к нам и получите все преимущества нашей
+                  экспертизы и качественного сервиса.
+                </p>
+                <Link
+                  to="/unauthorized/registration"
+                  className="btn-primary py-4"
+                >
+                  Регистрация
+                </Link>
+              </Fade>
             </div>
-          </SwiperSlide>
-        ))}
+            <Zoom
+              duration={300}
+              className="w-full max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
+              delay={200}
+            >
+              <div className="relative aspect-square min-h-[380px]">
+                <div className="absolute left-1/2 top-1/2 aspect-square w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary-300 to-primary-400" />
+                <img
+                  className="absolute bottom-0 left-0 w-5/12 animate-secondary-img object-cover"
+                  src={MainImagePart1}
+                />
+                <img
+                  className="absolute right-0 top-0 w-5/12 animate-secondary-img object-cover"
+                  src={MainImagePart3}
+                />
+                <img
+                  className="absolute w-9/12 animate-primary-img object-cover"
+                  src={MainImagePart2}
+                />
+              </div>
+            </Zoom>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:items-stretch md:justify-between md:gap-3">
+            <div className="text-center md:text-left">
+              <Fade
+                cascade
+                direction="up"
+                duration={300}
+                damping={0.1}
+                delay={200}
+              >
+                <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
+                  <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
+                  <span className="text-sm font-semibold text-text-300 lg:text-base">
+                    Надежный партнер
+                  </span>
+                </div>
+                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[1024px]">
+                  Получайте прибыль от качественного трафика
+                </h1>
+                <p className="sub-heading-1 mb-10 max-w-[618px]">
+                  Присоединяйтесь к нам и повысьте узнаваемость бренда.
+                </p>
+                <Link
+                  to="/unauthorized/registration"
+                  className="btn-primary py-4"
+                >
+                  Регистрация
+                </Link>
+              </Fade>
+            </div>
+            <Zoom
+              duration={300}
+              className="w-full max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
+              delay={200}
+            >
+              <div className="relative aspect-square min-h-[380px]">
+                <div className="absolute left-1/2 top-1/2 aspect-square w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary-300 to-primary-400" />
+                <img
+                  className="absolute bottom-0 left-0 w-5/12 animate-secondary-img object-cover"
+                  src={MainImagePart1}
+                />
+                <img
+                  className="absolute right-0 top-0 w-5/12 animate-secondary-img object-cover"
+                  src={MainImagePart3}
+                />
+                <img
+                  className="absolute w-9/12 animate-primary-img object-cover"
+                  src={MainImagePart2}
+                />
+              </div>
+            </Zoom>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:items-stretch md:justify-between md:gap-3">
+            <div className="text-center md:text-left">
+              <Fade
+                cascade
+                direction="up"
+                duration={300}
+                damping={0.1}
+                delay={200}
+              >
+                <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
+                  <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
+                  <span className="text-sm font-semibold text-text-300 lg:text-base">
+                    Надежный партнер
+                  </span>
+                </div>
+                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[1024px]">
+                  Монетизируйте трафик по лучшим условиям
+                </h1>
+                <p className="sub-heading-1 mb-10 max-w-[618px]">
+                  Присоединяйтесь к нам и получите все преимущества нашей
+                  экспертизы и качественного сервиса.
+                </p>
+                <Link
+                  to="/unauthorized/registration"
+                  className="btn-primary py-4"
+                >
+                  Регистрация
+                </Link>
+              </Fade>
+            </div>
+            <Zoom
+              duration={300}
+              className="w-full max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
+              delay={200}
+            >
+              <div className="relative aspect-square min-h-[380px]">
+                <div className="absolute left-1/2 top-1/2 aspect-square w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary-300 to-primary-400" />
+                <img
+                  className="absolute bottom-0 left-0 w-5/12 animate-secondary-img object-cover"
+                  src={MainImagePart1}
+                />
+                <img
+                  className="absolute right-0 top-0 w-5/12 animate-secondary-img object-cover"
+                  src={MainImagePart3}
+                />
+                <img
+                  className="absolute w-9/12 animate-primary-img object-cover"
+                  src={MainImagePart2}
+                />
+              </div>
+            </Zoom>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </section>
   );

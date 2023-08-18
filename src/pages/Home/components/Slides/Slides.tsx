@@ -107,14 +107,14 @@ export const Slides: React.FC = () => {
               <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
             </h2>
             <p className="sub-heading-2">
-              Какой-то текст в одну строку какой-то текст в одну.
+              Мы продвигаем бренды по всему миру уже 4 года.
             </p>
           </Fade>
         </div>
 
         <Swiper
           autoplay={{
-            delay: 3000,
+            delay: 5000,
           }}
           direction={matches ? "vertical" : "horizontal"}
           autoHeight={matches}
@@ -130,39 +130,125 @@ export const Slides: React.FC = () => {
             },
           }}
         >
-          {new Array(4).fill(0).map((_, i) => (
-            <SwiperSlide key={i}>
-              <div className="flex justify-center gap-8 md:justify-between md:pl-24 lg:gap-28">
-                <div className="w-full flex-1 text-center md:text-left">
-                  <Fade
-                    cascade
-                    direction="up"
-                    duration={500}
-                    damping={0.3}
-                    triggerOnce
-                  >
-                    <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
-                      <span className="text-primary-100">$</span>20m+
-                    </h3>
-                    <p className="sub-heading-3 md:max-w-xs">
-                      Выплатили нашим клиентам за время существования нашей
-                      компании.
-                    </p>
-                  </Fade>
-                </div>
-                <div className="hidden flex-1 md:block">
-                  <Zoom triggerOnce>
-                    <Chart
-                      data={data}
-                      width={width}
-                      height={height}
-                      margin={margin}
-                    />
-                  </Zoom>
-                </div>
+          <SwiperSlide>
+            <div className="flex justify-center gap-8 md:justify-between md:pl-24 lg:gap-28">
+              <div className="w-full flex-1 text-center md:text-left">
+                <Fade
+                  cascade
+                  direction="up"
+                  duration={500}
+                  damping={0.3}
+                  triggerOnce
+                >
+                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
+                    <span className="text-primary-100">$</span>20m+
+                  </h3>
+                  <p className="sub-heading-3 md:max-w-xs">
+                    Выплатили нашим клиентам за время существования нашей
+                    компании.
+                  </p>
+                </Fade>
               </div>
-            </SwiperSlide>
-          ))}
+              <div className="hidden flex-1 md:block">
+                <Zoom triggerOnce>
+                  <Chart
+                    data={data}
+                    width={width}
+                    height={height}
+                    margin={margin}
+                  />
+                </Zoom>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="flex justify-center gap-8 md:justify-between md:pl-24 lg:gap-28">
+              <div className="w-full flex-1 text-center md:text-left">
+                <Fade
+                  cascade
+                  direction="up"
+                  duration={500}
+                  damping={0.3}
+                  triggerOnce
+                >
+                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
+                    300+
+                  </h3>
+                  <p className="sub-heading-3 md:max-w-xs">
+                    прямых рекламодателей уже сотрудничают с нами
+                  </p>
+                </Fade>
+              </div>
+              <div className="hidden flex-1 md:block">
+                <Zoom triggerOnce>
+                  <Chart
+                    data={data}
+                    width={width}
+                    height={height}
+                    margin={margin}
+                  />
+                </Zoom>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="flex justify-center gap-8 md:justify-between md:pl-24 lg:gap-28">
+              <div className="w-full flex-1 text-center md:text-left">
+                <Fade
+                  cascade
+                  direction="up"
+                  duration={500}
+                  damping={0.3}
+                  triggerOnce
+                >
+                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
+                    600+
+                  </h3>
+                  <p className="sub-heading-3 md:max-w-xs">
+                    офферов под CPA, CPL, RevShare и Hybrid
+                  </p>
+                </Fade>
+              </div>
+              <div className="hidden flex-1 md:block">
+                <Zoom triggerOnce>
+                  <Chart
+                    data={data}
+                    width={width}
+                    height={height}
+                    margin={margin}
+                  />
+                </Zoom>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="flex justify-center gap-8 md:justify-between md:pl-24 lg:gap-28">
+              <div className="w-full flex-1 text-center md:text-left">
+                <Fade
+                  cascade
+                  direction="up"
+                  duration={500}
+                  damping={0.3}
+                  triggerOnce
+                >
+                  <h3 className="mb-2 pt-[20%] text-[70px] leading-none text-text-400 sm:text-[95px] lg:mb-6 lg:text-[110px] 3xl:text-[150px]">
+                    10 000+
+                  </h3>
+                  <p className="sub-heading-3 md:max-w-xs">веб-мастеров уже</p>
+                </Fade>
+              </div>
+              <div className="hidden flex-1 md:block">
+                <Zoom triggerOnce>
+                  <Chart
+                    data={data}
+                    width={width}
+                    height={height}
+                    margin={margin}
+                  />
+                </Zoom>
+              </div>
+            </div>
+          </SwiperSlide>
         </Swiper>
       </div>
     </section>
