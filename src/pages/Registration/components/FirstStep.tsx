@@ -5,9 +5,7 @@ import { CommunicationSelect, FormField } from "components";
 
 interface FirstStepProps {
   form: UseFormReturn<RegistrationFirstStepFormValues, any, undefined>;
-  onSubmit: (
-    e?: React.BaseSyntheticEvent<object, any, any> | undefined
-  ) => Promise<void>;
+  onSubmit: (data: RegistrationFirstStepFormValues) => void;
 }
 
 export interface RegistrationFirstStepFormValues {
@@ -18,8 +16,38 @@ export interface RegistrationFirstStepFormValues {
   contactField: string;
 }
 
-export const FirstStep: React.FC<FirstStepProps> = ({ form, onSubmit }) => {
-  const { register } = form;
+export const FirstStep: React.FC<FirstStepProps> = ({
+  form,
+  onSubmit: topSubmit,
+}) => {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = form;
+
+  const onSubmit = handleSubmit((data) => {
+    if (data.pass !== data.passConfirmation) {
+      return setError("passConfirmation", {
+        type: "custom",
+        message: "Пароли не совпадают",
+      });
+    }
+
+    topSubmit(data);
+  });
+
+  const validateEmail = (value: string | undefined) => {
+    const validRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (value && !validRegex.test(value)) {
+      return "Пожалуйста, введите существующий почтовый адрес";
+    }
+
+    return true;
+  };
 
   return (
     <form className="mb-6 w-full" onSubmit={onSubmit}>
@@ -27,14 +55,19 @@ export const FirstStep: React.FC<FirstStepProps> = ({ form, onSubmit }) => {
         <FormField
           label="Имя"
           placeholder="leadshuber"
-          {...register("name", { required: true })}
+          {...register("name", { required: "Это обязательное поле" })}
+          error={errors.name?.message}
         />
 
         <FormField
           label="E-mail"
           placeholder="yourmail@test.com"
           type="email"
-          {...register("mail", { required: true })}
+          {...register("mail", {
+            required: "Это обязательное поле",
+            validate: validateEmail,
+          })}
+          error={errors.mail?.message}
         />
 
         <div className="grid grid-cols-2 items-center gap-[10px]">
@@ -42,19 +75,28 @@ export const FirstStep: React.FC<FirstStepProps> = ({ form, onSubmit }) => {
             label="Пароль"
             placeholder="Пароль"
             type="password"
-            {...register("pass", { required: true })}
+            {...register("pass", {
+              required: "Это обязательное поле",
+            })}
+            error={errors.pass?.message}
           />
 
           <FormField
             label="Повторите пароль"
             placeholder="Пароль еще раз"
             type="password"
-            {...register("passConfirmation", { required: true })}
+            {...register("passConfirmation", {
+              required: "Это обязательное поле",
+            })}
+            error={errors.passConfirmation?.message}
           />
         </div>
 
         <CommunicationSelect
-          {...register("contactField", { required: true })}
+          {...register("contactField", {
+            required: "Это обязательное поле",
+          })}
+          error={errors.contactField?.message}
         />
       </div>
 

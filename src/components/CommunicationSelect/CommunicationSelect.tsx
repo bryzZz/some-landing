@@ -22,13 +22,17 @@ const DropdownIndicator: React.FC<
   );
 };
 
+interface CommunicationSelectProps extends ComponentProps<"input"> {
+  error?: string;
+}
+
 export const CommunicationSelect = forwardRef<
   HTMLInputElement,
-  ComponentProps<"input">
->((props, ref) => {
+  CommunicationSelectProps
+>(({ error, ...props }, ref) => {
   return (
-    <label className="flex w-full flex-col gap-2 text-sm 3xl:text-xl">
-      <span className="font-semibold text-text-400">Способ связи</span>
+    <label className="flex w-full flex-col text-sm 3xl:text-xl">
+      <span className="mb-2 font-semibold text-text-400">Способ связи</span>
       <div className="flex items-stretch">
         <Select
           classNamePrefix="CommunicationSelect"
@@ -45,6 +49,7 @@ export const CommunicationSelect = forwardRef<
           {...props}
         />
       </div>
+      <span className="h-4 text-xs text-red-600">{error}</span>
     </label>
   );
 });

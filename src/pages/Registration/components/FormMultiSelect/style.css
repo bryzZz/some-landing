@@ -2,10 +2,6 @@
   @apply cursor-pointer rounded border border-[#D8D6DE] py-2 pl-3 pr-2 shadow-none outline-none !important;
 }
 
-.FormMultiSelect__indicator {
-  @apply hidden !important;
-}
-
 .FormMultiSelect__indicator-separator {
   @apply hidden !important;
 }
@@ -19,7 +15,7 @@
 }
 
 .FormMultiSelect__multi-value__label {
-  @apply px-2 pb-[6px] pt-[5px] text-sm font-semibold text-white 3xl:text-base !important;
+  @apply px-2 py-1 text-sm font-semibold text-white 3xl:text-base !important;
 }
 
 .FormMultiSelect__multi-value__remove {

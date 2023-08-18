@@ -15,9 +15,7 @@ import {
 
 interface SecondStepProps {
   form: UseFormReturn<RegistrationSecondStepFormValues, any, undefined>;
-  onSubmit: (
-    e?: React.BaseSyntheticEvent<object, any, any> | undefined
-  ) => Promise<void>;
+  onSubmit: (data: RegistrationSecondStepFormValues) => void;
   back: () => void;
 }
 
@@ -32,10 +30,19 @@ export interface RegistrationSecondStepFormValues {
 
 export const SecondStep: React.FC<SecondStepProps> = ({
   form,
-  onSubmit,
+  onSubmit: topSubmit,
   back,
 }) => {
-  const { register, control } = form;
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = form;
+
+  const onSubmit = handleSubmit((data) => {
+    topSubmit(data);
+  });
 
   return (
     <form className="mb-6 w-full" onSubmit={onSubmit}>
@@ -43,7 +50,8 @@ export const SecondStep: React.FC<SecondStepProps> = ({
         <Controller
           control={control}
           name="vertical"
-          render={({ field: { onChange, value } }) => (
+          rules={{ required: "Это обязательное поле" }}
+          render={({ field: { onChange, value, ...other } }) => (
             <FormMultiSelect
               label="Вертикаль"
               options={verticalOptions}
@@ -51,6 +59,8 @@ export const SecondStep: React.FC<SecondStepProps> = ({
               onChange={(val) =>
                 onChange((val as any[]).map(({ value }) => value))
               }
+              error={errors.vertical?.message}
+              {...other}
             />
           )}
         />
@@ -58,7 +68,8 @@ export const SecondStep: React.FC<SecondStepProps> = ({
         <Controller
           control={control}
           name="sourceTraffic"
-          render={({ field: { onChange, value } }) => (
+          rules={{ required: "Это обязательное поле" }}
+          render={({ field: { onChange, value, ...other } }) => (
             <FormMultiSelect
               label="Источник траффика"
               options={trafficSourceOptions}
@@ -68,6 +79,8 @@ export const SecondStep: React.FC<SecondStepProps> = ({
               onChange={(val) =>
                 onChange((val as any[]).map(({ value }) => value))
               }
+              error={errors.sourceTraffic?.message}
+              {...other}
             />
           )}
         />
@@ -75,12 +88,15 @@ export const SecondStep: React.FC<SecondStepProps> = ({
         <Controller
           control={control}
           name="volumeTraffic"
-          render={({ field: { onChange, value } }) => (
+          rules={{ required: "Это обязательное поле" }}
+          render={({ field: { onChange, value, ...other } }) => (
             <FormSelect
               label="Объем пролитого трафика за прошлый месяц"
               options={trafficAmountOptions}
               value={trafficAmountOptions.find((c) => c.value === value)}
               onChange={(val) => onChange((val as any).value)}
+              error={errors.volumeTraffic?.message}
+              {...other}
             />
           )}
         />
@@ -88,20 +104,24 @@ export const SecondStep: React.FC<SecondStepProps> = ({
         <FormTextArea
           label="Опишите свой предыдущий опыт работы"
           placeholder="Опишите опыт работы"
-          {...register("workOld", { required: true })}
+          {...register("workOld", { required: "Это обязательное поле" })}
+          error={errors.workOld?.message}
         />
 
         <FormField
-          label="Промокод"
+          label="Промокод (если есть)"
           placeholder="Укажите промокод"
           type="text"
-          {...register("promo", { required: true })}
+          {...register("promo")}
         />
 
         <Checkbox
-          {...register("acceptTheHandler", { required: true })}
           label="Согласен(-на) с обработкой данных"
           variant="secondary"
+          {...register("acceptTheHandler", {
+            required: "Это обязательное поле",
+          })}
+          error={errors.acceptTheHandler?.message}
         />
       </div>
 

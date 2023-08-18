@@ -19,17 +19,21 @@ export const Registration: React.FC = () => {
   const [step, setStep] = useState(0);
 
   const firstStepForm = useForm<RegistrationFirstStepFormValues>();
-  const secondStepForm = useForm<RegistrationSecondStepFormValues>();
+  const secondStepForm = useForm<RegistrationSecondStepFormValues>({
+    defaultValues: {
+      acceptTheHandler: true,
+    },
+  });
 
   const [firstStepData, setFirstStepData] =
     useState<RegistrationFirstStepFormValues | null>(null);
 
-  const handleSubmitFirstStep = firstStepForm.handleSubmit((data) => {
+  const handleSubmitFirstStep = (data: RegistrationFirstStepFormValues) => {
     setFirstStepData(data);
     setStep(1);
-  });
+  };
 
-  const handleSubmitSecondStep = secondStepForm.handleSubmit((data) => {
+  const handleSubmitSecondStep = (data: RegistrationSecondStepFormValues) => {
     if (!firstStepData) return;
 
     axios
@@ -43,7 +47,7 @@ export const Registration: React.FC = () => {
       .then(() => {
         setIsOpen(true);
       });
-  });
+  };
 
   const back = () => {
     setStep((p) => Math.max(0, p - 1));
