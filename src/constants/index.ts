@@ -364,3 +364,47 @@ export const reviews = [
     ],
   },
 ];
+
+const verticals = [
+  "Gambling",
+  "Betting",
+  "Nutra",
+  "Crypto",
+  "Dating",
+  "E-commerce",
+  "Gaming",
+  "Adult",
+  "Бинарные опционы/Forex",
+];
+
+const trafficSources = [
+  "Streams",
+  "PPC",
+  "Influence/Schemes",
+  "Fb app",
+  "In-app",
+  "ASO",
+  "UAC",
+  "УБТ",
+  "Push",
+  "SEO",
+  "Popunder",
+  "Capper",
+];
+
+const trafficAmounts = ["До $1,000", "$1,000-$10,000", "$10,000+"];
+
+export const verticalOptions = verticals.map((label) => ({
+  value: label,
+  label,
+}));
+
+export const trafficSourceOptions = trafficSources.map((label) => ({
+  value: label,
+  label,
+}));
+
+export const trafficAmountOptions = trafficAmounts.map((label) => ({
+  value: label,
+  label,
+}));

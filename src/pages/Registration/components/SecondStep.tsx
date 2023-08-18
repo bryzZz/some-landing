@@ -7,39 +7,11 @@ import { ReactComponent as ArrowLeft } from "assets/icons/arrow-left.svg";
 import { FormSelect } from "./FormSelect";
 import { FormTextArea } from "./FormTextArea";
 import { Checkbox, FormField } from "components";
-
-const verticalOptions = [
-  { value: "0", label: "Gambling" },
-  { value: "1", label: "Betting" },
-  { value: "2", label: "Nutra" },
-  { value: "3", label: "Crypto" },
-  { value: "4", label: "Dating" },
-  { value: "5", label: "E-commerce" },
-  { value: "6", label: "Gaming" },
-  { value: "7", label: "Adult" },
-  { value: "8", label: "Бинарные опционы/Forex" },
-];
-
-const trafficSourceOptions = [
-  { value: "0", label: "Streams" },
-  { value: "1", label: "PPC" },
-  { value: "2", label: "Influence/Schemes" },
-  { value: "3", label: "Fb app" },
-  { value: "4", label: "In-app" },
-  { value: "5", label: "ASO" },
-  { value: "6", label: "UAC" },
-  { value: "7", label: "УБТ" },
-  { value: "8", label: "Push" },
-  { value: "9", label: "SEO" },
-  { value: "10", label: "Popunder" },
-  { value: "11", label: "Capper" },
-];
-
-const trafficAmountOptions = [
-  { value: "0", label: "До $1,000" },
-  { value: "1", label: "$1,000-$10,000" },
-  { value: "2", label: "$10,000+" },
-];
+import {
+  verticalOptions,
+  trafficSourceOptions,
+  trafficAmountOptions,
+} from "constants/index";
 
 interface SecondStepProps {
   form: UseFormReturn<RegistrationSecondStepFormValues, any, undefined>;
