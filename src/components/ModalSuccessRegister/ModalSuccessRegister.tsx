@@ -8,7 +8,14 @@ import "./style.css";
 
 Modal.setAppElement("#root");
 
-export const ModalSuccessRegister: React.FC<Props> = (props) => {
+interface ModalSuccessRegisterProps extends Props {
+  returnManager: string;
+}
+
+export const ModalSuccessRegister: React.FC<ModalSuccessRegisterProps> = ({
+  returnManager,
+  ...props
+}) => {
   return (
     <Modal
       {...props}
@@ -25,8 +32,13 @@ export const ModalSuccessRegister: React.FC<Props> = (props) => {
         <Img className="mx-auto" />
         <h3 className="heading-3 mb-4">Вы успешно зарегистрированы!</h3>
         <p className="sub-heading-2 mb-8 font-semibold">
-          Ваш менеджер: Евгений -{" "}
-          <span className="text-[#1D74F7] underline">@Evgeny_leads</span>
+          Ваш менеджер:{" "}
+          <a
+            href={`https://t.me/${returnManager.slice(1)}`}
+            className="text-[#1D74F7] underline"
+          >
+            {returnManager}
+          </a>
         </p>
         <p className="sub-heading-4 mb-[10px]">
           Модерация аккаунта проходит в течении 48ч, без учета выходных. Если в

@@ -44,3 +44,7 @@ export interface Product {
 export interface PointsStoreResponse {
   items: Array<Product>;
 }
+
+export interface RegistrationResponse {
+  return_manager: string;
+}

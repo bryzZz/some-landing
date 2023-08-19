@@ -1,6 +1,6 @@
 import { ComponentProps, forwardRef } from "react";
 
-interface FormFieldProps extends ComponentProps<"input"> {
+export interface FormFieldProps extends ComponentProps<"input"> {
   label: string;
   error?: string;
 }

@@ -12,8 +12,10 @@ import {
   SecondStep,
 } from "./components";
 import { ModalSuccessRegister, TabPanel } from "components";
+import { RegistrationResponse } from "types";
 
 export const Registration: React.FC = () => {
+  const [returnManager, setReturnManager] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
 
   const [step, setStep] = useState(0);
@@ -33,20 +35,24 @@ export const Registration: React.FC = () => {
     setStep(1);
   };
 
-  const handleSubmitSecondStep = (data: RegistrationSecondStepFormValues) => {
+  const handleSubmitSecondStep = async (
+    data: RegistrationSecondStepFormValues
+  ) => {
     if (!firstStepData) return;
 
-    axios
-      .post("http://5.63.155.73/tops/reg.php", {
+    const response = await axios.post<RegistrationResponse>(
+      "http://5.63.155.73/tops/reg.php",
+      {
         name: firstStepData.name,
         mail: firstStepData.mail,
         pass: firstStepData.pass,
         contactField: firstStepData.contactField,
         ...data,
-      })
-      .then(() => {
-        setIsOpen(true);
-      });
+      }
+    );
+
+    setReturnManager(response.data.return_manager);
+    setIsOpen(true);
   };
 
   const back = () => {
@@ -88,6 +94,7 @@ export const Registration: React.FC = () => {
       <ModalSuccessRegister
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
+        returnManager={returnManager}
       />
     </>
   );

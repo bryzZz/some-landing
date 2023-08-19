@@ -15,44 +15,39 @@ import { Chart } from "components";
 
 const data = [
   {
-    date: new Date(2020, 5, 17),
-    value: 1,
+    year: 2020,
+    value: 3151232,
   },
   {
-    date: new Date(2020, 6, 17),
-    value: 2,
+    year: 2021,
+    value: 3436896,
   },
   {
-    date: new Date(2020, 7, 17),
-    value: 1,
+    year: 2022,
+    value: 3612460,
   },
   {
-    date: new Date(2020, 8, 17),
-    value: 4,
+    year: 2023,
+    value: 6912683,
+  },
+];
+
+const dataOffers = [
+  {
+    year: 2020,
+    value: 127,
   },
   {
-    date: new Date(2020, 9, 17),
-    value: 3,
+    year: 2021,
+    value: 240,
   },
   {
-    date: new Date(2020, 10, 17),
-    value: 5,
+    year: 2022,
+    value: 463,
   },
   {
-    date: new Date(2021, 1, 17),
-    value: 7,
-  },
-  {
-    date: new Date(2021, 5, 17),
-    value: 6,
-  },
-  {
-    date: new Date(2022, 2, 17),
-    value: 10,
-  },
-  {
-    date: new Date(2022, 7, 17),
-    value: 15,
+    year: 2023,
+    value: 1549,
   },
 ];
 
@@ -64,8 +59,8 @@ export const Slides: React.FC = () => {
   const margin = {
     bottom: 120,
     top: 72,
-    left: 50,
-    right: 50,
+    left: 20,
+    right: 20,
   };
 
   return (
@@ -156,6 +151,7 @@ export const Slides: React.FC = () => {
                     width={width}
                     height={height}
                     margin={margin}
+                    dollars
                   />
                 </Zoom>
               </div>
@@ -171,23 +167,13 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
+                  <h3 className="mb-2 pt-[10%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
                     300+
                   </h3>
                   <p className="sub-heading-3 md:max-w-xs">
                     прямых рекламодателей уже сотрудничают с нами
                   </p>
                 </Fade>
-              </div>
-              <div className="hidden flex-1 md:block">
-                <Zoom triggerOnce>
-                  <Chart
-                    data={data}
-                    width={width}
-                    height={height}
-                    margin={margin}
-                  />
-                </Zoom>
               </div>
             </div>
           </SwiperSlide>
@@ -212,7 +198,7 @@ export const Slides: React.FC = () => {
               <div className="hidden flex-1 md:block">
                 <Zoom triggerOnce>
                   <Chart
-                    data={data}
+                    data={dataOffers}
                     width={width}
                     height={height}
                     margin={margin}
@@ -231,21 +217,13 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[20%] text-[70px] leading-none text-text-400 sm:text-[95px] lg:mb-6 lg:text-[110px] 3xl:text-[150px]">
+                  <h3 className="mb-2 pt-[10%] text-[70px] leading-none text-text-400 sm:text-[95px] lg:mb-6 lg:text-[110px] 3xl:text-[150px]">
                     10 000+
                   </h3>
-                  <p className="sub-heading-3 md:max-w-xs">веб-мастеров уже</p>
+                  <p className="sub-heading-3 md:max-w-xs">
+                    веб-мастеров уже зарегестрированы у нас
+                  </p>
                 </Fade>
-              </div>
-              <div className="hidden flex-1 md:block">
-                <Zoom triggerOnce>
-                  <Chart
-                    data={data}
-                    width={width}
-                    height={height}
-                    margin={margin}
-                  />
-                </Zoom>
               </div>
             </div>
           </SwiperSlide>
