@@ -167,7 +167,7 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[10%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
+                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] md:pt-[10%] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
                     300+
                   </h3>
                   <p className="sub-heading-3 md:max-w-xs">
@@ -217,7 +217,7 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[10%] text-[70px] leading-none text-text-400 sm:text-[95px] lg:mb-6 lg:text-[110px] 3xl:text-[150px]">
+                  <h3 className="mb-2 pt-[20%] text-[70px] leading-none text-text-400 sm:text-[95px] md:pt-[10%] lg:mb-6 lg:text-[110px] 3xl:text-[150px]">
                     10 000+
                   </h3>
                   <p className="sub-heading-3 md:max-w-xs">
