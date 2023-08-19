@@ -63,7 +63,7 @@ export const PasswordField = forwardRef<HTMLInputElement, FormFieldProps>(
           <Popover.Content
             onOpenAutoFocus={(e) => e.preventDefault()}
             side="right"
-            className="z-20 max-w-[268px] rounded-xl bg-white p-3 shadow-200 will-change-[transform,opacity] data-[state=open]:data-[side=right]:animate-slideLeftAndFade"
+            className="z-20 max-w-[170px] rounded-xl bg-white p-3 shadow-200 will-change-[transform,opacity] data-[state=open]:data-[side=right]:animate-slideLeftAndFade sm:max-w-[268px]"
             sideOffset={5}
           >
             <div className="flex flex-col gap-1 text-xs text-text-300">
