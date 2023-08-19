@@ -1,7 +1,8 @@
 import React from "react";
-import { UseFormReturn } from "react-hook-form";
+import { UseFormReturn, FormProvider, Controller } from "react-hook-form";
 
 import { CommunicationSelect, FormField } from "components";
+import { PasswordField } from "./PasswordField";
 
 interface FirstStepProps {
   form: UseFormReturn<RegistrationFirstStepFormValues, any, undefined>;
@@ -24,7 +25,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
     register,
     handleSubmit,
     setError,
-    formState: { errors },
+    formState: { errors, isSubmitted },
   } = form;
 
   const onSubmit = handleSubmit((data) => {
@@ -49,60 +50,94 @@ export const FirstStep: React.FC<FirstStepProps> = ({
     return true;
   };
 
+  const validatePassword = (value: string | undefined) => {
+    if (value && value.length < 8) {
+      return false;
+    }
+
+    if (value && !value.match(/[a-z]/g)) {
+      return false;
+    }
+
+    if (value && !value.match(/[A-Z]/g)) {
+      return false;
+    }
+
+    if (value && !value.match(/[0-9]/g)) {
+      return false;
+    }
+
+    if (value && !value.match(/[@$!%*?&#]/g)) {
+      return false;
+    }
+
+    return true;
+  };
+
   return (
-    <form className="mb-6 w-full" onSubmit={onSubmit}>
-      <div className="mb-7 flex w-full flex-col gap-[10px]">
-        <FormField
-          label="Имя"
-          placeholder="leadshuber"
-          {...register("name", { required: "Это обязательное поле" })}
-          error={errors.name?.message}
-        />
-
-        <FormField
-          label="E-mail"
-          placeholder="yourmail@test.com"
-          type="email"
-          {...register("mail", {
-            required: "Это обязательное поле",
-            validate: validateEmail,
-          })}
-          error={errors.mail?.message}
-        />
-
-        <div className="grid grid-cols-2 items-center gap-[10px]">
+    <FormProvider {...form}>
+      <form className="mb-6 w-full" onSubmit={onSubmit}>
+        <div className="mb-7 flex w-full flex-col gap-[10px]">
           <FormField
-            label="Пароль"
-            placeholder="Пароль"
-            type="password"
-            {...register("pass", {
-              required: "Это обязательное поле",
-            })}
-            error={errors.pass?.message}
+            label="Имя"
+            placeholder="leadshuber"
+            {...register("name", { required: "Это обязательное поле" })}
+            error={errors.name?.message}
           />
 
           <FormField
-            label="Повторите пароль"
-            placeholder="Пароль еще раз"
-            type="password"
-            {...register("passConfirmation", {
+            label="E-mail"
+            placeholder="yourmail@test.com"
+            type="email"
+            {...register("mail", {
+              required: "Это обязательное поле",
+              validate: validateEmail,
+            })}
+            error={errors.mail?.message}
+          />
+
+          <div className="grid grid-cols-2 items-center gap-[10px]">
+            <Controller
+              name="pass"
+              rules={{
+                required: "Это обязательное поле",
+                validate: validatePassword,
+              }}
+              render={({ field: { value, onChange } }) => (
+                <PasswordField
+                  label="Пароль"
+                  placeholder="Пароль"
+                  type="password"
+                  value={value}
+                  onChange={onChange}
+                  error={errors.pass?.message}
+                />
+              )}
+            />
+
+            <FormField
+              label="Повторите пароль"
+              placeholder="Пароль еще раз"
+              type="password"
+              {...register("passConfirmation", {
+                required: "Это обязательное поле",
+              })}
+              error={errors.passConfirmation?.message}
+            />
+          </div>
+
+          <CommunicationSelect
+            {...register("contactField", {
               required: "Это обязательное поле",
             })}
-            error={errors.passConfirmation?.message}
+            error={errors.contactField?.message}
           />
         </div>
 
-        <CommunicationSelect
-          {...register("contactField", {
-            required: "Это обязательное поле",
-          })}
-          error={errors.contactField?.message}
-        />
-      </div>
-
-      <button className="btn-secondary w-full" type="submit">
-        Далее
-      </button>
-    </form>
+        <button className="btn-secondary w-full" type="submit">
+          Далее
+        </button>
+      </form>
+    </FormProvider>
   );
 };
