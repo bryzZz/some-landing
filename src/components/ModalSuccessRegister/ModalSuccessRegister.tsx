@@ -35,6 +35,7 @@ export const ModalSuccessRegister: React.FC<ModalSuccessRegisterProps> = ({
           Ваш менеджер:{" "}
           <a
             href={`https://t.me/${returnManager.slice(1)}`}
+            target="_blank"
             className="text-[#1D74F7] underline"
           >
             {returnManager}
