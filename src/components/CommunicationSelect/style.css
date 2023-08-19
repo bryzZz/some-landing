@@ -3,11 +3,11 @@
 }
 
 .CommunicationSelect__control {
-  @apply btn-primary h-full w-[140px] cursor-pointer rounded-none rounded-bl rounded-tl border-none py-2 pl-3 pr-2 text-text-100 shadow-none outline-none !important;
+  @apply btn-primary h-full w-[120px] cursor-pointer rounded-none rounded-bl rounded-tl border-none py-2 pl-3 pr-2 text-text-100 shadow-none outline-none md:w-[140px] !important;
 }
 
 .CommunicationSelect__value-container {
-  @apply text-xs 3xl:text-base !important;
+  @apply p-0 text-xs 3xl:text-base !important;
 }
 
 .CommunicationSelect__single-value {

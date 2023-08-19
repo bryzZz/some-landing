@@ -96,7 +96,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
             error={errors.mail?.message}
           />
 
-          <div className="grid grid-cols-2 items-center gap-[10px]">
+          <div className="grid grid-cols-2 gap-[10px]">
             <Controller
               name="pass"
               rules={{
@@ -111,6 +111,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
                   value={value}
                   onChange={onChange}
                   error={errors.pass?.message}
+                  className="mt-auto"
                 />
               )}
             />

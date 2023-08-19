@@ -42,7 +42,7 @@ export const CommunicationSelect = forwardRef<
           isSearchable={false}
         />
         <input
-          className="flex-1 rounded-br rounded-tr border border-l-0 border-[D8D6DE] px-[14px] pb-4 pt-[15px] outline-none"
+          className="w-full flex-1 rounded-br rounded-tr border border-l-0 border-[D8D6DE] px-[14px] pb-4 pt-[15px] outline-none"
           type="text"
           placeholder="@leadshub"
           ref={ref}
