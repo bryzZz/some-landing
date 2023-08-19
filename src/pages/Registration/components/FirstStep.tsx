@@ -25,7 +25,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
     register,
     handleSubmit,
     setError,
-    formState: { errors, isSubmitted },
+    formState: { errors },
   } = form;
 
   const onSubmit = handleSubmit((data) => {
