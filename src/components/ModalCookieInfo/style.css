@@ -1,0 +1,11 @@
+.ModalCookieInfo__overlay {
+  @apply fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,0.50)] p-0;
+}
+
+.ModalCookieInfo {
+  @apply static mx-[15px] h-[unset] w-full max-w-[1000px] overflow-hidden rounded-xl bg-white p-6 pb-8 md:p-12 md:pb-14;
+}
+
+.ModalCookieInfo__text {
+  @apply h-[70vh] overflow-auto p-0 md:h-[50vh];
+}

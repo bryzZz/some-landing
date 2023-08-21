@@ -7,7 +7,7 @@ import { ReactComponent as Skype } from "assets/icons/skype.svg";
 import { ReactComponent as Mail } from "assets/icons/mail.svg";
 import { ReactComponent as Logo } from "assets/icons/logo.svg";
 import { BASE_PATH } from "constants/index";
-import { usePublicOfferModal, useCookieModal } from "store/useModals";
+import { usePublicOfferModal, useCookieInfoModal } from "store/useModals";
 
 const navItems = [
   { label: "FAQ", path: "FAQ/" },
@@ -18,7 +18,7 @@ const navItems = [
 
 export const Footer: React.FC = () => {
   const setPublicOfferIsOpen = usePublicOfferModal((state) => state.setIsOpen);
-  const setCookieIsOpen = useCookieModal((state) => state.setIsOpen);
+  const setCookieIsOpen = useCookieInfoModal((state) => state.setIsOpen);
 
   return (
     <footer className="bg-[#ECF2F6]">

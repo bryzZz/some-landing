@@ -14,3 +14,8 @@ export const useCookieModal = create<ModalState>((set) => ({
   isOpen: true,
   setIsOpen: (isOpen) => set({ isOpen }),
 }));
+
+export const useCookieInfoModal = create<ModalState>((set) => ({
+  isOpen: false,
+  setIsOpen: (isOpen) => set({ isOpen }),
+}));

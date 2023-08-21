@@ -9,6 +9,7 @@ import FirstBg3Xl from "assets/images/first-top-bg-3xl.jpg";
 import SecondBg from "assets/images/second-top-bg.jpg";
 import SecondBg3Xl from "assets/images/second-top-bg-3xl.jpg";
 import { useMediaQuery } from "hooks";
+import { ModalCookieInfo } from "components/ModalCookieInfo";
 
 export const Authorized: React.FC = () => {
   const { pathname } = useLocation();
@@ -41,6 +42,7 @@ export const Authorized: React.FC = () => {
       </div>
 
       <ModalCookie />
+      <ModalCookieInfo />
       <ModalPublicOffer />
 
       <ScrollRestoration />
