@@ -11,7 +11,10 @@ const currencyFormat = new Intl.NumberFormat("ru-RU");
 
 export const TopWebMastersTable: React.FC = () => {
   const { data } = useSWR<WebMasterResponse>(
-    "http://5.63.155.73/tops/web/actually5web.json"
+    "http://5.63.155.73/tops/web/actually5web.json",
+    {
+      revalidateOnMount: true,
+    }
   );
 
   const matches = useMediaQuery("(min-width: 768px)");
@@ -42,7 +45,7 @@ export const TopWebMastersTable: React.FC = () => {
         {data &&
           Object.entries(data)
             .sort((a, b) => Number(b[1].d) - Number(a[1].d))
-            .map(([id, { d, m }]) => (
+            .map(([id, { d, m, name }]) => (
               <tr
                 className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
                 key={id}
@@ -55,7 +58,7 @@ export const TopWebMastersTable: React.FC = () => {
                         src={Person}
                       />
                     </td>
-                    <td className="py-3">{"Leadshuber"}</td>
+                    <td className="py-3">{name || "Leadshuber"}</td>
                     <td className="py-3">
                       <span className="text-primary-100">₽</span>{" "}
                       {currencyFormat.format(Number(d))}
@@ -69,8 +72,7 @@ export const TopWebMastersTable: React.FC = () => {
                   <td className="flex flex-col gap-3 p-4">
                     <div className="flex items-center gap-4">
                       <img className="h-8 w-8 object-contain" src={Person} />
-                      {/* {name || "Leadshuber"} */}
-                      Leadshuber
+                      {name || "Leadshuber"}
                     </div>
                     <div className="flex flex-wrap items-center justify-between gap-5">
                       <div>

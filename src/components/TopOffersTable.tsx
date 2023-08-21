@@ -8,7 +8,10 @@ import { OffersGeo } from "./OffersGeo";
 
 export const TopOffersTable: React.FC = () => {
   const { data } = useSWR<OffersResponse>(
-    "http://5.63.155.73/tops/offers/actually5offers.json"
+    "http://5.63.155.73/tops/offers/actually5offers.json",
+    {
+      revalidateOnMount: true,
+    }
   );
 
   const matches = useMediaQuery("(min-width: 768px)");

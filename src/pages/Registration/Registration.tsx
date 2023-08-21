@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
@@ -15,6 +15,8 @@ import { ModalSuccessRegister, TabPanel } from "components";
 import { RegistrationResponse } from "types";
 
 export const Registration: React.FC = () => {
+  const navigate = useNavigate();
+
   const [returnManager, setReturnManager] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -59,6 +61,11 @@ export const Registration: React.FC = () => {
     setStep((p) => Math.max(0, p - 1));
   };
 
+  const handleClose = () => {
+    navigate(BASE_PATH);
+    setIsOpen(false);
+  };
+
   return (
     <>
       <div className="mx-4 flex w-full flex-col items-center rounded-3xl bg-text-100 p-5 shadow-400 md:p-10 3xl:p-14">
@@ -93,7 +100,7 @@ export const Registration: React.FC = () => {
       </div>
       <ModalSuccessRegister
         isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
+        onRequestClose={handleClose}
         returnManager={returnManager}
       />
     </>
