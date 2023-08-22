@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from "swiper/types";
 
 import Bg from "assets/images/Blog.jpg";
 
@@ -10,12 +11,23 @@ import { Link } from "react-router-dom";
 const slidesCount = 4;
 
 export const BlogSlider: React.FC = () => {
+  const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
 
   const handleAutoplayTimeLeft = (s: any, _: number, progress: number) => {
     setActiveIndex(s.activeIndex);
     setProgress((1 - progress) * 100);
+  };
+
+  const handlePaginationClick = (i: number) => {
+    if (!swiper) return;
+
+    setActiveIndex(i);
+    setProgress(0);
+    swiper.activeIndex = i;
+    swiper.progress = 0;
+    swiper.slideTo(i);
   };
 
   return (
@@ -30,6 +42,7 @@ export const BlogSlider: React.FC = () => {
         spaceBetween={30}
         onAutoplayTimeLeft={handleAutoplayTimeLeft}
         className="BlogSlider"
+        onSwiper={setSwiper}
       >
         {new Array(slidesCount).fill(0).map((_, i) => (
           <SwiperSlide key={i}>
@@ -67,7 +80,8 @@ export const BlogSlider: React.FC = () => {
           {new Array(slidesCount).fill(0).map((_, i) => (
             <span
               key={i}
-              className="relative h-1 flex-1 rounded-[5px] bg-white"
+              className="relative h-1 flex-1 cursor-pointer rounded-[5px] bg-white"
+              onClick={() => handlePaginationClick(i)}
             >
               <span
                 className="absolute bottom-0 left-0 top-0 rounded-[5px] bg-[#3452FF]"
