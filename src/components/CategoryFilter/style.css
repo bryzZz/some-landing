@@ -1,5 +1,5 @@
 [role="tooltip"].Category-popup-content {
-  @apply w-full max-w-[296px] rounded-lg border-none bg-white p-5 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.10)];
+  @apply w-full max-w-[276px] rounded-lg border-none bg-white p-5 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.10)];
 }
 
 .Category-popup-arrow {

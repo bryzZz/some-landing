@@ -1,5 +1,5 @@
 .LanguageSelect__control {
-  @apply cursor-pointer rounded border-none bg-[#F4F4F4] p-2 shadow-none outline-none !important;
+  @apply cursor-pointer rounded border-none bg-[#F4F4F4] p-2 shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)] outline-none md:shadow-none !important;
 }
 
 .LanguageSelect__indicators {

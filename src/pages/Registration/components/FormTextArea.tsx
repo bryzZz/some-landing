@@ -16,7 +16,7 @@ export const FormTextArea = forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
           rows={4}
           {...props}
         />
-        <span className="h-4 text-xs text-red-600">{error}</span>
+        <span className="text-xs text-red-600">{error}</span>
       </label>
     );
   }

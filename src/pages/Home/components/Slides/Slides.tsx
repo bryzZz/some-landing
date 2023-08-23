@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useReducer } from "react";
 import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Fade, Zoom } from "react-awesome-reveal";
@@ -12,6 +12,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
 import { Chart } from "components";
+import { usePrevious } from "hooks/usePrevious";
 
 const data = [
   {
@@ -51,8 +52,48 @@ const dataOffers = [
   },
 ];
 
+const dataAds = [
+  {
+    year: 2020,
+    value: 47,
+  },
+  {
+    year: 2021,
+    value: 87,
+  },
+  {
+    year: 2022,
+    value: 182,
+  },
+  {
+    year: 2023,
+    value: 264,
+  },
+];
+
+const dataPartners = [
+  {
+    year: 2020,
+    value: 2283,
+  },
+  {
+    year: 2021,
+    value: 6378,
+  },
+  {
+    year: 2022,
+    value: 9389,
+  },
+  {
+    year: 2023,
+    value: 11420,
+  },
+];
+
 export const Slides: React.FC = () => {
   const matches = useMediaQuery("(min-width: 768px)");
+  const previousMatches = usePrevious(matches);
+  const [_, forceUpdate] = useReducer((p) => p + 1, 0);
 
   const height = 315;
   const width = 341;
@@ -62,6 +103,12 @@ export const Slides: React.FC = () => {
     left: 20,
     right: 20,
   };
+
+  useEffect(() => {
+    if (previousMatches !== matches) {
+      forceUpdate();
+    }
+  }, [matches, previousMatches]);
 
   return (
     <section
@@ -167,13 +214,23 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] md:pt-[10%] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
+                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
                     300+
                   </h3>
                   <p className="sub-heading-3 md:max-w-xs">
                     прямых рекламодателей уже сотрудничают с нами
                   </p>
                 </Fade>
+              </div>
+              <div className="hidden flex-1 md:block">
+                <Zoom triggerOnce>
+                  <Chart
+                    data={dataAds}
+                    width={width}
+                    height={height}
+                    margin={margin}
+                  />
+                </Zoom>
               </div>
             </div>
           </SwiperSlide>
@@ -217,13 +274,23 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[20%] text-[70px] leading-none text-text-400 sm:text-[95px] md:pt-[10%] lg:mb-6 lg:text-[110px] 3xl:text-[150px]">
+                  <h3 className="mb-2 pt-[20%] text-[70px] leading-none text-text-400 sm:text-[95px] lg:mb-6 lg:text-[110px] 3xl:text-[150px]">
                     10 000+
                   </h3>
                   <p className="sub-heading-3 md:max-w-xs">
                     веб-мастеров уже зарегестрированы у нас
                   </p>
                 </Fade>
+              </div>
+              <div className="hidden flex-1 md:block">
+                <Zoom triggerOnce>
+                  <Chart
+                    data={dataPartners}
+                    width={width}
+                    height={height}
+                    margin={margin}
+                  />
+                </Zoom>
               </div>
             </div>
           </SwiperSlide>

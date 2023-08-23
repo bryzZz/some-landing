@@ -166,7 +166,7 @@ export const FAQ: React.FC = () => {
         </p>
       </Fade>
 
-      <div className="mb-24 grid grid-cols-2 items-center justify-center gap-4 lg:grid-cols-5 lg:grid-rows-1 lg:justify-between lg:gap-[30px]">
+      <div className="mb-24 grid grid-cols-2 items-center justify-center gap-4 md:grid-cols-5 md:grid-rows-1 md:justify-between lg:gap-[30px]">
         {labelsAndIcons.map(({ Icon, label }, i) => (
           <div
             key={i}
@@ -180,14 +180,15 @@ export const FAQ: React.FC = () => {
             <h5 className="heading-5 text-center">{label}</h5>
           </div>
         ))}
-        <div className="relative col-span-full h-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-14 shadow-100 lg:col-span-1">
+        <div className="relative col-span-full h-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-5 shadow-100 md:col-span-1 md:pt-14">
           <div className="absolute -left-14 -top-5 z-10 h-36 w-36 rounded-full bg-gradient-to-l from-text-100 to-transparent" />
           <div className="relative z-20 h-full">
-            <h5 className="heading-5 mb-[37px]">
+            <h5 className="heading-5 mb-2 md:mb-[37px]">
               Не нашли ответ на свой вопрос?
             </h5>
             <p className="text-xs text-text-300 3xl:text-lg">
-              Напишите вопрос на почту <span>info@leadshub.pro</span>, и мы
+              Напишите вопрос на почту{" "}
+              <span className="underline">info@leadshub.pro</span>, и мы
               обязательно поможем!
             </p>
           </div>

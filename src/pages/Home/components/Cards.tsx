@@ -11,6 +11,7 @@ import IconCard5 from "assets/icons/main-card-5.png";
 import IconCard6 from "assets/icons/main-card-6.png";
 import IconCard7 from "assets/icons/main-card-7.png";
 import IconCard8 from "assets/icons/main-card-8.png";
+import { useMediaQuery } from "hooks";
 
 const topCards = [
   {
@@ -64,6 +65,39 @@ const bottomCards = [
   },
 ];
 
+interface BottomCardProps {
+  Icon: string;
+  title: string;
+  subTitle: string;
+}
+
+const BottomCard: React.FC<BottomCardProps> = ({ Icon, title, subTitle }) => {
+  const matches = useMediaQuery("(min-width: 768px)");
+
+  if (matches) {
+    return (
+      <div className="flex h-full items-start rounded-2xl bg-text-100 pb-[15px] pr-[22px] shadow-100">
+        <img src={Icon} className="h-[128px] w-[129px] flex-shrink-0" />
+        <div className="pt-[22px]">
+          <p className="heading-6">{title}</p>
+          <p className="sub-heading-4">{subTitle}</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="h-full rounded-2xl bg-text-100 pb-[15px] pr-[22px] shadow-100">
+      <div className="flex items-center gap-1">
+        <img src={Icon} className="h-[77px] w-[77px] flex-shrink-0" />
+        <p className="heading-6">{title}</p>
+      </div>
+
+      <p className="sub-heading-4 px-5">{subTitle}</p>
+    </div>
+  );
+};
+
 export const Cards: React.FC = () => {
   return (
     <section
@@ -107,17 +141,8 @@ export const Cards: React.FC = () => {
         damping={0.3}
         triggerOnce
       >
-        {bottomCards.slice(0, 2).map(({ Icon, title, subTitle }, i) => (
-          <div
-            className="flex h-full items-start rounded-2xl bg-text-100 pb-[15px] pr-[22px] shadow-100"
-            key={i}
-          >
-            <img src={Icon} className="h-[128px] w-[129px] flex-shrink-0" />
-            <div className="pt-[22px]">
-              <p className="heading-6">{title}</p>
-              <p className="sub-heading-4">{subTitle}</p>
-            </div>
-          </div>
+        {bottomCards.slice(0, 2).map((data, i) => (
+          <BottomCard key={i} {...data} />
         ))}
       </Fade>
 
@@ -129,17 +154,8 @@ export const Cards: React.FC = () => {
         damping={0.3}
         triggerOnce
       >
-        {bottomCards.slice(2).map(({ Icon, title, subTitle }, i) => (
-          <div
-            className="flex h-full items-start rounded-2xl bg-text-100 pb-[15px] pr-[22px] shadow-100"
-            key={i}
-          >
-            <img src={Icon} className="h-[128px] w-[129px] flex-shrink-0" />
-            <div className="pt-[22px]">
-              <p className="heading-6">{title}</p>
-              <p className="sub-heading-4">{subTitle}</p>
-            </div>
-          </div>
+        {bottomCards.slice(2).map((data, i) => (
+          <BottomCard key={i} {...data} />
         ))}
       </Fade>
     </section>

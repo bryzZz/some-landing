@@ -19,7 +19,7 @@ export const Posts: React.FC<PostsProps> = ({ posts, className }) => {
   return (
     <div className={className}>
       <ResponsiveMasonry
-        columnsCountBreakPoints={{ 350: 1, 600: 2, 768: 1, 1024: 2 }}
+        columnsCountBreakPoints={{ 350: 1, 600: 2, 768: 2, 1024: 2 }}
       >
         <Masonry gutter="1.875rem" className="mb-11">
           {posts.map(({ date, tags, title, text, image, link }, i) => (

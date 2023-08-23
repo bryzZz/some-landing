@@ -49,7 +49,7 @@ export const CommunicationSelect = forwardRef<
           {...props}
         />
       </div>
-      <span className="h-4 text-xs text-red-600">{error}</span>
+      <span className="text-xs text-red-600">{error}</span>
     </label>
   );
 });

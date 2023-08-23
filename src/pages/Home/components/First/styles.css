@@ -1,5 +1,5 @@
 .FirstSlider {
-  @apply pb-12;
+  @apply pb-20 md:pb-12;
 }
 
 .FirstSlider .swiper-pagination {

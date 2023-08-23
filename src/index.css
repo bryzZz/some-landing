@@ -106,7 +106,7 @@
   }
 
   .heading-1 {
-    @apply text-4xl font-extrabold leading-10 text-text-400 lg:text-5xl 3xl:text-[73px] 3xl:leading-[91px];
+    @apply text-[32px] font-extrabold leading-10 text-text-400 lg:text-5xl 3xl:text-[73px] 3xl:leading-[91px];
   }
 
   .heading-2 {

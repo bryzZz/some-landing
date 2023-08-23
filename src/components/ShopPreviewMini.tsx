@@ -11,6 +11,7 @@ import ShopCard2 from "assets/images/shop-preview-2.png";
 import ShopCard3 from "assets/images/shop-preview-3.png";
 import ShopCard4 from "assets/images/shop-preview-4.png";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "hooks";
 
 const cards = [
   {
@@ -48,6 +49,8 @@ const cards = [
 ];
 
 export const ShopPreviewMini: React.FC = () => {
+  const matches = useMediaQuery("(min-width: 768px)");
+
   return (
     <section
       id="bubbles-6"
@@ -64,9 +67,9 @@ export const ShopPreviewMini: React.FC = () => {
               }}
             />
             <div
-              className="absolute right-[30vw] h-5 w-5 rounded-full bg-[#5956E9]"
+              className="absolute right-[10vw] h-5 w-5 rounded-full bg-[#5956E9] md:right-[30vw]"
               style={{
-                top: 100 + progress * -100,
+                top: (matches ? 100 : 40) + progress * -100,
               }}
             />
           </>

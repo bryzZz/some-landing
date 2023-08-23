@@ -94,10 +94,10 @@ export const Blog: React.FC = () => {
   return (
     <div className="pb-24">
       <BlogSlider />
-      <section className="base-container flex flex-col justify-center md:flex-row md:gap-[30px]">
+      <section className="base-container grid grid-cols-1 justify-center md:grid-cols-[2fr,1fr] md:gap-[30px]">
         {matches ? (
           <>
-            <Posts posts={posts} className="w-full flex-grow-0" />
+            <Posts posts={posts} />
             <div>
               <Recent className="mb-12" posts={recentPosts} />
               <Tags tags={tags} />

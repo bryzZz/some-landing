@@ -28,7 +28,7 @@ export const SortFilter: React.FC<SortFilterProps> = ({
           <Arrow className="text-[#B9B9C1] group-hover:text-text-400" />
         </button>
       }
-      position="bottom center"
+      position="bottom left"
       offsetY={8}
       className="SortFilter-popup"
     >

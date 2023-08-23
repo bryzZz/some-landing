@@ -167,20 +167,22 @@ export const Header: React.FC = () => {
         </nav>
 
         <div className="flex flex-col items-center text-[#888888]">
-          <p className="text-center text-[17px] font-bold">Оставайся с нами:</p>
-          <div className="flex gap-2 text-base font-semibold">
+          <p className="mb-5 text-center text-[17px] font-bold">
+            Оставайся с нами:
+          </p>
+          <div className="flex gap-5 text-base font-semibold">
             <Link
               to="tg://resolve?domain=leads_chat"
               className="flex items-center gap-2"
             >
-              <TelegramMobile />
+              <TelegramMobile className="flex-shrink-0 scale-[1.75]" />
               Telegram
             </Link>
             <Link
               to="https://vk.com/leadshub"
               className="flex items-center gap-2"
             >
-              <VKMobile />
+              <VKMobile className="flex-shrink-0 scale-150" />
               Vkontakte
             </Link>
           </div>

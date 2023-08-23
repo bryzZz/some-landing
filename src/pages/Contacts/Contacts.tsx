@@ -8,7 +8,9 @@ import Person from "assets/icons/person.svg";
 import { ReactComponent as Telegram } from "assets/icons/telegram-2.svg";
 import { ReactComponent as Mail } from "assets/icons/mail.svg";
 import ContactsImage from "assets/images/contacts-image.jpg";
+import ContactsImageSm from "assets/images/contacts-image-sm.jpg";
 import { Fade } from "react-awesome-reveal";
+import { useMediaQuery } from "hooks";
 
 const contacts = [
   {
@@ -93,6 +95,8 @@ const bottomContacts = [
 export const Contacts: React.FC = () => {
   const [tabValue, setTabValue] = useState(0);
 
+  const matches = useMediaQuery("(min-width: 768px)");
+
   return (
     <section className="base-container">
       <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
@@ -122,7 +126,7 @@ export const Contacts: React.FC = () => {
                     key={i}
                     className="rounded-2xl bg-text-100 p-[22px] pb-[30px] shadow-100 3xl:p-11 3xl:pb-14"
                   >
-                    <div className="mb-6 flex flex-col items-center gap-[18px] sm:flex-row">
+                    <div className="mb-6 flex flex-col items-center gap-0 sm:flex-row md:gap-[18px]">
                       <img
                         src={avatar}
                         className="w-full max-w-[5.25rem] object-contain sm:max-w-[3.5rem] 3xl:max-w-[5.75rem]"
@@ -160,7 +164,11 @@ export const Contacts: React.FC = () => {
 
         <div
           className="mx-auto mb-24 flex w-full max-w-[975px] flex-col items-center justify-between gap-10 rounded-2xl border border-[#D1D1D1] bg-cover bg-center bg-no-repeat px-11 py-9 shadow-100 md:flex-row md:gap-0 lg:mb-36 3xl:max-w-[1440px]"
-          style={{ backgroundImage: `url(${ContactsImage})` }}
+          style={{
+            backgroundImage: `url(${
+              matches ? ContactsImage : ContactsImageSm
+            })`,
+          }}
         >
           {bottomContacts.map(({ title, Icon, link }) => (
             <div className="text-center">

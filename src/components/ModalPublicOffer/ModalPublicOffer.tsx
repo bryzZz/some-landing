@@ -99,7 +99,10 @@ export const ModalPublicOffer: React.FC = () => {
     >
       <div className="mb-10">
         <h3 className="heading-3 mb-4">Публичная оферта</h3>
-        <button className="absolute right-[30px] top-[30px]" onClick={onClose}>
+        <button
+          className="absolute right-[10px] top-[10px] md:right-[20px] md:top-[20px]"
+          onClick={onClose}
+        >
           <Close />
         </button>
       </div>

@@ -61,8 +61,8 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
 
       <hr className="mb-6 bg-[E2E2E2]" />
 
-      <div className="flex flex-wrap items-center justify-between gap-2 md:justify-normal md:gap-12">
-        <div className="flex w-full max-w-[150px] items-center justify-between gap-2 rounded-[4px] border border-[D9D9D9] px-[13px] py-[15px] sm:gap-5">
+      <div className="flex flex-wrap items-stretch gap-2 md:gap-5">
+        <div className="flex items-center justify-between gap-3 rounded-[4px] border border-[D9D9D9] px-[13px] py-3 sm:gap-5">
           <button
             className="rounded-full p-1 hover:bg-[#EEEEEE]"
             onClick={decreaseCounter}
@@ -78,7 +78,7 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
           </button>
         </div>
 
-        <button className="btn-secondary">Приобрести товар</button>
+        <button className="btn-secondary min-h-full">Приобрести товар</button>
       </div>
     </Modal>
   );

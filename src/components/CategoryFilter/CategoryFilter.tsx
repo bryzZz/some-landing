@@ -7,6 +7,7 @@ import { ReactComponent as Arrow } from "assets/icons/select-arrow.svg";
 
 import "reactjs-popup/dist/index.css";
 import "./style.css";
+import { useMediaQuery } from "hooks";
 
 interface CategoryFilterProps {
   categories: { label: string; checked: boolean }[];
@@ -19,6 +20,8 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
   onCategoryClick,
   newCategoryCount,
 }) => {
+  const matches = useMediaQuery("(min-width: 768px)");
+
   return (
     <Popup
       trigger={
@@ -32,7 +35,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
           )}
         </button>
       }
-      position="bottom left"
+      position={matches ? "bottom left" : "bottom center"}
       offsetY={8}
       className="Category-popup"
     >

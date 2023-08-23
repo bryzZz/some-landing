@@ -47,7 +47,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           {label}
         </label>
 
-        <span className="h-4 text-xs text-red-600">{error}</span>
+        <span className="text-xs text-red-600">{error}</span>
       </div>
     );
   }

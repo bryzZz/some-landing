@@ -104,7 +104,7 @@ export const Bonuses: React.FC = () => {
                     </p>
                   </div>
                   <a
-                    className="flex items-center gap-1 text-sm font-extrabold text-[#3452FF] md:ml-auto lg:text-base 3xl:text-xl"
+                    className="flex items-center gap-1 text-base font-extrabold text-[#3452FF] md:ml-auto 3xl:text-xl"
                     href={link}
                     target="_blank"
                     rel="noreferrer"

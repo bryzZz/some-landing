@@ -18,7 +18,10 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
 
   return (
     <div
-      className="cursor-pointer select-none rounded-2xl bg-[#F9F9F9] p-[30px]"
+      className={twMerge(
+        "cursor-pointer select-none rounded-2xl p-[30px] transition-colors",
+        isOpen && "bg-[#F9F9F9]"
+      )}
       onClick={toggle}
     >
       <div className="flex items-center justify-between">

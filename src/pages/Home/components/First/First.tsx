@@ -74,10 +74,10 @@ export const First: React.FC = () => {
             </div>
             <Zoom
               duration={300}
-              className="w-full max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
+              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
               delay={200}
             >
-              <div className="relative aspect-square min-h-[380px]">
+              <div className="relative aspect-square md:min-h-[380px]">
                 <div className="absolute left-1/2 top-1/2 aspect-square w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary-300 to-primary-400" />
                 <img
                   className="absolute bottom-0 left-0 w-5/12 animate-secondary-img object-cover"
@@ -127,10 +127,10 @@ export const First: React.FC = () => {
             </div>
             <Zoom
               duration={300}
-              className="w-full max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
+              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
               delay={200}
             >
-              <div className="relative aspect-square min-h-[380px]">
+              <div className="relative aspect-square md:min-h-[380px]">
                 <div className="absolute left-1/2 top-1/2 aspect-square w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary-300 to-primary-400" />
                 <img
                   className="absolute bottom-0 left-0 w-5/12 animate-secondary-img object-cover"
@@ -181,10 +181,10 @@ export const First: React.FC = () => {
             </div>
             <Zoom
               duration={300}
-              className="w-full max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
+              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
               delay={200}
             >
-              <div className="relative aspect-square min-h-[380px]">
+              <div className="relative aspect-square md:min-h-[380px]">
                 <div className="absolute left-1/2 top-1/2 aspect-square w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary-300 to-primary-400" />
                 <img
                   className="absolute bottom-0 left-0 w-5/12 animate-secondary-img object-cover"

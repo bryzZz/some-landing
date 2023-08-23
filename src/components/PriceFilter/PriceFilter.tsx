@@ -59,6 +59,7 @@ export const PriceFilter: React.FC<PriceFilterProps> = ({
       }
       position="bottom left"
       offsetY={8}
+      keepTooltipInside
       className="Category-popup"
     >
       <div>
