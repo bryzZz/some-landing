@@ -1,0 +1,7 @@
+.ModalSearch__overlay {
+  @apply pointer-events-none fixed inset-0 z-50 flex items-end justify-end bg-transparent p-0 px-[15px] pb-6 backdrop-blur-0;
+}
+
+.ModalSearch.ReactModal__Content {
+  @apply pointer-events-auto static z-50 h-auto w-fit overflow-auto p-0 shadow-200 outline-none;
+}

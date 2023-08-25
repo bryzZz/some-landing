@@ -1,14 +1,16 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, { useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { twMerge } from "tailwind-merge";
 
-import { FAQAccordion, TabPanel, FilterSearch } from "components";
+import { TabPanel, FilterSearch } from "components";
 
 import { ReactComponent as QuestionTab1 } from "assets/icons/question-tab-1.svg";
 import { ReactComponent as QuestionTab2 } from "assets/icons/question-tab-2.svg";
 import { ReactComponent as QuestionTab3 } from "assets/icons/question-tab-3.svg";
 import { ReactComponent as QuestionTab4 } from "assets/icons/question-tab-4.svg";
+import { FAQSection } from "components/FAQSection";
+import { ModalSearch } from "components/ModalSearch";
 
 const questionTabs = [
   {
@@ -140,26 +142,111 @@ const questionTabs = [
 
 const labelsAndIcons = questionTabs.map(({ label, Icon }) => ({ label, Icon }));
 
+// я знаю что это говнокод....
 export const FAQ: React.FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const [search, setSearch] = useState("");
+
+  const [currentSearchedIndex, setCurrentSearchedIndex] = useState(0);
+  const [currentSearchedQuestion, setCurrentSearchedQuestion] = useState(0);
+  const [maxSearchedIndex, setMaxSearchedIndex] = useState(0);
+  const [currentHighlighted, setCurrentHighlighted] = useState<Element | null>(
+    null
+  );
+  const [isSearching, setIsSearching] = useState(false);
+  const [trigger, setTrigger] = useState(0);
 
   const [tabValue, setTabValue] = useState(0);
 
   const handleTabClick = (i: number) => {
     setTabValue(i);
-
-    ref.current?.scrollIntoView();
   };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const value = (e.target as any)?.[0]?.value;
+
+    if (typeof value !== "string") return;
+
+    setSearch(value);
+    setIsSearching(!!value);
+    setCurrentSearchedIndex(0);
+
+    setTrigger((p) => p + 1);
+  };
+
+  const highlightedData = useMemo(() => {
+    let i = 0;
+
+    const result = questionTabs.map(({ questions, ...other }, j) => {
+      return {
+        ...other,
+        questions: questions.map((question, k) => {
+          if (!isSearching || !search) return question;
+
+          const pattern = new RegExp(search, "gi");
+
+          const replacer = (match: string) =>
+            `<span data-index="${i++}" data-group="${j}" data-question="${k}" class='highlight'>${match}</span>`;
+
+          return {
+            heading: question.heading.replaceAll(pattern, replacer),
+            solution: question.solution.replaceAll(pattern, replacer),
+          };
+        }),
+      };
+    });
+
+    setMaxSearchedIndex(i - 1);
+
+    return result;
+  }, [isSearching, search]);
+
+  const hadleClickNext = () => {
+    setCurrentSearchedIndex((p) => Math.min(p + 1, maxSearchedIndex));
+  };
+  const hadleClickPrev = () => {
+    setCurrentSearchedIndex((p) => Math.max(p - 1, 0));
+  };
+
+  useEffect(() => {
+    if (!isSearching) return;
+
+    const currentHighlighted = document.querySelector(
+      `span.highlight[data-index="${currentSearchedIndex}"]`
+    );
+    const tabIndex = (currentHighlighted as any)?.dataset?.group;
+    const questionIndex = (currentHighlighted as any)?.dataset?.question;
+
+    if (!currentHighlighted || !tabIndex || !questionIndex) return;
+
+    document
+      .querySelectorAll("span.highlight")
+      .forEach((s) => s.classList.remove("current"));
+    currentHighlighted.classList.add("current");
+
+    setTabValue(Number(tabIndex));
+    setCurrentSearchedQuestion(Number(questionIndex));
+    setCurrentHighlighted(currentHighlighted);
+  }, [currentSearchedIndex, isSearching, trigger]);
+
+  useEffect(() => {
+    if (!currentHighlighted) return;
+
+    currentHighlighted?.scrollIntoView({ block: "center" });
+  }, [currentHighlighted]);
 
   return (
     <section className="FAQ-container mb-28">
       <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
         <h1 className="heading-1 mb-7 text-center">Вопросы и ответы</h1>
 
-        <FilterSearch
-          className="mx-auto mb-6 w-full max-w-xl py-2"
-          placeholder="Поиск вопроса"
-        />
+        <form onSubmit={handleSubmit}>
+          <FilterSearch
+            className="mx-auto mb-6 w-full max-w-xl py-2"
+            placeholder="Поиск вопроса"
+          />
+        </form>
 
         <p className="sub-heading-4 mb-32 text-center">
           Или выбирите категорию вопроса ниже.
@@ -195,31 +282,26 @@ export const FAQ: React.FC = () => {
         </div>
       </div>
 
-      <div ref={ref} className="scroll-mt-24">
-        {questionTabs.map(({ label, questions }, i) => (
+      <div>
+        {highlightedData.map(({ label, questions }, i) => (
           <TabPanel value={i} tabValue={tabValue} key={i}>
-            <Fade direction="up" duration={500} triggerOnce>
-              <h2 className="heading-2 mb-[70px] text-center">
-                {label}
-                <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
-              </h2>
-            </Fade>
-            <div className="flex flex-col gap-4">
-              <Fade
-                cascade
-                direction="up"
-                duration={500}
-                damping={0.3}
-                triggerOnce
-              >
-                {questions.map(({ heading, solution }, i) => (
-                  <FAQAccordion header={heading} content={solution} key={i} />
-                ))}
-              </Fade>
-            </div>
+            <FAQSection
+              label={label}
+              questions={questions}
+              currentGroup={i === tabValue}
+              currentQuestion={currentSearchedQuestion}
+              triggerReset={trigger}
+            />
           </TabPanel>
         ))}
       </div>
+
+      <ModalSearch
+        isOpen={isSearching}
+        onRequestClose={() => setIsSearching(false)}
+        onClickNext={hadleClickNext}
+        onClickPrev={hadleClickPrev}
+      />
     </section>
   );
 };

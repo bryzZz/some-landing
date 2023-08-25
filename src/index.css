@@ -66,6 +66,14 @@
     border: 1px solid #fcfcfc;
     border-radius: 3px;
   }
+
+  .highlight {
+    @apply inline-block rounded bg-yellow-500 px-[2px] transition-colors;
+  }
+
+  .highlight.current {
+    @apply bg-orange-600;
+  }
 }
 
 @layer components {
