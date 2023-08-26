@@ -267,7 +267,16 @@ export const FAQ: React.FC = () => {
             <h5 className="heading-5 text-center">{label}</h5>
           </div>
         ))}
-        <div className="relative col-span-full h-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-5 shadow-100 md:col-span-1 md:pt-14">
+        <div
+          className="relative col-span-full h-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-5 shadow-100 md:col-span-1 md:pt-14"
+          onClick={() => {
+            const a = document.createElement("a");
+            a.setAttribute("href", "mailto:info@leadshub.pro");
+            a.setAttribute("target", "_blank");
+            a.click();
+            a.remove();
+          }}
+        >
           <div className="absolute -left-14 -top-5 z-10 h-36 w-36 rounded-full bg-gradient-to-l from-text-100 to-transparent" />
           <div className="relative z-20 h-full">
             <h5 className="heading-5 mb-2 md:mb-[37px]">

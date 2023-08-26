@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { twMerge } from "tailwind-merge";
 
 import { ReactComponent as ArrowRight } from "assets/icons/question-arrow-right.svg";

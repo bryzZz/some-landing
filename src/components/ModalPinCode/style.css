@@ -1,0 +1,7 @@
+.ModalPinCode__overlay {
+  @apply fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,0.50)] p-0;
+}
+
+.ModalPinCode {
+  @apply static mx-[15px] h-auto w-full max-w-[531px] overflow-auto rounded-xl bg-white p-0;
+}
