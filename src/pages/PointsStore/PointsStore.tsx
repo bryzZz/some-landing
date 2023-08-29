@@ -152,10 +152,10 @@ export const PointsStore: React.FC = () => {
               className="relative h-full overflow-hidden rounded-2xl bg-text-100 pb-6 pt-6 shadow-100 md:pb-9 md:pt-[clamp(12rem,12vw,20rem)] 3xl:pb-14"
             >
               <img
-                className="absolute right-0 z-10 w-full max-w-[200px] object-contain md:-right-20 md:top-0 md:max-w-[clamp(20rem,18vw,35rem)]"
+                className="absolute -right-20 -top-10 z-10 w-full max-w-[280px] object-contain md:top-0 md:max-w-[clamp(20rem,18vw,35rem)]"
                 src={image}
               />
-              <div className="relative z-20 pl-4 pr-44 md:pl-9 md:pr-0">
+              <div className="relative z-20 pl-4 pr-32 md:pl-9 md:pr-0">
                 <p className="sub-heading-3 mb-[10px] font-semibold">
                   {supTitle}
                 </p>

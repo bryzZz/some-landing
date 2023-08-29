@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 
+import useLocalStorage from "hooks/useLocalStorage";
+
 import "./style.css";
-import { useCookieModal } from "store/useModals";
 
 Modal.setAppElement("#root");
 
 export const ModalCookie: React.FC = () => {
-  const { isOpen, setIsOpen } = useCookieModal();
+  const [lastCookieDate, setLastCookieDate] = useLocalStorage(
+    "leadshub-cookie",
+    { date: new Date() }
+  );
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const now = new Date();
+
+    const t2 = now.getTime();
+    const t1 = new Date(lastCookieDate.date).getTime();
+
+    const diff = Math.floor((t2 - t1) / (24 * 3600 * 1000));
+
+    if (diff < 0 || diff > 30) {
+      setLastCookieDate({ date: now });
+      setIsOpen(true);
+    }
+  }, [lastCookieDate, setLastCookieDate]);
 
   const onClose = () => {
     setIsOpen(false);
