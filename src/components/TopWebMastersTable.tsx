@@ -74,7 +74,7 @@ export const TopWebMastersTable: React.FC = () => {
                       <img className="h-8 w-8 object-contain" src={Person} />
                       {name || "Leadshuber"}
                     </div>
-                    <div className="flex flex-wrap items-center justify-between gap-5">
+                    <div className="flex items-center justify-between gap-5">
                       <div>
                         <span className="text-[#B3B3B3]">За день: </span>
                         <span className="text-primary-100">₽</span>{" "}

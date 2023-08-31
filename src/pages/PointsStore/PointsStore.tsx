@@ -16,6 +16,7 @@ import CardImage1 from "assets/images/points-store-card-1.png";
 import CardImage2 from "assets/images/points-store-card-2.png";
 import CardImage3 from "assets/images/points-store-card-3.png";
 import { PointsStoreResponse } from "types";
+import { useMediaQuery } from "hooks";
 
 const infoCards = [
   {
@@ -44,6 +45,8 @@ const sortVariants = ["По возрастанию цены", "По убыван
 type Category = { label: string; checked: boolean };
 
 export const PointsStore: React.FC = () => {
+  const matches = useMediaQuery("(min-width: 768px)");
+
   const { data, isLoading } = useSWR<PointsStoreResponse>(
     "https://leads-bonus.ru/api.shop"
   );
@@ -152,10 +155,10 @@ export const PointsStore: React.FC = () => {
               className="relative h-full overflow-hidden rounded-2xl bg-text-100 pb-6 pt-6 shadow-100 md:pb-9 md:pt-[clamp(12rem,12vw,20rem)] 3xl:pb-14"
             >
               <img
-                className="absolute -right-20 -top-10 z-10 w-full max-w-[280px] object-contain md:top-0 md:max-w-[clamp(20rem,18vw,35rem)]"
+                className="absolute -right-20 -top-10 z-10 w-full max-w-[260px] object-contain md:top-0 md:max-w-[clamp(20rem,18vw,35rem)]"
                 src={image}
               />
-              <div className="relative z-20 pl-4 pr-32 md:pl-9 md:pr-0">
+              <div className="relative z-20 pl-4 pr-28 md:pl-9 md:pr-0">
                 <p className="sub-heading-3 mb-[10px] font-semibold">
                   {supTitle}
                 </p>
@@ -176,6 +179,7 @@ export const PointsStore: React.FC = () => {
               <CategoryFilter
                 categories={categories}
                 onCategoryClick={handleCategoryClick}
+                position={matches ? "bottom left" : "bottom center"}
                 // newCategoryCount={2}
               />
               <SortFilter
