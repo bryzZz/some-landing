@@ -5,7 +5,6 @@ import { CategoryFilter, FilterSearch, ShopPreviewMini } from "components";
 
 import { bonuses } from "constants/index";
 import { ReactComponent as ExternalLink } from "assets/icons/external-link.svg";
-import { useMediaQuery } from "hooks";
 
 const allCategories = [
   "Все категории",
@@ -16,8 +15,6 @@ const allCategories = [
 ];
 
 export const Bonuses: React.FC = () => {
-  const matches = useMediaQuery("(min-width: 768px)");
-
   const [categories, setCategories] = useState(() =>
     allCategories.map((label) => ({ label, checked: false }))
   );
@@ -48,7 +45,7 @@ export const Bonuses: React.FC = () => {
           <CategoryFilter
             categories={categories}
             onCategoryClick={handleCategoryClick}
-            position={matches ? "bottom center" : "bottom left"}
+            position="bottom left"
             // newCategoryCount={1}
           />
 
