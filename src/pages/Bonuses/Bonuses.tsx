@@ -76,14 +76,14 @@ export const Bonuses: React.FC = () => {
                   key={i}
                 >
                   <img
-                    className="mr-6 w-full max-w-[180px] md:max-w-[120px] lg:mr-16 3xl:max-w-[180px]"
+                    className="mr-6 w-full max-w-[180px] md:max-w-[120px] lg:mr-16 3xl:max-w-[160px]"
                     src={img}
                   />
-                  <p className="sub-heading-3 mr-2 w-full max-w-[350px] shrink-0 font-semibold lg:mr-7 lg:max-w-[418px] 3xl:max-w-[500px]">
+                  <p className="sub-heading-3 mr-2 w-full max-w-[350px] shrink-0 font-semibold lg:mr-7 lg:max-w-[418px] 3xl:max-w-[400px]">
                     {text}
                   </p>
                   <div className="mr-3">
-                    <p className="mb-1 text-xl font-extrabold uppercase text-text-400 lg:mb-2 lg:text-2xl 3xl:text-4xl">
+                    <p className="mb-1 text-xl font-extrabold uppercase text-text-400 lg:mb-2 lg:text-2xl 3xl:text-3xl">
                       <span
                         className={twMerge(
                           bonusLeft.highlight && "text-primary-100"
@@ -99,13 +99,13 @@ export const Bonuses: React.FC = () => {
                         {bonusRight.value}
                       </span>
                     </p>
-                    <p className="text-sm font-semibold text-text-400 lg:text-base 3xl:text-xl">
+                    <p className="text-sm font-semibold text-text-400 lg:text-base 3xl:text-lg">
                       {promocodeText}{" "}
                       <span className="font-bold">{promocode}</span>
                     </p>
                   </div>
                   <a
-                    className="flex items-center gap-1 text-base font-extrabold text-[#3452FF] md:ml-auto 3xl:text-xl"
+                    className="flex items-center gap-1 text-base font-extrabold text-[#3452FF] md:ml-auto 3xl:text-lg"
                     href={link}
                     target="_blank"
                     rel="noreferrer"

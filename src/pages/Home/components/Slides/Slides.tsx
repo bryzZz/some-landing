@@ -142,7 +142,7 @@ export const Slides: React.FC = () => {
       </Scene>
 
       <div className="small-container">
-        <div className="max-w-2xl 3xl:max-w-[850px]">
+        <div className="max-w-2xl 3xl:max-w-[720px]">
           <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
             <h2 className="heading-2 mb-5">
               Индивидуальность & инновационность, уверенность
@@ -182,7 +182,7 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
+                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[150px]">
                     <span className="text-primary-100">$</span>20m+
                   </h3>
                   <p className="sub-heading-3 md:max-w-xs">
@@ -214,7 +214,7 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
+                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[150px]">
                     300+
                   </h3>
                   <p className="sub-heading-3 md:max-w-xs">
@@ -244,7 +244,7 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[170px]">
+                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[150px]">
                     600+
                   </h3>
                   <p className="sub-heading-3 md:max-w-xs">

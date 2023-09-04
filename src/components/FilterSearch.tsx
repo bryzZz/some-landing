@@ -28,7 +28,7 @@ export const FilterSearch: React.FC<FilterSearchProps> = ({
       <Search />
       <input
         className={twMerge(
-          "pb-[8px] pt-[7px] text-sm text-text-400 outline-none placeholder:text-[#C8C8C8] 3xl:text-xl",
+          "pb-[8px] pt-[7px] text-sm text-text-400 outline-none placeholder:text-[#C8C8C8] 3xl:text-base",
           inputClassName
         )}
         type="text"

@@ -78,27 +78,27 @@
 
 @layer components {
   .header-container {
-    @apply mx-auto w-full max-w-[1820px] px-4 3xl:max-w-[2457px];
+    @apply mx-auto w-full max-w-[1820px] px-4 3xl:max-w-[1965px];
   }
 
   .base-container {
-    @apply mx-auto w-full max-w-[1314px] px-4 3xl:max-w-[1986px];
+    @apply mx-auto w-full max-w-[1314px] px-4 3xl:max-w-[1588px];
   }
 
   .small-container {
-    @apply mx-auto w-full max-w-[1122px] px-4 3xl:max-w-[1640px];
+    @apply mx-auto w-full max-w-[1122px] px-4 3xl:max-w-[1312px];
   }
 
   .reviews-container {
-    @apply pl-[max(calc((100%_-_1314px)_/_2),_15px)] 3xl:pl-[max(calc((100%_-_1986px)_/_2),_15px)];
+    @apply pl-[max(calc((100%_-_1314px)_/_2),_15px)] 3xl:pl-[max(calc((100%_-_1588px)_/_2),_15px)];
   }
 
   .FAQ-container {
-    @apply mx-auto w-full max-w-[1090px] px-4 3xl:max-w-[1660px];
+    @apply mx-auto w-full max-w-[1090px] px-4 3xl:max-w-[1328px];
   }
 
   .btn-primary {
-    @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 px-9 py-4 text-base font-extrabold text-text-100 shadow-[0px_8px_25px_-8px_#F2821D] transition hover:shadow-[0px_19px_30px_-10px_rgba(248,172,29,0.88)] md:px-6 md:py-3 md:text-[13px] xl:text-base 3xl:text-lg;
+    @apply rounded bg-gradient-to-r from-primary-100 via-primary-200 to-primary-100 px-9 py-4 text-base font-extrabold text-text-100 shadow-[0px_8px_25px_-8px_#F2821D] transition hover:shadow-[0px_19px_30px_-10px_rgba(248,172,29,0.88)] md:px-6 md:py-3 md:text-[13px] xl:text-base;
   }
 
   .btn-secondary {
@@ -110,46 +110,46 @@
   }
 
   .tag {
-    @apply cursor-pointer rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF] transition-colors hover:bg-opacity-100 hover:text-white 3xl:text-xl;
+    @apply cursor-pointer rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF] transition-colors hover:bg-opacity-100 hover:text-white 3xl:text-base;
   }
 
   .heading-1 {
-    @apply text-[32px] font-extrabold leading-10 text-text-400 lg:text-5xl 3xl:text-[73px] 3xl:leading-[91px];
+    @apply text-[32px] font-extrabold leading-10 text-text-400 lg:text-5xl 3xl:text-[58px] 3xl:leading-[72px];
   }
 
   .heading-2 {
-    @apply text-[28px] font-semibold leading-8 text-text-400 md:text-[32px] lg:text-4xl 3xl:text-5xl;
+    @apply text-[28px] font-semibold leading-8 text-text-400 md:text-[32px] lg:text-4xl;
   }
 
   .heading-3 {
-    @apply text-[24px] font-bold leading-[36px] text-text-400 lg:text-[30px] 3xl:text-4xl;
+    @apply text-[24px] font-bold leading-[36px] text-text-400 lg:text-[30px];
   }
 
   .heading-4 {
-    @apply text-base font-bold leading-[23px] text-text-400 lg:text-[19px] 3xl:text-2xl;
+    @apply text-base font-bold leading-[23px] text-text-400 lg:text-[19px];
   }
 
   .heading-5 {
-    @apply text-sm font-bold leading-5 text-text-400 lg:text-base 3xl:text-xl;
+    @apply text-sm font-bold leading-5 text-text-400 lg:text-base;
   }
 
   .heading-6 {
-    @apply text-[15px] font-bold leading-5 text-text-400 lg:text-base 3xl:text-xl;
+    @apply text-[15px] font-bold leading-5 text-text-400 lg:text-base;
   }
 
   .sub-heading-1 {
-    @apply text-[17px] font-semibold leading-7 text-text-300 lg:text-[19px] 3xl:text-2xl;
+    @apply text-[17px] font-semibold leading-7 text-text-300 lg:text-[19px] 3xl:text-xl;
   }
 
   .sub-heading-2 {
-    @apply text-base leading-7 text-text-300 lg:text-lg 3xl:text-xl;
+    @apply text-base leading-7 text-text-300 lg:text-lg;
   }
 
   .sub-heading-3 {
-    @apply text-sm leading-6 text-text-300 lg:text-base 3xl:text-xl;
+    @apply text-sm leading-6 text-text-300 lg:text-base;
   }
 
   .sub-heading-4 {
-    @apply text-sm leading-[19px] text-text-300 3xl:text-xl;
+    @apply text-sm leading-[19px] text-text-300;
   }
 }

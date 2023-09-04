@@ -28,24 +28,24 @@ export const Posts: React.FC<PostsProps> = ({ posts, className }) => {
               className="post w-full cursor-pointer rounded-xl bg-white p-5 shadow-100"
               onClick={handleClick(link)}
             >
-              <span className="mb-5 text-[13px] font-semibold leading-5 text-[#999FAE] 3xl:text-lg">
+              <span className="mb-5 text-[13px] font-semibold leading-5 text-[#999FAE] 3xl:text-base">
                 {date}
               </span>
               <div className="mb-2 flex flex-wrap gap-[10px]">
                 {tags.map((tag) => (
-                  <p className="text-sm font-bold text-[#3452FF] 3xl:text-xl">
+                  <p className="text-sm font-bold text-[#3452FF] 3xl:text-lg">
                     {tag}
                   </p>
                 ))}
               </div>
-              <h3 className="mb-2 text-xl font-bold text-text-400 3xl:text-3xl">
+              <h3 className="mb-2 text-xl font-bold text-text-400 3xl:text-2xl">
                 {title}
               </h3>
               <p className="sub-heading-4">{text}</p>
               {image && (
                 <img
                   src={image}
-                  className="mt-4 h-full max-h-[219px] w-full rounded-xl object-cover 3xl:max-h-[334px]"
+                  className="mt-4 h-full max-h-[219px] w-full rounded-xl object-cover 3xl:max-h-[267px]"
                 />
               )}
             </div>
@@ -53,7 +53,7 @@ export const Posts: React.FC<PostsProps> = ({ posts, className }) => {
         </Masonry>
       </ResponsiveMasonry>
 
-      <div className="mb-12 flex items-stretch gap-1 text-sm font-semibold text-text-400 3xl:text-lg">
+      <div className="mb-12 flex items-stretch gap-1 text-sm font-semibold text-text-400 3xl:text-base">
         <button className="flex h-[35px] w-[35px] items-center justify-center rounded bg-[#3452FF] text-white">
           1
         </button>

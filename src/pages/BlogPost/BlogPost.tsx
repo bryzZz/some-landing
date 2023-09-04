@@ -43,7 +43,7 @@ const recentPosts: RecentPost[] = [
 export const BlogPost: React.FC = () => {
   return (
     <Fancybox>
-      <div className="mx-auto w-full max-w-[1211px] px-4 3xl:max-w-[1792px]">
+      <div className="mx-auto w-full max-w-[1211px] px-4 3xl:max-w-[1433px]">
         <h1 className="heading-1 mb-[89px] text-center lg:mb-40">
           Кейс на Индию с ROI ~400%
         </h1>

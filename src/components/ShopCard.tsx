@@ -24,19 +24,19 @@ export const ShopCard: React.FC<ShopCardProps> = ({
       )}
     >
       <img
-        className="mb-7 h-44 object-contain lg:h-64 3xl:h-96"
+        className="mb-7 h-44 object-contain lg:h-64 3xl:h-80"
         src={data.img}
       />
-      <h5 className="mb-1 text-xs font-black uppercase text-[#B5B5B5] md:mb-3 lg:text-sm 3xl:text-xl">
+      <h5 className="mb-1 text-xs font-black uppercase text-[#B5B5B5] md:mb-3 lg:text-sm 3xl:text-base">
         {data.price} БАЛЛОВ
       </h5>
-      <h4 className="md:heading-4 mx-3 mb-auto whitespace-pre-line text-sm font-bold 3xl:text-2xl">
+      <h4 className="md:heading-4 mx-3 mb-auto whitespace-pre-line text-sm font-bold 3xl:text-xl">
         {data.name}
       </h4>
 
       {details && (
         <button
-          className="mt-5 rounded-[4px] bg-[#F3F3F3] px-[26px] py-[14px] text-sm font-bold leading-4 text-text-400 transition hover:bg-[#DDD] 3xl:text-xl"
+          className="mt-5 rounded-[4px] bg-[#F3F3F3] px-[26px] py-[14px] text-sm font-bold leading-4 text-text-400 transition hover:bg-[#DDD] 3xl:text-base"
           onClick={onDetailsClick}
         >
           Подробнее

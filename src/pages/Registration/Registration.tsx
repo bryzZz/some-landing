@@ -68,7 +68,7 @@ export const Registration: React.FC = () => {
 
   return (
     <>
-      <div className="mx-4 flex w-full flex-col items-center rounded-3xl bg-text-100 p-5 shadow-400 md:p-10 3xl:p-14">
+      <div className="mx-4 flex w-full flex-col items-center rounded-3xl bg-text-100 p-5 shadow-400 md:p-10 3xl:p-12">
         <Link to={BASE_PATH} className="mb-4 block md:mb-9">
           <Logo />
         </Link>
@@ -88,7 +88,7 @@ export const Registration: React.FC = () => {
           />
         </TabPanel>
 
-        <p className="text-sm text-[#000] 3xl:text-xl">
+        <p className="text-sm text-[#000] 3xl:text-lg">
           У вас уже есть аккаунт?{" "}
           <Link
             className="text-[#088DF4] underline"

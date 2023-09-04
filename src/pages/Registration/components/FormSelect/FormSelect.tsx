@@ -13,7 +13,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
   ...props
 }) => {
   return (
-    <label className="flex w-full flex-col text-sm 3xl:text-xl">
+    <label className="flex w-full flex-col text-sm 3xl:text-base">
       <span className="mb-2 font-semibold text-text-400">{label}</span>
       <Select classNamePrefix="FormSelect" isClearable={false} {...props} />
       <span className="text-xs text-red-600">{error}</span>

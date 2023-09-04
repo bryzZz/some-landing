@@ -7,7 +7,7 @@
 }
 
 .BlogPost__title-2 {
-  @apply mb-5 mt-7 text-[21px] font-bold leading-8 3xl:text-4xl;
+  @apply mb-5 mt-7 text-[21px] font-bold leading-8 3xl:text-3xl;
 }
 
 .BlogPost__img-main {
@@ -23,7 +23,7 @@
 }
 
 .BlogPost__date {
-  @apply flex items-center justify-center gap-2 text-[13px] font-semibold leading-5 text-[#999FAE] 3xl:text-xl;
+  @apply flex items-center justify-center gap-2 text-[13px] font-semibold leading-5 text-[#999FAE] 3xl:text-lg;
 }
 
 .BlogPost__tags {
@@ -31,23 +31,23 @@
 }
 
 .BlogPost__tag {
-  @apply rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF] 3xl:text-xl;
+  @apply rounded bg-[#3452FF] bg-opacity-[0.14] px-[10px] py-[5px] text-sm font-bold text-[#3452FF] 3xl:text-lg;
 }
 
 .BlogPost__text {
-  @apply mb-4 whitespace-pre-line text-base leading-7 md:mb-5 3xl:text-2xl;
+  @apply mb-4 whitespace-pre-line text-base leading-7 md:mb-5 3xl:text-xl;
 }
 
 .BlogPost__text-highlighted {
-  @apply mb-4 rounded-[5px] bg-[#F8F8F8] p-5 text-base leading-7 3xl:text-2xl;
+  @apply mb-4 rounded-[5px] bg-[#F8F8F8] p-5 text-base leading-7 3xl:text-xl;
 }
 
 .BlogPost__quote {
-  @apply relative mb-[26px] pl-5 text-sm leading-5 after:absolute after:bottom-0 after:left-1 after:top-0 after:w-[5px] after:rounded-[10px] after:bg-primary-500 after:content-[''] 3xl:text-2xl;
+  @apply relative mb-[26px] pl-5 text-sm leading-5 after:absolute after:bottom-0 after:left-1 after:top-0 after:w-[5px] after:rounded-[10px] after:bg-primary-500 after:content-[''] 3xl:text-xl;
 }
 
 .BlogPost__text--accent {
-  @apply text-primary-100 3xl:text-2xl;
+  @apply text-primary-100 3xl:text-xl;
 }
 
 .BlogPost__ordered-list {
@@ -55,7 +55,7 @@
 }
 
 .BlogPost__ordered-list-item {
-  @apply mb-4 ml-5 text-base leading-7 3xl:text-2xl;
+  @apply mb-4 ml-5 text-base leading-7 3xl:text-xl;
 }
 
 .BlogPost__tiles {
@@ -75,9 +75,9 @@
 }
 
 .BlogPost__tile-title {
-  @apply mb-1 text-base font-bold leading-7 3xl:text-2xl;
+  @apply mb-1 text-base font-bold leading-7 3xl:text-xl;
 }
 
 .BlogPost__tile-text {
-  @apply text-sm leading-5 3xl:text-2xl;
+  @apply text-sm leading-5 3xl:text-xl;
 }

@@ -34,7 +34,7 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
 
   return (
     <div className="flex gap-10 lg:gap-20 xl:gap-[114px]">
-      <div className="hidden pt-10 md:block 3xl:pt-14">
+      <div className="hidden pt-10 md:block 3xl:pt-12">
         <button className="swiper-nav-btn mb-10 block" ref={prevRef}>
           <ArrowLeft />
         </button>
@@ -73,14 +73,14 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
                 <div className="flex items-center gap-4">
                   <div
                     className={twMerge(
-                      "h-[70px] w-[70px] -translate-y-3 rounded-md 3xl:h-[95px] 3xl:w-[95px]",
+                      "h-[70px] w-[70px] -translate-y-3 rounded-md 3xl:h-[85px] 3xl:w-[85px]",
                       avatarBg && "bg-[#e5e5e5] p-2"
                     )}
                   >
                     <img className="h-full w-full" src={avatar} />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center justify-between text-[13px] 3xl:text-lg">
+                    <div className="flex items-center justify-between text-[13px] 3xl:text-base">
                       <p className="font-semibold text-text-200">{date}</p>
                       {rating && (
                         <p className="flex items-center gap-[2px] font-bold">
@@ -92,16 +92,18 @@ export const ReviewsSlider: React.FC<ReviewsSliderProps> = ({ items }) => {
                         </p>
                       )}
                     </div>
-                    <h6 className="text-[15px] font-bold text-text-400 3xl:text-xl">
+                    <h6 className="text-[15px] font-bold text-text-400 3xl:text-base">
                       {title}
                     </h6>
                   </div>
                 </div>
 
-                <p className="mb-3 text-sm text-text-300 3xl:text-lg">{text}</p>
+                <p className="mb-3 text-sm text-text-300 3xl:text-base">
+                  {text}
+                </p>
 
                 {source && (
-                  <p className="mt-auto text-right text-[13px] font-semibold text-[#C0C0C0] 3xl:text-base">
+                  <p className="mt-auto text-right text-[13px] font-semibold text-[#C0C0C0] 3xl:text-sm">
                     Отзыв с сайта:{" "}
                     <a
                       href={source}

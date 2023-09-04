@@ -31,7 +31,7 @@ export const CommunicationSelect = forwardRef<
   CommunicationSelectProps
 >(({ error, ...props }, ref) => {
   return (
-    <label className="flex w-full flex-col text-sm 3xl:text-xl">
+    <label className="flex w-full flex-col text-sm 3xl:text-base">
       <span className="mb-2 font-semibold text-text-400">Способ связи</span>
       <div className="flex items-stretch">
         <Select

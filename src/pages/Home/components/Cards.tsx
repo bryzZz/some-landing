@@ -115,7 +115,7 @@ export const Cards: React.FC = () => {
         {topCards.map(({ Icon, title, subTitle }, i) => (
           <div key={i}>
             <div className="mb-3 flex items-center gap-4">
-              <Icon className="h-[50px] w-[50px] flex-shrink-0 3xl:h-[70px] 3xl:w-[70px]" />
+              <Icon className="h-[50px] w-[50px] flex-shrink-0 3xl:h-[56px] 3xl:w-[56px]" />
               <h5 className="heading-6">{title}</h5>
             </div>
             <p className="sub-heading-4">{subTitle}</p>
@@ -128,7 +128,7 @@ export const Cards: React.FC = () => {
         className="col-span-6 row-span-2 md:col-span-2 lg:col-span-2 lg:row-span-6"
       >
         <div className="flex flex-col items-center rounded-2xl bg-gradient-to-br from-primary-300 to-primary-400 p-6 pt-2 shadow-100">
-          <img src={MainImage2} className="3xl:min-h-[360px]" />
+          <img src={MainImage2} className="3xl:min-h-[288px]" />
           <p className="heading-6 text-center text-text-100">Генератор чеков</p>
         </div>
       </Zoom>

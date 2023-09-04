@@ -3,7 +3,7 @@
 }
 
 .FormSelect__value-container {
-  @apply text-sm 3xl:text-xl !important;
+  @apply text-sm 3xl:text-base !important;
 }
 
 .FormSelect__indicator-separator {

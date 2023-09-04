@@ -19,7 +19,7 @@ export const TopOffersTable: React.FC = () => {
   return (
     <table className="w-full table-fixed border-separate border-spacing-y-2">
       <thead>
-        <tr className="bg-[#F4F4F4] text-sm font-bold text-[#B3B3B3] 3xl:text-xl">
+        <tr className="bg-[#F4F4F4] text-sm font-bold text-[#B3B3B3] 3xl:text-base">
           {matches && <th className="w-14" />}
           <th
             className={twMerge(

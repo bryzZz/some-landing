@@ -57,7 +57,7 @@ export const First: React.FC = () => {
                     Надежный партнер
                   </span>
                 </div>
-                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[1024px]">
+                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
                   Монетизируйте трафик по лучшим условиям
                 </h1>
                 <p className="sub-heading-1 mb-10 max-w-[618px]">
@@ -74,7 +74,7 @@ export const First: React.FC = () => {
             </div>
             <Zoom
               duration={300}
-              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
+              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[480px]"
               delay={200}
             >
               <div className="relative aspect-square md:min-h-[380px]">
@@ -111,7 +111,7 @@ export const First: React.FC = () => {
                     Надежный партнер
                   </span>
                 </div>
-                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[1024px]">
+                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
                   Получайте прибыль от качественного трафика
                 </h1>
                 <p className="sub-heading-1 mb-10 max-w-[618px]">
@@ -127,7 +127,7 @@ export const First: React.FC = () => {
             </div>
             <Zoom
               duration={300}
-              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
+              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[480px]"
               delay={200}
             >
               <div className="relative aspect-square md:min-h-[380px]">
@@ -164,7 +164,7 @@ export const First: React.FC = () => {
                     Надежный партнер
                   </span>
                 </div>
-                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[1024px]">
+                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
                   Монетизируйте трафик по лучшим условиям
                 </h1>
                 <p className="sub-heading-1 mb-10 max-w-[618px]">
@@ -181,7 +181,7 @@ export const First: React.FC = () => {
             </div>
             <Zoom
               duration={300}
-              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[600px]"
+              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[480px]"
               delay={200}
             >
               <div className="relative aspect-square md:min-h-[380px]">

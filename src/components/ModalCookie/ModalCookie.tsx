@@ -69,13 +69,13 @@ export const ModalCookie: React.FC = () => {
         </p>
         <div className="flex items-center justify-center gap-3">
           <button
-            className="btn-secondary px-5 py-2 text-xs font-bold 3xl:px-6 3xl:py-4 3xl:text-lg"
+            className="btn-secondary px-5 py-2 text-xs font-bold 3xl:px-6 3xl:py-3 3xl:text-base"
             onClick={close}
           >
             Принять
           </button>
           <button
-            className="btn-ternary px-5 py-2 text-xs font-bold 3xl:px-6 3xl:py-4 3xl:text-lg"
+            className="btn-ternary px-5 py-2 text-xs font-bold 3xl:px-6 3xl:py-3 3xl:text-base"
             onClick={close}
           >
             Запретить

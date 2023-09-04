@@ -9,7 +9,7 @@ interface TagsProps {
 export const Tags: React.FC<TagsProps> = ({ tags, className }) => {
   return (
     <div className={className}>
-      <p className="mb-6 text-base font-semibold text-text-400 3xl:text-2xl">
+      <p className="mb-6 text-base font-semibold text-text-400 3xl:text-xl">
         Облако тегов
       </p>
       <div className="flex flex-wrap gap-[10px]">

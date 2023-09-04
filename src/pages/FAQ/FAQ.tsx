@@ -263,7 +263,7 @@ export const FAQ: React.FC = () => {
             )}
             onClick={() => handleTabClick(i)}
           >
-            <Icon className="h-[130px] w-full max-w-[160px] 3xl:h-[220px]" />
+            <Icon className="h-[130px] w-full max-w-[160px] 3xl:h-[176px]" />
             <h5 className="heading-5 text-center">{label}</h5>
           </div>
         ))}
@@ -282,7 +282,7 @@ export const FAQ: React.FC = () => {
             <h5 className="heading-5 mb-2 md:mb-[37px]">
               Не нашли ответ на свой вопрос?
             </h5>
-            <p className="text-xs text-text-300 3xl:text-lg">
+            <p className="text-xs text-text-300 3xl:text-base">
               Напишите вопрос на почту{" "}
               <span className="underline">info@leadshub.pro</span>, и мы
               обязательно поможем!

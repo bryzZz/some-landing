@@ -75,13 +75,13 @@ export const Header: React.FC = () => {
             <Logo />
           </Link>
 
-          <nav className="mr-auto flex items-center gap-4 xl:gap-9 3xl:gap-10">
+          <nav className="mr-auto flex items-center gap-4 xl:gap-9">
             {navItems.map(({ label, path }, i) => (
               <Link
                 key={i}
                 to={path}
                 className={twMerge(
-                  "group text-[14px] font-semibold text-text-400 transition xl:text-base 3xl:text-xl",
+                  "group text-[14px] font-semibold text-text-400 transition xl:text-base",
                   isSticky && "hover:text-primary-500"
                 )}
               >
@@ -97,7 +97,7 @@ export const Header: React.FC = () => {
           </nav>
 
           <div className="flex items-center">
-            <div className="mr-6 hidden gap-2 xl:flex 3xl:mr-9">
+            <div className="mr-6 hidden gap-2 xl:flex">
               <Link
                 to="https://vk.com/leadshub"
                 className="p-[10px] text-[#ACACAC] transition hover:text-[#0076FE]"
@@ -117,7 +117,7 @@ export const Header: React.FC = () => {
             <div className="flex items-center gap-2">
               <Link
                 to="https://leadshub.affise.com/v2/sign/in"
-                className="flex items-center gap-1 px-6 py-4 text-[13px] font-extrabold xl:text-base 3xl:text-lg"
+                className="flex items-center gap-1 px-6 py-4 text-[13px] font-extrabold xl:text-base"
               >
                 <DoorEnter className="text-primary-100" />
                 Войти
