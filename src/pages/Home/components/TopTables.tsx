@@ -21,7 +21,7 @@ export const TopTables: React.FC = () => {
               }}
             />
             <div
-              className="absolute left-[10vw] h-20 w-20 rounded-full bg-[#7471FF]"
+              className="absolute left-[10vw] hidden h-20 w-20 rounded-full bg-[#7471FF] md:block"
               style={{
                 top: 700 + progress * -300,
               }}

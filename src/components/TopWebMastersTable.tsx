@@ -59,11 +59,11 @@ export const TopWebMastersTable: React.FC = () => {
                       />
                     </td>
                     <td className="py-3">{name || "Leadshuber"}</td>
-                    <td className="py-3">
+                    <td className="whitespace-nowrap py-3">
                       <span className="text-primary-100">₽</span>{" "}
                       {currencyFormat.format(Number(d))}
                     </td>
-                    <td className="rounded-br rounded-tr py-3">
+                    <td className="whitespace-nowrap rounded-br rounded-tr py-3">
                       <span className="text-primary-100">₽</span>{" "}
                       {currencyFormat.format(Number(m))}
                     </td>
@@ -75,12 +75,12 @@ export const TopWebMastersTable: React.FC = () => {
                       {name || "Leadshuber"}
                     </div>
                     <div className="flex items-center justify-between gap-5">
-                      <div>
+                      <div className="whitespace-nowrap">
                         <span className="text-[#B3B3B3]">За день: </span>
                         <span className="text-primary-100">₽</span>{" "}
                         {currencyFormat.format(Number(d))}
                       </div>
-                      <div>
+                      <div className="whitespace-nowrap">
                         <span className="text-[#B3B3B3]">За месяц: </span>
                         <span className="text-primary-100">₽</span>{" "}
                         {currencyFormat.format(Number(m))}

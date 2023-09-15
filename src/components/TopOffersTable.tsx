@@ -6,6 +6,8 @@ import { useMediaQuery } from "hooks";
 import { OffersResponse } from "types";
 import { OffersGeo } from "./OffersGeo";
 
+import Private from "assets/icons/private-offer.png";
+
 export const TopOffersTable: React.FC = () => {
   const { data } = useSWR<OffersResponse>(
     "http://5.63.155.73/tops/offers/actually5offers.json",
@@ -53,12 +55,12 @@ export const TopOffersTable: React.FC = () => {
                     <td className="w-14 rounded-bl rounded-tl pl-[14px]">
                       <img
                         className="h-8 w-8 object-contain 3xl:h-10 3xl:w-10"
-                        src={logo}
+                        src={privacy === "private" ? Private : logo}
                       />
                     </td>
                     <td className="w-24 py-3">#{id}</td>
-                    <td className="w-2/4 rounded-br rounded-tr py-3">
-                      {title}
+                    <td className="w-2/4 rounded-br rounded-tr py-3 pr-8">
+                      {privacy === "private" ? title.slice(0, 12) : title}
                       {privacy === "private" && (
                         <span className="text-[#B8C4D2]"> Private</span>
                       )}
@@ -72,8 +74,11 @@ export const TopOffersTable: React.FC = () => {
                   <>
                     <td className="rounded-bl rounded-tl p-3">
                       <div className="mb-2 flex items-center gap-4">
-                        <img className="h-8 w-8 object-contain" src={logo} />#
-                        {id}
+                        <img
+                          className="h-8 w-8 object-contain"
+                          src={privacy === "private" ? Private : logo}
+                        />
+                        #{id}
                       </div>
                       <div className="flex items-center gap-[6px]">
                         <span className="text-[#B3B3B3]">Гео: </span>
@@ -81,8 +86,8 @@ export const TopOffersTable: React.FC = () => {
                       </div>
                     </td>
                     <td className="rounded-br rounded-tr py-3">
-                      <div className="mb-2">
-                        {title}
+                      <div className="mb-2 pr-1">
+                        {privacy === "private" ? title.slice(0, 12) : title}
                         {privacy === "private" && (
                           <span className="text-[#B8C4D2]"> Private</span>
                         )}
