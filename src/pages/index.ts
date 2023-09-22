@@ -8,3 +8,5 @@ export * from "./Registration";
 export * from "./Login";
 export * from "./Blog";
 export * from "./BlogPost";
+export * from "./NotFound";
+export * from "./WorkInProgress";

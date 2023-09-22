@@ -20,6 +20,8 @@ const navItems = [
   { label: "Бонусы", path: "bonuses/" },
   { label: "Магазин", path: "points-store/" },
   // { label: "Отзывы", path: `${BASE_PATH}#bubbles-4` },
+  { label: "FAQ", path: "FAQ/" },
+  { label: "Контакты", path: "contacts/" },
 ];
 
 export const Header: React.FC = () => {

@@ -15,6 +15,8 @@ import {
   BlogPost,
   Registration,
   Login,
+  NotFound,
+  WorkInProgress,
 } from "pages";
 import { BASE_PATH } from "./constants";
 
@@ -50,7 +52,6 @@ const router = createBrowserRouter([
       { path: "blog/:id", element: <BlogPost /> },
     ],
   },
-  // Тут переделать
   {
     path: BASE_PATH + "unauthorized/",
     element: <Unauthorized />,
@@ -64,6 +65,14 @@ const router = createBrowserRouter([
         element: <Login />,
       },
     ],
+  },
+  {
+    path: BASE_PATH + "work/",
+    element: <WorkInProgress />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 

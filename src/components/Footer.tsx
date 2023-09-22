@@ -14,6 +14,8 @@ const navItems = [
   { label: "Магазин", path: "points-store/" },
   { label: "Бонусы", path: "bonuses/" },
   { label: "Контакты", path: "contacts/" },
+  { label: "404", path: "not-found/" },
+  { label: "Ведутся работы", path: "work/" },
 ];
 
 export const Footer: React.FC = () => {
