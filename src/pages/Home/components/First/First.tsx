@@ -41,6 +41,10 @@ export const First: React.FC = () => {
     const handleMouseDown = (e: MouseEvent) => {
       startX = e.screenX;
     };
+    const handleMouseUp = () => {
+      startX = 0;
+      curX = 0;
+    };
     const handleTouchStart = (e: TouchEvent) => {
       startX = e.changedTouches[0].screenX;
     };
@@ -73,12 +77,16 @@ export const First: React.FC = () => {
     el.addEventListener("touchstart", handleTouchStart);
     el.addEventListener("mousemove", handleMouseMove);
     el.addEventListener("touchmove", handleTouchMove);
+    el.addEventListener("mouseup", handleMouseUp);
+    el.addEventListener("touchend", handleMouseUp);
 
     return () => {
       el.removeEventListener("mousedown", handleMouseDown);
       el.removeEventListener("touchstart", handleTouchStart);
       el.removeEventListener("mousemove", handleMouseMove);
       el.removeEventListener("touchmove", handleTouchMove);
+      el.removeEventListener("mouseup", handleMouseUp);
+      el.removeEventListener("touchend", handleMouseUp);
     };
   }, [handleChangeSlide]);
 
