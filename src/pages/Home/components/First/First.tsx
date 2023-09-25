@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Scene } from "react-scrollmagic";
 
 import { FirstSlide } from "./FirstSlide";
@@ -8,16 +8,27 @@ import { twMerge } from "tailwind-merge";
 export const First: React.FC = () => {
   const [slide, setSlide] = useState(0);
   const comp = useRef<HTMLDivElement>(null);
+  const timerRef = useRef(0);
+
+  const handleChangeSlide = useCallback((i: number) => {
+    clearInterval(timerRef.current);
+
+    timerRef.current = window.setInterval(() => {
+      handleChangeSlide(1);
+    }, 10000);
+
+    setSlide(i);
+  }, []);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setSlide(1);
+    timerRef.current = window.setInterval(() => {
+      handleChangeSlide(1);
     }, 10000);
 
     return () => {
-      clearInterval(id);
+      clearInterval(timerRef.current);
     };
-  }, []);
+  }, [handleChangeSlide]);
 
   useEffect(() => {
     const el = comp.current;
@@ -38,10 +49,10 @@ export const First: React.FC = () => {
 
       if (startX) {
         if (startX - curX > 100) {
-          setSlide(1);
+          handleChangeSlide(1);
         }
         if (curX - startX > 100) {
-          setSlide(0);
+          handleChangeSlide(0);
         }
       }
     };
@@ -50,10 +61,10 @@ export const First: React.FC = () => {
 
       if (startX) {
         if (startX - curX > 100) {
-          setSlide(1);
+          handleChangeSlide(1);
         }
         if (curX - startX > 100) {
-          setSlide(0);
+          handleChangeSlide(0);
         }
       }
     };
@@ -69,7 +80,7 @@ export const First: React.FC = () => {
       el.removeEventListener("mousemove", handleMouseMove);
       el.removeEventListener("touchmove", handleTouchMove);
     };
-  }, []);
+  }, [handleChangeSlide]);
 
   return (
     <section
@@ -99,7 +110,7 @@ export const First: React.FC = () => {
                 slide === i &&
                   "bg-primary-100 outline outline-2 outline-offset-4 outline-primary-100"
               )}
-              onClick={() => setSlide(i)}
+              onClick={() => handleChangeSlide(i)}
             />
           ))}
         </div>
