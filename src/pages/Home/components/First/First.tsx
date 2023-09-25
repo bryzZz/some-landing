@@ -1,20 +1,76 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Fade, Zoom } from "react-awesome-reveal";
+import React, { useEffect, useRef, useState } from "react";
 import { Scene } from "react-scrollmagic";
-import { Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-import { ReactComponent as Shild } from "assets/icons/shild.svg";
-import MainImagePart1 from "assets/images/main-image-part-1.png";
-import MainImagePart2 from "assets/images/main-image-part-2.png";
-import MainImagePart3 from "assets/images/main-image-part-3.png";
-
-import "swiper/css";
-import "swiper/css/pagination";
-import "./styles.css";
+import { FirstSlide } from "./FirstSlide";
+import { SecondSlide } from "./SecondSlide";
+import { twMerge } from "tailwind-merge";
 
 export const First: React.FC = () => {
+  const [slide, setSlide] = useState(0);
+  const comp = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setSlide(1);
+    }, 10000);
+
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
+
+  useEffect(() => {
+    const el = comp.current;
+
+    if (!el) return;
+
+    let startX = 0;
+    let curX = 0;
+
+    const handleMouseDown = (e: MouseEvent) => {
+      startX = e.screenX;
+    };
+    const handleTouchStart = (e: TouchEvent) => {
+      startX = e.changedTouches[0].screenX;
+    };
+    const handleMouseMove = (e: MouseEvent) => {
+      curX = e.screenX;
+
+      if (startX) {
+        if (startX - curX > 100) {
+          setSlide(1);
+        }
+        if (curX - startX > 100) {
+          setSlide(0);
+        }
+      }
+    };
+    const handleTouchMove = (e: TouchEvent) => {
+      curX = e.changedTouches[0].screenX;
+
+      if (startX) {
+        if (startX - curX > 100) {
+          setSlide(1);
+        }
+        if (curX - startX > 100) {
+          setSlide(0);
+        }
+      }
+    };
+
+    el.addEventListener("mousedown", handleMouseDown);
+    el.addEventListener("touchstart", handleTouchStart);
+    el.addEventListener("mousemove", handleMouseMove);
+    el.addEventListener("touchmove", handleTouchMove);
+
+    return () => {
+      el.removeEventListener("mousedown", handleMouseDown);
+      el.removeEventListener("touchstart", handleTouchStart);
+      el.removeEventListener("mousemove", handleMouseMove);
+      el.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, []);
+
   return (
     <section
       id="#bubbles-5"
@@ -31,178 +87,23 @@ export const First: React.FC = () => {
         )}
       </Scene>
 
-      <Swiper
-        slidesPerView={1}
-        followFinger={false}
-        pagination={{ clickable: true }}
-        modules={[Pagination]}
-        className="FirstSlider"
-        spaceBetween={200}
-        speed={0}
-        autoHeight
-      >
-        <SwiperSlide>
-          <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:items-stretch md:justify-between md:gap-3">
-            <div className="text-center md:text-left">
-              <Fade
-                cascade
-                direction="up"
-                duration={300}
-                damping={0.1}
-                delay={200}
-              >
-                <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
-                  <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
-                  <span className="text-sm font-semibold text-text-300 lg:text-base">
-                    Надежный партнер
-                  </span>
-                </div>
-                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
-                  Монетизируйте трафик по лучшим условиям
-                </h1>
-                <p className="sub-heading-1 mb-10 max-w-[618px]">
-                  Присоединяйтесь к нам и получите все преимущества нашей
-                  экспертизы и качественного сервиса.
-                </p>
-                <Link
-                  to="/unauthorized/registration"
-                  className="btn-primary py-4"
-                >
-                  Регистрация
-                </Link>
-              </Fade>
-            </div>
-            <Zoom
-              duration={300}
-              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[480px]"
-              delay={200}
-            >
-              <div className="relative aspect-square md:min-h-[380px]">
-                <div className="absolute left-1/2 top-1/2 aspect-square w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary-300 to-primary-400" />
-                <img
-                  className="absolute bottom-0 left-0 w-5/12 animate-secondary-img object-cover"
-                  src={MainImagePart1}
-                />
-                <img
-                  className="absolute right-0 top-0 w-5/12 animate-secondary-img object-cover"
-                  src={MainImagePart3}
-                />
-                <img
-                  className="absolute w-9/12 animate-primary-img object-cover"
-                  src={MainImagePart2}
-                />
-              </div>
-            </Zoom>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:items-stretch md:justify-between md:gap-3">
-            <div className="text-center md:text-left">
-              <Fade
-                cascade
-                direction="up"
-                duration={300}
-                damping={0.1}
-                delay={200}
-              >
-                <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
-                  <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
-                  <span className="text-sm font-semibold text-text-300 lg:text-base">
-                    Надежный партнер
-                  </span>
-                </div>
-                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
-                  Получайте прибыль от качественного трафика
-                </h1>
-                <p className="sub-heading-1 mb-10 max-w-[618px]">
-                  Присоединяйтесь к нам и повысьте узнаваемость бренда.
-                </p>
-                <Link
-                  to="/unauthorized/registration"
-                  className="btn-primary py-4"
-                >
-                  Регистрация
-                </Link>
-              </Fade>
-            </div>
-            <Zoom
-              duration={300}
-              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[480px]"
-              delay={200}
-            >
-              <div className="relative aspect-square md:min-h-[380px]">
-                <div className="absolute left-1/2 top-1/2 aspect-square w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary-300 to-primary-400" />
-                <img
-                  className="absolute bottom-0 left-0 w-5/12 animate-secondary-img object-cover"
-                  src={MainImagePart1}
-                />
-                <img
-                  className="absolute right-0 top-0 w-5/12 animate-secondary-img object-cover"
-                  src={MainImagePart3}
-                />
-                <img
-                  className="absolute w-9/12 animate-primary-img object-cover"
-                  src={MainImagePart2}
-                />
-              </div>
-            </Zoom>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex flex-col-reverse items-center gap-12 md:flex-row md:items-stretch md:justify-between md:gap-3">
-            <div className="text-center md:text-left">
-              <Fade
-                cascade
-                direction="up"
-                duration={300}
-                damping={0.1}
-                delay={200}
-              >
-                <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
-                  <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
-                  <span className="text-sm font-semibold text-text-300 lg:text-base">
-                    Надежный партнер
-                  </span>
-                </div>
-                <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
-                  Монетизируйте трафик по лучшим условиям
-                </h1>
-                <p className="sub-heading-1 mb-10 max-w-[618px]">
-                  Присоединяйтесь к нам и получите все преимущества нашей
-                  экспертизы и качественного сервиса.
-                </p>
-                <Link
-                  to="/unauthorized/registration"
-                  className="btn-primary py-4"
-                >
-                  Регистрация
-                </Link>
-              </Fade>
-            </div>
-            <Zoom
-              duration={300}
-              className="w-full max-w-[260px] md:max-w-[360px] lg:max-w-[420px] 3xl:max-w-[480px]"
-              delay={200}
-            >
-              <div className="relative aspect-square md:min-h-[380px]">
-                <div className="absolute left-1/2 top-1/2 aspect-square w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary-300 to-primary-400" />
-                <img
-                  className="absolute bottom-0 left-0 w-5/12 animate-secondary-img object-cover"
-                  src={MainImagePart1}
-                />
-                <img
-                  className="absolute right-0 top-0 w-5/12 animate-secondary-img object-cover"
-                  src={MainImagePart3}
-                />
-                <img
-                  className="absolute w-9/12 animate-primary-img object-cover"
-                  src={MainImagePart2}
-                />
-              </div>
-            </Zoom>
-          </div>
-        </SwiperSlide>
-      </Swiper>
+      <div className="relative select-none pb-14 md:pb-8" ref={comp}>
+        <FirstSlide show={slide === 0} />
+        <SecondSlide show={slide === 1} />
+
+        <div className="absolute bottom-0 left-[50%] flex translate-x-[-50%] items-center gap-7">
+          {new Array(2).fill(0).map((_, i) => (
+            <div
+              className={twMerge(
+                "h-[10px] w-[10px] cursor-pointer rounded-full bg-[#B8C4D2]",
+                slide === i &&
+                  "bg-primary-100 outline outline-2 outline-offset-4 outline-primary-100"
+              )}
+              onClick={() => setSlide(i)}
+            />
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
