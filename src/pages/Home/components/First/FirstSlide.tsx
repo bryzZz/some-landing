@@ -18,7 +18,7 @@ import Img9 from "assets/images/slides/first/Other 01 20.png";
 import Img10 from "assets/images/slides/first/Other 01 18.png";
 import Img11 from "assets/images/slides/first/Frame 1000001186.png";
 import Img12 from "assets/images/slides/first/Frame 1000001188.png";
-import { randomInteger } from "utils";
+// import { randomInteger } from "utils";
 
 interface FirstSlideProps {
   show: boolean;
