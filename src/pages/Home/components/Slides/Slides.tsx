@@ -199,6 +199,8 @@ export const Slides: React.FC = () => {
                     height={height}
                     margin={margin}
                     dollars
+                    mainBg="linear-gradient(221deg, #FFD953 0%, #FFD953 6.67%, #FFD752 13.33%, #FED551 20.00%, #FED150 26.67%, #FDCC4E 33.33%, #FCC74C 40.00%, #FBC14A 46.67%, #FABA48 53.33%, #F9B446 60.00%, #F8AF44 66.67%, #F7AA42 73.33%, #F6A641 80.00%, #F6A440 86.67%, #F6A240 93.33%, #F5A23F 100%)"
+                    secondBg="rgba(255, 217, 83, 0.3)"
                   />
                 </Zoom>
               </div>
@@ -229,6 +231,8 @@ export const Slides: React.FC = () => {
                     width={width}
                     height={height}
                     margin={margin}
+                    mainBg="linear-gradient(241deg, #39C2FD 0%, #39C2FD 8.31%, #39C0FD 16.62%, #3ABEFD 24.93%, #3BBBFD 33.24%, #3CB7FD 41.55%, #3EB2FE 49.86%, #3FACFE 58.18%, #41A7FE 66.49%, #42A1FE 74.8%, #449CFF 83.11%, #4598FF 91.42%, #4695FF 99.73%, #4792FF 108.04%, #4791FF 116.35%, #4791FF 124.66%)"
+                    secondBg="rgba(58, 193, 253, 0.3)"
                   />
                 </Zoom>
               </div>
@@ -259,6 +263,8 @@ export const Slides: React.FC = () => {
                     width={width}
                     height={height}
                     margin={margin}
+                    mainBg="linear-gradient(258deg, #FF9D8F 0%, #FF9C8F 8.38%, #FF9B8C 16.76%, #FE9887 25.13%, #FD9381 33.51%, #FC8E78 41.89%, #FB876F 50.27%, #F98064 58.65%, #F87958 67.02%, #F6714D 75.4%, #F56B43 83.78%, #F4653B 92.16%, #F36134 100.53%, #F35E30 108.91%, #F25C2D 117.29%, #F25C2C 125.67%)"
+                    secondBg="rgba(255, 157, 143, 0.3)"
                   />
                 </Zoom>
               </div>
@@ -289,6 +295,8 @@ export const Slides: React.FC = () => {
                     width={width}
                     height={height}
                     margin={margin}
+                    mainBg="linear-gradient(258deg, #FF747C 30.21%, #FF737C 38.69%, #FF717D 47.17%, #FF6D7D 55.65%, #FF677E 64.13%, #FF5F7F 72.61%, #FF5680 81.09%, #FF4C81 89.57%, #FF4183 98.05%, #FF3784 106.53%, #FF2E85 115.01%, #FF2686 123.49%, #FF2086 131.97%, #FF1C87 140.45%, #FF1A87 148.93%, #FF1987 157.41%)"
+                    secondBg="rgba(255, 116, 124, 0.3)"
                   />
                 </Zoom>
               </div>

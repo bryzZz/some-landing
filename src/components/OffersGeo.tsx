@@ -28,7 +28,7 @@ const DefaultOffersGeo: React.FC<OffersGeoProps> = ({ countries }) => {
   );
 };
 const PopoverOffersGeo: React.FC<OffersGeoProps> = ({ countries }) => {
-  const smMatches = useMediaQuery("(min-width: 350px)");
+  const smMatches = useMediaQuery("(min-width: 400px)");
 
   const max = smMatches ? 3 : 2;
 

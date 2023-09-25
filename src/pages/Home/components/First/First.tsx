@@ -106,7 +106,13 @@ export const First: React.FC = () => {
         )}
       </Scene>
 
-      <div className="relative select-none pb-14 md:pb-8" ref={comp}>
+      <div
+        className={twMerge(
+          "relative select-none pb-16 md:pb-8",
+          slide === 1 && "pb-24"
+        )}
+        ref={comp}
+      >
         <FirstSlide show={slide === 0} />
         <SecondSlide show={slide === 1} />
 

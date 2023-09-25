@@ -16,6 +16,8 @@ interface ChartProps {
     right: number;
   };
   dollars?: boolean;
+  mainBg: string;
+  secondBg: string;
 }
 
 const USDollar = new Intl.NumberFormat("en-US", {
@@ -30,6 +32,8 @@ export const Chart: React.FC<ChartProps> = ({
   height,
   margin,
   dollars = false,
+  mainBg,
+  secondBg,
 }) => {
   const [activeIndex, setActiveIndex] = useState<number>(data.length - 2);
 
@@ -81,7 +85,10 @@ export const Chart: React.FC<ChartProps> = ({
           width={width}
           height={height}
           viewBox={`0 0 ${width} ${height}`}
-          className="relative z-10 rounded-[36px] bg-[#FFD953] bg-opacity-30 backdrop-blur-xl"
+          className="relative z-10 rounded-[36px] bg-opacity-30 backdrop-blur-xl"
+          style={{
+            backgroundColor: secondBg,
+          }}
           onMouseMove={handleMouseMove}
         >
           <path fill="none" stroke="#fff" strokeWidth="2" d={dLine} />
@@ -149,8 +156,7 @@ export const Chart: React.FC<ChartProps> = ({
       <div
         className="absolute right-7 top-7 rotate-12 rounded-[36px]"
         style={{
-          background:
-            "linear-gradient(221deg, #FFD953 0%, #FFD953 6.67%, #FFD752 13.33%, #FED551 20.00%, #FED150 26.67%, #FDCC4E 33.33%, #FCC74C 40.00%, #FBC14A 46.67%, #FABA48 53.33%, #F9B446 60.00%, #F8AF44 66.67%, #F7AA42 73.33%, #F6A641 80.00%, #F6A440 86.67%, #F6A240 93.33%, #F5A23F 100%)",
+          background: mainBg,
           width,
           height,
         }}
