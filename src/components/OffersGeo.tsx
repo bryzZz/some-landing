@@ -2,6 +2,7 @@ import React from "react";
 import * as Popover from "@radix-ui/react-popover";
 
 import { ReactComponent as Arrow } from "assets/icons/select-arrow.svg";
+import { useMediaQuery } from "hooks";
 
 interface OffersGeoProps {
   countries: string[];
@@ -27,11 +28,15 @@ const DefaultOffersGeo: React.FC<OffersGeoProps> = ({ countries }) => {
   );
 };
 const PopoverOffersGeo: React.FC<OffersGeoProps> = ({ countries }) => {
+  const smMatches = useMediaQuery("(min-width: 350px)");
+
+  const max = smMatches ? 3 : 2;
+
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
         <div className="group inline-flex cursor-pointer items-center gap-1">
-          <DefaultOffersGeo countries={countries.slice(0, 3)} />
+          <DefaultOffersGeo countries={countries.slice(0, max)} />
           <Arrow className="transition-transform group-data-[state=open]:-rotate-90" />
         </div>
       </Popover.Trigger>
@@ -42,7 +47,7 @@ const PopoverOffersGeo: React.FC<OffersGeoProps> = ({ countries }) => {
           sideOffset={5}
         >
           <div className="flex select-none flex-wrap items-center gap-[6px]">
-            {countries.slice(3).map((country, i) => (
+            {countries.slice(max).map((country, i) => (
               <img
                 key={i}
                 src={`https://flagcdn.com/48x36/${country.toLowerCase()}.png`}

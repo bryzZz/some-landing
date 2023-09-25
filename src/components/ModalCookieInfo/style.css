@@ -3,9 +3,9 @@
 }
 
 .ModalCookieInfo {
-  @apply static mx-[15px] h-[unset] w-full max-w-[1000px] overflow-hidden rounded-xl bg-white p-6 pb-8 pt-11 md:p-12 md:pb-14;
+  @apply static mx-[15px] h-[unset] w-full max-w-[1000px] overflow-hidden rounded-xl bg-white p-6 pb-8 pt-11 md:p-16 md:pb-14;
 }
 
 .ModalCookieInfo__text {
-  @apply h-[70vh] overflow-auto p-0 md:h-[50vh];
+  @apply h-[60vh] overflow-auto p-0 md:h-[50vh];
 }

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
-import { LanguageSelect } from "components";
+// import { LanguageSelect } from "components";
 import { BASE_PATH } from "constants/index";
 
 import { ReactComponent as VK } from "assets/icons/vk.svg";
@@ -114,7 +114,7 @@ export const Header: React.FC = () => {
               </Link>
             </div>
 
-            <LanguageSelect />
+            {/* <LanguageSelect /> */}
 
             <div className="flex items-center gap-2">
               <Link
@@ -148,8 +148,8 @@ export const Header: React.FC = () => {
           isOpen && "translate-x-0"
         )}
       >
-        <div className="flex items-center justify-between">
-          <LanguageSelect />
+        <div className="flex items-center justify-end">
+          {/* <LanguageSelect /> */}
           <button className="p-1" onClick={close}>
             <Close />
           </button>

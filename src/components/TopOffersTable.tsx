@@ -16,23 +16,24 @@ export const TopOffersTable: React.FC = () => {
     }
   );
 
-  const matches = useMediaQuery("(min-width: 768px)");
+  const mdMatches = useMediaQuery("(min-width: 768px)");
+  const smMatches = useMediaQuery("(min-width: 350px)");
 
   return (
     <table className="w-full table-fixed border-separate border-spacing-y-2">
       <thead>
         <tr className="bg-[#F4F4F4] text-sm font-bold text-[#B3B3B3] 3xl:text-base">
-          {matches && <th className="w-14" />}
+          {mdMatches && <th className="w-14" />}
           <th
             className={twMerge(
               "w-24 rounded-bl rounded-tl py-3 text-left",
-              !matches && "pl-[60px]"
+              !mdMatches && "pl-[60px]"
             )}
           >
             ID
           </th>
           <th className="w-2/4 py-3 text-left">Название</th>
-          {matches && (
+          {mdMatches && (
             <>
               <th className="py-3 text-left">Гео</th>
               <th className="rounded-br rounded-tr py-3 text-left">Epc</th>
@@ -50,7 +51,7 @@ export const TopOffersTable: React.FC = () => {
                 className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
                 key={id}
               >
-                {matches ? (
+                {mdMatches ? (
                   <>
                     <td className="w-14 rounded-bl rounded-tl pl-[14px]">
                       <img
@@ -87,7 +88,9 @@ export const TopOffersTable: React.FC = () => {
                     </td>
                     <td className="rounded-br rounded-tr py-3">
                       <div className="mb-2 pr-1">
-                        {privacy === "private" ? title.slice(0, 12) : title}
+                        {privacy === "private"
+                          ? title.slice(0, smMatches ? 12 : 8)
+                          : title}
                         {privacy === "private" && (
                           <span className="text-[#B8C4D2]"> Private</span>
                         )}
