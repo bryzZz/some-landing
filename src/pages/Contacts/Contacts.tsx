@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
 import { TabPanel } from "components";
@@ -123,7 +122,7 @@ export const Contacts: React.FC = () => {
         <div className="mb-24">
           {contacts.map(({ items }, i) => (
             <TabPanel value={i} tabValue={tabValue} key={i}>
-              <div className="grid grid-cols-1 justify-center gap-[30px] sm:grid-cols-[repeat(auto-fit,minmax(250px,300px))]">
+              <div className="grid grid-cols-1 justify-center gap-[30px] sm:grid-cols-[repeat(auto-fit,minmax(250px,300px))] 2xl:grid-cols-[repeat(auto-fit,minmax(250px,350px))]">
                 {items.map(({ avatar, name, role, telegram, mail }, i) => (
                   <div
                     key={i}

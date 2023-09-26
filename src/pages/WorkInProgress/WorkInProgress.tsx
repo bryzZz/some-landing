@@ -15,7 +15,7 @@ export const WorkInProgress: React.FC = () => {
 
   return (
     <div
-      className="bg-auto bg-left-top bg-no-repeat"
+      className="h-screen bg-auto bg-left-top bg-no-repeat"
       style={{
         backgroundImage: `url(${getBg()})`,
       }}
