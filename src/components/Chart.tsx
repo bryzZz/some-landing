@@ -47,7 +47,7 @@ export const Chart: React.FC<ChartProps> = ({
   // fakeData[3].year -= 0.3;
 
   const xScale = d3
-    .scaleLinear([0 + 40, width - 40])
+    .scaleLinear([0 + 7, width - 7])
     .domain([startYear, endYear]);
   const areaScale = d3.scaleLinear([0, width]).domain([startYear, endYear]);
 
