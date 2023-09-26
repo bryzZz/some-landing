@@ -40,9 +40,14 @@ export const Chart: React.FC<ChartProps> = ({
   const startYear = data.at(0)?.year as number;
   const endYear = data.at(-1)?.year as number;
   const years = data.map(({ year }) => year);
+  // const fakeData = structuredClone(data);
+  // fakeData[0].year += 0.3;
+  // fakeData[1].year += 0.1;
+  // fakeData[2].year -= 0.1;
+  // fakeData[3].year -= 0.3;
 
   const xScale = d3
-    .scaleLinear([0 + 7, width - 7])
+    .scaleLinear([0 + 40, width - 40])
     .domain([startYear, endYear]);
   const areaScale = d3.scaleLinear([0, width]).domain([startYear, endYear]);
 

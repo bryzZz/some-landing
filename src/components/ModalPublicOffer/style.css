@@ -7,5 +7,5 @@
 }
 
 .ModalPublicOffer__text {
-  @apply h-[70vh] overflow-auto p-0 md:h-[50vh];
+  @apply h-[60vh] overflow-auto p-0 md:h-[50vh];
 }

@@ -98,7 +98,7 @@ export const ModalPublicOffer: React.FC = () => {
       bodyOpenClassName="ModalPublicOffer__open"
     >
       <div className="mb-10">
-        <h3 className="heading-3 mb-4">Публичная оферта</h3>
+        <h3 className="heading-2 mb-4">Публичная оферта</h3>
         <button
           className="absolute right-[10px] top-[10px] md:right-[20px] md:top-[20px]"
           onClick={onClose}
@@ -107,7 +107,7 @@ export const ModalPublicOffer: React.FC = () => {
         </button>
       </div>
       <div className="ModalPublicOffer__text custom-scroll pr-12">
-        <p className="sub-heading-4 mb-5">
+        <p className="sub-heading-4 3xl:sub-heading-2 mb-5 leading-6">
           Настоящее Соглашение об оказании услуг веб-мастерами и рекламодателям
           при регистрации в Системе является официальной письменной публичной
           офертой Leadshub.
@@ -122,11 +122,11 @@ export const ModalPublicOffer: React.FC = () => {
 
         {points.map(({ heading, points }, i) => (
           <div className="mb-3" key={i}>
-            <p className="heading-6 mb-[10px]">
+            <p className="heading-6 3xl:heading-4 mb-[10px]">
               {i + 1}. {heading}
             </p>
             {points.map((point, j) => (
-              <p className="sub-heading-4" key={j}>
+              <p className="sub-heading-4 3xl:sub-heading-2 leading-6" key={j}>
                 {i + 1}.{j + 1}. {point}
               </p>
             ))}

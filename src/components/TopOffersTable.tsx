@@ -23,7 +23,7 @@ export const TopOffersTable: React.FC = () => {
     <table className="w-full table-fixed border-separate border-spacing-y-2">
       <thead>
         <tr className="bg-[#F4F4F4] text-sm font-bold text-[#B3B3B3] 3xl:text-base">
-          {mdMatches && <th className="w-14" />}
+          {mdMatches && <th className="w-[70px]" />}
           <th
             className={twMerge(
               "w-24 rounded-bl rounded-tl py-3 text-left",
