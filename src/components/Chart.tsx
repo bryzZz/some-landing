@@ -35,7 +35,10 @@ export const Chart: React.FC<ChartProps> = ({
   mainBg,
   secondBg,
 }) => {
-  const [activeIndex, setActiveIndex] = useState<number>(data.length - 2);
+  const [activeIndex, setActiveIndex] = useState<number>(data.length - 3);
+
+  // const areaData = [...data];
+  // data = data.slice(1, data.length - 1);
 
   const startYear = data.at(0)?.year as number;
   const endYear = data.at(-1)?.year as number;
@@ -47,9 +50,8 @@ export const Chart: React.FC<ChartProps> = ({
   // fakeData[3].year -= 0.3;
 
   const xScale = d3
-    .scaleLinear([0 + 7, width - 7])
+    .scaleLinear([0 + 40, width - 40])
     .domain([startYear, endYear]);
-  const areaScale = d3.scaleLinear([0, width]).domain([startYear, endYear]);
 
   const yScale = d3.scaleLinear(d3.extent(data.map((d) => d.value)) as any, [
     height - margin.bottom,
@@ -66,15 +68,31 @@ export const Chart: React.FC<ChartProps> = ({
     .y((d) => yScale(d.value))
     .curve(d3.curveMonotoneX);
 
-  const area = d3
-    .area<(typeof data)[number]>()
-    .x((d) => areaScale(d.year))
-    .y0(height)
-    .y1((d) => yScale(d.value))
-    .curve(d3.curveMonotoneX);
+  // const getDArea = () => {
+  //   const startYear = areaData.at(0)?.year as number;
+  //   const endYear = areaData.at(-1)?.year as number;
+
+  //   const areaScale = d3.scaleLinear([0, width]).domain([startYear, endYear]);
+  //   const areaYScale = d3.scaleLinear(
+  //     d3.extent(areaData.map((d) => d.value)) as any,
+  //     [height - margin.bottom, margin.top]
+  //   );
+
+  //   console.log(areaData);
+
+  //   const area = d3
+  //     .area<(typeof areaData)[number]>()
+  //     .x((d) => areaScale(d.year))
+  //     .y0(height)
+  //     .y1((d) => areaYScale(d.value))
+  //     .curve(d3.curveMonotoneX);
+
+  //   return area(areaData)!;
+  // };
+
+  // const dArea = getDArea();
 
   const dLine = line(data)!;
-  const dArea = area(data)!;
 
   const handleMouseMove = function (this: any, e: React.MouseEvent) {
     const x0 = xScale.invert(d3.pointer(e, this)[0]);
@@ -97,7 +115,8 @@ export const Chart: React.FC<ChartProps> = ({
           onMouseMove={handleMouseMove}
         >
           <path fill="none" stroke="#fff" strokeWidth="2" d={dLine} />
-          <path fill="url(#MyGradient)" d={dArea} />
+          {/* <path fill="url(#MyGradient)" d={dArea} /> */}
+          {/* <path fill="red" d={dArea} /> */}
 
           {data.map((d, i) => (
             <g
