@@ -127,7 +127,7 @@ export const SecondStep: React.FC<SecondStepProps> = ({
 
       <div className="flex items-center justify-between">
         <button
-          className="flex items-center text-sm font-extrabold text-text-400 3xl:text-base"
+          className="flex items-center text-sm font-extrabold text-text-400"
           onClick={back}
         >
           <ArrowLeft width="20px" height="20px" />

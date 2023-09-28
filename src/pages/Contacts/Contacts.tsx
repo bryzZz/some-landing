@@ -150,7 +150,10 @@ export const Contacts: React.FC = () => {
                       <a
                         href={telegram}
                         target="_blank"
-                        className="flex w-full items-center justify-center gap-2 rounded-bl-lg rounded-tl-lg bg-[#F8F8F8] py-3 pl-[14px] pr-4 transition hover:bg-[#EEEEEE] 3xl:p-5"
+                        className={twMerge(
+                          "flex w-full items-center justify-center gap-2 rounded-bl-lg rounded-tl-lg bg-[#F8F8F8] py-3 pl-[14px] pr-4 transition hover:bg-[#EEEEEE] 3xl:p-5",
+                          !mail && "rounded-br-lg rounded-tr-lg"
+                        )}
                       >
                         <Telegram className="shrink-0" width={20} height={20} />
                         Telegram

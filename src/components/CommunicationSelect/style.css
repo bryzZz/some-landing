@@ -7,7 +7,7 @@
 }
 
 .CommunicationSelect__value-container {
-  @apply p-0 text-xs 3xl:text-sm !important;
+  @apply p-0 text-xs !important;
 }
 
 .CommunicationSelect__single-value {
@@ -23,7 +23,7 @@
 }
 
 .CommunicationSelect__option {
-  @apply cursor-pointer 3xl:text-sm !important;
+  @apply cursor-pointer !important;
 }
 
 .CommunicationSelect__option--is-focused {

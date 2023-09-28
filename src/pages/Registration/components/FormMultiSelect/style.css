@@ -15,7 +15,7 @@
 }
 
 .FormMultiSelect__multi-value__label {
-  @apply px-2 py-1 text-sm font-semibold text-white 3xl:text-base !important;
+  @apply px-2 py-1 text-sm font-semibold text-white !important;
 }
 
 .FormMultiSelect__multi-value__remove {

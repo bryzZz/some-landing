@@ -12,6 +12,8 @@ import Img3 from "assets/images/slides/second/3 951.png";
 import Img4 from "assets/images/slides/second/untitled3.png";
 import Img5 from "assets/images/slides/second/cash.png";
 import Img6 from "assets/images/slides/second/01 Online Shopping 4.png";
+import { twMerge } from "tailwind-merge";
+import { useMediaQuery } from "hooks";
 
 interface SecondSlideProps {
   show: boolean;
@@ -19,6 +21,7 @@ interface SecondSlideProps {
 
 export const SecondSlide: React.FC<SecondSlideProps> = ({ show }) => {
   const comp = useRef<HTMLDivElement>(null);
+  const matches = useMediaQuery("(min-width: 768px)");
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -116,29 +119,90 @@ export const SecondSlide: React.FC<SecondSlideProps> = ({ show }) => {
     return () => ctx.revert();
   }, [show]);
 
+  if (matches) {
+    return (
+      <div
+        ref={comp}
+        className={twMerge(
+          "absolute left-0 top-0 flex flex-col items-center gap-12 md:grid md:grid-cols-[minmax(0,1.3fr),minmax(0,1fr)] md:gap-3",
+          !show && "pointer-events-none"
+        )}
+      >
+        <div className="content text-center md:text-left">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
+            <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
+            <span className="text-sm font-semibold text-text-300 lg:text-base">
+              Надежный партнер
+            </span>
+          </div>
+          <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
+            Получайте прибыль от качественного трафика
+          </h1>
+          <p className="sub-heading-1 mb-10 max-w-[618px]">
+            Персональные офферы, собственные инструменты, инсайд информация и
+            связки для топов.
+          </p>
+          <Link to="/contacts" className="btn-primary py-4">
+            Присоединиться
+          </Link>
+        </div>
+
+        <div className="relative ml-[5%] mr-[16%] md:ml-0">
+          <img className="bg opacity-0" draggable={false} src={BG} />
+
+          <img
+            className="img1 absolute left-[55.346%] top-[33.942%] h-[26.182%] w-[34.395%] opacity-0"
+            draggable={false}
+            src={Img1}
+          />
+          <img
+            className="img2 absolute left-[55.506%] top-[61.593%] h-[16.486%] w-[34.227%] opacity-0"
+            draggable={false}
+            src={Img2}
+          />
+          <img
+            className="img3 absolute left-[17.318%] top-[-6.639%] h-[22.292%] w-[20.183%] scale-[0.6] opacity-0"
+            draggable={false}
+            src={Img3}
+          />
+          <img
+            className="img4 absolute left-[65%] top-[-11%] h-[26.044%] w-[19.533%] scale-[0.6] opacity-0"
+            draggable={false}
+            src={Img4}
+          />
+          <img
+            className="img5 absolute left-[94.066%] top-[8.588%] h-[27.847%] w-[24.682%] scale-[0.6] opacity-0"
+            draggable={false}
+            src={Img5}
+          />
+          <img
+            className="img6 absolute left-[49.208%] top-[61.850%] h-[34.388%] w-[25.791%] scale-[0.6] opacity-0"
+            draggable={false}
+            src={Img6}
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       ref={comp}
-      className="absolute left-0 top-0 flex flex-col-reverse items-center gap-12 md:grid md:grid-cols-[minmax(0,1.3fr),minmax(0,1fr)] md:gap-3"
+      className={twMerge(
+        "absolute left-0 top-0 flex flex-col items-center",
+        !show && "pointer-events-none opacity-0"
+      )}
     >
-      <div className="content text-center md:text-left">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
-          <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
-          <span className="text-sm font-semibold text-text-300 lg:text-base">
-            Надежный партнер
-          </span>
-        </div>
-        <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
-          Получайте прибыль от качественного трафика
-        </h1>
-        <p className="sub-heading-1 mb-10 max-w-[618px]">
-          Персональные офферы, собственные инструменты, инсайд информация и
-          связки для топов.
-        </p>
-        <Link to="/unauthorized/registration" className="btn-primary py-4">
-          Регистрация
-        </Link>
+      <div className="content mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
+        <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
+        <span className="text-sm font-semibold text-text-300 lg:text-base">
+          Надежный партнер
+        </span>
       </div>
+
+      <h1 className="content heading-2 mb-10 h-[120px] text-center font-bold">
+        Получайте прибыль от качественного трафика
+      </h1>
 
       <div className="relative ml-[5%] mr-[16%] md:ml-0">
         <img className="bg opacity-0" draggable={false} src={BG} />
@@ -174,6 +238,15 @@ export const SecondSlide: React.FC<SecondSlideProps> = ({ show }) => {
           src={Img6}
         />
       </div>
+
+      <p className="content sub-heading-1 mb-10 max-w-[618px] text-center">
+        Персональные офферы, собственные инструменты, инсайд информация и связки
+        для топов.
+      </p>
+
+      <Link to="/contacts" className="btn-primary py-4">
+        Присоединиться
+      </Link>
     </div>
   );
 };

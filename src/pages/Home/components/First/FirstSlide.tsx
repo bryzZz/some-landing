@@ -18,6 +18,8 @@ import Img9 from "assets/images/slides/first/Other 01 20.png";
 import Img10 from "assets/images/slides/first/Other 01 18.png";
 import Img11 from "assets/images/slides/first/Frame 1000001186.png";
 import Img12 from "assets/images/slides/first/Frame 1000001188.png";
+import { useMediaQuery } from "hooks";
+import { twMerge } from "tailwind-merge";
 // import { randomInteger } from "utils";
 
 interface FirstSlideProps {
@@ -26,6 +28,7 @@ interface FirstSlideProps {
 
 export const FirstSlide: React.FC<FirstSlideProps> = ({ show }) => {
   const comp = useRef<HTMLDivElement>(null);
+  const matches = useMediaQuery("(min-width: 768px)");
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -232,29 +235,124 @@ export const FirstSlide: React.FC<FirstSlideProps> = ({ show }) => {
   //   height: "${hPercent}%",`
   // );
 
+  if (matches) {
+    return (
+      <div
+        ref={comp}
+        className="flex flex-col items-center gap-12 md:grid md:grid-cols-[minmax(0,1.3fr),minmax(0,1fr)] md:gap-3"
+      >
+        <div className="content text-center md:text-left">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
+            <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
+            <span className="text-sm font-semibold text-text-300 lg:text-base">
+              Надежный партнер
+            </span>
+          </div>
+          <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
+            Монетизируйте трафик по лучшим условиям
+          </h1>
+          <p className="sub-heading-1 mb-10 max-w-[618px]">
+            Персональные офферы, собственные инструменты, инсайд информация и
+            связки для топов.
+          </p>
+          <Link to="/unauthorized/registration" className="btn-primary py-4">
+            Регистрация
+          </Link>
+        </div>
+
+        <div className="relative ml-[5%] mr-[16%] md:ml-0">
+          <img
+            className="bg [clip-path:inset(0%_0%_0%_0%)]"
+            draggable={false}
+            src={BG}
+          />
+
+          <div className="first-images">
+            <img
+              className="first absolute left-[12.647%] top-[21.123%] w-[76.5%]"
+              draggable={false}
+              src={Img1}
+            />
+            <img
+              className="first absolute left-[12.692%] top-[33.399%] h-[45.309%] w-[19.68%]"
+              draggable={false}
+              src={Img2}
+            />
+            <img
+              className="first absolute left-[34.169%] top-[33.399%] h-[45.309%] w-[19.485%]"
+              draggable={false}
+              src={Img3}
+            />
+            <img
+              className="first absolute left-[55.346%] top-[33.942%] h-[26.182%] w-[34.395%]"
+              draggable={false}
+              src={Img4}
+            />
+            <img
+              className="first absolute left-[55.506%] top-[61.593%] h-[16.486%] w-[34.227%]"
+              draggable={false}
+              src={Img5}
+            />
+
+            <img
+              className="img6 absolute left-[8.352%] top-[-2.048%] h-[15.206%] w-[11.404%]"
+              draggable={false}
+              src={Img6}
+            />
+            <img
+              className="img7 absolute left-[50.013%] top-[-12.289%] h-[20.636%] w-[15.477%]"
+              draggable={false}
+              src={Img7}
+            />
+            <img
+              className="img8 absolute left-[81.433%] top-[-1.668%] h-[22.447%] w-[42.475%]"
+              draggable={false}
+              src={Img8}
+            />
+            <img
+              className="img9 absolute left-[81.433%] top-[20.779%] h-[15.344%] w-[42.475%]"
+              draggable={false}
+              src={Img9}
+            />
+            <img
+              className="img10 absolute left-[81.433%] top-[36.123%] h-[8.809%] w-[42.475%]"
+              draggable={false}
+              src={Img10}
+            />
+            <img
+              className="img11 absolute left-[87.135%] top-[72.119%] h-[20.792%] w-[15.594%]"
+              draggable={false}
+              src={Img11}
+            />
+            <img
+              className="img12 absolute left-[1.021%] top-[74.291%] h-[16.602%] w-[12.452%]"
+              draggable={false}
+              src={Img12}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       ref={comp}
-      className="flex flex-col-reverse items-center gap-12 md:grid md:grid-cols-[minmax(0,1.3fr),minmax(0,1fr)] md:gap-3"
+      className={twMerge(
+        "flex flex-col items-center",
+        !show && "pointer-events-none"
+      )}
     >
-      <div className="content text-center md:text-left">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
-          <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
-          <span className="text-sm font-semibold text-text-300 lg:text-base">
-            Надежный партнер
-          </span>
-        </div>
-        <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
-          Монетизируйте трафик по лучшим условиям
-        </h1>
-        <p className="sub-heading-1 mb-10 max-w-[618px]">
-          Персональные офферы, собственные инструменты, инсайд информация и
-          связки для топов.
-        </p>
-        <Link to="/unauthorized/registration" className="btn-primary py-4">
-          Регистрация
-        </Link>
+      <div className="content mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
+        <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
+        <span className="text-sm font-semibold text-text-300 lg:text-base">
+          Надежный партнер
+        </span>
       </div>
+
+      <h1 className="heading-1 content mb-10 text-center md:max-w-[730px] 3xl:max-w-[819px]">
+        Монетизируйте трафик по лучшим условиям
+      </h1>
 
       <div className="relative ml-[5%] mr-[16%] md:ml-0">
         <img
@@ -327,6 +425,15 @@ export const FirstSlide: React.FC<FirstSlideProps> = ({ show }) => {
           />
         </div>
       </div>
+
+      <p className="sub-heading-1 content mb-10 max-w-[618px] text-center">
+        Персональные офферы, собственные инструменты, инсайд информация и связки
+        для топов.
+      </p>
+
+      <Link to="/unauthorized/registration" className="btn-primary py-4">
+        Регистрация
+      </Link>
     </div>
   );
 };
