@@ -45,6 +45,8 @@ export interface PointsStoreResponse {
   items: Array<Product>;
 }
 
+export type RegistrationFirstStepResponse = ["success" | "fail"];
+
 export interface RegistrationResponse {
   return_manager: string;
 }

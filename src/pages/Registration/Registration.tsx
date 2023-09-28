@@ -12,7 +12,7 @@ import {
   SecondStep,
 } from "./components";
 import { ModalSuccessRegister, TabPanel } from "components";
-import { RegistrationResponse } from "types";
+import { RegistrationFirstStepResponse, RegistrationResponse } from "types";
 
 export const Registration: React.FC = () => {
   const navigate = useNavigate();
@@ -33,8 +33,26 @@ export const Registration: React.FC = () => {
     useState<RegistrationFirstStepFormValues | null>(null);
 
   const handleSubmitFirstStep = (data: RegistrationFirstStepFormValues) => {
-    setFirstStepData(data);
-    setStep(1);
+    axios
+      .post<RegistrationFirstStepResponse>(
+        "http://5.63.155.73/tops/reg_check.php",
+        {
+          mail: data.mail,
+          name: data.name,
+          pass: data.pass,
+        }
+      )
+      .then((res) => {
+        if (res.data && res.data[0] === "success") {
+          setFirstStepData(data);
+          setStep(1);
+        } else {
+          firstStepForm.setError("mail", {
+            type: "custom",
+            message: "Такая почта уже существует",
+          });
+        }
+      });
   };
 
   const handleSubmitSecondStep = async (
