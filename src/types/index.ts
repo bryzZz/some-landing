@@ -48,5 +48,6 @@ export interface PointsStoreResponse {
 export type RegistrationFirstStepResponse = ["success" | "fail"];
 
 export interface RegistrationResponse {
+  id: number;
   return_manager: string;
 }

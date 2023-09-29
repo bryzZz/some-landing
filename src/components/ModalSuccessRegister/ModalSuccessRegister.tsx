@@ -9,10 +9,12 @@ import "./style.css";
 Modal.setAppElement("#root");
 
 interface ModalSuccessRegisterProps extends Props {
+  id: string;
   returnManager: string;
 }
 
 export const ModalSuccessRegister: React.FC<ModalSuccessRegisterProps> = ({
+  id,
   returnManager,
   ...props
 }) => {
@@ -31,6 +33,9 @@ export const ModalSuccessRegister: React.FC<ModalSuccessRegisterProps> = ({
       <div className="px-5 py-10 text-center">
         <Img className="mx-auto" />
         <h3 className="heading-3 mb-4">Вы успешно зарегистрированы!</h3>
+        <p className="sub-heading-2 mb-8 font-semibold">
+          Ваш id: <span className="text-[#1D74F7]">{id}</span>
+        </p>
         <p className="sub-heading-2 mb-8 font-semibold">
           Ваш менеджер:{" "}
           <a

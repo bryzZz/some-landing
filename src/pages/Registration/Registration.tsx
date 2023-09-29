@@ -17,6 +17,7 @@ import { RegistrationFirstStepResponse, RegistrationResponse } from "types";
 export const Registration: React.FC = () => {
   const navigate = useNavigate();
 
+  const [id, setId] = useState<string>("");
   const [returnManager, setReturnManager] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -72,6 +73,7 @@ export const Registration: React.FC = () => {
     );
 
     setReturnManager(response.data.return_manager);
+    setId(response.data.id.toString());
     setIsOpen(true);
   };
 
@@ -119,6 +121,7 @@ export const Registration: React.FC = () => {
       <ModalSuccessRegister
         isOpen={isOpen}
         onRequestClose={handleClose}
+        id={id}
         returnManager={returnManager}
       />
     </>
