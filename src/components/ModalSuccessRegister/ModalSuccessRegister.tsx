@@ -32,8 +32,8 @@ export const ModalSuccessRegister: React.FC<ModalSuccessRegisterProps> = ({
       </button>
       <div className="px-5 py-10 text-center">
         <Img className="mx-auto" />
-        <h3 className="heading-3 mb-4">Вы успешно зарегистрированы!</h3>
-        <p className="sub-heading-2 mb-8 font-semibold">
+        <h3 className="heading-3 mb-1">Вы успешно зарегистрированы!</h3>
+        <p className="sub-heading-2 mb-2 font-semibold">
           Ваш id: <span className="text-[#1D74F7]">{id}</span>
         </p>
         <p className="sub-heading-2 mb-8 font-semibold">
