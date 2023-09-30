@@ -35,7 +35,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           />
           <div
             className={twMerge(
-              "flex items-center justify-center border border-[#D3D4DD] p-1 transition-all group-hover:border-[#A9A8B0]",
+              "flex shrink-0 items-center justify-center border border-[#D3D4DD] p-1 transition-all group-hover:border-[#A9A8B0]",
               variant,
               variant === "primary" && "h-[22px] w-[22px] rounded-md",
               variant === "secondary" &&

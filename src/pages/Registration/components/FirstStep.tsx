@@ -1,7 +1,8 @@
 import React from "react";
 import { UseFormReturn, FormProvider, Controller } from "react-hook-form";
+import ReCAPTCHA from "react-google-recaptcha";
 
-import { CommunicationSelect, FormField } from "components";
+import { Checkbox, CommunicationSelect, FormField } from "components";
 import { PasswordField } from "./PasswordField";
 
 interface FirstStepProps {
@@ -15,6 +16,10 @@ export interface RegistrationFirstStepFormValues {
   pass: string;
   passConfirmation: string;
   contactField: string;
+  privacyConfirmation: boolean;
+  newsletterConfirmation: boolean;
+  cheatingConfirmation: boolean;
+  captcha: boolean;
 }
 
 export const FirstStep: React.FC<FirstStepProps> = ({
@@ -26,6 +31,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
     handleSubmit,
     setError,
     formState: { errors },
+    control,
   } = form;
 
   const onSubmit = handleSubmit((data) => {
@@ -132,6 +138,42 @@ export const FirstStep: React.FC<FirstStepProps> = ({
               required: "Это обязательное поле",
             })}
             error={errors.contactField?.message}
+          />
+
+          <Checkbox
+            label="Я соглашаюсь на обработку персональных данных на условиях политики конфиденциальности."
+            variant="secondary"
+            {...register("privacyConfirmation", {
+              required: "Это обязательное поле",
+            })}
+            error={errors.privacyConfirmation?.message}
+          />
+          <Checkbox
+            label="Я соглашаюсь получать e-mail-рассылки о новых офферах, акциях и бонусах."
+            variant="secondary"
+            {...register("newsletterConfirmation", {
+              required: "Это обязательное поле",
+            })}
+            error={errors.newsletterConfirmation?.message}
+          />
+          <Checkbox
+            label="Я соглашаюсь с тем, что при обнаружении любых накруток и мошеннических действий (фрод и т.д.), весь трафик обнуляется и аккаунт банится"
+            variant="secondary"
+            {...register("cheatingConfirmation", {
+              required: "Это обязательное поле",
+            })}
+            error={errors.cheatingConfirmation?.message}
+          />
+
+          <Controller
+            control={control}
+            name="captcha"
+            render={({ field }) => (
+              <ReCAPTCHA
+                sitekey="6Ler1GUoAAAAAJP5sKXgZuZUqXzXt69qQmtRQuqr"
+                onChange={(token) => field.onChange(Boolean(token))}
+              />
+            )}
           />
         </div>
 
