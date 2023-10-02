@@ -16,7 +16,7 @@ import { ReactComponent as Close } from "assets/icons/header-close.svg";
 
 const navItems = [
   // { label: "Преимущества", path: `${BASE_PATH}#cards` },
-  { label: "Блог", path: "blog/" },
+  // { label: "Блог", path: "blog/" },
   { label: "Бонусы", path: "bonuses/" },
   { label: "Магазин", path: "points-store/" },
   // { label: "Отзывы", path: `${BASE_PATH}#bubbles-4` },

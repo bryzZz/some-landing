@@ -11,8 +11,8 @@ import {
   PointsStore,
   Bonuses,
   Contacts,
-  Blog,
-  BlogPost,
+  // Blog,
+  // BlogPost,
   Registration,
   Login,
   NotFound,
@@ -45,11 +45,11 @@ const router = createBrowserRouter([
         path: "contacts/",
         element: <Contacts />,
       },
-      {
-        path: "blog/",
-        element: <Blog />,
-      },
-      { path: "blog/:id", element: <BlogPost /> },
+      // {
+      //   path: "blog/",
+      //   element: <Blog />,
+      // },
+      // { path: "blog/:id", element: <BlogPost /> },
     ],
   },
   {
