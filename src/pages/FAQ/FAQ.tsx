@@ -268,7 +268,7 @@ export const FAQ: React.FC = () => {
           </div>
         ))}
         <div
-          className="relative col-span-full h-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-5 shadow-100 md:col-span-1 md:pt-14"
+          className="relative col-span-full h-full cursor-pointer overflow-hidden rounded-2xl bg-[#C5C9D4] px-4 pb-6 pt-5 shadow-100 md:col-span-1 xl:pt-14"
           onClick={() => {
             const a = document.createElement("a");
             a.setAttribute("href", "mailto:info@leadshub.pro");

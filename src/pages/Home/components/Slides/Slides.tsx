@@ -173,7 +173,7 @@ export const Slides: React.FC = () => {
           }}
         >
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-24 lg:gap-28">
+            <div className="flex justify-center gap-8 md:justify-between md:pl-24 xl:gap-28">
               <div className="w-full flex-1 text-center md:text-left">
                 <Fade
                   cascade
@@ -182,7 +182,7 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[150px]">
+                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 xl:lg:text-[130px] 3xl:text-[150px]">
                     <span className="text-primary-100">$</span>20m+
                   </h3>
                   <p className="sub-heading-3 md:max-w-xs">
@@ -207,7 +207,7 @@ export const Slides: React.FC = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-24 lg:gap-28">
+            <div className="flex justify-center gap-8 md:justify-between md:pl-24 xl:gap-28">
               <div className="w-full flex-1 text-center md:text-left">
                 <Fade
                   cascade
@@ -239,7 +239,7 @@ export const Slides: React.FC = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-24 lg:gap-28">
+            <div className="flex justify-center gap-8 md:justify-between md:pl-24 xl:gap-28">
               <div className="w-full flex-1 text-center md:text-left">
                 <Fade
                   cascade
@@ -271,7 +271,7 @@ export const Slides: React.FC = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-24 lg:gap-28">
+            <div className="flex justify-center gap-8 md:justify-between md:pl-24 xl:gap-28">
               <div className="w-full flex-1 text-center md:text-left">
                 <Fade
                   cascade
@@ -280,7 +280,7 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[20%] text-[70px] leading-none text-text-400 sm:text-[80px] lg:mb-6 lg:text-[110px] 3xl:text-[130px]">
+                  <h3 className="mb-2 whitespace-nowrap pt-[20%] text-[70px] leading-none text-text-400 sm:text-[80px] lg:mb-6 lg:text-[110px] 3xl:text-[130px]">
                     10 000+
                   </h3>
                   <p className="sub-heading-3 md:max-w-xs">

@@ -102,12 +102,12 @@ export const Cards: React.FC = () => {
   return (
     <section
       id="cards"
-      className="base-container mb-20 grid scroll-mt-24 grid-cols-6 gap-7 lg:mb-24 lg:grid-cols-8"
+      className="base-container mb-20 grid scroll-mt-24 grid-cols-6 gap-7 xl:mb-24 xl:grid-cols-8"
     >
       <Fade
         cascade
         direction="up"
-        className="col-span-6 row-span-4 rounded-2xl bg-text-100 p-5 shadow-100 md:col-span-3 lg:col-span-2 lg:p-6"
+        className="col-span-6 row-span-4 rounded-2xl bg-text-100 p-5 shadow-100 md:col-span-3 xl:col-span-2 xl:p-6"
         duration={500}
         damping={0.3}
         triggerOnce
@@ -125,9 +125,9 @@ export const Cards: React.FC = () => {
 
       <Zoom
         triggerOnce
-        className="col-span-6 row-span-2 md:col-span-2 lg:col-span-2 lg:row-span-6"
+        className="col-span-6 row-span-2 h-full md:col-span-2 lg:h-auto xl:col-span-2 xl:row-span-6"
       >
-        <div className="flex flex-col items-center rounded-2xl bg-gradient-to-br from-primary-300 to-primary-400 p-6 pt-2 shadow-100">
+        <div className="flex h-full flex-col items-center rounded-2xl bg-gradient-to-br from-primary-300 to-primary-400 p-6 pt-2 shadow-100 lg:h-auto">
           <img src={MainImage2} className="3xl:min-h-[288px]" />
           <p className="heading-6 text-center text-text-100">Генератор чеков</p>
         </div>
@@ -136,7 +136,7 @@ export const Cards: React.FC = () => {
       <Fade
         cascade
         direction="up"
-        className="col-span-6 row-span-1 md:col-span-4 lg:col-span-3 lg:row-span-3"
+        className="col-span-6 row-span-1 md:col-span-4 xl:col-span-3 xl:row-span-3"
         duration={500}
         damping={0.3}
         triggerOnce
@@ -149,7 +149,7 @@ export const Cards: React.FC = () => {
       <Fade
         cascade
         direction="up"
-        className="col-span-6 row-span-1 md:col-span-3 lg:col-span-3 lg:row-span-3"
+        className="col-span-6 row-span-1 md:col-span-3 xl:col-span-3 xl:row-span-3"
         duration={500}
         damping={0.3}
         triggerOnce

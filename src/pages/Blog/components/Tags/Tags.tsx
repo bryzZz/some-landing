@@ -19,6 +19,7 @@ export const Tags: React.FC<TagsProps> = ({ tags, className }) => {
               id={`Blog-${tag}`}
               type="checkbox"
               className="tag-input hidden"
+              disabled
             />
             <label htmlFor={`Blog-${tag}`} className="tag">
               {tag}

@@ -139,8 +139,7 @@ export const SecondSlide: React.FC<SecondSlideProps> = ({ show }) => {
             Получайте прибыль от качественного трафика
           </h1>
           <p className="sub-heading-1 mb-10 max-w-[618px]">
-            Персональные офферы, собственные инструменты, инсайд информация и
-            связки для топов.
+            Присоединяйтесь к нам и повысьте узнаваемость бренда.
           </p>
           <Link to="/contacts" className="btn-primary py-4">
             Присоединиться

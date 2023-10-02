@@ -39,6 +39,7 @@ const contacts = [
         name: "Дмитрий",
         role: "СЕО",
         telegram: "https://t.me/dimasmanager",
+        mail: "dmitry@leadshub.pro",
       },
     ],
   },

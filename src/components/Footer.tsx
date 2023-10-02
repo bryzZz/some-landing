@@ -14,8 +14,8 @@ const navItems = [
   { label: "Магазин", path: "points-store/" },
   { label: "Бонусы", path: "bonuses/" },
   { label: "Контакты", path: "contacts/" },
-  { label: "404", path: "not-found/" },
-  { label: "Ведутся работы", path: "work/" },
+  // { label: "404", path: "not-found/" },
+  // { label: "Ведутся работы", path: "work/" },
 ];
 
 export const Footer: React.FC = () => {
@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[#ECF2F6]">
-      <div className="base-container pb-8 pt-10">
+      <div className="base-container px-6 pb-8 pt-10">
         <div className="mb-6 flex flex-col items-center gap-6 md:flex-row md:items-start md:justify-between md:gap-16">
           <div className="flex flex-col items-center md:block">
             <Link to={BASE_PATH} className="mb-5 block">
