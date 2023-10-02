@@ -11,7 +11,7 @@ const currencyFormat = new Intl.NumberFormat("ru-RU");
 
 export const TopWebMastersTable: React.FC = () => {
   const { data } = useSWR<WebMasterResponse>(
-    "http://5.63.155.73/tops/web/actually5web.json",
+    "http://test.leadshub.ru/tops/web/actually5web.json",
     {
       revalidateOnMount: true,
     }

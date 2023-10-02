@@ -36,7 +36,7 @@ export const Registration: React.FC = () => {
   const handleSubmitFirstStep = (data: RegistrationFirstStepFormValues) => {
     axios
       .post<RegistrationFirstStepResponse>(
-        "http://5.63.155.73/tops/reg_check.php",
+        "http://test.leadshub.ru/tops/reg_check.php",
         {
           mail: data.mail,
           name: data.name,
@@ -62,7 +62,7 @@ export const Registration: React.FC = () => {
     if (!firstStepData) return;
 
     const response = await axios.post<RegistrationResponse>(
-      "http://5.63.155.73/tops/reg.php",
+      "http://test.leadshub.ru/tops/reg.php",
       {
         name: firstStepData.name,
         mail: firstStepData.mail,
