@@ -46,64 +46,70 @@ export const TopOffersTable: React.FC = () => {
         {data &&
           Object.entries(data)
             .sort((a, b) => b[1].r2d - a[1].r2d)
-            .map(([id, { logo, title, privacy, countries, r2d }]) => (
-              <tr
-                className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
-                key={id}
-              >
-                {mdMatches ? (
-                  <>
-                    <td className="w-14 rounded-bl rounded-tl pl-[14px]">
-                      <img
-                        className="h-8 w-8 object-contain 3xl:h-10 3xl:w-10"
-                        src={privacy === "private" ? Private : logo}
-                      />
-                    </td>
-                    <td className="w-24 py-3">#{id}</td>
-                    <td className="w-2/4 rounded-br rounded-tr py-3 pr-8">
-                      {privacy === "private" ? title.slice(0, 12) : title}
-                      {privacy === "private" && (
-                        <span className="text-[#B8C4D2]"> Private</span>
-                      )}
-                    </td>
-                    <td className="py-3">
-                      <OffersGeo countries={countries} />
-                    </td>
-                    <td className="rounded-br rounded-tr py-3">{r2d}%</td>
-                  </>
-                ) : (
-                  <>
-                    <td className="rounded-bl rounded-tl p-3">
-                      <div className="mb-2 flex items-center gap-4">
+            .map(([id, { logo, title, privacy, countries, r2d }]) => {
+              title = title ?? "************";
+              countries = countries ?? [];
+              logo = logo ?? Private;
+
+              return (
+                <tr
+                  className="sub-heading-4 mb-2 rounded bg-[#F9F9F9] font-bold"
+                  key={id}
+                >
+                  {mdMatches ? (
+                    <>
+                      <td className="w-14 rounded-bl rounded-tl pl-[14px]">
                         <img
-                          className="h-8 w-8 object-contain"
+                          className="h-8 w-8 object-contain 3xl:h-10 3xl:w-10"
                           src={privacy === "private" ? Private : logo}
                         />
-                        #{id}
-                      </div>
-                      <div className="flex items-center gap-[6px]">
-                        <span className="text-[#B3B3B3]">Гео: </span>
-                        <OffersGeo countries={countries} />
-                      </div>
-                    </td>
-                    <td className="rounded-br rounded-tr py-3">
-                      <div className="mb-2 pr-1">
-                        {privacy === "private"
-                          ? title.slice(0, smMatches ? 12 : 8)
-                          : title}
+                      </td>
+                      <td className="w-24 py-3">#{id}</td>
+                      <td className="w-2/4 rounded-br rounded-tr py-3 pr-8">
+                        {privacy === "private" ? title.slice(0, 12) : title}
                         {privacy === "private" && (
                           <span className="text-[#B8C4D2]"> Private</span>
                         )}
-                      </div>
-                      <div>
-                        <span className="text-[#B3B3B3]">Epc </span>
-                        {r2d}%
-                      </div>
-                    </td>
-                  </>
-                )}
-              </tr>
-            ))}
+                      </td>
+                      <td className="py-3">
+                        <OffersGeo countries={countries} />
+                      </td>
+                      <td className="rounded-br rounded-tr py-3">{r2d}%</td>
+                    </>
+                  ) : (
+                    <>
+                      <td className="rounded-bl rounded-tl p-3">
+                        <div className="mb-2 flex items-center gap-4">
+                          <img
+                            className="h-8 w-8 object-contain"
+                            src={privacy === "private" ? Private : logo}
+                          />
+                          #{id}
+                        </div>
+                        <div className="flex items-center gap-[6px]">
+                          <span className="text-[#B3B3B3]">Гео: </span>
+                          <OffersGeo countries={countries} />
+                        </div>
+                      </td>
+                      <td className="rounded-br rounded-tr py-3">
+                        <div className="mb-2 pr-1">
+                          {privacy === "private"
+                            ? title.slice(0, smMatches ? 12 : 8)
+                            : title}
+                          {privacy === "private" && (
+                            <span className="text-[#B8C4D2]"> Private</span>
+                          )}
+                        </div>
+                        <div>
+                          <span className="text-[#B3B3B3]">Epc </span>
+                          {r2d}%
+                        </div>
+                      </td>
+                    </>
+                  )}
+                </tr>
+              );
+            })}
       </tbody>
     </table>
   );

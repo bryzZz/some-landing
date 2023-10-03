@@ -25,10 +25,10 @@ export interface OffersResponse {
       dep: number;
     };
     r2d: number;
-    title: string;
-    privacy: "private" | "protected";
-    countries: string[];
-    logo: string;
+    title: string | null;
+    privacy: "private" | "protected" | null;
+    countries: string[] | null;
+    logo: string | null;
   };
 }
 
