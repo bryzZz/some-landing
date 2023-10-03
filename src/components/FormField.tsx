@@ -9,7 +9,7 @@ export interface FormFieldProps extends ComponentProps<"input"> {
 export const FormField = forwardRef<HTMLInputElement, FormFieldProps>(
   ({ label, error, className, ...props }, ref) => {
     return (
-      <label className="flex w-full flex-col text-sm">
+      <label className="flex w-full flex-col justify-start text-sm">
         <span className="mb-2 font-semibold text-text-400">{label}</span>
         <input
           className={twMerge(

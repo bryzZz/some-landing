@@ -72,7 +72,7 @@ export const Registration: React.FC = () => {
       }
     );
 
-    setReturnManager(response.data.return_manager);
+    setReturnManager(response.data.return_manager ?? "");
     setId(response.data.id.toString());
     setIsOpen(true);
   };

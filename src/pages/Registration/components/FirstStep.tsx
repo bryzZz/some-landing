@@ -117,7 +117,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
                   value={value}
                   onChange={onChange}
                   error={errors.pass?.message}
-                  className="mt-auto"
+                  // className="mt-auto"
                 />
               )}
             />

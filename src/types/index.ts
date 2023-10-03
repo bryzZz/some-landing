@@ -49,5 +49,5 @@ export type RegistrationFirstStepResponse = ["success" | "fail"];
 
 export interface RegistrationResponse {
   id: number;
-  return_manager: string;
+  return_manager: string | undefined;
 }

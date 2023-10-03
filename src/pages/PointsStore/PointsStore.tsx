@@ -80,7 +80,7 @@ export const PointsStore: React.FC = () => {
 
   const handleProductClick = (id: string) => () => {
     setSelectedProductId(id);
-    setIsOpen(true);
+    // setIsOpen(true);
   };
 
   const handleSortChange = (label: string) => {
