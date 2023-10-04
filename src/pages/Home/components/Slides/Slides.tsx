@@ -90,13 +90,32 @@ const dataPartners = [
   },
 ];
 
+const getChartBounds = (matchesAlmostMd: boolean, matchesXl: boolean) => {
+  let height = 248;
+  let width = 272;
+
+  if (matchesAlmostMd) {
+    height = 288;
+    width = 312;
+  }
+
+  if (matchesXl) {
+    height = 315;
+    width = 341;
+  }
+
+  return { width, height };
+};
+
 export const Slides: React.FC = () => {
-  const matches = useMediaQuery("(min-width: 768px)");
-  const previousMatches = usePrevious(matches);
+  const matchesMd = useMediaQuery("(min-width: 768px)");
+  const matchesAlmostMd = useMediaQuery("(min-width: 800px)");
+  const matchesXl = useMediaQuery("(min-width: 1024px)");
+  const previousMatches = usePrevious(matchesMd);
   const [_, forceUpdate] = useReducer((p) => p + 1, 0);
 
-  const height = 315;
-  const width = 341;
+  const { width, height } = getChartBounds(matchesAlmostMd, matchesXl);
+
   const margin = {
     bottom: 120,
     top: 72,
@@ -105,10 +124,10 @@ export const Slides: React.FC = () => {
   };
 
   useEffect(() => {
-    if (previousMatches !== matches) {
+    if (previousMatches !== matchesMd) {
       forceUpdate();
     }
-  }, [matches, previousMatches]);
+  }, [matchesMd, previousMatches]);
 
   return (
     <section
@@ -158,11 +177,11 @@ export const Slides: React.FC = () => {
           autoplay={{
             delay: 5000,
           }}
-          direction={matches ? "vertical" : "horizontal"}
-          autoHeight={matches}
+          direction={matchesMd ? "vertical" : "horizontal"}
+          autoHeight={matchesMd}
           slidesPerView={1}
           pagination={{ clickable: true }}
-          height={matches ? 500 : undefined}
+          height={matchesMd ? 500 : undefined}
           modules={[Pagination, Autoplay]}
           spaceBetween={50}
           className="slides"
@@ -173,7 +192,7 @@ export const Slides: React.FC = () => {
           }}
         >
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-24 xl:gap-28">
+            <div className="flex justify-center gap-8 md:justify-between md:pl-10 lg:pl-24 xl:gap-28">
               <div className="w-full flex-1 text-center md:text-left">
                 <Fade
                   cascade
@@ -182,7 +201,7 @@ export const Slides: React.FC = () => {
                   damping={0.3}
                   triggerOnce
                 >
-                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 xl:lg:text-[130px] 3xl:text-[150px]">
+                  <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 lg:mb-6 lg:text-[115px] xl:text-[130px] 3xl:text-[150px]">
                     <span className="text-primary-100">$</span>20m+
                   </h3>
                   <p className="sub-heading-3 md:max-w-xs">
@@ -207,7 +226,7 @@ export const Slides: React.FC = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-24 xl:gap-28">
+            <div className="flex justify-center gap-8 md:justify-between md:pl-10 lg:pl-24 xl:gap-28">
               <div className="w-full flex-1 text-center md:text-left">
                 <Fade
                   cascade
@@ -239,7 +258,7 @@ export const Slides: React.FC = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-24 xl:gap-28">
+            <div className="flex justify-center gap-8 md:justify-between md:pl-10 lg:pl-24 xl:gap-28">
               <div className="w-full flex-1 text-center md:text-left">
                 <Fade
                   cascade
@@ -271,7 +290,7 @@ export const Slides: React.FC = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-24 xl:gap-28">
+            <div className="flex justify-center gap-8 md:justify-between md:pl-10 lg:pl-24 xl:gap-28">
               <div className="w-full flex-1 text-center md:text-left">
                 <Fade
                   cascade

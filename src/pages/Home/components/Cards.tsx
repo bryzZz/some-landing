@@ -77,7 +77,10 @@ const BottomCard: React.FC<BottomCardProps> = ({ Icon, title, subTitle }) => {
   if (matches) {
     return (
       <div className="flex h-full items-start rounded-2xl bg-text-100 pb-[15px] pr-[22px] shadow-100">
-        <img src={Icon} className="h-[128px] w-[129px] flex-shrink-0" />
+        <img
+          src={Icon}
+          className="h-[100px] w-[100px] flex-shrink-0 lg:h-[128px] lg:w-[129px]"
+        />
         <div className="pt-[22px]">
           <p className="heading-6">{title}</p>
           <p className="sub-heading-4">{subTitle}</p>
@@ -125,10 +128,13 @@ export const Cards: React.FC = () => {
 
       <Zoom
         triggerOnce
-        className="col-span-6 row-span-2 h-full md:col-span-2 lg:h-auto xl:col-span-2 xl:row-span-6"
+        className="col-span-6 row-span-2 md:col-span-2 lg:h-auto xl:col-span-2 xl:row-span-6"
       >
-        <div className="flex h-full flex-col items-center rounded-2xl bg-gradient-to-br from-primary-300 to-primary-400 p-6 pt-2 shadow-100 lg:h-auto">
-          <img src={MainImage2} className="3xl:min-h-[288px]" />
+        <div className="flex flex-col items-center rounded-2xl bg-gradient-to-br from-primary-300 to-primary-400 p-2 pb-4 pt-2 shadow-100 lg:h-auto lg:p-6">
+          <img
+            src={MainImage2}
+            className="max-h-[400px] md:max-h-max 3xl:min-h-[288px]"
+          />
           <p className="heading-6 text-center text-text-100">Генератор чеков</p>
         </div>
       </Zoom>

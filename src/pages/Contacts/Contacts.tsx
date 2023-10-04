@@ -178,7 +178,7 @@ export const Contacts: React.FC = () => {
         </div>
 
         <div
-          className="mx-auto mb-24 flex w-full max-w-[975px] flex-col items-center justify-between gap-10 rounded-2xl border border-[#D1D1D1] bg-cover bg-center bg-no-repeat px-11 py-9 shadow-100 md:flex-row md:gap-0 lg:mb-36 3xl:max-w-[1152px]"
+          className="mx-auto mb-24 flex w-full max-w-[975px] flex-col items-center justify-between gap-10 rounded-2xl border border-[#D1D1D1] bg-cover bg-center bg-no-repeat px-11 py-9 shadow-100 lg:mb-36 lg:flex-row lg:gap-0 3xl:max-w-[1152px]"
           style={{
             backgroundImage: `url(${
               matches ? ContactsImage : ContactsImageSm

@@ -18,16 +18,16 @@ export const ShopCard: React.FC<ShopCardProps> = ({
   return (
     <div
       className={twMerge(
-        "flex min-h-full w-full flex-col items-center rounded-xl bg-text-100 px-2 py-4 text-center shadow-100 md:pb-6 md:pt-8 lg:rounded-3xl lg:px-4 lg:pb-10 lg:pt-12",
+        "flex min-h-full w-full flex-col items-center rounded-xl bg-text-100 px-2 py-4 text-center shadow-100 md:pb-6 md:pt-8 xl:rounded-3xl xl:px-4 xl:pb-10 xl:pt-12",
         details && "transition hover:shadow-300",
         className
       )}
     >
       <img
-        className="mb-7 h-44 object-contain lg:h-64 3xl:h-80"
+        className="mb-7 h-44 object-contain xl:h-64 3xl:h-80"
         src={data.img}
       />
-      <h5 className="mb-1 text-xs font-black uppercase text-[#B5B5B5] md:mb-3 lg:text-sm 3xl:text-base">
+      <h5 className="mb-1 text-xs font-black uppercase text-[#B5B5B5] md:mb-3 xl:text-sm 3xl:text-base">
         {data.price} БАЛЛОВ
       </h5>
       <h4 className="md:heading-4 mx-3 mb-auto whitespace-pre-line text-sm font-bold 3xl:text-xl">

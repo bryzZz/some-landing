@@ -84,7 +84,7 @@ export const ShopPreviewMini: React.FC = () => {
           </h2>
         </Fade>
 
-        <div className="mb-14 grid grid-cols-2 gap-5 md:grid-cols-4 lg:gap-[30px]">
+        <div className="mb-14 grid grid-cols-2 gap-5 md:grid-cols-4 xl:gap-[30px]">
           <Fade cascade direction="up" duration={400} damping={0.2} triggerOnce>
             {cards.map((data, i) => (
               <ShopCard key={i} data={data} />
