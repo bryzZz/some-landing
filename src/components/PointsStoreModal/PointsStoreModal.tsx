@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-modal";
-import { useForm, Controller } from "react-hook-form";
+// import { useForm, Controller } from "react-hook-form";
 
 import { ReactComponent as Cross } from "assets/icons/cross.svg";
 
 import "./style.css";
 import { Product } from "types";
-import { ModalPinCode } from "components/ModalPinCode";
-import { Counter } from "components/Counter";
-import { Input } from "components/Input";
+// import { ModalPinCode } from "components/ModalPinCode";
+// import { Counter } from "components/Counter";
+// import { Input } from "components/Input";
 
 Modal.setAppElement("body");
 
@@ -18,10 +18,10 @@ interface PointsStoreModalProps {
   product?: Product;
 }
 
-interface PointsStoreModalFormValues {
-  count: number;
-  userId: string;
-}
+// interface PointsStoreModalFormValues {
+//   count: number;
+//   userId: string;
+// }
 
 export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
   product,
@@ -29,18 +29,18 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
 }) => {
   const { img, name, category, desc, price } = product ?? {};
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm<PointsStoreModalFormValues>({
-    defaultValues: {
-      count: 0,
-    },
-  });
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   control,
+  //   formState: { errors },
+  // } = useForm<PointsStoreModalFormValues>({
+  //   defaultValues: {
+  //     count: 0,
+  //   },
+  // });
 
-  const [isPinCOdeModalOpen, setIsPinCOdeModalOpen] = useState(false);
+  // const [isPinCOdeModalOpen, setIsPinCOdeModalOpen] = useState(false);
 
   if (other.isOpen) {
     document.body.style.overflow = "hidden";
@@ -48,10 +48,9 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
     document.body.style.overflow = "unset";
   }
 
-  const onSubmit = handleSubmit(() => {
-    // console.log(data);
-    // if (data.count > 0) setIsPinCOdeModalOpen(true);
-  });
+  // const onSubmit = handleSubmit(() => {
+  // if (data.count > 0) setIsPinCOdeModalOpen(true);
+  // });
 
   return (
     <Modal {...other} className="PointsStoreModal" closeTimeoutMS={50}>
@@ -74,7 +73,7 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
       <p className="mb-9 font-medium text-text-400">Категория: {category}</p>
       <p className="mb-6 text-[14px] text-text-300">{desc}</p>
 
-      <hr className="mb-6 bg-[E2E2E2]" />
+      {/* <hr className="mb-6 bg-[E2E2E2]" />
 
       <form onSubmit={onSubmit}>
         <Input
@@ -107,12 +106,12 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
 
           <p className="sub-heading-4 text-red-600">{errors.count?.message}</p>
         </div>
-      </form>
+      </form> */}
 
-      <ModalPinCode
+      {/* <ModalPinCode
         isOpen={isPinCOdeModalOpen}
         onRequestClose={() => setIsPinCOdeModalOpen(false)}
-      />
+      /> */}
     </Modal>
   );
 };
