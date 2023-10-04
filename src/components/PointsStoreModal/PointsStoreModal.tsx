@@ -48,7 +48,8 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
     document.body.style.overflow = "unset";
   }
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(() => {
+    // console.log(data);
     // if (data.count > 0) setIsPinCOdeModalOpen(true);
   });
 
