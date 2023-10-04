@@ -109,7 +109,7 @@ const getChartBounds = (matchesAlmostMd: boolean, matchesXl: boolean) => {
 
 export const Slides: React.FC = () => {
   const matchesMd = useMediaQuery("(min-width: 768px)");
-  const matchesAlmostMd = useMediaQuery("(min-width: 800px)");
+  const matchesAlmostMd = useMediaQuery("(min-width: 820px)");
   const matchesXl = useMediaQuery("(min-width: 1024px)");
   const previousMatches = usePrevious(matchesMd);
   const [_, forceUpdate] = useReducer((p) => p + 1, 0);
@@ -132,7 +132,7 @@ export const Slides: React.FC = () => {
   return (
     <section
       id="bubbles-1"
-      className="relative mb-16 bg-auto bg-bottom bg-no-repeat md:mb-24 lg:mb-28"
+      className="relative mb-16 bg-auto bg-bottom bg-no-repeat min-[820px]:mb-24 lg:mb-28"
       style={{ backgroundImage: `url(${SlidesBg})` }}
     >
       <Scene duration={1500} triggerElement="#bubbles-1" triggerHook="onEnter">
@@ -177,11 +177,11 @@ export const Slides: React.FC = () => {
           autoplay={{
             delay: 5000,
           }}
-          direction={matchesMd ? "vertical" : "horizontal"}
-          autoHeight={matchesMd}
+          direction={matchesAlmostMd ? "vertical" : "horizontal"}
+          autoHeight={matchesAlmostMd}
           slidesPerView={1}
           pagination={{ clickable: true }}
-          height={matchesMd ? 500 : undefined}
+          height={matchesAlmostMd ? 500 : undefined}
           modules={[Pagination, Autoplay]}
           spaceBetween={50}
           className="slides"
@@ -192,8 +192,8 @@ export const Slides: React.FC = () => {
           }}
         >
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-10 lg:pl-24 xl:gap-28">
-              <div className="w-full flex-1 text-center md:text-left">
+            <div className="flex justify-center gap-8 min-[820px]:justify-between min-[820px]:pl-10 lg:pl-24 xl:gap-28">
+              <div className="w-full flex-1 text-center min-[820px]:text-left">
                 <Fade
                   cascade
                   direction="up"
@@ -204,13 +204,13 @@ export const Slides: React.FC = () => {
                   <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 lg:mb-6 lg:text-[115px] xl:text-[130px] 3xl:text-[150px]">
                     <span className="text-primary-100">$</span>20m+
                   </h3>
-                  <p className="sub-heading-3 md:max-w-xs">
+                  <p className="sub-heading-3 min-[820px]:max-w-xs">
                     Выплатили нашим клиентам за время существования нашей
                     компании.
                   </p>
                 </Fade>
               </div>
-              <div className="hidden flex-1 md:block">
+              <div className="hidden flex-1 min-[820px]:block">
                 <Zoom triggerOnce>
                   <Chart
                     data={data}
@@ -226,8 +226,8 @@ export const Slides: React.FC = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-10 lg:pl-24 xl:gap-28">
-              <div className="w-full flex-1 text-center md:text-left">
+            <div className="flex justify-center gap-8 min-[820px]:justify-between min-[820px]:pl-10 lg:pl-24 xl:gap-28">
+              <div className="w-full flex-1 text-center min-[820px]:text-left">
                 <Fade
                   cascade
                   direction="up"
@@ -238,12 +238,12 @@ export const Slides: React.FC = () => {
                   <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[150px]">
                     300+
                   </h3>
-                  <p className="sub-heading-3 md:max-w-xs">
+                  <p className="sub-heading-3 min-[820px]:max-w-xs">
                     прямых рекламодателей уже сотрудничают с нами
                   </p>
                 </Fade>
               </div>
-              <div className="hidden flex-1 md:block">
+              <div className="hidden flex-1 min-[820px]:block">
                 <Zoom triggerOnce>
                   <Chart
                     data={dataAds}
@@ -258,8 +258,8 @@ export const Slides: React.FC = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-10 lg:pl-24 xl:gap-28">
-              <div className="w-full flex-1 text-center md:text-left">
+            <div className="flex justify-center gap-8 min-[820px]:justify-between min-[820px]:pl-10 lg:pl-24 xl:gap-28">
+              <div className="w-full flex-1 text-center min-[820px]:text-left">
                 <Fade
                   cascade
                   direction="up"
@@ -270,12 +270,12 @@ export const Slides: React.FC = () => {
                   <h3 className="mb-2 pt-[20%] text-[90px] leading-none text-text-400 sm:text-[115px] lg:mb-6 lg:text-[130px] 3xl:text-[150px]">
                     600+
                   </h3>
-                  <p className="sub-heading-3 md:max-w-xs">
+                  <p className="sub-heading-3 min-[820px]:max-w-xs">
                     офферов под CPA, CPL, RevShare и Hybrid
                   </p>
                 </Fade>
               </div>
-              <div className="hidden flex-1 md:block">
+              <div className="hidden flex-1 min-[820px]:block">
                 <Zoom triggerOnce>
                   <Chart
                     data={dataOffers}
@@ -290,8 +290,8 @@ export const Slides: React.FC = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center gap-8 md:justify-between md:pl-10 lg:pl-24 xl:gap-28">
-              <div className="w-full flex-1 text-center md:text-left">
+            <div className="flex justify-center gap-8 min-[820px]:justify-between min-[820px]:pl-10 lg:pl-24 xl:gap-28">
+              <div className="w-full flex-1 text-center min-[820px]:text-left">
                 <Fade
                   cascade
                   direction="up"
@@ -302,12 +302,12 @@ export const Slides: React.FC = () => {
                   <h3 className="mb-2 whitespace-nowrap pt-[20%] text-[70px] leading-none text-text-400 sm:text-[80px] lg:mb-6 lg:text-[110px] 3xl:text-[130px]">
                     10 000+
                   </h3>
-                  <p className="sub-heading-3 md:max-w-xs">
+                  <p className="sub-heading-3 min-[820px]:max-w-xs">
                     веб-мастеров уже зарегестрированы у нас
                   </p>
                 </Fade>
               </div>
-              <div className="hidden flex-1 md:block">
+              <div className="hidden flex-1 min-[820px]:block">
                 <Zoom triggerOnce>
                   <Chart
                     data={dataPartners}

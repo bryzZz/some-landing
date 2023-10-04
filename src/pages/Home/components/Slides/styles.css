@@ -1,9 +1,9 @@
 .slides {
-  @apply pb-12 md:pb-0;
+  @apply pb-12;
 }
 
 .slides .swiper-pagination {
-  @apply bottom-0 md:left-2 md:right-auto;
+  @apply bottom-0;
 }
 
 .slides .swiper-pagination-bullet {
@@ -11,9 +11,23 @@
 }
 
 .slides .swiper-pagination-bullet:not(:last-child) {
-  @apply m-0 mr-7 md:mb-7;
+  @apply m-0 mr-7;
 }
 
 .slides .swiper-pagination-bullet-active {
   @apply h-1 w-1 bg-white outline outline-black;
+}
+
+@media screen and (min-width: 820px) {
+  .slides {
+    @apply pb-0;
+  }
+
+  .slides .swiper-pagination {
+    @apply bottom-0 left-2 right-auto;
+  }
+
+  .slides .swiper-pagination-bullet:not(:last-child) {
+    @apply m-0 mb-7 mr-7;
+  }
 }
