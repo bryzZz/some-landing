@@ -49,7 +49,7 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
   }
 
   const onSubmit = handleSubmit((data) => {
-    if (data.count > 0) setIsPinCOdeModalOpen(true);
+    // if (data.count > 0) setIsPinCOdeModalOpen(true);
   });
 
   return (
