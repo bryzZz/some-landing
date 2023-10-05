@@ -79,7 +79,7 @@ export const Footer: React.FC = () => {
             <h3 className="mb-5 hidden text-xl font-bold md:block 3xl:text-3xl">
               Быстрые ссылки
             </h3>
-            <nav className="flex w-full flex-wrap items-center justify-center gap-6 md:justify-between">
+            <nav className="flex w-full flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-between">
               {navItems.map(({ label, path }, i) => (
                 <Link
                   key={i}
