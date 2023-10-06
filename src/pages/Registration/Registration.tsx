@@ -23,7 +23,11 @@ export const Registration: React.FC = () => {
 
   const [step, setStep] = useState(0);
 
-  const firstStepForm = useForm<RegistrationFirstStepFormValues>();
+  const firstStepForm = useForm<RegistrationFirstStepFormValues>({
+    defaultValues: {
+      contactType: "telegram",
+    },
+  });
   const secondStepForm = useForm<RegistrationSecondStepFormValues>({
     defaultValues: {
       acceptTheHandler: true,
@@ -36,7 +40,7 @@ export const Registration: React.FC = () => {
   const handleSubmitFirstStep = (data: RegistrationFirstStepFormValues) => {
     axios
       .post<RegistrationFirstStepResponse>(
-        "https://test.leadshub.ru/tops/reg_check.php",
+        "http://89.108.79.231/tops/reg_check.php",
         {
           mail: data.mail,
           name: data.name,
@@ -62,12 +66,13 @@ export const Registration: React.FC = () => {
     if (!firstStepData) return;
 
     const response = await axios.post<RegistrationResponse>(
-      "https://test.leadshub.ru/tops/reg.php",
+      "http://89.108.79.231/tops/reg.php",
       {
         name: firstStepData.name,
         mail: firstStepData.mail,
         pass: firstStepData.pass,
         contactField: firstStepData.contactField,
+        contactType: firstStepData.contactType,
         ...data,
       }
     );

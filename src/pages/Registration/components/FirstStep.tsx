@@ -15,6 +15,7 @@ export interface RegistrationFirstStepFormValues {
   mail: string;
   pass: string;
   passConfirmation: string;
+  contactType: string;
   contactField: string;
   privacyConfirmation: boolean;
   newsletterConfirmation: boolean;
@@ -134,6 +135,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
           </div>
 
           <CommunicationSelect
+            control={control}
             {...register("contactField", {
               required: "Это обязательное поле",
             })}

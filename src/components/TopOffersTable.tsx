@@ -10,7 +10,7 @@ import Private from "assets/icons/private-offer.png";
 
 export const TopOffersTable: React.FC = () => {
   const { data } = useSWR<OffersResponse>(
-    "https://test.leadshub.ru/tops/offers/actually5offers.json",
+    "http://89.108.79.231/tops/offers/actually5offers.json",
     {
       revalidateOnMount: true,
     }
