@@ -10,12 +10,9 @@ import { WebMasterResponse } from "types";
 const currencyFormat = new Intl.NumberFormat("ru-RU");
 
 export const TopWebMastersTable: React.FC = () => {
-  const { data } = useSWR<WebMasterResponse>(
-    "http://89.108.79.231/tops/web/actually5web.json",
-    {
-      revalidateOnMount: true,
-    }
-  );
+  const { data } = useSWR<WebMasterResponse>("/tops/web/actually5web.json", {
+    revalidateOnMount: true,
+  });
 
   const matches = useMediaQuery("(min-width: 768px)");
 

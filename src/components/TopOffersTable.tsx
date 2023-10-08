@@ -9,12 +9,9 @@ import { OffersGeo } from "./OffersGeo";
 import Private from "assets/icons/private-offer.png";
 
 export const TopOffersTable: React.FC = () => {
-  const { data } = useSWR<OffersResponse>(
-    "http://89.108.79.231/tops/offers/actually5offers.json",
-    {
-      revalidateOnMount: true,
-    }
-  );
+  const { data } = useSWR<OffersResponse>("/tops/offers/actually5offers.json", {
+    revalidateOnMount: true,
+  });
 
   const mdMatches = useMediaQuery("(min-width: 768px)");
   const smMatches = useMediaQuery("(min-width: 350px)");

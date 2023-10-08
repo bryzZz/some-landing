@@ -39,14 +39,11 @@ export const Registration: React.FC = () => {
 
   const handleSubmitFirstStep = (data: RegistrationFirstStepFormValues) => {
     axios
-      .post<RegistrationFirstStepResponse>(
-        "http://89.108.79.231/tops/reg_check.php",
-        {
-          mail: data.mail,
-          name: data.name,
-          pass: data.pass,
-        }
-      )
+      .post<RegistrationFirstStepResponse>("/tops/reg_check.php", {
+        mail: data.mail,
+        name: data.name,
+        pass: data.pass,
+      })
       .then((res) => {
         if (res.data && res.data[0] === "success") {
           setFirstStepData(data);
@@ -65,17 +62,14 @@ export const Registration: React.FC = () => {
   ) => {
     if (!firstStepData) return;
 
-    const response = await axios.post<RegistrationResponse>(
-      "http://89.108.79.231/tops/reg.php",
-      {
-        name: firstStepData.name,
-        mail: firstStepData.mail,
-        pass: firstStepData.pass,
-        contactField: firstStepData.contactField,
-        contactType: firstStepData.contactType,
-        ...data,
-      }
-    );
+    const response = await axios.post<RegistrationResponse>("/tops/reg.php", {
+      name: firstStepData.name,
+      mail: firstStepData.mail,
+      pass: firstStepData.pass,
+      contactField: firstStepData.contactField,
+      contactType: firstStepData.contactType,
+      ...data,
+    });
 
     setReturnManager(response.data.return_manager ?? "");
     setId(response.data.id.toString());
