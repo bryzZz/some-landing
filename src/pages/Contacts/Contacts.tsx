@@ -95,7 +95,7 @@ const bottomContacts = [
 ];
 
 export const Contacts: React.FC = () => {
-  const [tabValue, setTabValue] = useState(0);
+  const [tabValue, setTabValue] = useState(2);
 
   const matches = useMediaQuery("(min-width: 768px)");
 
