@@ -64,7 +64,7 @@ export const Header: React.FC = () => {
     <>
       <header
         className={twMerge(
-          "fixed left-0 right-0 top-0 z-40 transition-all",
+          "fixed left-0 right-0 top-0 z-40 shadow-none transition",
           isSticky &&
             "shadow-[0px_1px_2px_0px_rgba(0, 0, 0, 0.05)] bg-white bg-opacity-70 backdrop-blur-xl"
         )}
