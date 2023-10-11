@@ -10,6 +10,7 @@ import ContactsImage from "assets/images/contacts-image.jpg";
 import ContactsImageSm from "assets/images/contacts-image-sm.jpg";
 import { Fade } from "react-awesome-reveal";
 import { useMediaQuery } from "hooks";
+import { useSearchParamsState } from "hooks/useSearchParamsState";
 
 const contacts = [
   {
@@ -95,7 +96,7 @@ const bottomContacts = [
 ];
 
 export const Contacts: React.FC = () => {
-  const [tabValue, setTabValue] = useState(2);
+  const [tabValue, setTabValue] = useSearchParamsState("tabValue", "2");
 
   const matches = useMediaQuery("(min-width: 768px)");
 
@@ -110,10 +111,11 @@ export const Contacts: React.FC = () => {
               key={i}
               className={twMerge(
                 "rounded-lg bg-text-100 px-4 py-2 text-sm font-bold text-text-400 shadow-200 transition-all md:text-base 3xl:text-lg",
-                i === tabValue && "bg-primary-100 text-text-100 shadow-100",
+                i === Number(tabValue) &&
+                  "bg-primary-100 text-text-100 shadow-100",
                 i === 1 && "md:order-3"
               )}
-              onClick={() => setTabValue(i)}
+              onClick={() => setTabValue(String(i))}
             >
               {label}
             </button>
@@ -122,7 +124,7 @@ export const Contacts: React.FC = () => {
 
         <div className="mb-24">
           {contacts.map(({ items }, i) => (
-            <TabPanel value={i} tabValue={tabValue} key={i}>
+            <TabPanel value={String(i)} tabValue={tabValue} key={i}>
               <div className="grid grid-cols-1 justify-center gap-[30px] sm:grid-cols-[repeat(auto-fit,minmax(250px,300px))] 2xl:grid-cols-[repeat(auto-fit,minmax(250px,350px))]">
                 {items.map(({ avatar, name, role, telegram, mail }, i) => (
                   <div

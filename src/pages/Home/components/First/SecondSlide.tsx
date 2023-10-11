@@ -141,7 +141,7 @@ export const SecondSlide: React.FC<SecondSlideProps> = ({ show }) => {
           <p className="sub-heading-1 mb-10 max-w-[618px]">
             Присоединяйтесь к нам и повысьте узнаваемость бренда.
           </p>
-          <Link to="/contacts" className="btn-primary py-4">
+          <Link to="/contacts?tabValue=0" className="btn-primary py-4">
             Присоединиться
           </Link>
         </div>
@@ -243,7 +243,7 @@ export const SecondSlide: React.FC<SecondSlideProps> = ({ show }) => {
         для топов.
       </p>
 
-      <Link to="/contacts" className="btn-primary py-4">
+      <Link to="/contacts?tabValue=0" className="btn-primary py-4">
         Присоединиться
       </Link>
     </div>
