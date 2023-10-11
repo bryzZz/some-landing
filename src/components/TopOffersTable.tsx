@@ -33,7 +33,7 @@ export const TopOffersTable: React.FC = () => {
           {mdMatches && (
             <>
               <th className="py-3 text-left">Гео</th>
-              <th className="rounded-br rounded-tr py-3 text-left">Epc</th>
+              <th className="rounded-br rounded-tr py-3 text-left">R2D</th>
             </>
           )}
         </tr>
@@ -98,7 +98,7 @@ export const TopOffersTable: React.FC = () => {
                           )}
                         </div>
                         <div>
-                          <span className="text-[#B3B3B3]">Epc </span>
+                          <span className="text-[#B3B3B3]">R2D </span>
                           {r2d}%
                         </div>
                       </td>
