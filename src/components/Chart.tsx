@@ -40,8 +40,8 @@ export const Chart: React.FC<ChartProps> = ({
   // const areaData = [...data];
   // data = data.slice(1, data.length - 1);
 
-  const startYear = data.at(0)?.year as number;
-  const endYear = data.at(-1)?.year as number;
+  const startYear = data[0]?.year as number;
+  const endYear = data[data.length - 1]?.year as number;
   const years = data.map(({ year }) => year);
   // const fakeData = structuredClone(data);
   // fakeData[0].year += 0.3;
