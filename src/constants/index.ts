@@ -1,3 +1,4 @@
+import BlackCoronium from "assets/images/bonuses/Black-Coronium-Logo.svg";
 import EPN from "assets/images/bonuses/epn.svg";
 import FLEX_CARD from "assets/images/bonuses/_Flex_Card__.png";
 import Cloaking from "assets/images/bonuses/Cloaking_Logo_new.svg";
@@ -26,6 +27,20 @@ import Person from "assets/icons/person.svg";
 export const BASE_PATH = import.meta.env.BASE_URL;
 
 export const bonuses = [
+  {
+    img: BlackCoronium,
+    text: "Мобильная прокси платформа 4G/5G/LTE",
+    bonusLeft: {
+      value: "15%",
+      highlight: true,
+    },
+    bonusRight: {
+      value: "off",
+    },
+    promocodeText: "Coupon:",
+    promocode: "LEADSHUB",
+    link: "https://coronium.io",
+  },
   {
     img: EPN,
     text: "Трастовые виртуальные карты для арбитража и онлайн покупок",
