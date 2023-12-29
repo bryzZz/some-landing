@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState, useTransition } from "react";
 import { twMerge } from "tailwind-merge";
 import { Fade } from "react-awesome-reveal";
 import { CategoryFilter, FilterSearch, ShopPreviewMini } from "components";
@@ -18,6 +18,8 @@ export const Bonuses: React.FC = () => {
   const [categories, setCategories] = useState(() =>
     allCategories.map((label) => ({ label, checked: false }))
   );
+  const [, startTransition] = useTransition();
+  const [search, setSearch] = useState("");
 
   const handleCategoryClick = (label: string) => {
     setCategories((p) =>
@@ -31,6 +33,18 @@ export const Bonuses: React.FC = () => {
       })
     );
   };
+
+  const handleChangeSearch = (value: string) => {
+    startTransition(() => {
+      setSearch(value);
+    });
+  };
+
+  const filteredBonuses = useMemo(() => {
+    return bonuses.filter((bonus) =>
+      bonus.text.toLowerCase().trim().includes(search.toLowerCase().trim())
+    );
+  }, [search]);
 
   return (
     <>
@@ -53,12 +67,14 @@ export const Bonuses: React.FC = () => {
             className="w-full rounded-lg border-none shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)] sm:w-auto"
             inputClassName="text-sm"
             placeholder="Поиск"
+            value={search}
+            onChange={handleChangeSearch}
           />
         </div>
 
         <div className="flex flex-col gap-[30px]">
           <Fade cascade direction="up" duration={100} damping={0.1} triggerOnce>
-            {bonuses.map(
+            {filteredBonuses.map(
               (
                 {
                   img,

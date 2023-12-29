@@ -4,9 +4,17 @@ import "./style.css";
 interface TagsProps {
   tags: string[];
   className?: string;
+
+  selected: string[];
+  onSelect: (tag: string) => void;
 }
 
-export const Tags: React.FC<TagsProps> = ({ tags, className }) => {
+export const Tags: React.FC<TagsProps> = ({
+  tags,
+  className,
+  selected,
+  onSelect,
+}) => {
   return (
     <div className={className}>
       <p className="mb-6 text-base font-semibold text-text-400 3xl:text-xl">
@@ -19,7 +27,8 @@ export const Tags: React.FC<TagsProps> = ({ tags, className }) => {
               id={`Blog-${tag}`}
               type="checkbox"
               className="tag-input hidden"
-              disabled
+              value={selected.includes(tag) ? "on" : "off"}
+              onChange={() => onSelect(tag)}
             />
             <label htmlFor={`Blog-${tag}`} className="tag">
               {tag}

@@ -170,11 +170,19 @@ export const FirstStep: React.FC<FirstStepProps> = ({
           <Controller
             control={control}
             name="captcha"
+            rules={{
+              required: "Это обязательное поле",
+            }}
             render={({ field }) => (
-              <ReCAPTCHA
-                sitekey="6Ler1GUoAAAAAJP5sKXgZuZUqXzXt69qQmtRQuqr"
-                onChange={(token) => field.onChange(Boolean(token))}
-              />
+              <div>
+                <ReCAPTCHA
+                  sitekey="6Ler1GUoAAAAAJP5sKXgZuZUqXzXt69qQmtRQuqr"
+                  onChange={(token) => field.onChange(Boolean(token))}
+                />
+                <span className="text-xs text-red-600">
+                  {errors.captcha?.message}
+                </span>
+              </div>
             )}
           />
         </div>

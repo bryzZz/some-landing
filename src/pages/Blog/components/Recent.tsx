@@ -23,7 +23,7 @@ export const Recent: React.FC<RecentProps> = ({ posts, className }) => {
             <div>
               <Link
                 to={link}
-                className="block text-sm font-bold text-text-400 hover:text-[#3452FF] focus:text-[#3452FF] 3xl:text-xl"
+                className="line-clamp-1 text-sm font-bold text-text-400 hover:text-[#3452FF] focus:text-[#3452FF] 3xl:text-xl"
               >
                 {title}
               </Link>

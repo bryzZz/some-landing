@@ -18,6 +18,7 @@ export const Posts: React.FC<PostsProps> = ({ posts, className }) => {
 
   return (
     <div className={className}>
+      {posts.length === 0 && "Постов нет"}
       <ResponsiveMasonry
         columnsCountBreakPoints={{ 350: 1, 600: 2, 768: 2, 1024: 2 }}
       >
@@ -33,7 +34,10 @@ export const Posts: React.FC<PostsProps> = ({ posts, className }) => {
               </span>
               <div className="mb-2 flex flex-wrap gap-[10px]">
                 {tags.map((tag) => (
-                  <p className="text-sm font-bold text-[#3452FF] 3xl:text-lg">
+                  <p
+                    className="text-sm font-bold text-[#3452FF] 3xl:text-lg"
+                    key={tag}
+                  >
                     {tag}
                   </p>
                 ))}
@@ -41,11 +45,11 @@ export const Posts: React.FC<PostsProps> = ({ posts, className }) => {
               <h3 className="mb-2 text-xl font-bold text-text-400 3xl:text-2xl">
                 {title}
               </h3>
-              <p className="sub-heading-4">{text}</p>
+              <p className="sub-heading-4 line-clamp-3">{text}</p>
               {image && (
                 <img
                   src={image}
-                  className="mt-4 h-full max-h-[219px] w-full rounded-xl object-cover 3xl:max-h-[267px]"
+                  className="mt-4 h-full max-h-[219px] w-full rounded-xl object-contain 3xl:max-h-[267px]"
                 />
               )}
             </div>
@@ -53,7 +57,7 @@ export const Posts: React.FC<PostsProps> = ({ posts, className }) => {
         </Masonry>
       </ResponsiveMasonry>
 
-      <div className="mb-12 flex items-stretch gap-1 text-sm font-semibold text-text-400 3xl:text-base">
+      {/* <div className="mb-12 flex items-stretch gap-1 text-sm font-semibold text-text-400 3xl:text-base">
         <button className="flex h-[35px] w-[35px] items-center justify-center rounded bg-[#3452FF] text-white">
           1
         </button>
@@ -63,7 +67,7 @@ export const Posts: React.FC<PostsProps> = ({ posts, className }) => {
         <button className="flex items-center justify-center px-1">
           Следующая »
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

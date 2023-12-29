@@ -1,25 +1,23 @@
 import React from "react";
 
-import { BlogPostSlider, Fancybox } from "components";
-import { Recent } from "../Blog/components";
+import { Fancybox } from "components";
+// import { Recent } from "../Blog/components";
 
-import { ReactComponent as Calendar } from "assets/icons/calendar.svg";
-import ImgMain from "assets/images/Blog.jpg";
-import Img1 from "assets/images/BlogPost-img-1.jpg";
-import Img2 from "assets/images/BlogPost-img-2.jpg";
-import Img3 from "assets/images/BlogPost-img-3.jpg";
-import Img4 from "assets/images/BlogPost-img-4.png";
-import Img5 from "assets/images/BlogPost-img-5.png";
-import Img6 from "assets/images/BlogPost-img-6.jpg";
-
-import RecentImage1 from "assets/images/recent-post-1.jpg";
-import RecentImage2 from "assets/images/recent-post-2.jpg";
-import RecentImage3 from "assets/images/recent-post-3.jpg";
+// import RecentImage1 from "assets/images/recent-post-1.jpg";
+// import RecentImage2 from "assets/images/recent-post-2.jpg";
+// import RecentImage3 from "assets/images/recent-post-3.jpg";
 
 import "./style.css";
-import { RecentPost } from "types";
+// import { RecentPost } from "types";
+import { useParams } from "react-router-dom";
+import { Post1 } from "./components/Post1";
+import { Post2 } from "./components/Post2";
+import { Post3 } from "./components/Post3";
+import { Post4 } from "./components/Post4";
+import { Post5 } from "./components/Post5";
+import { Post6 } from "./components/Post6";
 
-const recentPosts: RecentPost[] = [
+/* const recentPosts: RecentPost[] = [
   {
     image: RecentImage1,
     title: "Health and fitness",
@@ -38,10 +36,38 @@ const recentPosts: RecentPost[] = [
     date: "20 мая 2022",
     link: "0",
   },
-];
+]; */
+
+const posts: Record<string, JSX.Element> = {
+  "0": <Post1 />,
+  "1": <Post2 />,
+  "2": <Post3 />,
+  "3": <Post4 />,
+  "4": <Post5 />,
+  "5": <Post6 />,
+};
 
 export const BlogPost: React.FC = () => {
+  const { id } = useParams();
+
+  // Чувак, иди нафиг
+  const getPostContent = () => {
+    const res = posts[id as string];
+
+    if (!res) return "Ничего";
+
+    return res;
+  };
+
   return (
+    <Fancybox>
+      <div className="mx-auto w-full max-w-[1211px] px-4 3xl:max-w-[1433px]">
+        {getPostContent()}
+      </div>
+    </Fancybox>
+  );
+
+  /* return (
     <Fancybox>
       <div className="mx-auto w-full max-w-[1211px] px-4 3xl:max-w-[1433px]">
         <h1 className="heading-1 mb-[89px] text-center lg:mb-40">
@@ -324,5 +350,5 @@ export const BlogPost: React.FC = () => {
         </div>
       </div>
     </Fancybox>
-  );
+  ); */
 };

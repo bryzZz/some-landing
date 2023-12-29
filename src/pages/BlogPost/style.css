@@ -2,6 +2,10 @@
   @apply flex-1 pb-24 text-text-400;
 }
 
+.BlogPost a {
+  @apply text-blue-600 underline;
+}
+
 .BlogPost__title {
   @apply heading-1 mb-[89px] text-center;
 }
@@ -15,7 +19,7 @@
 }
 
 .BlogPost__img {
-  @apply mb-4 w-full rounded-[5px] object-cover;
+  @apply mx-auto mb-4 max-h-[690px] rounded-[5px] object-cover;
 }
 
 .BlogPost__sub-img {
@@ -52,6 +56,10 @@
 
 .BlogPost__ordered-list {
   @apply list-decimal;
+}
+
+.BlogPost__unordered-list {
+  @apply list-disc;
 }
 
 .BlogPost__ordered-list-item {
