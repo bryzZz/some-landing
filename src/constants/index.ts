@@ -40,6 +40,7 @@ export const bonuses = [
     promocodeText: "Coupon:",
     promocode: "LEADSHUB",
     link: "https://coronium.io",
+    category: "Скидки",
   },
   {
     img: EPN,
@@ -54,6 +55,7 @@ export const bonuses = [
     promocodeText: "без минимального пополнения По промокоду:",
     promocode: "EPN",
     link: "https://epn.net/",
+    category: "Подарки",
   },
   {
     img: FLEX_CARD,
@@ -68,6 +70,7 @@ export const bonuses = [
     promocodeText: "бесплатно (свежереги). По промокоду:",
     promocode: "LEADSHUB",
     link: "/",
+    category: "Подарки",
   },
   {
     img: Cloaking,
@@ -82,6 +85,7 @@ export const bonuses = [
     promocodeText: "на любой тариф. По промокоду:",
     promocode: "LEADSHUB30",
     link: "https://cloaking.house/?utm_source=leadshub",
+    category: "Скидки",
   },
   {
     img: SMS,
@@ -96,6 +100,7 @@ export const bonuses = [
     promocodeText: "от первого пополнения и приятный бонус. По промокоду:",
     promocode: "LEADSHUB",
     link: "https://sms-activate.org/?ref=2374140",
+    category: "Кэшбэки",
   },
   {
     img: PWA,
@@ -110,6 +115,7 @@ export const bonuses = [
     promocodeText: "на подписки. По промокоду:",
     promocode: "PWALHUB",
     link: "https://pwa.market/",
+    category: "Скидки",
   },
   {
     img: Dolphin,
@@ -124,6 +130,7 @@ export const bonuses = [
     promocodeText: "на первую оплату. По промокоду:",
     promocode: "LEADSHUB",
     link: "https://dolphin.ru.com/ru/",
+    category: "Скидки",
   },
   {
     img: Adspect,
@@ -138,6 +145,7 @@ export const bonuses = [
     promocodeText: "на любой тариф. По промокоду:",
     promocode: "LEADSHUB",
     link: "https://www.adspect.ai/ru/",
+    category: "Скидки",
   },
   {
     img: Adspy,
@@ -152,6 +160,7 @@ export const bonuses = [
     promocodeText: "+ 1000 просмотров и 100 поисков. По промокоду:",
     promocode: "LEADSHUB",
     link: "https://app.adspy.com/ads",
+    category: "Скидки",
   },
   {
     img: Fbtool,
@@ -166,6 +175,7 @@ export const bonuses = [
     promocodeText: "на первую покупку. По промокоду:",
     promocode: "LEADSHUB15",
     link: "https://fbtool.pro/",
+    category: "Скидки",
   },
   {
     img: Iproxy,
@@ -180,6 +190,7 @@ export const bonuses = [
     promocodeText: "на bigdaddy. По промокоду:",
     promocode: "LEADSHUB15",
     link: "https://iproxy.online/",
+    category: "Скидки",
   },
   {
     img: Keitaro,
@@ -195,6 +206,7 @@ export const bonuses = [
       "на покупку для нового клиента сроком до 3х месяцев. По промокоду:",
     promocode: "LEADSHUB20",
     link: "https://keitaro.io/en/",
+    category: "Скидки",
   },
   {
     img: Cloakit,
@@ -209,6 +221,7 @@ export const bonuses = [
     promocodeText: "на первую оплату. По промокоду:",
     promocode: "LEADSHUB",
     link: "https://cloakit.pro/?ref=LEADSHUB",
+    category: "Скидки",
   },
   {
     img: Telemetr,
@@ -223,6 +236,7 @@ export const bonuses = [
     promocodeText: "на первую оплату. По промокоду:",
     promocode: "LEADSHUB",
     link: "https://telemetr.me/",
+    category: "Скидки",
   },
   {
     img: Adlover,
@@ -237,6 +251,7 @@ export const bonuses = [
     promocodeText: "на первую оплату. По промокоду:",
     promocode: "LEADSHUB",
     link: "https://adlover.ru/",
+    category: "Скидки",
   },
   {
     img: Adheart,
@@ -251,6 +266,7 @@ export const bonuses = [
     promocodeText: "на первую оплату. По промокоду:",
     promocode: "LEADSHUB",
     link: "https://adheart.me/",
+    category: "Скидки",
   },
 ];
 

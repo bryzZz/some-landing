@@ -6,13 +6,7 @@ import { CategoryFilter, FilterSearch, ShopPreviewMini } from "components";
 import { bonuses } from "constants/index";
 import { ReactComponent as ExternalLink } from "assets/icons/external-link.svg";
 
-const allCategories = [
-  "Все категории",
-  "Техника",
-  "Apple",
-  "Кресла",
-  "Инстурменты",
-];
+const allCategories = ["Скидки", "Кэшбэки", "Подарки"];
 
 export const Bonuses: React.FC = () => {
   const [categories, setCategories] = useState(() =>
@@ -41,10 +35,21 @@ export const Bonuses: React.FC = () => {
   };
 
   const filteredBonuses = useMemo(() => {
-    return bonuses.filter((bonus) =>
-      bonus.text.toLowerCase().trim().includes(search.toLowerCase().trim())
-    );
-  }, [search]);
+    return bonuses
+      .filter((bonus) => {
+        if (!categories.some((category) => category.checked)) return true;
+
+        for (const category of categories) {
+          if (category.checked && category.label === bonus.category)
+            return true;
+        }
+
+        return false;
+      })
+      .filter((bonus) =>
+        bonus.text.toLowerCase().trim().includes(search.toLowerCase().trim())
+      );
+  }, [categories, search]);
 
   return (
     <>

@@ -57,12 +57,12 @@ export const TopWebMastersTable: React.FC = () => {
                     </td>
                     <td className="py-3">{name || "Leadshuber"}</td>
                     <td className="whitespace-nowrap py-3">
-                      <span className="text-primary-100">₽</span>{" "}
-                      {currencyFormat.format(Number(d))}
+                      <span className="text-primary-100">$</span>{" "}
+                      {currencyFormat.format(Math.ceil(Number(d) / 100))}
                     </td>
                     <td className="whitespace-nowrap rounded-br rounded-tr py-3">
-                      <span className="text-primary-100">₽</span>{" "}
-                      {currencyFormat.format(Number(m))}
+                      <span className="text-primary-100">$</span>{" "}
+                      {currencyFormat.format(Math.ceil(Number(m) / 100))}
                     </td>
                   </>
                 ) : (
@@ -74,13 +74,13 @@ export const TopWebMastersTable: React.FC = () => {
                     <div className="flex items-center justify-between gap-5">
                       <div className="whitespace-nowrap">
                         <span className="text-[#B3B3B3]">За день: </span>
-                        <span className="text-primary-100">₽</span>{" "}
-                        {currencyFormat.format(Number(d))}
+                        <span className="text-primary-100">$</span>{" "}
+                        {currencyFormat.format(Math.ceil(Number(d) / 100))}
                       </div>
                       <div className="whitespace-nowrap">
                         <span className="text-[#B3B3B3]">За месяц: </span>
-                        <span className="text-primary-100">₽</span>{" "}
-                        {currencyFormat.format(Number(m))}
+                        <span className="text-primary-100">$</span>{" "}
+                        {currencyFormat.format(Math.ceil(Number(m) / 100))}
                       </div>
                     </div>
                   </td>
