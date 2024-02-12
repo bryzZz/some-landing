@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { ReactComponent as Telegram } from "assets/icons/telegram-2.svg";
-import { ReactComponent as VK } from "assets/icons/vk-2.svg";
+// import { ReactComponent as VK } from "assets/icons/vk-2.svg";
 import { ReactComponent as Skype } from "assets/icons/skype.svg";
 import { ReactComponent as Mail } from "assets/icons/mail.svg";
 import { ReactComponent as Logo } from "assets/icons/logo.svg";
@@ -63,13 +63,13 @@ export const Footer: React.FC = () => {
                 <Telegram />
                 Telegram
               </Link>
-              <Link
+              {/* <Link
                 to="https://vk.com/leadshub"
                 className="flex items-center gap-2 font-semibold"
               >
                 <VK />
                 Vkontakte
-              </Link>
+              </Link> */}
             </div>
           </div>
 
@@ -123,13 +123,13 @@ export const Footer: React.FC = () => {
               <Telegram />
               Telegram
             </Link>
-            <Link
+            {/* <Link
               to="https://vk.com/leadshub"
               className="flex items-center gap-2 text-base font-semibold"
             >
               <VK />
               Vkontakte
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

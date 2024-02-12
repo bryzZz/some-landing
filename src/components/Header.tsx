@@ -5,9 +5,9 @@ import { twMerge } from "tailwind-merge";
 // import { LanguageSelect } from "components";
 import { BASE_PATH } from "constants/index";
 
-import { ReactComponent as VK } from "assets/icons/vk.svg";
+// import { ReactComponent as VK } from "assets/icons/vk.svg";
 import { ReactComponent as Telegram } from "assets/icons/telegram.svg";
-import { ReactComponent as VKMobile } from "assets/icons/vk-2.svg";
+// import { ReactComponent as VKMobile } from "assets/icons/vk-2.svg";
 import { ReactComponent as TelegramMobile } from "assets/icons/telegram-2.svg";
 import { ReactComponent as DoorEnter } from "assets/icons/door-enter.svg";
 import { ReactComponent as Logo } from "assets/icons/logo.svg";
@@ -100,12 +100,12 @@ export const Header: React.FC = () => {
 
           <div className="flex items-center">
             <div className="mr-6 hidden gap-2 xl:flex">
-              <Link
+              {/* <Link
                 to="https://vk.com/leadshub"
                 className="p-[10px] text-[#ACACAC] transition hover:text-[#0076FE]"
               >
                 <VK width="20px" height="20px" />
-              </Link>
+              </Link> */}
               <Link
                 to="tg://resolve?domain=leads_chat"
                 className="p-[10px] text-[#ACACAC] transition hover:text-[#2EAAE8]"
@@ -180,13 +180,13 @@ export const Header: React.FC = () => {
               <TelegramMobile className="flex-shrink-0 scale-[1.75]" />
               Telegram
             </Link>
-            <Link
+            {/* <Link
               to="https://vk.com/leadshub"
               className="flex items-center gap-2"
             >
               <VKMobile className="flex-shrink-0 scale-150" />
               Vkontakte
-            </Link>
+            </Link> */}
           </div>
         </div>
 
