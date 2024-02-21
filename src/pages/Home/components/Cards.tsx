@@ -138,7 +138,9 @@ export const Cards: React.FC = () => {
             src={MainImage2}
             className="max-h-[400px] md:max-h-max 3xl:min-h-[288px]"
           />
-          <p className="heading-6 text-center text-text-100">Генератор чеков</p>
+          <p className="heading-6 text-center text-text-100">
+            {t("home:second.check")}
+          </p>
         </div>
       </Zoom>
 
