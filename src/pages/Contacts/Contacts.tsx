@@ -22,7 +22,7 @@ export const Contacts: React.FC = () => {
       items: [
         {
           avatar: Person,
-          name: "Виктория",
+          name: t("contacts:names.0"),
           role: "Project Manager",
           telegram: "https://t.me/viktoria_leads",
           mail: "info@leadshub.pro",
@@ -34,14 +34,14 @@ export const Contacts: React.FC = () => {
       items: [
         {
           avatar: Person,
-          name: "Данила",
+          name: t("contacts:names.1"),
           role: "Advertise manager",
           telegram: "https://t.me/Danila_leadshub",
           mail: "advertise@leadshub.pro",
         },
         {
           avatar: Person,
-          name: "Дмитрий",
+          name: t("contacts:names.2"),
           role: "СЕО",
           telegram: "https://t.me/dimasmanager",
           mail: "dmitry@leadshub.pro",
@@ -53,21 +53,21 @@ export const Contacts: React.FC = () => {
       items: [
         {
           avatar: Person,
-          name: "Антон",
+          name: t("contacts:names.3"),
           role: "Head of Affiliate Manager",
           telegram: "https://t.me/Anton_leadshub",
           mail: "anton@leadshub.pro",
         },
         {
           avatar: Person,
-          name: "Юлия",
+          name: t("contacts:names.4"),
           role: "Affiliate Manager",
           telegram: "https://t.me/Yuliya_leads",
           mail: "yuliya@leadshub.pro",
         },
         {
           avatar: Person,
-          name: "Дмитрий",
+          name: t("contacts:names.5"),
           role: "Affiliate Manager",
           telegram: "https://t.me/Dima_leadshub",
           mail: "dima@leadshub.pro",

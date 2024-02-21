@@ -28,7 +28,7 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
     >
       <div className="flex items-center justify-between">
         <h4
-          className="heading-4 text-black"
+          className="heading-4 mr-2 text-black"
           dangerouslySetInnerHTML={{ __html: header }}
         />
         <ArrowRight className={twMerge("transition", isOpen && "rotate-90")} />

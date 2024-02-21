@@ -165,7 +165,7 @@ export const Header: React.FC = () => {
               to={path}
               className="group text-2xl font-semibold text-text-400 transition hover:text-primary-500"
             >
-              {label}
+              {t(label)}
               <div className="h-[2px] w-0 rounded-md bg-primary-500 transition-all group-hover:w-full" />
             </Link>
           ))}

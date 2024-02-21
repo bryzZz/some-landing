@@ -195,6 +195,7 @@ export const en = {
     telegramSupport: "Support on Telegram:",
     questions: "questions and suggestions:",
     resumes: "Your resumes:",
+    names: ["Victoria", "Danila", "Dmitriy", "Anton", "Yulia", "Dmitriy"],
   },
   bonuses: {
     title: "Discounts and Bonuses",
@@ -684,6 +685,7 @@ export const en = {
             "Set up a postback in your personal account and receive notifications in Telegram.",
         },
       ],
+      check: "Check generator",
     },
     slides: {
       title: "Individuality & Innovation, Confidence",

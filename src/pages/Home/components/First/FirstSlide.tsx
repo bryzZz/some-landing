@@ -432,9 +432,11 @@ export const FirstSlide: React.FC<FirstSlideProps> = ({ show }) => {
         {t("home:first.slide1.subTitle")}
       </p>
 
-      <Link to="/unauthorized/registration" className="btn-primary py-4">
-        {t("home:first.slide1.button")}
-      </Link>
+      <div className="content">
+        <Link to="/unauthorized/registration" className="btn-primary py-4">
+          {t("home:first.slide1.button")}
+        </Link>
+      </div>
     </div>
   );
 };
