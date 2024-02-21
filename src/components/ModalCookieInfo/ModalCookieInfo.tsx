@@ -5,10 +5,13 @@ import { ReactComponent as Close } from "assets/icons/modal-close.svg";
 
 import "./style.css";
 import { useCookieInfoModal } from "store/useModals";
+import { useTranslation } from "react-i18next";
 
 Modal.setAppElement("#root");
 
 export const ModalCookieInfo: React.FC = () => {
+  const { t } = useTranslation();
+
   const { isOpen, setIsOpen } = useCookieInfoModal();
 
   const onClose = () => {
@@ -24,7 +27,7 @@ export const ModalCookieInfo: React.FC = () => {
       bodyOpenClassName="ModalPublicOffer__open"
     >
       <div className="mb-10">
-        <h3 className="heading-2 mb-4">Уведомление об использовании cookie</h3>
+        <h3 className="heading-2 mb-4">{t("cookieInfo:title")}</h3>
         <button
           className="absolute right-[10px] top-[10px] md:right-[20px] md:top-[20px]"
           onClick={onClose}
@@ -34,48 +37,25 @@ export const ModalCookieInfo: React.FC = () => {
       </div>
       <div className="ModalCookieInfo__text custom-scroll pr-12 md:pr-16 lg:pr-40">
         <p className="sub-heading-4 3xl:sub-heading-2 mb-5 leading-6">
-          Наш сайт использует файлы cookie и другие похожие технологии
-          (пиксельные тэги и т.п.), чтобы предоставлять услуги, наиболее
-          отвечающие Вашим интересам и потребностям, а также собирать
-          статистическую и маркетинговую информацию для анализа и
-          совершенствования наших услуг.
+          {t("cookieInfo:body1")}
         </p>
         <p className="sub-heading-4 3xl:sub-heading-2 mb-5 leading-6">
-          При использовании данного сайта, вы подтверждаете свое согласие на
-          использование файлов cookie и других похожих технологий в соответствии
-          с настоящим Уведомлением. Если Вы не согласны, чтобы мы использовали
-          данный тип файлов, Вы должны соответствующим образом установить
-          настройки Вашего браузера или не использовать наш сайт.
+          {t("cookieInfo:body2")}
         </p>
         <p className="sub-heading-4 3xl:sub-heading-2 mb-5 leading-6">
-          Обращаем Ваше внимание на то, что при блокировании или удалении cookie
-          файлов, мы не можем гарантировать корректную работу нашего сайта в
-          Вашем браузере. Cookie файлы, которые сохраняются через веб-сайт, не
-          содержат сведений, на основании которых можно Вас идентифицировать!
+          {t("cookieInfo:body3")}
         </p>
         <p className="heading-6 3xl:heading-4 mb-[10px]">
-          Что такое файл cookie и другие похожие технологии
+          {t("cookieInfo:body4")}
         </p>
         <p className="sub-heading-4 3xl:sub-heading-2 mb-5 leading-6">
-          Файл cookie представляет собой небольшой текстовый файл, сохраняемый
-          на вашем компьютере, смартфоне или другом устройстве, которое Вы
-          используете для посещения интернет-сайтов. Некоторые посещаемые Вами
-          страницы могут также собирать информацию, используя пиксельные тэги и
-          веб-маяки, представляющие собой электронные изображения, называемые
-          одно-пиксельными (1×1) или пустыми GIFизображениями.
+          {t("cookieInfo:body5")}
         </p>
         <p className="sub-heading-4 3xl:sub-heading-2 mb-5 leading-6">
-          Файлы cookie могут размещаться на вашем устройстве нами («собственные»
-          файлы cookie) или другими операторами (файлы cookie «третьих лиц»).
+          {t("cookieInfo:body6")}
         </p>
         <p className="sub-heading-4 3xl:sub-heading-2 mb-5 leading-6">
-          Мы используем два вида файлов cookie на сайте: «cookie сессии» и
-          «постоянные cookie». Cookie сессии — это временные файлы, которые
-          остаются на устройстве пока вы не покинете сайт. Постоянные cookie
-          остаются на устройстве в течение длительного времени или пока вы
-          вручную не удалите их (как долго cookie останется на вашем устройстве
-          будет зависеть от продолжительности или «времени жизни» конкретного
-          файла и настройки вашего браузера).
+          {t("cookieInfo:body7")}
         </p>
       </div>
     </Modal>

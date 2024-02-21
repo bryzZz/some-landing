@@ -6,6 +6,7 @@ import { Checkbox, FormField } from "components";
 import { BASE_PATH } from "constants/index";
 
 import { ReactComponent as Logo } from "assets/icons/logo.svg";
+import { useTranslation } from "react-i18next";
 
 interface LoginFormValues {
   email: string;
@@ -14,6 +15,8 @@ interface LoginFormValues {
 }
 
 export const Login: React.FC = () => {
+  const { t } = useTranslation();
+
   const { register, handleSubmit } = useForm<LoginFormValues>();
 
   const onSubmit = handleSubmit((data) => console.log(data));
@@ -23,44 +26,44 @@ export const Login: React.FC = () => {
       <Link to={BASE_PATH} className="mb-9 block">
         <Logo />
       </Link>
-      <h4 className="heading-4 mb-9">Войти</h4>
+      <h4 className="heading-4 mb-9">{t("login:title")}</h4>
 
       <form
         className="mb-7 flex w-full flex-col gap-[10px]"
         onSubmit={onSubmit}
       >
         <FormField
-          label="E-mail"
+          label={t("login:email")}
           placeholder="yourmail@test.com"
           type="email"
           {...register("email", { required: true })}
         />
 
         <FormField
-          label="Пароль"
-          placeholder="Пароль"
+          label={t("login:password")}
+          placeholder={t("login:password")}
           type="password"
           {...register("password", { required: true })}
         />
 
         <Checkbox
           {...register("rememberMe")}
-          label="Запомнить меня"
+          label={t("login:rememberMe")}
           variant="secondary"
         />
 
         <button className="btn-secondary" type="submit">
-          Войти
+          {t("login:login")}
         </button>
       </form>
 
       <p className="text-sm text-[#000] 3xl:text-lg">
-        У Вас еще нет аккаунта?{" "}
+        {t("login:donthaveaccount")}{" "}
         <Link
           className="text-[#088DF4] underline"
           to={`${BASE_PATH}unauthorized/registration`}
         >
-          Создайте аккаунт
+          {t("login:createAccount")}
         </Link>
       </p>
     </div>

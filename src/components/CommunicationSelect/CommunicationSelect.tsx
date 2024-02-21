@@ -6,6 +6,7 @@ import { ReactComponent as ArrowDown } from "assets/icons/iconamoon_arrow-down-2
 
 import "./style.css";
 import { RegistrationFirstStepFormValues } from "pages/Registration/components";
+import { useTranslation } from "react-i18next";
 
 const options = [
   { value: "telegram", label: "Telegram" },
@@ -33,11 +34,15 @@ export const CommunicationSelect = forwardRef<
   HTMLInputElement,
   CommunicationSelectProps
 >(({ error, control, ...props }, ref) => {
+  const { t } = useTranslation();
+
   const contactType = useWatch({ control, name: "contactType" });
 
   return (
     <label className="flex w-full flex-col text-sm">
-      <span className="mb-2 font-semibold text-text-400">Способ связи</span>
+      <span className="mb-2 font-semibold text-text-400">
+        {t("registration:contactType")}
+      </span>
       <div className="flex items-stretch">
         <Controller
           name="contactType"

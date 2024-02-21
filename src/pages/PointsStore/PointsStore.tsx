@@ -15,43 +15,40 @@ import {
 import CardImage1 from "assets/images/points-store-card-1.png";
 import CardImage2 from "assets/images/points-store-card-2.png";
 import CardImage3 from "assets/images/points-store-card-3.png";
-import { PointsStoreResponse } from "types";
+import { PointsStoreResponse, Product } from "types";
 import { useMediaQuery } from "hooks";
-
-const infoCards = [
-  {
-    image: CardImage1,
-    supTitle: "01.",
-    title: "Получай баллы за депозиты",
-    subTitle: "Заливай трафик, накапливай баллы и обменивай их на призы.",
-  },
-  {
-    image: CardImage2,
-    supTitle: "02.",
-    title: "Обновляем каждый месяц",
-    subTitle: "Не нашел интересующий приз? Отпиши менеджеру и он его добавит.",
-  },
-  {
-    image: CardImage3,
-    supTitle: "03.",
-    title: "Как принять участие?",
-    subTitle:
-      "Подключай оффер и запускай трафик - баллы засчитываются автоматически!",
-  },
-];
-
-const sortVariants = ["По возрастанию цены", "По убыванию цены"];
+import { useTranslation } from "react-i18next";
 
 type Category = { label: string; checked: boolean };
 
 export const PointsStore: React.FC = () => {
+  const { t } = useTranslation();
+
   const matches = useMediaQuery("(min-width: 768px)");
 
   const { data, isLoading } = useSWR<PointsStoreResponse>(
     "https://leads-bonus.ru/api.shop"
   );
 
-  const products = useMemo(() => data?.items ?? [], [data?.items]);
+  const sortVariants = t("pointsStore:sortVariants", {
+    returnObjects: true,
+  }) as string[];
+  const products: Product[] = (() => {
+    const productsFromApi = data?.items ?? [];
+    const productsText = t("pointsStore:items", {
+      returnObjects: true,
+    }) as Record<string, any>;
+
+    for (const product of productsFromApi) {
+      if (Object.hasOwnProperty.call(productsText, product.id)) {
+        product.name = productsText[product.id].name;
+        product.desc = productsText[product.id].desc;
+        product.category = productsText[product.id].category;
+      }
+    }
+
+    return productsFromApi;
+  })();
 
   const [selectedProductId, setSelectedProductId] = useState<string | null>(
     null
@@ -96,7 +93,7 @@ export const PointsStore: React.FC = () => {
 
     return products
       .filter((product) => {
-        if (selectedCategories.includes("Все категории")) {
+        if (selectedCategories.includes(t("pointsStore:allCategories"))) {
           return true;
         }
 
@@ -116,7 +113,34 @@ export const PointsStore: React.FC = () => {
 
         return Number(b.price) - Number(a.price);
       });
-  }, [categories, products, range.max, range.min, search, selectedSort]);
+  }, [
+    categories,
+    products,
+    range.max,
+    range.min,
+    search,
+    selectedSort,
+    sortVariants,
+    t,
+  ]);
+
+  const infoCardsText = t("pointsStore:infoCards", {
+    returnObjects: true,
+  }) as any[];
+  const infoCards = [
+    {
+      image: CardImage1,
+      ...infoCardsText[0],
+    },
+    {
+      image: CardImage2,
+      ...infoCardsText[1],
+    },
+    {
+      image: CardImage3,
+      ...infoCardsText[2],
+    },
+  ];
 
   useEffect(() => {
     if (products.length === 0) return;
@@ -131,20 +155,26 @@ export const PointsStore: React.FC = () => {
       setRange({ max, min });
     }
 
-    if (categories.length === 0) {
-      const newCategories = uniq(products.map(({ category }) => category));
+    // if (categories.length === 0) {
+    const newCategories = uniq(products.map(({ category }) => category));
 
-      setCategories([
-        { label: "Все категории", checked: true },
-        ...newCategories.map((label) => ({ label, checked: false })),
-      ]);
-    }
-  }, [categories.length, products, boundsRange.max]);
+    setCategories([
+      { label: t("pointsStore:allCategories"), checked: true },
+      ...newCategories.map((label) => ({ label, checked: false })),
+    ]);
+    // }
+    const sortVariants = t("pointsStore:sortVariants", {
+      returnObjects: true,
+    }) as string[];
+    setSelectedSort(sortVariants[0]);
+  }, [categories.length, products, boundsRange.max, t]);
 
   return (
     <section className="base-container mb-24 lg:mb-36">
       <Fade duration={500} direction="up" triggerOnce>
-        <h1 className="heading-1 mb-28 text-center lg:mb-40">Магазин баллов</h1>
+        <h1 className="heading-1 mb-28 text-center lg:mb-40">
+          {t("pointsStore:title")}
+        </h1>
       </Fade>
 
       <div className="mb-20 grid grid-cols-1 justify-between gap-2 md:grid-cols-3 lg:mb-24">
@@ -195,7 +225,7 @@ export const PointsStore: React.FC = () => {
               <FilterSearch
                 className="order-first w-full rounded-lg border-none shadow-[0px_2px_10px_0px_rgba(0,0,0,0.08)] sm:w-auto md:order-last md:w-auto"
                 inputClassName="text-sm"
-                placeholder="Поиск"
+                placeholder={t("pointsStore:search")}
                 value={search}
                 onChange={setSearch}
               />
@@ -203,7 +233,9 @@ export const PointsStore: React.FC = () => {
           </Fade>
 
           {filteredProducts.length === 0 ? (
-            <p className="sab-heading-3 text-center">Ничего не нашлось</p>
+            <p className="sab-heading-3 text-center">
+              {t("pointsStore:nothingFound")}
+            </p>
           ) : (
             <div className="grid grid-cols-2 gap-5 md:grid-cols-4 lg:gap-[30px]">
               {filteredProducts.map((data) => (

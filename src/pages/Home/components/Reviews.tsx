@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Scene } from "react-scrollmagic";
 import { Fade } from "react-awesome-reveal";
 
-import { reviews } from "constants/index";
+import { reviews as initialReviews } from "constants/index";
 import { ReviewsSlider, TabPanel, Tabs } from "components";
-
-const labels = reviews.map(({ label }) => label);
+import { useTranslation } from "react-i18next";
 
 export const Reviews: React.FC = () => {
+  const { t } = useTranslation();
+
   const [tabValue, setTabValue] = useState(0);
+
+  const [reviews, labels] = useMemo(() => {
+    const res = [...initialReviews];
+    const text = t("home:reviews.items", { returnObjects: true }) as any[];
+    for (let i = 0; i < res.length; i++) {
+      res[i].label = text[i].label;
+
+      for (let j = 0; j < res[i].items.length; j++) {
+        res[i].items[j].text = text[i].items[j].text;
+      }
+    }
+
+    const labels = res.map(({ label }) => label);
+
+    return [res, labels];
+  }, [t]);
 
   return (
     <section
@@ -43,7 +60,7 @@ export const Reviews: React.FC = () => {
       <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
         <div className="flex flex-col items-center">
           <h2 className="heading-2 mb-10">
-            Отзывы
+            {t("home:reviews.title")}
             <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
           </h2>
 

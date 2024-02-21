@@ -4,6 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 import { Checkbox, CommunicationSelect, FormField } from "components";
 import { PasswordField } from "./PasswordField";
+import { useTranslation } from "react-i18next";
 
 interface FirstStepProps {
   form: UseFormReturn<RegistrationFirstStepFormValues, any, undefined>;
@@ -27,6 +28,8 @@ export const FirstStep: React.FC<FirstStepProps> = ({
   form,
   onSubmit: topSubmit,
 }) => {
+  const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -39,7 +42,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
     if (data.pass !== data.passConfirmation) {
       return setError("passConfirmation", {
         type: "custom",
-        message: "Пароли не совпадают",
+        message: t("registration:passwordsError"),
       });
     }
 
@@ -51,7 +54,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     if (value && !validRegex.test(value)) {
-      return "Пожалуйста, введите существующий почтовый адрес";
+      return t("registration:mailError");
     }
 
     return true;
@@ -86,18 +89,18 @@ export const FirstStep: React.FC<FirstStepProps> = ({
       <form className="mb-6 w-full" onSubmit={onSubmit}>
         <div className="mb-7 flex w-full flex-col gap-[10px]">
           <FormField
-            label="Имя"
+            label={t("registration:name")}
             placeholder="leadshuber"
-            {...register("name", { required: "Это обязательное поле" })}
+            {...register("name", { required: t("registration:requiredField") })}
             error={errors.name?.message}
           />
 
           <FormField
-            label="E-mail"
+            label={t("registration:email")}
             placeholder="yourmail@test.com"
             type="email"
             {...register("mail", {
-              required: "Это обязательное поле",
+              required: t("registration:requiredField"),
               validate: validateEmail,
             })}
             error={errors.mail?.message}
@@ -107,13 +110,13 @@ export const FirstStep: React.FC<FirstStepProps> = ({
             <Controller
               name="pass"
               rules={{
-                required: "Это обязательное поле",
+                required: t("registration:requiredField"),
                 validate: validatePassword,
               }}
               render={({ field: { value, onChange } }) => (
                 <PasswordField
-                  label="Пароль"
-                  placeholder="Пароль"
+                  label={t("registration:password")}
+                  placeholder={t("registration:password")}
                   type="password"
                   value={value}
                   onChange={onChange}
@@ -124,11 +127,11 @@ export const FirstStep: React.FC<FirstStepProps> = ({
             />
 
             <FormField
-              label="Повторите пароль"
-              placeholder="Пароль еще раз"
+              label={t("registration:repeatPassword")}
+              placeholder={t("registration:repeatPassword")}
               type="password"
               {...register("passConfirmation", {
-                required: "Это обязательное поле",
+                required: t("registration:requiredField"),
               })}
               error={errors.passConfirmation?.message}
             />
@@ -137,32 +140,32 @@ export const FirstStep: React.FC<FirstStepProps> = ({
           <CommunicationSelect
             control={control}
             {...register("contactField", {
-              required: "Это обязательное поле",
+              required: t("registration:requiredField"),
             })}
             error={errors.contactField?.message}
           />
 
           <Checkbox
-            label="Я соглашаюсь на обработку персональных данных на условиях политики конфиденциальности."
+            label={t("registration:privacyConfirmation")}
             variant="secondary"
             {...register("privacyConfirmation", {
-              required: "Это обязательное поле",
+              required: t("registration:requiredField"),
             })}
             error={errors.privacyConfirmation?.message}
           />
           <Checkbox
-            label="Я соглашаюсь получать e-mail-рассылки о новых офферах, акциях и бонусах."
+            label={t("registration:newsletterConfirmation")}
             variant="secondary"
             {...register("newsletterConfirmation", {
-              required: "Это обязательное поле",
+              required: t("registration:requiredField"),
             })}
             error={errors.newsletterConfirmation?.message}
           />
           <Checkbox
-            label="Я соглашаюсь с тем, что при обнаружении любых накруток и мошеннических действий (фрод и т.д.), весь трафик обнуляется и аккаунт банится"
+            label={t("registration:cheatingConfirmation")}
             variant="secondary"
             {...register("cheatingConfirmation", {
-              required: "Это обязательное поле",
+              required: t("registration:requiredField"),
             })}
             error={errors.cheatingConfirmation?.message}
           />
@@ -171,7 +174,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
             control={control}
             name="captcha"
             rules={{
-              required: "Это обязательное поле",
+              required: t("registration:requiredField"),
             }}
             render={({ field }) => (
               <div>
@@ -188,7 +191,7 @@ export const FirstStep: React.FC<FirstStepProps> = ({
         </div>
 
         <button className="btn-secondary w-full" type="submit">
-          Далее
+          {t("registration:next")}
         </button>
       </form>
     </FormProvider>

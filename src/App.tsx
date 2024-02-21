@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Controller } from "react-scrollmagic";
 import { SWRConfig } from "swr";
+import "./translations/i18n";
 
 import {
   Authorized,
@@ -11,8 +12,6 @@ import {
   PointsStore,
   Bonuses,
   Contacts,
-  // Blog,
-  // BlogPost,
   Registration,
   Login,
   NotFound,

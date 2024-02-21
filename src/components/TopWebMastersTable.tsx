@@ -6,10 +6,13 @@ import { useMediaQuery } from "hooks";
 
 import Person from "assets/icons/person.svg";
 import { WebMasterResponse } from "types";
+import { useTranslation } from "react-i18next";
 
 const currencyFormat = new Intl.NumberFormat("ru-RU");
 
 export const TopWebMastersTable: React.FC = () => {
+  const { t } = useTranslation();
+
   const { data } = useSWR<WebMasterResponse>("/tops/web/actually5web.json", {
     revalidateOnMount: true,
   });
@@ -27,12 +30,16 @@ export const TopWebMastersTable: React.FC = () => {
               !matches && "pl-[60px]"
             )}
           >
-            Имя
+            {t("home:topTables.topWebMasters.name")}
           </th>
           {matches && (
             <>
-              <th className="py-3 text-left">За день</th>
-              <th className="rounded-br rounded-tr py-3 text-left">За месяц</th>
+              <th className="py-3 text-left">
+                {t("home:topTables.topWebMasters.day")}
+              </th>
+              <th className="rounded-br rounded-tr py-3 text-left">
+                {t("home:topTables.topWebMasters.month")}
+              </th>
             </>
           )}
         </tr>
@@ -73,12 +80,16 @@ export const TopWebMastersTable: React.FC = () => {
                     </div>
                     <div className="flex items-center justify-between gap-5">
                       <div className="whitespace-nowrap">
-                        <span className="text-[#B3B3B3]">За день: </span>
+                        <span className="text-[#B3B3B3]">
+                          {t("home:topTables.topWebMasters.day")}:{" "}
+                        </span>
                         <span className="text-primary-100">$</span>{" "}
                         {currencyFormat.format(Math.ceil(Number(d) / 100))}
                       </div>
                       <div className="whitespace-nowrap">
-                        <span className="text-[#B3B3B3]">За месяц: </span>
+                        <span className="text-[#B3B3B3]">
+                          {t("home:topTables.topWebMasters.month")}:{" "}
+                        </span>
                         <span className="text-primary-100">$</span>{" "}
                         {currencyFormat.format(Math.ceil(Number(m) / 100))}
                       </div>

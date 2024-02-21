@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Fade, Zoom } from "react-awesome-reveal";
 
 import MainImage2 from "assets/images/info-1.png";
@@ -12,56 +12,35 @@ import IconCard6 from "assets/icons/main-card-6.png";
 import IconCard7 from "assets/icons/main-card-7.png";
 import IconCard8 from "assets/icons/main-card-8.png";
 import { useMediaQuery } from "hooks";
+import { useTranslation } from "react-i18next";
 
-const topCards = [
+const topCardsIcons: any[] = [
   {
-    title: "Лучшие офферы с местной лицензией",
     Icon: IconCard1,
-    subTitle: "Больше не придется беспокоиться за проблемы с платежкой.",
   },
   {
-    title: "Наш уникальный SMART-LINK",
     Icon: IconCard2,
-    subTitle:
-      "Лучшие сделки для стримеров. Наш SMART-LINK охватывает весь мир.",
   },
   {
-    title: "Наша вишенка на торте",
     Icon: IconCard3,
-    subTitle:
-      "Досрочные выплаты и возможность пролива сделок без обязательной капы. Актуальные связки по заливу",
   },
   {
-    title: "Все самое удобное только для вас",
     Icon: IconCard4,
-    subTitle:
-      "Все необходимые инструменты, купоны, диплинки, короткие ссылки и многое другое.",
   },
 ];
 
-const bottomCards = [
+const bottomCardsIcons: any[] = [
   {
-    title: "Настройка ссылок для DM",
     Icon: IconCard5,
-    subTitle:
-      "Поможем с настройкой ссылки для выдачи в DM. Ваши лиды не пройдут мимо.",
   },
   {
-    title: "Уникальный Telegram Бот",
     Icon: IconCard6,
-    subTitle:
-      "Получайте статистику, баланс и досрочные выплаты. Работайте с приложениями, уникализируйте креативы и получайте оповещения о новых лидах.",
   },
   {
-    title: "Игровые офферы",
     Icon: IconCard7,
-    subTitle: "Офферы с пикантным игровым сюжетом показывают невероятный CR.",
   },
   {
-    title: "Оповещения о новых лидах",
     Icon: IconCard8,
-    subTitle:
-      "Устанавливайте постбек в личном кабинете и получайте оповещения в Telegram.",
   },
 ];
 
@@ -102,6 +81,30 @@ const BottomCard: React.FC<BottomCardProps> = ({ Icon, title, subTitle }) => {
 };
 
 export const Cards: React.FC = () => {
+  const { t } = useTranslation();
+
+  const topCards = useMemo(() => {
+    const text = t("home:second.topCards", { returnObjects: true }) as any[];
+
+    for (let i = 0; i < text.length; i++) {
+      topCardsIcons[i].title = text[i].title;
+      topCardsIcons[i].subTitle = text[i].subTitle;
+    }
+
+    return topCardsIcons;
+  }, [t]);
+
+  const bottomCards = useMemo(() => {
+    const text = t("home:second.bottomCards", { returnObjects: true }) as any[];
+
+    for (let i = 0; i < text.length; i++) {
+      bottomCardsIcons[i].title = text[i].title;
+      bottomCardsIcons[i].subTitle = text[i].subTitle;
+    }
+
+    return bottomCardsIcons;
+  }, [t]);
+
   return (
     <section
       id="cards"

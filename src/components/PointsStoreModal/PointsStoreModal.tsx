@@ -6,6 +6,7 @@ import { ReactComponent as Cross } from "assets/icons/cross.svg";
 
 import "./style.css";
 import { Product } from "types";
+import { useTranslation } from "react-i18next";
 // import { ModalPinCode } from "components/ModalPinCode";
 // import { Counter } from "components/Counter";
 // import { Input } from "components/Input";
@@ -27,6 +28,8 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
   product,
   ...other
 }) => {
+  const { t } = useTranslation();
+
   const { img, name, category, desc, price } = product ?? {};
 
   // const {
@@ -67,10 +70,12 @@ export const PointsStoreModal: React.FC<PointsStoreModalProps> = ({
         <img src={img} className="mb-5 max-h-[273px] object-cover" />
       </div>
       <h5 className="mb-2 font-black uppercase text-[#B5B5B5]">
-        {price} БАЛЛОВ
+        {price} {t("pointsStore:modal.points")}
       </h5>
       <h4 className="heading-3 mb-5 whitespace-pre-line">{name}</h4>
-      <p className="mb-9 font-medium text-text-400">Категория: {category}</p>
+      <p className="mb-9 font-medium text-text-400">
+        {t("pointsStore:modal.category")} {category}
+      </p>
       <p className="mb-6 text-[14px] text-text-300">{desc}</p>
 
       {/* <hr className="mb-6 bg-[E2E2E2]" />

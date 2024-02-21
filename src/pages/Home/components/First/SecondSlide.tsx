@@ -14,12 +14,15 @@ import Img5 from "assets/images/slides/second/cash.png";
 import Img6 from "assets/images/slides/second/01 Online Shopping 4.png";
 import { twMerge } from "tailwind-merge";
 import { useMediaQuery } from "hooks";
+import { useTranslation } from "react-i18next";
 
 interface SecondSlideProps {
   show: boolean;
 }
 
 export const SecondSlide: React.FC<SecondSlideProps> = ({ show }) => {
+  const { t } = useTranslation();
+
   const comp = useRef<HTMLDivElement>(null);
   const matches = useMediaQuery("(min-width: 768px)");
 
@@ -132,17 +135,17 @@ export const SecondSlide: React.FC<SecondSlideProps> = ({ show }) => {
           <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
             <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
             <span className="text-sm font-semibold text-text-300 lg:text-base">
-              Надежный партнер
+              {t("home:first.slide2.mark")}
             </span>
           </div>
           <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
-            Получайте прибыль от качественного трафика
+            {t("home:first.slide2.title")}
           </h1>
           <p className="sub-heading-1 mb-10 max-w-[618px]">
-            Присоединяйтесь к нам и повысьте узнаваемость бренда.
+            {t("home:first.slide2.subTitle")}
           </p>
           <Link to="/contacts?tabValue=0" className="btn-primary py-4">
-            Присоединиться
+            {t("home:first.slide2.button")}
           </Link>
         </div>
 
@@ -195,12 +198,12 @@ export const SecondSlide: React.FC<SecondSlideProps> = ({ show }) => {
       <div className="content mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
         <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
         <span className="text-sm font-semibold text-text-300 lg:text-base">
-          Надежный партнер
+          {t("home:first.slide2.mark")}
         </span>
       </div>
 
       <h1 className="content heading-2 mb-10 h-[120px] text-center font-bold">
-        Получайте прибыль от качественного трафика
+        {t("home:first.slide2.title")}
       </h1>
 
       <div className="relative ml-[5%] mr-[16%] md:ml-0">
@@ -239,12 +242,11 @@ export const SecondSlide: React.FC<SecondSlideProps> = ({ show }) => {
       </div>
 
       <p className="content sub-heading-1 mb-10 max-w-[618px] text-center">
-        Персональные офферы, собственные инструменты, инсайд информация и связки
-        для топов.
+        {t("home:first.slide2.subTitle")}
       </p>
 
       <Link to="/contacts?tabValue=0" className="btn-primary py-4">
-        Присоединиться
+        {t("home:first.slide2.button")}
       </Link>
     </div>
   );

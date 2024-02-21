@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 import { Product } from "types";
 
@@ -15,6 +16,8 @@ export const ShopCard: React.FC<ShopCardProps> = ({
   details = false,
   onDetailsClick,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div
       className={twMerge(
@@ -28,7 +31,7 @@ export const ShopCard: React.FC<ShopCardProps> = ({
         src={data.img}
       />
       <h5 className="mb-1 text-xs font-black uppercase text-[#B5B5B5] md:mb-3 xl:text-sm 3xl:text-base">
-        {data.price} БАЛЛОВ
+        {data.price} {t("pointsStore:shopCard.points")}
       </h5>
       <h4 className="md:heading-4 mx-3 mb-auto whitespace-pre-line text-sm font-bold 3xl:text-xl">
         {data.name}
@@ -39,7 +42,7 @@ export const ShopCard: React.FC<ShopCardProps> = ({
           className="mt-5 rounded-[4px] bg-[#F3F3F3] px-[26px] py-[14px] text-sm font-bold leading-4 text-text-400 transition hover:bg-[#DDD] 3xl:text-base"
           onClick={onDetailsClick}
         >
-          Подробнее
+          {t("pointsStore:shopCard.details")}
         </button>
       )}
     </div>

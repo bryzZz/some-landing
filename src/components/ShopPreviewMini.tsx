@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Fade } from "react-awesome-reveal";
 import { Scene } from "react-scrollmagic";
 
@@ -12,11 +12,12 @@ import ShopCard3 from "assets/images/shop-preview-3.png";
 import ShopCard4 from "assets/images/shop-preview-4.png";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "hooks";
+import { useTranslation } from "react-i18next";
 
-const cards = [
+const _cards = [
   {
     id: "0",
-    name: "iPhone 14 Pro Max - 256GB",
+    name: "",
     price: "3 500 ",
     img: ShopCard1,
     category: "",
@@ -24,7 +25,7 @@ const cards = [
   },
   {
     id: "1",
-    name: "Watch Series 7 - 45 мм",
+    name: "",
     price: "980",
     img: ShopCard2,
     category: "",
@@ -32,7 +33,7 @@ const cards = [
   },
   {
     id: "2",
-    name: "AirPods Max",
+    name: "",
     price: "1 030 ",
     img: ShopCard3,
     category: "",
@@ -40,7 +41,7 @@ const cards = [
   },
   {
     id: "3",
-    name: "Наушники\n Apple AirPods Pro",
+    name: "",
     price: "450",
     img: ShopCard4,
     category: "",
@@ -49,7 +50,22 @@ const cards = [
 ];
 
 export const ShopPreviewMini: React.FC = () => {
+  const { t } = useTranslation();
+
   const matches = useMediaQuery("(min-width: 768px)");
+
+  const cards = useMemo(() => {
+    const res = [..._cards];
+    const text = t("bonuses:shopPreview.cards", {
+      returnObjects: true,
+    }) as string[];
+
+    for (let i = 0; i < res.length; i++) {
+      res[i].name = text[i];
+    }
+
+    return res;
+  }, [t]);
 
   return (
     <section
@@ -79,7 +95,7 @@ export const ShopPreviewMini: React.FC = () => {
       <div className="base-container flex flex-col items-center">
         <Fade direction="up" duration={500} triggerOnce>
           <h2 className="heading-2 mb-20 max-w-3xl text-center">
-            Заливай трафик, получай баллы, обменивай их на призы
+            {t("bonuses:shopPreview.title")}
             <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
           </h2>
         </Fade>
@@ -96,7 +112,7 @@ export const ShopPreviewMini: React.FC = () => {
           to="/points-store/"
           className="btn-primary flex items-center gap-[10px] px-[34px] py-[17px]"
         >
-          В магазин
+          {t("bonuses:shopPreview.goToShop")}
           <ArrowRight width="20px" height="20px" />
         </Link>
       </div>

@@ -13,18 +13,21 @@ import { ReactComponent as DoorEnter } from "assets/icons/door-enter.svg";
 import { ReactComponent as Logo } from "assets/icons/logo.svg";
 import { ReactComponent as Open } from "assets/icons/header-open.svg";
 import { ReactComponent as Close } from "assets/icons/header-close.svg";
+import { useTranslation } from "react-i18next";
+import { LanguageSelect } from "components";
 
 const navItems = [
   // { label: "Преимущества", path: `${BASE_PATH}#cards` },
   // { label: "Блог", path: "blog/" },
-  { label: "Бонусы", path: "bonuses/" },
-  { label: "Магазин", path: "points-store/" },
+  { label: "bonuses", path: "bonuses/" },
+  { label: "store", path: "points-store/" },
   // { label: "Отзывы", path: `${BASE_PATH}#bubbles-4` },
   { label: "FAQ", path: "FAQ/" },
-  { label: "Контакты", path: "contacts/" },
+  { label: "contacts", path: "contacts/" },
 ];
 
 export const Header: React.FC = () => {
+  const { t } = useTranslation("header");
   const location = useLocation();
 
   const [isSticky, setIsSticky] = useState(false);
@@ -87,7 +90,7 @@ export const Header: React.FC = () => {
                   isSticky && "hover:text-primary-500"
                 )}
               >
-                {label}
+                {t(label)}
                 <div
                   className={twMerge(
                     "h-[2px] w-0 rounded-md bg-text-400 transition-all group-hover:w-full",
@@ -114,7 +117,7 @@ export const Header: React.FC = () => {
               </Link>
             </div>
 
-            {/* <LanguageSelect /> */}
+            <LanguageSelect />
 
             <div className="flex items-center gap-2">
               <Link
@@ -122,10 +125,10 @@ export const Header: React.FC = () => {
                 className="flex items-center gap-1 px-6 py-4 text-[13px] font-extrabold xl:text-base"
               >
                 <DoorEnter className="text-primary-100" />
-                Войти
+                {t("login")}
               </Link>
               <Link to="unauthorized/registration" className="btn-primary">
-                Регистрация
+                {t("registration")}
               </Link>
             </div>
           </div>
@@ -149,7 +152,7 @@ export const Header: React.FC = () => {
         )}
       >
         <div className="flex items-center justify-end">
-          {/* <LanguageSelect /> */}
+          <LanguageSelect />
           <button className="p-1" onClick={close}>
             <Close />
           </button>
@@ -170,7 +173,7 @@ export const Header: React.FC = () => {
 
         <div className="flex flex-col items-center text-[#888888]">
           <p className="mb-5 text-center text-[17px] font-bold">
-            Оставайся с нами:
+            {t("withUs")}
           </p>
           <div className="flex gap-5 text-base font-semibold">
             <Link
@@ -196,13 +199,13 @@ export const Header: React.FC = () => {
             className="flex items-center gap-1 px-6 py-4 text-base font-extrabold"
           >
             <DoorEnter className="text-primary-100" />
-            Войти
+            {t("login")}
           </Link>
           <Link
             to="unauthorized/registration"
             className="btn-primary text-[14px]"
           >
-            Регистрация
+            {t("registration")}
           </Link>
         </div>
       </div>

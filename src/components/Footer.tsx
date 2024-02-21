@@ -8,12 +8,13 @@ import { ReactComponent as Mail } from "assets/icons/mail.svg";
 import { ReactComponent as Logo } from "assets/icons/logo.svg";
 import { BASE_PATH } from "constants/index";
 import { usePublicOfferModal, useCookieInfoModal } from "store/useModals";
+import { useTranslation } from "react-i18next";
 
 const navItems = [
-  { label: "FAQ", path: "FAQ/" },
-  { label: "Магазин", path: "points-store/" },
-  { label: "Бонусы", path: "bonuses/" },
-  { label: "Контакты", path: "contacts/" },
+  { label: "header:FAQ", path: "FAQ/" },
+  { label: "header:store", path: "points-store/" },
+  { label: "header:bonuses", path: "bonuses/" },
+  { label: "header:contacts", path: "contacts/" },
   // { label: "404", path: "not-found/" },
   // { label: "Ведутся работы", path: "work/" },
 ];
@@ -21,6 +22,8 @@ const navItems = [
 export const Footer: React.FC = () => {
   const setPublicOfferIsOpen = usePublicOfferModal((state) => state.setIsOpen);
   const setCookieIsOpen = useCookieInfoModal((state) => state.setIsOpen);
+
+  const { t } = useTranslation();
 
   return (
     <footer className="bg-[#ECF2F6]">
@@ -77,7 +80,7 @@ export const Footer: React.FC = () => {
 
           <div>
             <h3 className="mb-5 hidden text-xl font-bold md:block 3xl:text-3xl">
-              Быстрые ссылки
+              {t("footer:fastLinks")}
             </h3>
             <nav className="flex w-full flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-between">
               {navItems.map(({ label, path }, i) => (
@@ -86,7 +89,7 @@ export const Footer: React.FC = () => {
                   to={path}
                   className="text-400 group text-xs font-bold uppercase 3xl:text-base"
                 >
-                  {label}
+                  {t(label)}
                   <div className="h-[2px] w-0 rounded-md bg-text-400 transition-all group-hover:w-full" />
                 </Link>
               ))}
@@ -94,14 +97,14 @@ export const Footer: React.FC = () => {
                 onClick={() => setCookieIsOpen(true)}
                 className="text-400 group text-xs font-bold uppercase 3xl:text-base"
               >
-                Информация о cookie
+                {t("footer:cookieInfo")}
                 <div className="h-[2px] w-0 rounded-md bg-text-400 transition-all group-hover:w-full" />
               </button>
               <button
                 onClick={() => setPublicOfferIsOpen(true)}
                 className="text-400 group text-xs font-bold uppercase 3xl:text-base"
               >
-                Публичная оферта
+                {t("footer:publicOffer")}
                 <div className="h-[2px] w-0 rounded-md bg-text-400 transition-all group-hover:w-full" />
               </button>
             </nav>
@@ -112,10 +115,10 @@ export const Footer: React.FC = () => {
 
         <div className="flex items-center justify-center text-sm text-[#888888] md:justify-between">
           <p className="text-center font-semibold md:text-left">
-            © 2019-2023, Leadshub. Все права сохранены.
+            {t("footer:right")}
           </p>
           <div className="hidden justify-end gap-7 text-right md:flex">
-            <p className="text-base font-bold">Оставайся с нами:</p>
+            <p className="text-base font-bold">{t("header:withUs")}</p>
             <Link
               to="tg://resolve?domain=leads_chat"
               className="flex items-center gap-2 text-base font-semibold"

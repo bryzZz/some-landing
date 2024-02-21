@@ -14,31 +14,24 @@ import { ReactComponent as Store } from "assets/icons/store.svg";
 import { ReactComponent as Blog } from "assets/icons/blog.svg";
 import { ReactComponent as Chat } from "assets/icons/chat.svg";
 import { ReactComponent as Arrow } from "assets/icons/arrow-right-2.svg";
+import { useTranslation } from "react-i18next";
 
 const images = [Image1, Image2];
 
 const cards = [
   {
-    title: "Бонусы",
-    subtitle: "Скидки и бонусы от партнеров.",
     Icon: Bonuses,
     link: "/bonuses",
   },
   {
-    title: "Магазин",
-    subtitle: "Топовые товары за лиды.",
     Icon: Store,
     link: "/points-store",
   },
   {
-    title: "Блог",
-    subtitle: "Кейсы, связки и многое другое.",
     Icon: Blog,
     link: "/blog",
   },
   {
-    title: "Чатик",
-    subtitle: "Добрый, уютный и приятный в общении.",
     Icon: Chat,
     link: "https://t.me/leads_chat",
     external: true,
@@ -46,11 +39,15 @@ const cards = [
 ];
 
 export const NotFound: React.FC = () => {
+  const { t } = useTranslation();
+
   const matches = useMediaQuery("(min-width: 1921px)");
 
   const getBg = () => {
     return matches ? FirstBg3Xl : FirstBgXl;
   };
+
+  const cardsText = t("notFound:cards", { returnObjects: true }) as any[];
 
   return (
     <div
@@ -65,14 +62,14 @@ export const NotFound: React.FC = () => {
           src={images[randomInteger(0, 1)]}
         />
         <h1 className="heading-1 text-center font-semibold">
-          Такой страницы не существует
+          {t("notFound:title")}
         </h1>
         <Link to="/" className="btn-primary py-4">
-          Главная страница
+          {t("notFound:home")}
         </Link>
       </div>
       <div className="mx-auto grid w-full max-w-[1344px] grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 px-4">
-        {cards.map(({ Icon, title, subtitle, link, external = false }) => {
+        {cards.map(({ Icon, link, external = false }, i) => {
           if (external) {
             return (
               <a
@@ -82,10 +79,10 @@ export const NotFound: React.FC = () => {
               >
                 <div className="mb-3 flex items-center">
                   <Icon className="mr-4" />
-                  <h4 className="heading-4 mr-auto">{title}</h4>
+                  <h4 className="heading-4 mr-auto">{cardsText[i].title}</h4>
                   <Arrow />
                 </div>
-                <p className="sub-heading-3">{subtitle}</p>
+                <p className="sub-heading-3">{cardsText[i].subtitle}</p>
               </a>
             );
           }
@@ -97,10 +94,10 @@ export const NotFound: React.FC = () => {
             >
               <div className="mb-3 flex items-center">
                 <Icon className="mr-4" />
-                <h4 className="heading-4 mr-auto">{title}</h4>
+                <h4 className="heading-4 mr-auto">{cardsText[i].title}</h4>
                 <Arrow />
               </div>
-              <p className="sub-heading-3">{subtitle}</p>
+              <p className="sub-heading-3">{cardsText[i].subtitle}</p>
             </Link>
           );
         })}

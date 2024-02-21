@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Scene } from "react-scrollmagic";
 import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
@@ -14,11 +14,12 @@ import ShopCard3 from "assets/images/shop-preview-3.png";
 import ShopCard4 from "assets/images/shop-preview-4.png";
 import ShopCard5 from "assets/images/shop-preview-5.png";
 import { useMediaQuery } from "hooks";
+import { useTranslation } from "react-i18next";
 
-const cards = [
+const _cards = [
   {
     id: "0",
-    name: "iPhone 14 Pro Max - 256GB",
+    name: "",
     price: "3 500 ",
     img: ShopCard1,
     category: "",
@@ -26,7 +27,7 @@ const cards = [
   },
   {
     id: "1",
-    name: "Watch Series 7 - 45 мм",
+    name: "",
     price: "980",
     img: ShopCard2,
     category: "",
@@ -34,7 +35,7 @@ const cards = [
   },
   {
     id: "2",
-    name: "AirPods Max",
+    name: "",
     price: "1 030 ",
     img: ShopCard3,
     category: "",
@@ -42,7 +43,7 @@ const cards = [
   },
   {
     id: "3",
-    name: "Наушники\n Apple AirPods Pro",
+    name: "",
     price: "450",
     img: ShopCard4,
     category: "",
@@ -50,7 +51,7 @@ const cards = [
   },
   {
     id: "4",
-    name: "MacBook Pro 13 Touch Bar - 256 GB",
+    name: "",
     price: "2 350 ",
     img: ShopCard5,
     category: "",
@@ -59,7 +60,22 @@ const cards = [
 ];
 
 export const ShopPreview: React.FC = () => {
+  const { t } = useTranslation();
+
   const matches = useMediaQuery("(min-width: 768px)");
+
+  const cards = useMemo(() => {
+    const cardsText = t("home:shopPreview.cards", {
+      returnObjects: true,
+    }) as string[];
+    const res = [..._cards];
+
+    for (let i = 0; i < res.length; i++) {
+      res[i].name = cardsText[i];
+    }
+
+    return res;
+  }, []);
 
   const getPadLeft = (progress: number) => {
     let result = progress * 10;
@@ -107,17 +123,17 @@ export const ShopPreview: React.FC = () => {
       <div className="base-container">
         <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
           <h2 className="heading-2 mb-5 max-w-[580px]">
-            Получайте баллы и обменивайте их на подарки
+            {t("home:shopPreview.title")}
             <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
           </h2>
           <p className="sub-heading-2 mb-10 max-w-[500px]">
-            Чем больше принятых лидов, тем больше баллов вы накапливаете.
+            {t("home:shopPreview.subTitle")}
           </p>
           <Link
             to="points-store/"
             className="btn-primary inline-flex items-center gap-[10px] px-[34px] py-[17px]"
           >
-            В магазин
+            {t("home:shopPreview.button")}
             <ArrowRight width="20px" height="20px" />
           </Link>
         </Fade>

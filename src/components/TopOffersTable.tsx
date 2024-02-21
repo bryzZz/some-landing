@@ -7,8 +7,11 @@ import { OffersResponse } from "types";
 import { OffersGeo } from "./OffersGeo";
 
 import Private from "assets/icons/private-offer.png";
+import { useTranslation } from "react-i18next";
 
 export const TopOffersTable: React.FC = () => {
+  const { t } = useTranslation();
+
   const { data } = useSWR<OffersResponse>("/tops/offers/actually5offers.json", {
     revalidateOnMount: true,
   });
@@ -29,10 +32,14 @@ export const TopOffersTable: React.FC = () => {
           >
             ID
           </th>
-          <th className="w-2/4 py-3 text-left">Название</th>
+          <th className="w-2/4 py-3 text-left">
+            {t("home:topTables.topOffers.name")}
+          </th>
           {mdMatches && (
             <>
-              <th className="py-3 text-left">Гео</th>
+              <th className="py-3 text-left">
+                {t("home:topTables.topOffers.geo")}
+              </th>
               <th className="rounded-br rounded-tr py-3 text-left">R2D</th>
             </>
           )}
@@ -84,7 +91,9 @@ export const TopOffersTable: React.FC = () => {
                           #{id}
                         </div>
                         <div className="flex items-center gap-[6px]">
-                          <span className="text-[#B3B3B3]">Гео: </span>
+                          <span className="text-[#B3B3B3]">
+                            {t("home:topTables.topOffers.geo")}:{" "}
+                          </span>
                           <OffersGeo countries={countries} />
                         </div>
                       </td>

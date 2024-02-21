@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 import "./styles.css";
 import { Chart } from "components";
 import { usePrevious } from "hooks/usePrevious";
+import { useTranslation } from "react-i18next";
 
 const data = [
   {
@@ -108,6 +109,8 @@ const getChartBounds = (matchesAlmostMd: boolean, matchesXl: boolean) => {
 };
 
 export const Slides: React.FC = () => {
+  const { t } = useTranslation();
+
   const matchesMd = useMediaQuery("(min-width: 768px)");
   const matchesAlmostMd = useMediaQuery("(min-width: 820px)");
   const matchesXl = useMediaQuery("(min-width: 1024px)");
@@ -122,6 +125,10 @@ export const Slides: React.FC = () => {
     left: 20,
     right: 20,
   };
+
+  const slidesText = t("home:slides.slidesText", {
+    returnObjects: true,
+  }) as string[];
 
   useEffect(() => {
     if (previousMatches !== matchesMd) {
@@ -164,12 +171,10 @@ export const Slides: React.FC = () => {
         <div className="max-w-2xl 3xl:max-w-[720px]">
           <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
             <h2 className="heading-2 mb-5">
-              Индивидуальность & инновационность, уверенность
+              {t("home:slides.title")}
               <span className="ml-[1px] inline-block h-[7px] w-[7px] rounded-full bg-primary-100" />
             </h2>
-            <p className="sub-heading-2">
-              Мы продвигаем бренды по всему миру уже 4 года.
-            </p>
+            <p className="sub-heading-2">{t("home:slides.subTitle")}</p>
           </Fade>
         </div>
 
@@ -205,8 +210,7 @@ export const Slides: React.FC = () => {
                     <span className="text-primary-100">$</span>20m+
                   </h3>
                   <p className="sub-heading-3 min-[820px]:max-w-xs">
-                    Выплатили нашим клиентам за время существования нашей
-                    компании.
+                    {slidesText[0]}
                   </p>
                 </Fade>
               </div>
@@ -239,7 +243,7 @@ export const Slides: React.FC = () => {
                     300+
                   </h3>
                   <p className="sub-heading-3 min-[820px]:max-w-xs">
-                    прямых рекламодателей уже сотрудничают с нами
+                    {slidesText[1]}
                   </p>
                 </Fade>
               </div>
@@ -271,7 +275,7 @@ export const Slides: React.FC = () => {
                     600+
                   </h3>
                   <p className="sub-heading-3 min-[820px]:max-w-xs">
-                    офферов под CPA, CPL, RevShare и Hybrid
+                    {slidesText[2]}
                   </p>
                 </Fade>
               </div>
@@ -303,7 +307,7 @@ export const Slides: React.FC = () => {
                     10 000+
                   </h3>
                   <p className="sub-heading-3 min-[820px]:max-w-xs">
-                    веб-мастеров уже зарегестрированы у нас
+                    {slidesText[3]}
                   </p>
                 </Fade>
               </div>

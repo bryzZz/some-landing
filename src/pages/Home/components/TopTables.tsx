@@ -3,11 +3,16 @@ import { Fade } from "react-awesome-reveal";
 import { Scene } from "react-scrollmagic";
 
 import { TabPanel, Tabs, TopWebMastersTable, TopOffersTable } from "components";
-
-const labels = ["Топ веб-мастеров", "Топ офферов"];
+import { useTranslation } from "react-i18next";
 
 export const TopTables: React.FC = () => {
+  const { t } = useTranslation();
+
   const [tabValue, setTabValue] = useState(0);
+
+  const labels = t("home:topTables.labels", {
+    returnObjects: true,
+  }) as string[];
 
   return (
     <section id="bubbles-2" className="relative z-10 mb-32">

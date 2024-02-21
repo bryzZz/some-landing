@@ -6,6 +6,7 @@ import { ReactComponent as Arrow } from "assets/icons/select-arrow.svg";
 import "reactjs-popup/dist/index.css";
 import "./style.css";
 import { twMerge } from "tailwind-merge";
+import { useTranslation } from "react-i18next";
 
 type Range = { min: number; max: number };
 
@@ -20,6 +21,8 @@ export const PriceFilter: React.FC<PriceFilterProps> = ({
   boundsRange,
   onChange,
 }) => {
+  const { t } = useTranslation();
+
   const [range, setRange] = useState({ min: 0, max: 0 });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,7 +56,7 @@ export const PriceFilter: React.FC<PriceFilterProps> = ({
             className
           )}
         >
-          Цена, Балл
+          {t("pointsStore:priceFilter.title")}
           <Arrow className="text-[#B9B9C1] group-hover:text-text-400" />
         </button>
       }
@@ -65,7 +68,7 @@ export const PriceFilter: React.FC<PriceFilterProps> = ({
       <div>
         <div className="mb-5 grid grid-cols-2 gap-2">
           <label className="flex flex-col gap-[6px] text-sm text-[#9D9DA5]">
-            От
+            {t("pointsStore:priceFilter.from")}
             <input
               className="rounded border-2 border-transparent bg-[#F1F1F5] px-3 pb-[10px] pt-[9px] text-sm text-text-400 outline-none transition-colors focus:border-primary-100 focus:bg-white"
               type="text"
@@ -76,7 +79,7 @@ export const PriceFilter: React.FC<PriceFilterProps> = ({
             />
           </label>
           <label className="flex  flex-col gap-[6px] text-sm text-[#9D9DA5]">
-            До
+            {t("pointsStore:priceFilter.to")}
             <input
               className="rounded border-2 border-transparent bg-[#F1F1F5] px-3 pb-[10px] pt-[9px] text-sm text-text-400 outline-none transition-colors focus:border-primary-100 focus:bg-white"
               type="text"
@@ -89,7 +92,7 @@ export const PriceFilter: React.FC<PriceFilterProps> = ({
         </div>
 
         <button className="btn-primary w-full" onClick={handleConfirm}>
-          Применить
+          {t("pointsStore:priceFilter.apply")}
         </button>
       </div>
     </Popup>

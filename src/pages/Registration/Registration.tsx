@@ -13,8 +13,11 @@ import {
 } from "./components";
 import { ModalSuccessRegister, TabPanel } from "components";
 import { RegistrationFirstStepResponse, RegistrationResponse } from "types";
+import { useTranslation } from "react-i18next";
 
 export const Registration: React.FC = () => {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   const [id, setId] = useState<string>("");
@@ -92,7 +95,8 @@ export const Registration: React.FC = () => {
           <Logo />
         </Link>
         <h4 className="heading-4 mb-9">
-          Регистрация. Шаг {step + 1}
+          {t("registration:title")}
+          {step + 1}
           <span className="text-sm text-[#CBCBCB]">/2</span>
         </h4>
 
@@ -108,12 +112,12 @@ export const Registration: React.FC = () => {
         </TabPanel>
 
         <p className="text-sm text-[#000] 3xl:text-lg">
-          У вас уже есть аккаунт?{" "}
+          {t("registration:haveAccount")}{" "}
           <Link
             className="text-[#088DF4] underline"
             to="https://leadshub.affise.com/v2/sign/in"
           >
-            Войти
+            {t("registration:login")}
           </Link>
         </p>
       </div>

@@ -20,6 +20,7 @@ import Img11 from "assets/images/slides/first/Frame 1000001186.png";
 import Img12 from "assets/images/slides/first/Frame 1000001188.png";
 import { useMediaQuery } from "hooks";
 import { twMerge } from "tailwind-merge";
+import { useTranslation } from "react-i18next";
 // import { randomInteger } from "utils";
 
 interface FirstSlideProps {
@@ -27,6 +28,8 @@ interface FirstSlideProps {
 }
 
 export const FirstSlide: React.FC<FirstSlideProps> = ({ show }) => {
+  const { t } = useTranslation();
+
   const comp = useRef<HTMLDivElement>(null);
   const matches = useMediaQuery("(min-width: 768px)");
 
@@ -245,18 +248,17 @@ export const FirstSlide: React.FC<FirstSlideProps> = ({ show }) => {
           <div className="mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
             <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
             <span className="text-sm font-semibold text-text-300 lg:text-base">
-              Надежный партнер
+              {t("home:first.slide1.mark")}
             </span>
           </div>
           <h1 className="heading-1 mb-5 md:max-w-[730px] 3xl:max-w-[819px]">
-            Монетизируйте трафик по лучшим условиям
+            {t("home:first.slide1.title")}
           </h1>
           <p className="sub-heading-1 mb-10 max-w-[618px]">
-            Персональные офферы, собственные инструменты, инсайд информация и
-            связки для топов.
+            {t("home:first.slide1.subTitle")}
           </p>
           <Link to="/unauthorized/registration" className="btn-primary py-4">
-            Регистрация
+            {t("home:first.slide1.button")}
           </Link>
         </div>
 
@@ -346,12 +348,12 @@ export const FirstSlide: React.FC<FirstSlideProps> = ({ show }) => {
       <div className="content mb-4 inline-flex items-center gap-2 rounded-[35px] border border-[#EFEFEF] bg-text-100 pb-[9px] pl-[14px] pr-[23px] pt-[10px] backdrop-blur-sm">
         <Shild className="drop-shadow-[0px_2px_7px_rgba(255,143,0,0.50)]" />
         <span className="text-sm font-semibold text-text-300 lg:text-base">
-          Надежный партнер
+          {t("home:first.slide1.mark")}
         </span>
       </div>
 
       <h1 className="heading-1 content mb-10 text-center md:max-w-[730px] 3xl:max-w-[819px]">
-        Монетизируйте трафик по лучшим условиям
+        {t("home:first.slide1.title")}
       </h1>
 
       <div className="relative ml-[5%] mr-[16%] md:ml-0">
@@ -427,12 +429,11 @@ export const FirstSlide: React.FC<FirstSlideProps> = ({ show }) => {
       </div>
 
       <p className="sub-heading-1 content mb-10 max-w-[618px] text-center">
-        Персональные офферы, собственные инструменты, инсайд информация и связки
-        для топов.
+        {t("home:first.slide1.subTitle")}
       </p>
 
       <Link to="/unauthorized/registration" className="btn-primary py-4">
-        Регистрация
+        {t("home:first.slide1.button")}
       </Link>
     </div>
   );

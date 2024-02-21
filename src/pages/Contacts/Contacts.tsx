@@ -11,91 +11,94 @@ import ContactsImageSm from "assets/images/contacts-image-sm.jpg";
 import { Fade } from "react-awesome-reveal";
 import { useMediaQuery } from "hooks";
 import { useSearchParamsState } from "hooks/useSearchParamsState";
-
-const contacts = [
-  {
-    label: "Сотрудничество",
-    items: [
-      {
-        avatar: Person,
-        name: "Виктория",
-        role: "Project Manager",
-        telegram: "https://t.me/viktoria_leads",
-        mail: "info@leadshub.pro",
-      },
-    ],
-  },
-  {
-    label: "Остальные",
-    items: [
-      {
-        avatar: Person,
-        name: "Данила",
-        role: "Advertise manager",
-        telegram: "https://t.me/Danila_leadshub",
-        mail: "advertise@leadshub.pro",
-      },
-      {
-        avatar: Person,
-        name: "Дмитрий",
-        role: "СЕО",
-        telegram: "https://t.me/dimasmanager",
-        mail: "dmitry@leadshub.pro",
-      },
-    ],
-  },
-  {
-    label: "Поддержка веб-мастеров",
-    items: [
-      {
-        avatar: Person,
-        name: "Антон",
-        role: "Head of Affiliate Manager",
-        telegram: "https://t.me/Anton_leadshub",
-        mail: "anton@leadshub.pro",
-      },
-      {
-        avatar: Person,
-        name: "Юлия",
-        role: "Affiliate Manager",
-        telegram: "https://t.me/Yuliya_leads",
-        mail: "yuliya@leadshub.pro",
-      },
-      {
-        avatar: Person,
-        name: "Дмитрий",
-        role: "Affiliate Manager",
-        telegram: "https://t.me/Dima_leadshub",
-        mail: "dima@leadshub.pro",
-      },
-    ],
-  },
-];
-
-const labels = contacts.map(({ label }) => label);
-
-const bottomContacts = [
-  {
-    title: "Поддержка в Telegram:",
-    label: "@leadshub_support",
-    link: "https://t.me/leadshub_support",
-    Icon: Telegram,
-  },
-  {
-    title: "вопросы и предложения:",
-    label: "info@leadshub.pro",
-    link: "mailto:info@leadshub.pro",
-    Icon: Mail,
-  },
-  {
-    title: "Ваши резюме:",
-    label: "hr@leadshub.pro",
-    link: "mailto:hr@leadshub.pro",
-    Icon: Mail,
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export const Contacts: React.FC = () => {
+  const { t } = useTranslation();
+
+  const contacts = [
+    {
+      label: t("contacts:cooperation"),
+      items: [
+        {
+          avatar: Person,
+          name: "Виктория",
+          role: "Project Manager",
+          telegram: "https://t.me/viktoria_leads",
+          mail: "info@leadshub.pro",
+        },
+      ],
+    },
+    {
+      label: t("contacts:other"),
+      items: [
+        {
+          avatar: Person,
+          name: "Данила",
+          role: "Advertise manager",
+          telegram: "https://t.me/Danila_leadshub",
+          mail: "advertise@leadshub.pro",
+        },
+        {
+          avatar: Person,
+          name: "Дмитрий",
+          role: "СЕО",
+          telegram: "https://t.me/dimasmanager",
+          mail: "dmitry@leadshub.pro",
+        },
+      ],
+    },
+    {
+      label: t("contacts:support"),
+      items: [
+        {
+          avatar: Person,
+          name: "Антон",
+          role: "Head of Affiliate Manager",
+          telegram: "https://t.me/Anton_leadshub",
+          mail: "anton@leadshub.pro",
+        },
+        {
+          avatar: Person,
+          name: "Юлия",
+          role: "Affiliate Manager",
+          telegram: "https://t.me/Yuliya_leads",
+          mail: "yuliya@leadshub.pro",
+        },
+        {
+          avatar: Person,
+          name: "Дмитрий",
+          role: "Affiliate Manager",
+          telegram: "https://t.me/Dima_leadshub",
+          mail: "dima@leadshub.pro",
+        },
+      ],
+    },
+  ];
+
+  const labels = contacts.map(({ label }) => label);
+
+  const bottomContacts = [
+    {
+      title: t("contacts:telegramSupport"),
+      label: "@leadshub_support",
+      link: "https://t.me/leadshub_support",
+      Icon: Telegram,
+    },
+    {
+      title: t("contacts:questions"),
+      label: "info@leadshub.pro",
+      link: "mailto:info@leadshub.pro",
+      Icon: Mail,
+    },
+    {
+      title: t("contacts:resumes"),
+      label: "hr@leadshub.pro",
+      link: "mailto:hr@leadshub.pro",
+      Icon: Mail,
+    },
+  ];
+
   const [tabValue, setTabValue] = useSearchParamsState("tabValue", "2");
 
   const matches = useMediaQuery("(min-width: 768px)");
@@ -103,7 +106,9 @@ export const Contacts: React.FC = () => {
   return (
     <section className="base-container">
       <Fade cascade direction="up" duration={500} damping={0.3} triggerOnce>
-        <h1 className="heading-1 mb-28 text-center lg:mb-40">Контакты</h1>
+        <h1 className="heading-1 mb-28 text-center lg:mb-40">
+          {t("contacts:title")}
+        </h1>
 
         <div className="mb-16 flex flex-wrap items-center justify-center gap-4">
           {labels.map((label, i) => (
