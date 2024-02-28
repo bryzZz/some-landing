@@ -11,10 +11,13 @@ import Bg3 from "assets/images/blogs/5/5.png";
 import "swiper/css";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "hooks";
+import { useTranslation } from "react-i18next";
 
 const slidesCount = 3;
 
 export const BlogSlider: React.FC = () => {
+  const { t } = useTranslation();
+
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -60,18 +63,20 @@ export const BlogSlider: React.FC = () => {
             <img src={Bg} className="mb-5 w-full rounded-xl md:hidden" />
             <div className="max-w-[742px] pb-7 md:px-14 md:pb-12 md:pt-[289px] md:text-white">
               <div className="mb-2 flex flex-wrap gap-2">
-                <div className="tag">Gambling</div>
-                <div className="tag">Схемы</div>
+                {(
+                  t("blog:slides.0.tags", { returnObjects: true }) as any[]
+                ).map((tag) => (
+                  <div className="tag">{tag}</div>
+                ))}
               </div>
               <h1 className="heading-1 mb-1 line-clamp-2 text-current">
-                Актуальные подходы и связки при работе с Инфлюенс трафиком
+                {t("blog:slides.0.title")}
               </h1>
               <p className="sub-heading-1 mb-6 text-current">
-                Все меньше и меньше приложений живут в текущих реалиях на рынке
-                Facebook. Удержать ROI с каждым днем все труднее...
+                {t("blog:slides.0.subTitle")}
               </p>
               <Link to="/blog/0" className="btn-primary">
-                Читать больше
+                {t("blog:slides.0.read")}
               </Link>
             </div>
           </div>
@@ -87,18 +92,20 @@ export const BlogSlider: React.FC = () => {
             <img src={Bg2} className="mb-5 w-full rounded-xl md:hidden" />
             <div className="max-w-[742px] pb-7 md:px-14 md:pb-12 md:pt-[289px] md:text-white">
               <div className="mb-2 flex flex-wrap gap-2">
-                <div className="tag">Gambling</div>
-                <div className="tag">Схемы</div>
+                {(
+                  t("blog:slides.1.tags", { returnObjects: true }) as any[]
+                ).map((tag) => (
+                  <div className="tag">{tag}</div>
+                ))}
               </div>
               <h1 className="heading-1 mb-1 line-clamp-2 text-current">
-                🔥 Инфлюенс трафик на Грецию: как мы получали трафик из Facebook
+                {t("blog:slides.1.title")}
               </h1>
               <p className="sub-heading-1 mb-6 text-current">
-                Одна из самых креативных задумок в гемблинге - инфлюенс трафик,
-                так идеально подошедший под азартные игры...
+                {t("blog:slides.1.subTitle")}
               </p>
               <Link to="/blog/1" className="btn-primary">
-                Читать больше
+                {t("blog:slides.1.read")}
               </Link>
             </div>
           </div>
@@ -114,18 +121,20 @@ export const BlogSlider: React.FC = () => {
             <img src={Bg3} className="mb-5 w-full rounded-xl md:hidden" />
             <div className="max-w-[742px] pb-7 md:px-14 md:pb-12 md:pt-[289px] md:text-white">
               <div className="mb-2 flex flex-wrap gap-2">
-                <div className="tag">Gambling</div>
-                <div className="tag">Схемы</div>
+                {(
+                  t("blog:slides.2.tags", { returnObjects: true }) as any[]
+                ).map((tag) => (
+                  <div className="tag">{tag}</div>
+                ))}
               </div>
               <h1 className="heading-1 mb-1 line-clamp-2 text-current">
-                Интеграция Keitaro x Leadshub
+                {t("blog:slides.2.title")}
               </h1>
               <p className="sub-heading-1 mb-6 text-current">
-                Для успешной интеграции Keitaro с Leadshub необходимо следовать
-                четким шагам. Первым этапом является регистрация...
+                {t("blog:slides.2.subTitle")}
               </p>
               <Link to="/blog/5" className="btn-primary">
-                Читать больше
+                {t("blog:slides.2.read")}
               </Link>
             </div>
           </div>
